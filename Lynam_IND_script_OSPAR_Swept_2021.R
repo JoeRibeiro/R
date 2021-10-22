@@ -10,8 +10,7 @@
 # calc average densities across quadrants - to do: hauls in a 60km radius of quadrant mid-points 
 # May 2020 use exchange data once again
 # OCT 2021 - new HH output from SWEPT AREA ASSESSMENT OUTPUT [KLAAS] to combine with HL data from exchange
-
-rm(list=ls()) #start afresh
+#
 
 #useful packages
 library(tidyverse)
@@ -26,9 +25,8 @@ library(sp)
 library(spatstat)
 library(rgeos)    
 library(stringr) 
-# Known Warning messages to sort out
-#1: readShapeSpatial is deprecated; use rgdal::readOGR or sf::st_read 
-#2: readShapePoly is deprecated; use rgdal::readOGR or sf::st_read 
+
+rm(list=ls()) #start afresh
 
 #some shorthand
 an <- as.numeric
@@ -41,33 +39,31 @@ neg<-function(x) -x
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #location of the data and subscripts
-MAINDIR<- "C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
+MAINDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
+RDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/R/"
 #FLEX<-T  #?use ICES swept areas
 
 # sampling data and biological data 
-SURVEY_LOOP <- "BTS"#"SP-ARSA","SCOROC","IBTS"  )
-QUARTER_LOOP <-c(1,2,3,4) #c(1,2,3,4) # 3#c(1,3) 
-COUNTRY_LOOP <- c("Int","GB","NL","GE","BE"); #important for BTS where data for seperate surveys combined in downloads
-SEA_LOOP <- c("GNS")#,"CS")#  #important for EVHOE as split across OSPAR assessment regions and for BTS where data for seperate surveys combined in downloads
+QUARTER_LOOP <- c(1,2,3,4) 
+COUNTRY_LOOP <-"Int"# c("Int","GB","NL","GE","BE");
+SEA_LOOP <- "GNS"#CS#  #important for EVHOE as split across OSPAR assessment regions and for BTS where data for seperate surveys combined in downloads
 
+SPPFILE<-paste(MAINDIR,"R/SpeciesInfoSG.csv",sep="")
+LWFILE<-paste(MAINDIR,"R/TakFungLW - plusHakan2020.csv",sep="") #update!!! to include LW for all species
 #Trophic Level data also requires update for MTL analyses
  GOV.SPECIES.OVERWRITE<-"DEM" #apr2020 update to speed up and avoid PEL species and ALL in loop
  #SPECIES <- c("ALL","DEM","PEL");  if(GOV.SPECIES.OVERWRITE!=F) SPECIES <- GOV.SPECIES.OVERWRITE
 
-#location of the subscripts in function area
+#location of the subscripts
  PROC_SCRIPT<- "//lowfilecds/function/Eco Indicators/DATRASoutput/" #for HH and HL processing scripts incl strata by survey
- SHAPEPATH<-paste(PROC_SCRIPT,"Strata/",sep="") #used in Lynam_OSPARsubdiv.r
- SUBSCRIPTS_TRAITS<-paste(PROC_SCRIPT,"MarScot/INDscriptsForV3/",sep="")#max length #location of the shapefiles and where is the 'attributes' folder
- #read subscripts and traits
- PRODDAT<-read.csv(paste(SUBSCRIPTS_TRAITS,"SpeciesAtLength_Productivity.csv",sep=""))
- FC1Sp<-read.csv(paste(SUBSCRIPTS_TRAITS,"FC1Specieslist.csv",sep=""))# for IA2017
- #
- LWFILE<-"TakFungLW - plusHakan2020.csv" #prepared by Tak Fung for LFI paper with some update by Haken Wennhage 
- #still need to include LW for all species
- 
+ SHAPEPATH<-paste("Strata/",sep="") #used in Lynam_OSPARsubdiv.r
+ SUBSCRIPTS_TRAITS<-paste(PROC_SCRIPT,"MarScot/INDscriptsForV3/",sep="")#max length
+#location of the shapefiles and where is the 'attributes' folder
 #where save output?
 OUTPATHstem<-paste(MAINDIR,"out/",sep="")
 
+## choices for analyses upfront
+setwd(MAINDIR)
 
 #do you want to write outputs along the way and save workspace
 WRITE <- T #save csvs as we go?
@@ -87,7 +83,7 @@ CATCHABILITY_COR_WALKER<- F # read estimates from nsea paper for q##problem some
   TyL_GeoM <- T # OSPAR FW3
   TyL_SPECIES<-F
   MaxL <- T # OSPAR FC3
-  Loo <-F # similar to OSPAR FC3
+  Loo <-T # similar to OSPAR FC3
   Lm <- F # similar to OSPAR FC3
   MEANTLs <- F #similar to OSPAR FW4 # not will not be calc'd for WAsurveys as no data file for TL
   MeanL <- F #not OSPAR but simple
@@ -96,10 +92,7 @@ CATCHABILITY_COR_WALKER<- F # read estimates from nsea paper for q##problem some
   #remove species??
   LFI_SP <-F # similar to OSPAR FC2. LFI_SP alters demersal sp list for all indicators selected
   FC1_SP<-F #if T remove others not considered in sens/resil/inter spreadsheet for OSPAR FC1
-  SPPFILE<-"R/SpeciesInfoSG.csv" # prepared by Simon Greenstreet for IA02017 shared in ICES WGBIODIV
-  #SPPFILE is read just after running Lynam_IND_script_process_exchange_HL2021.r 
-  #and removes rare species
-  
+
   #subscripts for indicators 
   BYGROUP<-F; if(BYGROUP){ BYGUILD<-F } # elasmos etc 
   BYICESGROUP<-F; if(BYICESGROUP){ BYGUILD<-F } # apex predators etc
@@ -117,16 +110,17 @@ QUADS<-NULL #created by Lynam_OSPARsubdiv_Feb2019.r
 
 ##NOTE additional choices below for plotting
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-setwd(MAINDIR)
-setwd("R")
-
-LW<-read.csv(LWFILE)#LWfile needs to be complete - TakFungLW - plusHakan2020.csv is not
-
+#read subscripts and traits
+#setwd(SUBSCRIPTS_TRAITS)
+PRODDAT<-read.csv("R/SpeciesAtLength_Productivity.csv")
+FC1Sp<-read.csv("R/FC1Specieslist.csv")# for IA2017
 #additional functions
+setwd(RDIR)
+survey_Q_C_S_combinations<-read.csv("survey_Q_C_S_combinations.csv", fileEncoding = 'UTF-8-BOM')# for IA2017
 source("required.funcs.r")              # using tapply.ID
 source("Lynam_INDfn_Oct2021_guild.r") #Feb2019 now use QUAD to average biomass prior to indicators # Dec2017 update to include TAXA_GROUPINGS, Jan to calc Loo and Lm through Lynam_INDfn_Jan2018_Mtrait.r; Mar to include BX020_guilds
-source("Lynam_INDPLOTFN_Nov2018.r")             # plot options 
 if(BOOTSTRAP) source("Lynam_IND_BOOTfn_Aug_2017 - OSPAR.r")  # bootstrap the hauls by STSQ and subdiv
+source("Lynam_INDPLOTFN_Nov2018.r")             # plot options 
 
 if(LFI) source("Lynam_INDfn_Dec2017_LFI.r")   # Large Fish Indicator # Nov2016 no longer fall over if no fish above LFI_THRESHOLD
  if(TyL_GeoM) source("Lynam_INDfn_Dec2017_TyL_GeoM.r")#Geometric mean length (Typical Length cm)
@@ -144,12 +138,12 @@ if(MEANTLs) source("Lynam_INDfn_Dec2017_MeanTL.r")# TL output by rectangle and y
 
 #max length observed in ospar dataproduct by species
 #Hyperoplus immaculatus 'Greater sand-eel' were missing -> recorded in GNS IBTS Q1 but without length  treat as Ammodytidae 'sandeel'
-trait_file <- paste(SUBSCRIPTS_TRAITS,"traits_by_species_Mar2019.csv",sep='')#inclelasmo taxa
+trait_file <- paste("traits_by_species_Mar2019.csv",sep='')#inclelasmo taxa
 trait_MAXL <- read.csv(trait_file)
 
 if(BYGUILD){#2020 paper
   #guild_file <-  paste("feeding.guilds_12.11.18.csv",sep='')#incl trophic guild ID
-  guild_file <-  paste(SUBSCRIPTS_TRAITS,"feeding.guilds_05.05.19_processed.csv",sep='')#incl trophic guild ID
+  guild_file <-  paste("feeding.guilds_05.05.19_processed.csv",sep='')#incl trophic guild ID
   guild_dat <- read.csv(guild_file)
   guild_dat$fguild <- (guild_dat$F.guild)  #fguild_7_soras.numeric
   #guild_dat<- guild_dat[guild_dat$data=="fguild6",]#1:6
@@ -158,7 +152,7 @@ if(BYGUILD){#2020 paper
 TLceltic <- TLnorth <- TLwest <- NULL
 if(MEANTLs==T){
   #cnrs mtl fw4
-  TLceltic <- read.csv(paste(SUBSCRIPTS_TRAITS,"TL_complete14102016-1.csv",sep=""))
+  TLceltic <- read.csv("TL_complete14102016-1.csv")
   names(TLceltic)[1] <- "SpeciesSciName"
   TLceltic <- TLceltic[,c("SpeciesSciName","TL")]
   
@@ -166,14 +160,14 @@ if(MEANTLs==T){
   TLwest <- NULL
   
   # north sea
-  TLnorth <- read.csv(paste(SUBSCRIPTS_TRAITS,"refspp_LWmerged_edit06Nov2015.csv",sep=""))
+  TLnorth <- read.csv("refspp_LWmerged_edit06Nov2015.csv")
   names(TLnorth)[2] <- "SpeciesSciName"
   ECOPATH_TL <- F; if(ECOPATH_TL)  TLnorth$TL <- TLnorth$TL_Ecopath #for comparison with ewe
   TLnorth <- TLnorth[,c("SpeciesSciName","TL")]
 }
 
 # general species groups # Jan 2018 added 2 stingray Dasyatis spp to lookup and Cetorhinus maximus	Basking shark and Alopias vulpinus to SciName2GroupEff to stop error
- SciName2GroupEff <- read.csv(paste(SUBSCRIPTS_TRAITS,"SciName2GroupEff_Jan2018.csv",sep=""))
+ SciName2GroupEff <- read.csv("SciName2GroupEff_Jan2018.csv")
  SciName2GroupEff$Group <- paste("GRP",SciName2GroupEff$Group, sep="")
  SciName2GroupEff$sciName<-as.character(SciName2GroupEff$sciName)
  substr(SciName2GroupEff$sciName,1,1) <- toupper(substr(SciName2GroupEff$sciName,1,1))#correct case
@@ -181,65 +175,28 @@ if(MEANTLs==T){
 if(CATCHABILITY_COR_MOD | SPECIES_IN_MOD_ONLY) source("Lynam_IND_script_CATCHABILITY_MODEL.R")
   
 
-#### indicators survey loop ####"WASpaOT3" "BBICnSpaOT4" "BBICPorOT4"  "BBICsSpaOT1" "BBICsSpaOT4" 
-#"CSBBFraOT4" "CSEngBT3"    "CSIreOT4"    "CSNIrOT1"  "CSNIrOT4"    "CSScoOT1"    "CSScoOT4"    
-#"GNSEngBT3"   "GNSFraOT4"  "GNSGerBT3"   "GNSIntOT1"   "GNSIntOT3"  "GNSNetBT3"   
-#"WAScoOT3"     "CSFraOT4"
-#SURVEY_LOOP <- c("IBTS."GNSIntOT1","CSScoOT1","CSFraOT4","CSNIrOT1")# "CSScoOT1","GNSEngBT3","CSFraOT4","CSNIrOT1")#
-setwd(MAINDIR) #
-for(QUARTER in QUARTER_LOOP){ 
-for(COUNTRY in COUNTRY_LOOP){
-for(SEA in SEA_LOOP){
-  for(survey in SURVEY_LOOP){ #need survey last so that once overwritten below resets for next Quarter/Country/Sea
-    # survey <-"IBTS"; QUARTER<-1; COUNTRY<-"Int"; SEA<-"GNS"
-    # survey <-"BTS"; QUARTER<-3; COUNTRY<-"GB"; SEA<-"GNS"
-    if(survey!="BTS" & COUNTRY!=COUNTRY_LOOP[1]) next
-    if(survey=="BTS" & COUNTRY=="Int") next
-    
-    print(paste(survey," Q",QUARTER,sep=""))
-    SAMP_FILE   <- paste(MAINDIR,"HH/HH-",survey,".csv",sep="")  
-    BIOL_FILE   <- paste(MAINDIR,"HL/HL-",survey,".csv",sep="")
+#### indicators survey loop ####
+ 
+setwd(MAINDIR)
+for(combrow in 1:nrow(survey_Q_C_S_combinations)){
+  combs=survey_Q_C_S_combinations[combrow,]
+  QUARTER=combs$Quarter
+  COUNTRY=combs$Country
+  SEA=combs$Sea
+  SSA=combs$SSAfilename
+  survey=combs$Surveynam1
+  survey_alt_name=combs$Surveynam2
+  SAMP_FILE=paste0("HH//",combs$hhfilename)
+  BIOL_FILE=paste0("HL//",combs$hlfilename)
+  #need survey last so that once overwritten below resets for next Quarter/Country/Sea
+  print(paste(survey," Q",QUARTER,sep=""))
     #rename to OSPAR survey names:
-    if(survey=="IBTS"){  if(COUNTRY!="Int") next
-      survey<-"GNSIntOT"
-      SSA <- read.csv(paste(MAINDIR,"R/IBTS_SSA.csv",sep="")) # to reduce output for standard survey area as in IA2017 
-      #SSA is not currently implemented and datafiles are required for other surveys beyond GNSIntOT1 and GNSIntOT3
-      }   
-    
-    if(survey=="SP-PORC"){  survey<-"WASpaOT" }
-    if(survey=="SP-NORTH"){  survey<-"BBICnSpaOT"} 
-    if(survey=="SP-ARSA"){  survey<-"BBICsSpaOT"} 
-    if(survey=="SP-ARSA"){  survey<-"BBICsSpaOT"}  
-    
-    if(survey=="PT-IBTS"){  survey<-"BBICPorOT"}  
-   
-    if(survey=="IE-IGFS"){  survey<-"CSIreOT"}    
-    
-    if(survey=="NIGFS"){  survey<-"CSNIrOT"}   
-    
-    if(survey=="SCOWCGFS"){  survey<-"CSScoOT"} #from 2010
-    if(survey=="SWC-IBTS"){  survey<-"CSScoOT"}
-    if(survey=="SCOROC"){  survey<-"WAScoOT"}  #from 2011 ROCKALL previous years
-    
-    
-    if(survey=="FR-CGFS" ){  survey<-"GNSFraOT"}
-    if(survey=="BTS-VIII"){  survey<-"CSFraBT"}   
-    if(survey=="EVHOE" & SEA=="CS"){  survey<-"CSFraOT"}
-    if(survey=="EVHOE" & SEA!="CS"){  survey<-"CSBBFraOT"} # this is split from above for OSPAR assessment - need to edit
-    
-    if(survey=="BTS" & SEA=="GNS"& COUNTRY=="GB"){  survey<-"GNSEngBT"}#north sea no data for Q1 as this is CS
-    if(survey=="BTS" & SEA=="CS" & COUNTRY=="GB"){  survey<-"CSEngBT"}#new Eng Q4 data not in IA2017 for Celtic sea beam trawl for SW  
-    if(survey=="BTS" & COUNTRY=="GE"){  survey<-"GNSGerBT" }  
-    if(survey=="BTS" & COUNTRY=="NL"){  survey<-"GNSNetBT" }  
-    if(survey=="BTS" & COUNTRY=="BE"){  survey<-"GNSBelBT" }#new data not in IA2017 as not previously in DATRAS
-    
-    survey <- paste(survey,QUARTER,sep="")
-  print(survey) #new OSPAR name as in Mar Scot dataproduct
-  if(survey=="GNSEngBT1") next ## BTS ENG Q1 is CS
-  
+
+  #add a directory for files out
+  if(!file.exists(paste(OUTPATHstem,survey,sep=''))) dir.create(file.path(OUTPATHstem, survey))
   OUTPATH <- paste(OUTPATHstem,survey,"/",sep='')
   LFI_THRESHOLD <- 40 
-  if(survey %in% c("GNSGerBT3","GNSNetBT3","GNSBelBT3","GNSEngBT3","CSEngBT1","CSEngBT3")){
+  if(survey %in% c("GNSGerBT3","GNSNetBT3","GNSBelBT3","GNSEngBT3","CSEngBT3","CSEngBT4")){
     SPECIES <- "DEM"; GEAR<-"BEAM"
     if(survey %in% c("GNSNetBT3") ) LFI_THRESHOLD <- 45
     if(survey %in% c("CSEngBT3") ) LFI_THRESHOLD <- 35 
@@ -260,7 +217,7 @@ for(SEA in SEA_LOOP){
     if(survey %in% c("CSFraOT4"))  LFI_THRESHOLD <- 40 #CSFraOT4 40 UKBI
   } 
   
-  if(survey %in% c("GNSGerBT3","GNSBelBT3","GNSNetBT3","GNSIntOT1","GNSIntOT3","GNSEngBT3","IBTS")){#,
+  if(survey %in% c("GNSGerBT3","GNSNetBT3","GNSIntOT1","GNSIntOT3","IBTS")){
     SAMP_STRAT <- T # average hauls by ICESStSq rect in north sea #if set to FALSE need to update Attibutes table as area only given by rect
     BYSUBDIV <-   T # average indicator by LFI-subdivision
     QUAD<- QUAD_NS #only north sea
@@ -285,7 +242,7 @@ for(SEA in SEA_LOOP){
   ##load data
   #sampling data 
   #flex <- read.csv(FLEXFILE) 
-  #samp0 <- read.table("C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/HL/HH-NS-IBTS.csv" ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
+  #samp0 <- read.table("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/HL/HH-NS-IBTS.csv" ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
   #samp0<-samp0[samp0$Quarter==QUARTER,]
   #samp0<-samp0[samp0$HaulVal=="V",] ###
   #samp0<-samp0[samp0$StdSpecRecCode==1,]
@@ -295,19 +252,7 @@ for(SEA in SEA_LOOP){
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
   
   samp<-samp[samp$Quarter==QUARTER,]
-  if(survey %in% c("GNSEngBT1","GNSEngBT2","GNSEngBT3","GNSEngBT4",
-                   "CSEngBT1","CSEngBT2","CSEngBT3","CSEngBT4",
-                   "GNSBelBT1","GNSBelBT2","GNSBelBT3","GNSBelBT4",
-                   "GNSGerBT1","GNSGerBT2","GNSGerBT3","GNSGerBT4",
-                   "GNSNetBT1","GNSNetBT2","GNSNetBT3","GNSNetBT4")) samp<-samp[samp$Country==COUNTRY,]
-  #need split SEA DATA FOR BTS Q3 ENG' 
-  if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong_degdec>= -2 & samp$ShootLat_degdec>= 49.5,]
-  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong_degdec< -3  & samp$ShootLat_degdec>= 50.5 & samp$ShootLat_degdec< 56,]
-  # plot(samp$ShootLong_degdec, samp$ShootLat_degdec); map(add=T)#,xlim=c(4,14)
-  if(nrow(samp)==0){ print(paste("no data for",survey, COUNTRY)); next; }
-  #add a directory for files out
-  if(!file.exists(paste(OUTPATHstem,survey,sep=''))) dir.create(file.path(OUTPATHstem, survey))
-  
+  if(survey %in% c("GNSEngBT3","GNSBelBT3","GNSGerBT3","GNSNetBT3")) samp<-samp[samp$Country==COUNTRY,]
   samp<-samp[samp$HaulVal=="V",] ###
   samp<-samp[samp$StdSpecRecCode==1,]
   samp$StNo[is.na(samp$StNo)] <- -9 #to match bio
@@ -331,7 +276,7 @@ for(SEA in SEA_LOOP){
 
   #samp<-  merge(samp,flex,by="HaulID", all.x=F,all.y=F)
   #with(samp[samp$ShootLong_degdec>7,], xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
-  with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
+  #with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   # biological data
   bio <- read.csv(BIOL_FILE,as.is = c(1,2,4,5,6,10,11) )  #avoid conversions of rect to e+07 etc #,as.is=1 ) #
   
@@ -400,11 +345,9 @@ for(SEA in SEA_LOOP){
   #view(bio[!(bio$StNo %in% samp$StNo) ,c("Country","Ship","Year","StNo","HaulNo")])
   
    print("process_exchange_HL")
+   LW<-read.csv(LWFILE)#LWfile needs to be complete - TakFungLW - plusHakan2020.csv is not
    source('R/Lynam_IND_script_process_exchange_HL2021.R')
-   SPPLIST<-read.csv(SPPFILE)
-   #SPPLIST<- SPPLIST[SPPLIST$Habit=="DEMERSAL",]
-   bio <- bio[bio$SpeciesSciName %in% SPPLIST[,1],]#remove rare spp
-   bio$SpeciesSciName<-af(ac(bio$SpeciesSciName))#relevel 131 from >700
+  
    
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#quick eyeball of sampling data 
   # quick check   unique(bio[bio$LngtCode==1,"SubFactor"])
@@ -415,15 +358,19 @@ for(SEA in SEA_LOOP){
   with(samp, hist(MonthShot))
   with(samp, hist(HaulDur_min))
   with(samp, hist(Depth_m))
-  if(substr(survey,7,8)!="BT" & substr(survey,6,7)!="BT"){ 
-   with(samp, hist(WingSpread_m))
-   with(samp, hist(DoorSpread_m))
-   with(samp, hist(NetOpen_m))
-   with(samp, hist(WingSwpArea_sqkm) )
-   with(samp, hist(WingSwpVol_CorF ))
-   with(samp, hist(DoorSwptArea_CorF) )
-   with(samp, hist(DoorSwptVol_CorF))
-  }
+
+  if(substr(survey,7,8)!="BT"){
+    if(substr(survey,6,7)!="BT"){
+      with(samp, hist(WingSpread_m))
+      with(samp, hist(DoorSpread_m))
+      with(samp, hist(NetOpen_m))
+      with(samp, hist(WingSwpArea_sqkm) )
+      with(samp, hist(WingSwpVol_CorF ))
+      with(samp, hist(DoorSwptArea_CorF) )
+      with(samp, hist(DoorSwptVol_CorF))
+  }}
+  
+  
   with(samp, hist(Distance_km))
   #samp[(samp$Distance_km)==max(samp$Distance_km),]
   #samp[(samp$Distance_km)>5,] # big value
@@ -454,12 +401,16 @@ for(SEA in SEA_LOOP){
   #use gear efficiency to correct catches
   #the probability that fish in the path of a trawl will be caught and retained
   if(CATCHABILITY_COR_WALKER) print("now CATCHABILITY correct data with WALKER")
-  if(CATCHABILITY_COR_WALKER) source(PROC_SCRIPT,"Lynam_IND_script_CATCHABILITY_COR_WALKER.R",sep="/")
+  if(CATCHABILITY_COR_WALKER) source(paste(PROC_SCRIPT,"Lynam_IND_script_CATCHABILITY_COR_WALKER.R",sep="/"))
 
   ave_NetOpen_m<-mean(samp$NetOpen_m)
   #samp$WingSwpVol_CorF <- ave_NetOpen_m / samp$NetOpen_m # scale down if larger than usual net opening
   #"SubFactor",  
   dhspp <- merge(bio,samp,by="HaulID")
+  
+  # JR edit - dhspp contains NA lats and longs
+  dhspp = dhspp[is.finite(dhspp$ShootLat_degdec) & is.finite(dhspp$ShootLong_degdec),]
+  
   with(dhspp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   lostID<-unique(bio[!(bio$HaulID %in% dhspp$HaulID),"HaulID"])#all matched with StnNo
   if(length(lostID) >0){print(paste("losing", length(lostID) ,"hauls from",length(unique(bio$HaulID)),"when merge bio and samp")) } else { print("successful merge HL and HH to create dhspp")}
@@ -505,12 +456,13 @@ for(SEA in SEA_LOOP){
   # and read attributes of shapefiles create table ATTRIB with names SurvStratum & KM2_LAM 
   #source("//lowfilecds/Function/Eco Indicators/DATRASoutput/MarScot/INDscriptsForV3/Lynam_OSPARsubdiv_Jan2018.r")  
   
-  #now use quadrants## load("C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/biodiv19 ref/RUNuptoOSPARsubdiv.rdata.RData")
+  #now use quadrants## load("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/biodiv19 ref/RUNuptoOSPARsubdiv.rdata.RData")
   #if(survey=="IBTS"){ survey<-"GNSIntOT1" }
   ##### strata ##### 
   print("now add strata")
   #source("//lowfilecds/Function/Eco Indicators/DATRASoutput/MarScot/INDscriptsForV3/Lynam_OSPARsubdiv_Feb2019.r")
-  source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Oct2021.r",sep=""))
+  dhspporig=dhspp
+  source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Feb2019.r",sep=""))
   
   #replace sampstrat with  quadrants if QUAD==T
   #if(SURVEY=="IBTS"){ survey<-SURVEY }
@@ -650,8 +602,6 @@ for(SEA in SEA_LOOP){
   print(paste("Finished",survey, "survey",sep=" "))
   dev.off()
   }
-  }
-  }#QUARTER # COUNTRY # SEA loops
-} # next survey
+
 print("script complete")
   
