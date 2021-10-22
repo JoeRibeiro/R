@@ -1,0 +1,440 @@
+sciName,common,ecotype,Affinity,Class,Order,Group ,guild simple,habitat guild
+Acantholabrus palloni,scale-rayed wrasse,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Aetomylaeus bovinus,Bull ray,Benthopelagic,Luisitanean,Elasmobranchii,Myliobatiformes,3,sub-apex predator,DEM sub-apex predator
+Agonus cataphractus,Hooknose,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Alepocephalus bairdii,Baird's slickhead,Bathypelagic,Boreal,Actinopteri,Osmeriformes,6,sub-apex predator,DEM sub-apex predator
+Alepocephalus rostratus,Risso's smooth-head,Bathydemersal,Atlantic,Actinopteri,Osmeriformes,5,sub-apex predator,DEM sub-apex predator
+Alopias vulpinus,Thresher shark,Pelagic,Luisitanean,Elasmobranchii,Lamniformes,6,Apex predator,PEL Apex predator
+Alosa,#N/A,Pelagic,Luisitanean,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+Alosa agone,Agone,Pelagic,Luisitanean,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+Alosa alosa,Allis shad,Pelagic,Luisitanean,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+Alosa fallax,Twaite shad,Pelagic,Luisitanean,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+Amblyraja radiata,starry ray,Demersal,Boreal,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Ammodytidae,#N/A,Demersal,Boreal,Actinopteri,Perciformes,1,Planktivore,DEM Planktivore
+Anarhichas lupus,Catfish,Demersal,Boreal,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Anarhichas minor,spotted catfish,Demersal,Boreal,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Anguilla anguilla,European eel,Demersal,Atlantic,Actinopteri,Anguilliformes,2,sub-apex predator,DEM sub-apex predator
+Anthias anthias,swallowtail seaperch,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Aphanopus carbo,Black scabbard,Bathypelagic,Boreal,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Apletodon dentatus,small-headed clingfish,Demersal,Luisitanean,Actinopteri,Gobiesociformes,7,sub-apex predator,DEM sub-apex predator
+Arctozenus risso,spotted barracudina,Bathypelagic,Atlantic,Actinopteri,Aulopiformes,5,sub-apex predator,DEM sub-apex predator
+Argentina,#N/A,Bathydemersal,Boreal,Actinopteri,Osmeriformes,5,sub-apex predator,PEL sub-apex predator
+Argentina silus,Greater argentine,Bathydemersal,Boreal,Actinopteri,Osmeriformes,5,sub-apex predator,PEL sub-apex predator
+Argentina sphyraena,Lesser argentine,Bathydemersal,Luisitanean,Actinopteri,Osmeriformes,5,sub-apex predator,PEL sub-apex predator
+Argyropelecus aculeatus,Lovely hatchetfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,PEL sub-apex predator
+Argyropelecus gigas,Hatchetfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,PEL sub-apex predator
+Argyropelecus hemigymnus,Half-naked hatchetfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,PEL sub-apex predator
+Argyropelecus olfersii,Hatchetfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,PEL sub-apex predator
+Argyrosomus regius,Meagre,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Arnoglossus imperialis,Imperial scaldfish,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Arnoglossus laterna,scaldfish,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Arnoglossus rueppelii,Ruppell's scaldback,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Arnoglossus thori,Thor's scaldfish,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Artediellus atlanticus,Atlantic hookear sculpin,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Atherina presbyter,sand smelt,Pelagic,Luisitanean,Actinopteri,Atheriniformes,6,Planktivore,PEL Planktivore
+Auxis rochei rochei,Bullet tuna,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Balistes capriscus,Grey triggerfish,Demersal,Luisitanean,Actinopteri,Tetraodontiformes,4,sub-apex predator,DEM sub-apex predator
+Bathysolea profundicola,Deepwater sole,Bathypelagic,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Bellottia apoda,0,Bathydemersal,Luisitanean,Actinopteri,Ophidiiformes,4,sub-apex predator,DEM sub-apex predator
+Belone belone,Garfish,Pelagic,Luisitanean,Actinopteri,Beloniformes,6,sub-apex predator,PEL sub-apex predator
+Belone svetovidovi,short-beaked garfish,Pelagic,Atlantic,Actinopteri,Beloniformes,6,sub-apex predator,PEL sub-apex predator
+Benthodesmus elongatus,Elongate frostfish,Benthopelagic,sth-Atlantic,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Benthosema glaciale,Glacier lantern fish,Pelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,PEL sub-apex predator
+Beryx decadactylus,Alfonsino,Bathydemersal,Atlantic,Actinopteri,Beryciformes,5,sub-apex predator,DEM sub-apex predator
+Beryx splendens,spendid alfonsino,Benthopelagic,Atlantic,Actinopteri,Beryciformes,5,sub-apex predator,DEM sub-apex predator
+Blennius ocellaris,Butterfly blenny,Demersal,Luisitanean,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Bonapartia pedaliota,Longray fangjaw,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Boops boops,Bogue,Demersal,Luisitanean,Actinopteri,Perciformes,5,sub-apex predator,DEM sub-apex predator
+Borostomias antarcticus,snaggletooth,Bathydemersal,Atlantic,Actinopteri,stomiiformes,4,sub-apex predator,DEM sub-apex predator
+Bothus podas,Wide-eyed flounder,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Brama brama,Atlantic pomfret,Bathypelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Brosme brosme,Tusk,Demersal,Boreal,Actinopteri,Gadiformes,7,sub-apex predator,DEM sub-apex predator
+Buglossidium luteum,solenette,Demersal,Atlantic,Actinopteri,Pleuronectiformes,1,sub-apex predator,DEM sub-apex predator
+Callanthias ruber,Parrot seaperch,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Callionymus lyra,Dragonet,Demersal,Luisitanean,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Callionymus maculatus,spotted dragonet,Demersal,Luisitanean,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Callionymus reticulatus,Reticulated dragonet,Demersal,Luisitanean,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Callionymus risso,Rissos dragonet,Demersal,Luisitanean,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Capros aper,Boarfish,Demersal,Luisitanean,Actinopteri,Perciformes,5,Planktivore,DEM Planktivore
+Caranx rhonchus,False scad,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Carapus acus,Pearl fish,Demersal,Luisitanean,Actinopteri,Ophidiiformes,4,sub-apex predator,DEM sub-apex predator
+Cataetyx alleni,0,Bathydemersal,Luisitanean,Actinopteri,Ophidiiformes,4,sub-apex predator,DEM sub-apex predator
+Centrolabrus exoletus,Rock cook,Demersal,Boreal,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Centrolophus niger,Rudderfish,Bathypelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Centrophorus granulosus,Gulper shark,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,4,Apex predator,DEM Apex predator
+Centrophorus squamosus,Leafscale gulper shark,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,4,Apex predator,DEM Apex predator
+Centroscyllium fabricii,Black dogfish,Bathydemersal,Boreal,Elasmobranchii,squaliformes,4,sub-apex predator,DEM sub-apex predator
+Centroscymnus crepidater,Longnose velvet dogfish,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,4,sub-apex predator,DEM sub-apex predator
+Cepola macrophthalma,Red bandfish,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Ceratoscopelus maderensis,Madeira lantern fish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Cetorhinus maximus,Basking shark,Pelagic,Atlantic,Elasmobranchii,Lamniformes,6,Planktivore,PEL Planktivore
+Chauliodus sloani,sloanes viperfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,PEL sub-apex predator
+Chaunax pictus,Pink frogmouth,Bathydemersal,Atlantic,Actinopteri,Lophiiformes,7,sub-apex predator,DEM sub-apex predator
+Chelidonichthys cuculus,Red gurnard,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Chelidonichthys lucerna,Tub gurnard,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Chelidonichthys obscurus,Longfin gurnard,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Chelon labrosus,Thick-lipped mullet,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Chiasmodon,#N/A,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Chimaera monstrosa,Rabbit ratfish,Bathydemersal,Boreal,Holocephali,Chimaeriformes,4,sub-apex predator,DEM sub-apex predator
+Chimaera opalescens,#N/A,Bathydemersal,Boreal,Holocephali,Chimaeriformes,4,sub-apex predator,DEM sub-apex predator
+Chirolophis ascanii,Yarrell's blenny,Benthopelagic,Boreal,Actinopteri,Perciformes,2,sub-apex predator,DEM sub-apex predator
+Chirostomias pliopterus,0,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Chlorophthalmus agassizi,shortnose greeneye,Bathydemersal,Luisitanean,Actinopteri,Aulopiformes,4,sub-apex predator,DEM sub-apex predator
+Ciliata mustela,Five-bearded rockling,Demersal,Boreal,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Ciliata septentrionalis,Northern rockling,Demersal,Boreal,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Citharus linguatula,spotted flounder,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Clupea harengus,Herring,Benthopelagic,Boreal,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+Coccorella atlantica,Atlantic sabretooth,Bathypelagic,Atlantic,Actinopteri,Aulopiformes,5,sub-apex predator,DEM sub-apex predator
+Coelorinchus caelorhincus,Hollow snout grenadier,Benthopelagic,Atlantic,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Coelorinchus labiatus,#N/A,Benthopelagic,Atlantic,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Conger conger,Conger eel,Demersal,Luisitanean,Actinopteri,Anguilliformes,2,sub-apex predator,DEM sub-apex predator
+Coryphaenoides rupestris,Roundnose grenadier,Bathypelagic,Boreal,Actinopteri,Gadiformes,5,sub-apex predator,DEM sub-apex predator
+Coryphoblennius galerita,Montagu's blenny,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Cottunculus microps,Polar sculpin,Bathydemersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Ctenolabrus rupestris,Goldsinny wrasse,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Cubiceps gracilis,Driftfish,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Cyclopterus lumpus,Lumpsucker,Benthopelagic,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Cyclothone,#N/A,Benthopelagic,Boreal,Actinopteri,scorpaeniformes,6,sub-apex predator,DEM sub-apex predator
+Cyttopsis rosea,Rosy dory,Bathypelagic,Atlantic,Actinopteri,Zeiformes,5,sub-apex predator,PEL sub-apex predator
+Dalatias licha,Kitefin shark,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,4,Apex predator,DEM Apex predator
+Dalophis imberbis,Armless snake eel,Demersal,Luisitanean,Actinopteri,Anguilliformes,2,sub-apex predator,DEM sub-apex predator
+Dasyatis centroura,Roughtail stingray,Demersal,Luisitanean,Elasmobranchii,Myliobatiformes,3,sub-apex predator,DEM sub-apex predator
+Dasyatis tortonesei,Tortonese's stingray ,Demersal,Luisitanean,Elasmobranchii,Myliobatiformes,3,sub-apex predator,DEM sub-apex predator
+Dasyatis pastinaca,Common stingray,Demersal,Luisitanean,Elasmobranchii,Myliobatiformes,3,sub-apex predator,DEM sub-apex predator
+Deania calcea,Birdbeak dogfish,Bathydemersal,Boreal,Elasmobranchii,squaliformes,4,sub-apex predator,DEM sub-apex predator
+Deania profundorum,Arrowhead dogfish,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,4,sub-apex predator,DEM sub-apex predator
+Dentex canariensis,Canary dentex,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Dentex dentex,Common dentex,Benthopelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Dentex gibbosus,Pink dentex,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Dentex macrophthalmus,Large-eye dentex,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Dentex maroccanus,Morocco dentex,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Diaphus,#N/A,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Diaphus adenomus,Gilbert's large lantern fish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Diaphus dumerilii,0,Pelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,PEL sub-apex predator
+Diaphus holti,small lantern fish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Diaphus rafinesquii,White-spotted lantern fish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Dicentrarchus labrax,Bass,Demersal,Luisitanean,Actinopteri,Perciformes,5,sub-apex predator,DEM sub-apex predator
+Dicentrarchus punctatus,spotted seabass,Benthopelagic,Luisitanean,Actinopteri,Perciformes,5,sub-apex predator,PEL sub-apex predator
+Dicologlossa cuneata,Wedge sole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Dicologlossa hexophthalma,Ocellated wedge sole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Diplecogaster bimaculata bimaculata,Two-spotted clingfish,Demersal,Atlantic,Actinopteri,Gobiesociformes,7,sub-apex predator,DEM sub-apex predator
+Diplodus annularis,Annular seabream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Diplodus bellottii,senegal seabream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Diplodus cervinus cervinus,Zebra seabream,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Diplodus puntazzo,sharpsnout seabream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Diplodus sargus sargus,White seabream,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Diplodus vulgaris,Common two-banded seabream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Dipturus batis,Blue skate,Demersal,Boreal,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Dipturus linteus,sailray,Bathydemersal,Boreal,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Dipturus nidarosiensis,Black skate,Bathydemersal,Boreal,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Dipturus oxyrinchus,Longnosed skate,Bathydemersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Diretmus argenteus,silver spinyfin,Bathypelagic,Atlantic,Actinopteri,Beryciformes,5,sub-apex predator,DEM sub-apex predator
+Dysomma brevirostre,Pignosed arrowtooth eel,Benthopelagic,Atlantic,Actinopteri,Anguilliformes,5,sub-apex predator,DEM sub-apex predator
+Echiichthys vipera,Lesser weever,Demersal,Luisitanean,Actinopteri,Perciformes,1,sub-apex predator,DEM sub-apex predator
+Echiodon dentatus,0,Demersal,Luisitanean,Actinopteri,Ophidiiformes,4,sub-apex predator,DEM sub-apex predator
+Echiodon drummondii,Pearlfish,Bathydemersal,Boreal,Actinopteri,Ophidiiformes,1,sub-apex predator,DEM sub-apex predator
+Echiostoma barbatum,Threadfin dragonfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Electrona risso,Electric lanternfish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Enchelyopus cimbrius,Four-bearded rockling,Demersal,Boreal,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Engraulis encrasicolus,Anchovy,Pelagic,Luisitanean,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+Entelurus aequoreus,snake pipefish,Demersal,Boreal,Actinopteri,syngnathiformes,6,Planktivore,DEM Planktivore
+Ephippion guttifer,Prickly puffer,Demersal,Luisitanean,Actinopteri,Tetraodontiformes,4,sub-apex predator,DEM sub-apex predator
+Epigonus denticulatus,Pencil cardinal,Bathydemersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Epigonus telescopus,Black cardinal fish,Bathydemersal,Boreal,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Epinephelus caninus,Dogtooth grouper,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Etmopterus princeps,Great lanternshark,Bathydemersal,Boreal,Elasmobranchii,squaliformes,5,sub-apex predator,DEM sub-apex predator
+Etmopterus pusillus,smooth lanternshark,Benthopelagic,Atlantic,Elasmobranchii,squaliformes,5,sub-apex predator,DEM sub-apex predator
+Etmopterus spinax,Velvet belly,Bathydemersal,Boreal,Elasmobranchii,squaliformes,5,sub-apex predator,DEM sub-apex predator
+Eutrigla gurnardus,Grey gurnard,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Evermannella balbo,Balbo sabretooth,Bathypelagic,Atlantic,Actinopteri,Aulopiformes,5,sub-apex predator,DEM sub-apex predator
+Facciolella oxyrhyncha,Facciola's sorcerer,Demersal,Luisitanean,Actinopteri,Anguilliformes,4,sub-apex predator,DEM sub-apex predator
+Gadella maraldi,Gadella,Benthopelagic,Luisitanean,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Gadiculus argenteus,silvery pout,Pelagic,Luisitanean,Actinopteri,Gadiformes,5,sub-apex predator,PEL sub-apex predator
+Gadiculus thori,NONE,Pelagic,Atlantic,Actinopteri,Gadiformes,5,sub-apex predator,PEL sub-apex predator
+Gadus morhua,Cod,Benthopelagic,Boreal,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Gaidropsarus argentatus,Arctic rockling,Bathydemersal,Boreal,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Gaidropsarus biscayensis,Mediterranean bigeye rockling,Benthopelagic,Luisitanean,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Gaidropsarus macrophthalmus,Bigeye rockling,Demersal,Atlantic,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Gaidropsarus mediterraneus,shore rockling,Demersal,Luisitanean,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Gaidropsarus vulgaris,Three-bearded rockling,Demersal,Luisitanean,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Galeorhinus galeus,Tope,Benthopelagic,Boreal,Elasmobranchii,Carcharhiniformes,5,sub-apex predator,DEM sub-apex predator
+Galeus atlanticus,Atlantic sawtail cat shark,Bathydemersal,Atlantic,Elasmobranchii,Carcharhiniformes,7,sub-apex predator,DEM sub-apex predator
+Galeus melastomus,Black mouthed dogfish,Demersal,Luisitanean,Elasmobranchii,Carcharhiniformes,7,sub-apex predator,DEM sub-apex predator
+Galeus murinus,Mouse catshark,Bathydemersal,Boreal,Elasmobranchii,Carcharhiniformes,7,sub-apex predator,DEM sub-apex predator
+Gasterosteus aculeatus aculeatus,Three-spined stickleback,Bathydemersal,Luisitanean,Actinopteri,Gasterosteiformes,4,Planktivore,DEM Planktivore
+Gasterosteus aculeatus williamsoni,Three-spined stickleback,Bathydemersal,Luisitanean,Actinopteri,Gasterosteiformes,4,Planktivore,DEM Planktivore
+Glossanodon leioglossus,smalltoothed argentine,Bathydemersal,Luisitanean,Actinopteri,Osmeriformes,5,sub-apex predator,DEM sub-apex predator
+Glyptocephalus cynoglossus,Witch,Demersal,Boreal,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Gnathophis mystax,Thinlip conger,Demersal,Luisitanean,Actinopteri,Anguilliformes,2,sub-apex predator,DEM sub-apex predator
+Gobiidae,#N/A,#N/A,#N/A,Actinopteri,Perciformes,2,sub-apex predator,DEM sub-apex predator
+Gonostoma elongatum,Elongated bristlemouth fish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Guttigadus latifrons,NONE,Bathydemersal,Boreal,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Halargyreus johnsonii,slender codling,Bathypelagic,Boreal,Actinopteri,Gadiformes,5,sub-apex predator,DEM sub-apex predator
+Halobatrachus didactylus,Lusitanian toadfish,Demersal,Luisitanean,Actinopteri,Batrachoidiformes,4,sub-apex predator,DEM sub-apex predator
+Helicolenus dactylopterus,Bluemouth,Bathydemersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Heptranchias perlo,sharpnose sevengill shark,Bathydemersal,Atlantic,Elasmobranchii,Hexanchiformes,5,Apex predator,DEM Apex predator
+Hexanchus griseus,Bluntnose sixgill shark,Bathydemersal,Atlantic,Elasmobranchii,Hexanchiformes,5,Apex predator,DEM Apex predator
+Hippocampus guttulatus,Long-snouted seahorse,Demersal,Luisitanean,Actinopteri,syngnathiformes,4,Planktivore,DEM Planktivore
+Hippocampus hippocampus,short-snouted seahorse,Demersal,Luisitanean,Actinopteri,syngnathiformes,4,Planktivore,DEM Planktivore
+Hippoglossoides platessoides,Long rough dab,Demersal,Boreal,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Hippoglossus hippoglossus,Halibut,Demersal,Boreal,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Hoplostethus atlanticus,Orange roughy,Bathypelagic,Boreal,Actinopteri,Beryciformes,5,sub-apex predator,DEM sub-apex predator
+Hoplostethus cadenati,Black slimehead,Bathypelagic,Luisitanean,Actinopteri,Beryciformes,5,sub-apex predator,DEM sub-apex predator
+Hoplostethus mediterraneus mediterraneus,Mediterranean slimehead,Benthopelagic,Atlantic,Actinopteri,Beryciformes,5,sub-apex predator,DEM sub-apex predator
+Howella brodiei,Pelagic basslet,Bathypelagic,Atlantic,Actinopteri,Perciformes,5,sub-apex predator,DEM sub-apex predator
+Howella sherborni,#N/A,Bathypelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Hydrolagus mirabilis,Large-eyed rabbitfish,Bathydemersal,Atlantic,Holocephali,Chimaeriformes,4,sub-apex predator,DEM sub-apex predator
+Hygophum benoiti,Benoit's lantern fish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Hymenocephalus gracilis,slender membranehead,Bathypelagic,Atlantic,Actinopteri,Gadiformes,5,sub-apex predator,DEM sub-apex predator
+Hymenocephalus italicus,Glasshead grenadier,Benthopelagic,Luisitanean,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Hyperoplus immaculatus,#N/A,Demersal,Boreal,Actinopteri,Perciformes,1,Planktivore,DEM Planktivore
+Icelus bicornis,Twohorn sculpin,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Labrus bergylta,Ballan wrasse,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Labrus mixtus,Cuckoo wrasse,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Lamna nasus,Porbeagle,Pelagic,Atlantic,Elasmobranchii,Lamniformes,6,Apex predator,PEL Apex predator
+Lampadena,#N/A,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,PEL sub-apex predator
+Lampanyctus crocodilus,Jewel lanternfish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,PEL sub-apex predator
+Lampanyctus photonotus,0,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,PEL sub-apex predator
+Lampetra fluviatilis,European river lamprey,Demersal,Luisitanean,Petromyzonti,Petromyzontiformes,5,sub-apex predator,DEM sub-apex predator
+Lepadogaster lepadogaster,shore clingfish,Demersal,Atlantic,Actinopteri,Gobiesociformes,7,sub-apex predator,DEM sub-apex predator
+Lepidion eques,North Atlantic codling,Benthopelagic,Atlantic,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Lepidopus caudatus,silver scabbardfish,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Lepidorhombus boscii,Four spot megrim,Demersal,Atlantic,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Lepidorhombus whiffiagonis,Megrim,Bathydemersal,Atlantic,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Lepidotrigla cavillone,Large-scaled gurnard,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Lepidotrigla dieuzeidei,spiny gurnard,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Leptagonus decagonus,Atlantic poacher,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Leptoclinus maculatus,spotted snake blenny,Demersal,Boreal,Actinopteri,Perciformes,2,sub-apex predator,DEM sub-apex predator
+Lestidiops jayakari jayakari,Pacific barracudina,Bathypelagic,Atlantic,Actinopteri,Aulopiformes,5,sub-apex predator,DEM sub-apex predator
+Leucoraja circularis,sandy ray,Demersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Leucoraja fullonica,shagreen ray,Bathydemersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Leucoraja naevus,Cuckoo ray,Demersal,Atlantic,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Limanda limanda,Common dab,Demersal,Boreal,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Liparis liparis liparis,striped seasnail,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Liparis montagui,Montagu's seasnail,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Lithognathus mormyrus,striped seabream,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Liza aurata,Golden grey mullet,Pelagic,Luisitanean,Actinopteri,Perciformes,5,Planktivore,PEL Planktivore
+Liza ramada,Thinlip grey mullet,Pelagic,Luisitanean,Actinopteri,Perciformes,6,Planktivore,PEL Planktivore
+Lobianchia dofleini,Dofleini's lantern fish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Lobianchia gemellarii,Cocco's lantern fish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Lophius budegassa,Black bellied angler,Bathydemersal,Luisitanean,Actinopteri,Lophiiformes,7,sub-apex predator,DEM sub-apex predator
+Lophius piscatorius,Angler,Bathydemersal,Luisitanean,Actinopteri,Lophiiformes,7,sub-apex predator,DEM sub-apex predator
+Lumpenus lampretaeformis,snakeblenny,Demersal,Boreal,Actinopteri,Perciformes,2,sub-apex predator,DEM sub-apex predator
+Lycenchelys sarsii,sar's wolf eel,Bathydemersal,Boreal,Actinopteri,Perciformes,2,sub-apex predator,DEM sub-apex predator
+Lycodes gracilis,Eelpout,Demersal,Boreal,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Lycodes vahlii,#N/A,Demersal,Boreal,Actinopteri,Perciformes,2,sub-apex predator,DEM sub-apex predator
+Macroparalepis affinis,Macroparalepis affine,Bathypelagic,Atlantic,Actinopteri,Aulopiformes,5,sub-apex predator,DEM sub-apex predator
+Macroramphosus scolopax,Longspine snipefish,Demersal,Atlantic,Actinopteri,syngnathiformes,2,Planktivore,DEM Planktivore
+Macrourus berglax,Rough-head grenadier,Benthopelagic,Boreal,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Malacocephalus laevis,softhead rat tail,Bathydemersal,Atlantic,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Margrethia obtusirostra,Bighead portholefish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Maurolicus muelleri,Pearlside,Bathypelagic,Atlantic,Actinopteri,stomiiformes,6,Planktivore,PEL Planktivore
+Melanogrammus aeglefinus,Haddock,Demersal,Luisitanean,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Melanonus zugmayeri,Arrowtail,Bathypelagic,Atlantic,Actinopteri,Gadiformes,5,sub-apex predator,DEM sub-apex predator
+Melanostomias bartonbeani,scaleless black dragonfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Merlangius merlangus,Whiting,Benthopelagic,Boreal,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Merluccius merluccius,Hake,Demersal,Luisitanean,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Micrenophrys lilljeborgii,Norway bullhead,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Microchirus azevia,0,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Microchirus boscanion,Lusitanian sole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Microchirus ocellatus,Foureyed sole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Microchirus variegatus,Thickback sole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Micromesistius poutassou,Blue whiting,Bathypelagic,Atlantic,Actinopteri,Gadiformes,5,Planktivore,PEL Planktivore
+Microstomus kitt,Lemon sole,Demersal,Boreal,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Mola mola,Ocean sunfish,Pelagic,Atlantic,Actinopteri,Tetraodontiformes,6,Planktivore,PEL Planktivore
+Molva dypterygia,Blue ling,Demersal,Boreal,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Molva macrophthalma,spanish ling,Demersal,Atlantic,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Molva molva,Ling,Demersal,Boreal,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Monochirus hispidus,Whiskered sole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Monolene microstoma,smallmouth moonflounder,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Mora moro,Mora,Bathypelagic,Luisitanean,Actinopteri,Gadiformes,5,sub-apex predator,DEM sub-apex predator
+Mugil cephalus,Flathead (grey) mullet,Benthopelagic,Luisitanean,Actinopteri,Perciformes,5,Planktivore,DEM Planktivore
+Mullus barbatus barbatus,Red mullet,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Mullus surmuletus,striped red mullet,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Muraena helena,Mediterranean moray,Demersal,Atlantic,Actinopteri,Anguilliformes,2,sub-apex predator,DEM sub-apex predator
+Mustelus asterias,starry smooth hound,Demersal,Luisitanean,Elasmobranchii,Carcharhiniformes,4,sub-apex predator,DEM sub-apex predator
+Mustelus mustelus,smooth hound,Demersal,Luisitanean,Elasmobranchii,Carcharhiniformes,4,sub-apex predator,DEM sub-apex predator
+Myctophum punctatum,spotted lanternfish,Bathypelagic,Luisitanean,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Myliobatis aquila,Common eagle ray,Benthopelagic,Luisitanean,Elasmobranchii,Myliobatiformes,3,sub-apex predator,DEM sub-apex predator
+Myoxocephalus quadricornis,Four-horn sculpin,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Myoxocephalus scorpioides,Arctic sculpin,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Myoxocephalus scorpius,Bullrout,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Myxine glutinosa,Hagfish,Demersal,Boreal,Myxini,Myxiniformes,2,sub-apex predator,DEM sub-apex predator
+Nansenia tenera,0,Pelagic,Luisitanean,Actinopteri,Osmeriformes,6,Planktivore,PEL Planktivore
+Naucrates ductor,Pilotfish,Demersal,Atlantic,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Nemichthys scolopaceus,slender snipe eel,Bathypelagic,Atlantic,Actinopteri,Anguilliformes,5,Planktivore,DEM Planktivore
+Neoraja iberica,Iberian pygmy skate,Bathydemersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Nerophis lumbriciformis,Worm pipefish,Demersal,Luisitanean,Actinopteri,syngnathiformes,2,Planktivore,DEM Planktivore
+Nerophis ophidion,straight-nosed pipefish,Demersal,Luisitanean,Actinopteri,syngnathiformes,2,Planktivore,DEM Planktivore
+Nesiarchus nasutus,Black gemfish,Benthopelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Nessorhamphus ingolfianus,Duckbill oceanic eel,Bathypelagic,Atlantic,Actinopteri,Anguilliformes,5,sub-apex predator,DEM sub-apex predator
+Nettastoma melanurum,Blackfin scorcerer,Bathydemersal,Luisitanean,Actinopteri,Anguilliformes,4,sub-apex predator,DEM sub-apex predator
+Nezumia,#N/A,Benthopelagic,Atlantic,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Nezumia aequalis,Common Atlantic Grenadier,Benthopelagic,Atlantic,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Nezumia sclerorhynchus,Roughtip grenadier,Bathypelagic,Atlantic,Actinopteri,Gadiformes,5,sub-apex predator,DEM sub-apex predator
+Notacanthus bonaparte,shortfin spiny eel,Bathypelagic,Luisitanean,Actinopteri,Notacanthiformes,2,sub-apex predator,DEM sub-apex predator
+Notoscopelus,#N/A,Pelagic,Luisitanean,Actinopteri,Myctophiformes,6,sub-apex predator,PEL sub-apex predator
+Notoscopelus elongatus,0,Pelagic,Luisitanean,Actinopteri,Myctophiformes,6,sub-apex predator,PEL sub-apex predator
+Notoscopelus kroyeri,Lancet fish,Pelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,PEL sub-apex predator
+Ophichthus rufus,Rufus snake-eel,Demersal,Luisitanean,Actinopteri,Anguilliformes,2,sub-apex predator,DEM sub-apex predator
+Ophidion barbatum,snake blenny,Demersal,Luisitanean,Actinopteri,Ophidiiformes,4,sub-apex predator,DEM sub-apex predator
+Ophisurus serpens,serpent eel,Demersal,Luisitanean,Actinopteri,Anguilliformes,2,sub-apex predator,DEM sub-apex predator
+Opisthoproctus soleatus,Barrel-eye,Bathypelagic,Atlantic,Actinopteri,Osmeriformes,6,sub-apex predator,DEM sub-apex predator
+Osmerus eperlanus,smelt,Pelagic,Atlantic,Actinopteri,Osmeriformes,5,Planktivore,PEL Planktivore
+Oxynotus centrina,Angular roughshark,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,4,sub-apex predator,DEM sub-apex predator
+Oxynotus paradoxus,sailfin roughshark,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,4,sub-apex predator,DEM sub-apex predator
+Pagellus acarne,spanish sea bream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Pagellus bellottii,Red pandora,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Pagellus bogaraveo,Red sea bream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Pagellus erythrinus,Pandora,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Pagrus auriga,Redbanded seabream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Pagrus caeruleostictus,Bluespotted seabream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,DEM sub-apex predator
+Pagrus pagrus,Common seabream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Parablennius gattorugine,Tompot blenny,Demersal,Luisitanean,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Paralepis coregonoides,sharpchin barracudina,Bathypelagic,Atlantic,Actinopteri,Aulopiformes,5,sub-apex predator,DEM sub-apex predator
+Paraliparis membranaceus,#N/A,Bathypelagic,Atlantic,Actinopteri,scorpaeniformes,6,sub-apex predator,DEM sub-apex predator
+Parapristipoma octolineatum,African striped grunt,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Parasudis fraserbrunneri,0,Bathydemersal,Atlantic,Actinopteri,Aulopiformes,4,sub-apex predator,DEM sub-apex predator
+Pegusa lascaris,sand sole,Demersal,Atlantic,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Peristedion cataphractum,African armoured searobin,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Petromyzon marinus,sea lamprey,Demersal,Boreal,Petromyzonti,Petromyzontiformes,5,sub-apex predator,DEM sub-apex predator
+Pholis gunnellus,Butterfish,Demersal,Boreal,Actinopteri,Perciformes,2,sub-apex predator,DEM sub-apex predator
+Photostomias guernei,0,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Phrynorhombus norvegicus,Norwegian topknot,Demersal,Boreal,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Phycis blennoides,Greater forkbeard,Benthopelagic,Luisitanean,Actinopteri,Gadiformes,7,sub-apex predator,DEM sub-apex predator
+Phycis phycis,Forkbeard,Benthopelagic,Luisitanean,Actinopteri,Gadiformes,7,sub-apex predator,DEM sub-apex predator
+Physiculus dalwigki,Black codling,Benthopelagic,Atlantic,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Platichthys flesus,Flounder,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Plectorhinchus mediterraneus,Rubberlip grunt,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Pleuronectes platessa,Plaice,Demersal,Boreal,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Pollachius pollachius,Pollack,Benthopelagic,Boreal,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Pollachius virens,saithe,Demersal,Boreal,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Polymetme corythaeola,Rendezvous fish,Benthopelagic,Luisitanean,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Polymetme thaeocoryla,0,Bathydemersal,Atlantic,Actinopteri,stomiiformes,4,sub-apex predator,DEM sub-apex predator
+Polyprion americanus,Wreckfish,Demersal,Atlantic,Actinopteri,Perciformes,5,sub-apex predator,DEM sub-apex predator
+Pomadasys incisus,Bastard grunt,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Pomatomus saltatrix,Bluefish,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Pontinus kuhlii,Offshore rockfish,Bathydemersal,Luisitanean,Actinopteri,scorpaeniformes,4,sub-apex predator,DEM sub-apex predator
+Poromitra capito,0,Bathypelagic,Atlantic,Actinopteri,stephanoberyciformes,6,sub-apex predator,DEM sub-apex predator
+Protomyctophum arcticum,Artic telescope,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+Pteroplatytrygon violacea,Pelagic stingray,Pelagic,Atlantic,Elasmobranchii,Myliobatiformes,3,sub-apex predator,PEL sub-apex predator
+Pterycombus brama,Atlantic fanfish,Pelagic,Atlantic,Actinopteri,Perciformes,6,Planktivore,PEL Planktivore
+Raja asterias,Mediterranean starry ray,Demersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Raja brachyura,Blond ray,Demersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Raja clavata,Thornback ray,Demersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Raja microocellata,small eyed ray,Demersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Raja miraletus,Brown ray,Demersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Raja montagui,spotted ray,Demersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Raja undulata,Undulate ray,Demersal,Luisitanean,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Rajella bathyphila,Deepwater ray,Bathydemersal,Atlantic,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Rajella fyllae,Round ray,Bathydemersal,Boreal,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Raniceps raninus,Tadpole fish,Demersal,Luisitanean,Actinopteri,Gadiformes,7,sub-apex predator,DEM sub-apex predator
+Ranzania laevis,slender sunfish,Pelagic,Atlantic,Actinopteri,Tetraodontiformes,6,Planktivore,PEL Planktivore
+Remora remora,shark sucker,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Rostroraja alba,White skate,Demersal,Atlantic,Elasmobranchii,Rajiformes,3,sub-apex predator,DEM sub-apex predator
+Ruvettus pretiosus,Oilfish,Benthopelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+sagamichthys schnakenbecki,schnakenbeck's searsid,Bathypelagic,Atlantic,Actinopteri,Osmeriformes,6,sub-apex predator,DEM sub-apex predator
+salmo,#N/A,Benthopelagic,Boreal,Actinopteri,salmoniformes,6,sub-apex predator,PEL sub-apex predator
+salmo salar,salmon,Benthopelagic,Boreal,Actinopteri,salmoniformes,6,sub-apex predator,PEL sub-apex predator
+salmo trutta trutta,sea trout,Pelagic,Atlantic,Actinopteri,salmoniformes,6,sub-apex predator,PEL sub-apex predator
+sander lucioperca,Pike perch,Pelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+sarda sarda,Atlantic bonito,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+sardina pilchardus,Pilchard,Pelagic,Luisitanean,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+sardinella aurita,Round sardinella,Pelagic,Atlantic,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+sarpa salpa,salema,Benthopelagic,Atlantic,Actinopteri,Perciformes,6,Planktivore,PEL Planktivore
+schedophilus medusophagus,Cornish blackfish,Pelagic,Atlantic,Actinopteri,Perciformes,6,Planktivore,PEL Planktivore
+schedophilus ovalis,Imperial blackfish,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,Planktivore,PEL Planktivore
+scomber colias,Atlantic chub mackerel,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+scomber scombrus,Mackerel,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+scomberesox saurus saurus,Atlantic saury,Pelagic,Atlantic,Actinopteri,Beloniformes,6,sub-apex predator,PEL sub-apex predator
+scophthalmus maximus,Turbot,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+scophthalmus rhombus,Brill,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+scorpaena,#N/A,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+scorpaena elongata,slender rockfish,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+scorpaena loppei,Cadenat's rockfish,Demersal,Atlantic,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+scorpaena notata,small red scorpionfish,Demersal,Atlantic,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+scorpaena porcus,Black scorpionfish,Demersal,Atlantic,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+scorpaena scrofa,scorpionfish,Demersal,Atlantic,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+scorpaenidae,#N/A,Demersal,Atlantic,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+scyliorhinus canicula,Lesser spotted dogfish,Demersal,Luisitanean,Elasmobranchii,Carcharhiniformes,7,sub-apex predator,DEM sub-apex predator
+scyliorhinus stellaris,Nurse hound,Demersal,Atlantic,Elasmobranchii,Carcharhiniformes,7,sub-apex predator,DEM sub-apex predator
+scymnodon ringens,Knifetooth dogfish,Bathypelagic,Atlantic,Elasmobranchii,squaliformes,5,sub-apex predator,DEM sub-apex predator
+searsia koefoedi,Koefoed's searsid,Bathypelagic,Atlantic,Actinopteri,Osmeriformes,6,sub-apex predator,DEM sub-apex predator
+sebastes mentella,Redfish,Bathypelagic,Boreal,Actinopteri,scorpaeniformes,4,sub-apex predator,DEM sub-apex predator
+sebastes norvegicus,Golden redfish,Pelagic,Boreal,Actinopteri,scorpaeniformes,4,sub-apex predator,PEL sub-apex predator
+sebastes viviparus,Norway haddock,Demersal,Boreal,Actinopteri,scorpaeniformes,4,sub-apex predator,DEM sub-apex predator
+serranus cabrilla,Comber,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+serranus hepatus,Brown comber,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+serranus scriba,Painted comber,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+serrivomer beanii,stout sawpalate,Bathypelagic,Atlantic,Actinopteri,Anguilliformes,5,sub-apex predator,DEM sub-apex predator
+setarches guentheri,Channeled rockfish,Benthopelagic,Atlantic,Actinopteri,scorpaeniformes,6,sub-apex predator,DEM sub-apex predator
+sigmops bathyphilus,spark anglemouth,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+solea senegalensis,senegalese sole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,1,sub-apex predator,DEM sub-apex predator
+solea solea,Dover sole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,1,sub-apex predator,DEM sub-apex predator
+somniosus microcephalus,Greenland shark,Benthopelagic,Boreal,Elasmobranchii,squaliformes,5,Apex predator,DEM Apex predator
+somniosus rostratus,Little sleeper shark,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,4,Apex predator,DEM Apex predator
+sparus aurata,Gilthead seabream,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+sphoeroides pachygaster,Blunthead puffer,Benthopelagic,Luisitanean,Actinopteri,Tetraodontiformes,5,sub-apex predator,DEM sub-apex predator
+sphyraena sphyraena,European barracuda,Pelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+spicara maena,Blotched picarel,Pelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+spicara smaris,Picarel,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+spinachia spinachia,Fifteen spined stickleback,Benthopelagic,Boreal,Actinopteri,Gasterosteiformes,5,Planktivore,DEM Planktivore
+spondyliosoma cantharus,Black sea bream,Benthopelagic,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+spratelloides,#N/A,Pelagic,Luisitanean,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+sprattus sprattus,sprat,Pelagic,Luisitanean,Actinopteri,Clupeiformes,6,Planktivore,PEL Planktivore
+squalus acanthias,spurdog,Benthopelagic,Boreal,Elasmobranchii,squaliformes,5,sub-apex predator,DEM sub-apex predator
+squalus blainville,Longnose spurdog,Demersal,Luisitanean,Elasmobranchii,squaliformes,5,sub-apex predator,DEM sub-apex predator
+squalus megalops,shortnose spurdog,Bathydemersal,Atlantic,Elasmobranchii,squaliformes,5,sub-apex predator,DEM sub-apex predator
+squalus uyato,Little gulper shark,Demersal,Atlantic,Elasmobranchii,squaliformes,5,sub-apex predator,DEM sub-apex predator
+stomias boa boa,Boa dragonfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+stomias boa ferox,Boa dragonfish,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+stromateus fiatola,Blue butterfish,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+symbolophorus veranyi,Large-scale lantern fish,Bathypelagic,Atlantic,Actinopteri,Myctophiformes,6,sub-apex predator,DEM sub-apex predator
+symphodus,#N/A,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+symphodus bailloni,Baillon's wrasse,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+symphodus melops,Corkwing wrasse,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+symphodus roissali,Five-spotted wrasse,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+symphurus nigrescens,Tonguesole,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+synaphobranchus kaupii,Kaup's arrowtooth eel,Bathydemersal,Atlantic,Actinopteri,Anguilliformes,2,sub-apex predator,DEM sub-apex predator
+synchiropus phaeton,Phaeton dragonet,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+syngnathus,#N/A,Demersal,Boreal,Actinopteri,syngnathiformes,4,Planktivore,DEM Planktivore
+syngnathus acus,Great pipefish,Demersal,Boreal,Actinopteri,syngnathiformes,4,Planktivore,DEM Planktivore
+syngnathus rostellatus,Nilsson's pipefish,Demersal,Luisitanean,Actinopteri,syngnathiformes,4,Planktivore,DEM Planktivore
+syngnathus typhle,Broad-nosed pipefish,Demersal,Luisitanean,Actinopteri,syngnathiformes,4,Planktivore,DEM Planktivore
+Taurulus bubalis,sea scorpion,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Tetronarce nobiliana,Electric ray,Benthopelagic,Boreal,Elasmobranchii,Torpediniformes,3,sub-apex predator,DEM sub-apex predator
+Thunnus thynnus,Bluefin tuna,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Torpedo marmorata,Marbled electric ray,Demersal,Luisitanean,Elasmobranchii,Torpediniformes,3,sub-apex predator,DEM sub-apex predator
+Torpedo nobiliana,#N/A,Demersal,Luisitanean,Elasmobranchii,Torpediniformes,3,sub-apex predator,DEM sub-apex predator
+Torpedo torpedo,Eyed electric ray,Demersal,Atlantic,Elasmobranchii,Torpediniformes,3,sub-apex predator,DEM sub-apex predator
+Trachinus draco,Greater weever,Demersal,Luisitanean,Actinopteri,Perciformes,1,sub-apex predator,DEM sub-apex predator
+Trachipterus arcticus,Dealfish,Bathypelagic,Atlantic,Actinopteri,Lampriformes,5,sub-apex predator,PEL sub-apex predator
+Trachipterus trachypterus,Mediterranean dealfish,Bathypelagic,Atlantic,Actinopteri,Lampriformes,5,sub-apex predator,PEL sub-apex predator
+Trachurus mediterraneus,Mediterranean horse mackerel,Pelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Trachurus picturatus,Blue jack mackerel,Benthopelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Trachurus trachurus,Horse mackerel,Pelagic,Luisitanean,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Trachyrincus murrayi,Murray's rat tail,Benthopelagic,Boreal,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Trachyrincus scabrus,Roughsnout grenadier,Bathydemersal,Luisitanean,Actinopteri,Gadiformes,2,sub-apex predator,DEM sub-apex predator
+Trachyscorpia cristulata cristulata,Atlantic thornyhead,Demersal,Atlantic,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Trachyscorpia cristulata echinata,spiny scorpionfish,Bathydemersal,Atlantic,Actinopteri,scorpaeniformes,4,sub-apex predator,DEM sub-apex predator
+Trigla lyra,Piper gurnard,Bathydemersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Trigloporus lastoviza,streaked gurnard,Demersal,Luisitanean,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Triglops murrayi,Moustache sculpin,Demersal,Boreal,Actinopteri,scorpaeniformes,7,sub-apex predator,DEM sub-apex predator
+Trisopterus esmarkii,Norway pout,Benthopelagic,Boreal,Actinopteri,Gadiformes,5,sub-apex predator,DEM sub-apex predator
+Trisopterus luscus,Bib,Benthopelagic,Luisitanean,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Trisopterus minutus,Poor cod,Benthopelagic,Luisitanean,Actinopteri,Gadiformes,4,sub-apex predator,DEM sub-apex predator
+Umbrina canariensis,Canary drum,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Umbrina cirrosa,shi drum,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Umbrina ronchus,Fusca drum,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Uranoscopus scaber,stargazer,Demersal,Luisitanean,Actinopteri,Perciformes,4,sub-apex predator,DEM sub-apex predator
+Vinciguerria poweriae,Power's deep-water bristle-mouth,Bathypelagic,Atlantic,Actinopteri,stomiiformes,5,sub-apex predator,DEM sub-apex predator
+Xenodermichthys copei,Bluntsnout smooth-head,Bathypelagic,Atlantic,Actinopteri,Osmeriformes,6,sub-apex predator,DEM sub-apex predator
+Xenolepidichthys dalgleishi,spotted tinselfish,Benthopelagic,Atlantic,Actinopteri,Zeiformes,5,sub-apex predator,DEM sub-apex predator
+Xiphias gladius,swordfish,Pelagic,Atlantic,Actinopteri,Perciformes,6,sub-apex predator,PEL sub-apex predator
+Zenion hololepis,0,Bathydemersal,Atlantic,Actinopteri,Zeiformes,4,sub-apex predator,DEM sub-apex predator
+Zenopsis conchifer,silvery John dory,Benthopelagic,Luisitanean,Actinopteri,Zeiformes,5,sub-apex predator,DEM sub-apex predator
+Zeugopterus punctatus,Topknot,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Zeugopterus regius,Eckstrom's topknot,Demersal,Luisitanean,Actinopteri,Pleuronectiformes,3,sub-apex predator,DEM sub-apex predator
+Zeus faber,John dory,Benthopelagic,Luisitanean,Actinopteri,Zeiformes,4,sub-apex predator,DEM sub-apex predator
+Zoarces viviparus,Viviparous blenny,Demersal,Boreal,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
+Zoarcidae,#N/A,Demersal,#N/A,Actinopteri,Perciformes,7,sub-apex predator,DEM sub-apex predator
