@@ -188,6 +188,9 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   survey_alt_name=combs$Surveynam2
   SAMP_FILE=paste0("HH//",combs$hhfilename)
   BIOL_FILE=paste0("HL//",combs$hlfilename)
+  
+#  if(survey=='WASpaOT3'){
+  if(T){
   #need survey last so that once overwritten below resets for next Quarter/Country/Sea
   print(paste(survey," Q",QUARTER,sep=""))
     #rename to OSPAR survey names:
@@ -391,10 +394,10 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
   #now merge datasets on haul and species for indicator script
   #bio <- read.csv(BIOL_FILE) #reduce memory usage
-  bio <- bio[,c("HaulID","SpeciesSciName","FishLength_cm","DensBiom_kg_Sqkm","SubFactor")]
+  bio <- bio[,c("HaulID","SpeciesSciName","FishLength_cm","DensBiom_kg_Sqkm","SubFactor","ValidAphiaID")]
   bio$sciName<-as.character(bio$SpeciesSciName)
   
-  
+  samporiginal<-samp
   samp <-samp[,c("HaulDur_min","DataType","HaulID","YearShot","ShootLat_degdec","ShootLong_degdec",
                  "ICESStSq","SurvStratum","WingSwpArea_sqkm","WingSwpVol_CorF","NetOpen_m")] 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  #add efficiency of E=GOV gear
@@ -406,7 +409,11 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   ave_NetOpen_m<-mean(samp$NetOpen_m)
   #samp$WingSwpVol_CorF <- ave_NetOpen_m / samp$NetOpen_m # scale down if larger than usual net opening
   #"SubFactor",  
+  #dhspp2 <- merge(bio,samp,by="HaulID",all.x=T,all.y=T)
+  #failed1=dhspp2[!is.finite(dhspp2$ShootLat_degdec),]
+  #failed=dhspp2[!is.finite(dhspp2$SpeciesSciName),]
   dhspp <- merge(bio,samp,by="HaulID")
+  
   
   # JR edit - dhspp contains NA lats and longs
   dhspp = dhspp[is.finite(dhspp$ShootLat_degdec) & is.finite(dhspp$ShootLong_degdec),]
@@ -415,7 +422,19 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   lostID<-unique(bio[!(bio$HaulID %in% dhspp$HaulID),"HaulID"])#all matched with StnNo
   if(length(lostID) >0){print(paste("losing", length(lostID) ,"hauls from",length(unique(bio$HaulID)),"when merge bio and samp")) } else { print("successful merge HL and HH to create dhspp")}
   write.table(lostID,paste(OUTPATH,"lostID_",survey,"_Q",QUARTER,".txt",sep=""))
-  #bioraw$HaulID<- paste(paste(survey,QUARTER,sep=""), bioraw$Ship, bioraw$YearShot, bioraw$HaulNo,sep="/")#
+  
+  
+  # JR looking at missing hauls. delete?
+  lostbio=bio[(bio$HaulID%in% lostID),]
+  lost_haulid_b=sort(unique(lostbio$HaulID))
+  lostsamp=samporiginal[samporiginal$HaulID %in% lostID,]
+  lost_haulid_s=sort(unique(lostsamp$HaulID))
+  lostsamp$ShootLong_degdec
+  
+
+  
+  
+    #bioraw$HaulID<- paste(paste(survey,QUARTER,sep=""), bioraw$Ship, bioraw$YearShot, bioraw$HaulNo,sep="/")#
   #bioraw[(bioraw$HaulID%in% lostID),]
 
     #LOSE RECORDS MISSING LENGTH (already done above) and MISSING DATATYPE
@@ -430,8 +449,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
       #dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$SubFactor
     
     dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensBiom_kg_Sqkm),]$DensBiom_kg_Sqkm <-
-      dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensBiom_kg_Sqkm),]$DensBiom_kg_Sqkm *
-      dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensBiom_kg_Sqkm),]$SubFactor
+    dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensBiom_kg_Sqkm),]$DensBiom_kg_Sqkm *
+    dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensBiom_kg_Sqkm),]$SubFactor
     
     #standardise per 60 min tow with DurRaise
     dhspp$DurRaise <- dhspp$HaulDur_min/60;  # per hour # hist(dhspp$DurRaise)  
@@ -601,7 +620,9 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   if(FINALPLOTS){ print("Final plots"); source(paste(MAINDIR,"R/Lynam_IND_script_FINALPLOTS.R",sep="")) }
   print(paste("Finished",survey, "survey",sep=" "))
   dev.off()
+  
+  
   }
-
+}
 print("script complete")
   
