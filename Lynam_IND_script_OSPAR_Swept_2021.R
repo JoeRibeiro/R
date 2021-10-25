@@ -188,6 +188,12 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   survey_alt_name=combs$Surveynam2
   SAMP_FILE=paste0("HH//",combs$hhfilename)
   BIOL_FILE=paste0("HL//",combs$hlfilename)
+
+  LFI_THRESHOLD = combs$LFI_threshold
+  GEAR= combs$Gear
+  SAMP_STRAT= combs$SAMP_STRAT # average hauls by ICESStSq rect in north sea #if set to FALSE need to update Attibutes table as area only given by rect
+  BYSUBDIV = combs$BYSUBDIV    # average indicator by LFI-subdivision
+  SPECIES= combs$Species
   
 #  if(survey=='WASpaOT3'){
   if(T){
@@ -198,48 +204,19 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   #add a directory for files out
   if(!file.exists(paste(OUTPATHstem,survey,sep=''))) dir.create(file.path(OUTPATHstem, survey))
   OUTPATH <- paste(OUTPATHstem,survey,"/",sep='')
-  LFI_THRESHOLD <- 40 
-  if(survey %in% c("GNSGerBT3","GNSNetBT3","GNSBelBT3","GNSEngBT3","CSEngBT3","CSEngBT4")){
-    SPECIES <- "DEM"; GEAR<-"BEAM"
-    if(survey %in% c("GNSNetBT3") ) LFI_THRESHOLD <- 45
-    if(survey %in% c("CSEngBT3") ) LFI_THRESHOLD <- 35 
-    if(survey %in% c("GNSGerBT3") ) LFI_THRESHOLD <- 50 
-  } else { 
-    GEAR<-"GOV" #or at least gov like e.g bak 
-    SPECIES <- c("ALL","DEM","PEL");  if(GOV.SPECIES.OVERWRITE!=F) SPECIES <- GOV.SPECIES.OVERWRITE
-    if(BYGUILD) SPECIES <- c("ALL","DEM"); 
-    if(FC1_SP) SPECIES <- c("DEM"); 
-    if(survey %in% c("BBICsSpaOT1","GNSFraOT4","GNSEngBT3",
-                     "GNSIntOT1","GNSIntOT3","IBTS"))  LFI_THRESHOLD <- 50  #GNSIntOT1 50 UKBI #note use of LFIregion SUBDIV in ...Lynam_OSPARsubdiv.r
-    if(survey %in% c("BBICsSpaOT4","CSNIrOT1"))  LFI_THRESHOLD <- 45 #CSNIrOT1 45 UKBI
-    if(survey %in% c("BBICPorOT4","CSBBFraOT4","CSNIrOT4",
-                     "CSScoOT4","WASpaOT3"))  LFI_THRESHOLD <- 40 
-    if(survey %in% c("CSScoOT1","WAScoOT3"))  LFI_THRESHOLD <- 35  #CSScoOT1 35 UKBI
-    if(survey %in% c("CSIreOT4") ) LFI_THRESHOLD <- 30 
-    if(survey %in% c("BBICnSpaOT4"))  LFI_THRESHOLD <- 25
-    if(survey %in% c("CSFraOT4"))  LFI_THRESHOLD <- 40 #CSFraOT4 40 UKBI
-  } 
   
-  if(survey %in% c("GNSGerBT3","GNSNetBT3","GNSIntOT1","GNSIntOT3","IBTS")){
-    SAMP_STRAT <- T # average hauls by ICESStSq rect in north sea #if set to FALSE need to update Attibutes table as area only given by rect
-    BYSUBDIV <-   T # average indicator by LFI-subdivision
+  
+  #split ICES Rect into Quadrants? with/out smoothing?
+  if(SEA == "GNS"){#,
     QUAD<- QUAD_NS #only north sea
     QUAD_SMOOTH<-QUAD_SMOOTH_NS
-    
   } else { #CS, BB and WA
-    SAMP_STRAT <- F # do not average hauls by rect
-    BYSUBDIV <-   T # average indicator by survey strata from shapefiles
     QUAD<- F #only north sea
     QUAD_SMOOTH<-F
   }
-  #exceptions
-  if(survey=="GNSFraOT4"){
-    SAMP_STRAT <- T # average hauls over surveyed minigrid0.25deg  #if set to FALSE need to update Attibutes table as area only given by minigrid
-    BYSUBDIV <-   F # no higher survey strata - could use depth strata from GNSEngBT3 - not implemented
-  }
-  
   #Trophic Level FW4 check
   if(MEANTLs==T & !(substr(survey,1,2) %in% c("CS","BB", "GN","IB")) ) { MEANTLs<-F; print("no data for TL for WA surveys, deleting MTL selection") }
+  
   
   
   ##load data
