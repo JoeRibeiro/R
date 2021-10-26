@@ -195,8 +195,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   BYSUBDIV = combs$BYSUBDIV    # average indicator by LFI-subdivision
   SPECIES= combs$Species
   
-#  if(survey=='WASpaOT3'){
-  if(T){
+  if(survey=='GNSFraOT4'){
+#  if(T){
   #need survey last so that once overwritten below resets for next Quarter/Country/Sea
   print(paste(survey," Q",QUARTER,sep=""))
     #rename to OSPAR survey names:
