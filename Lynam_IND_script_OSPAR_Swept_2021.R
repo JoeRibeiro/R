@@ -60,8 +60,8 @@ RDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/R/"
  PRODDAT<-read.csv(paste(SUBSCRIPTS_TRAITS,"SpeciesAtLength_Productivity.csv",sep=""))
  FC1Sp<-read.csv(paste(SUBSCRIPTS_TRAITS,"FC1Specieslist.csv",sep=""))# for IA2017
  #
- LWFILE<-"TakFungLW - plusHakan2020.csv" #prepared by Tak Fung for LFI paper with some update by Haken Wennhage 
- #still need to include LW for all species
+LWFILE<-paste(MAINDIR,"R/TakFungLW - plusHakan2020.csv",sep="") #update!!! to include LW for all species
+#still need to include LW for all species
 
  
 #where save output?
