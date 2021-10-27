@@ -26,6 +26,10 @@ library(spatstat)
 library(rgeos)    
 library(stringr) 
 
+# Known Warning messages to sort out
+#1: readShapeSpatial is deprecated; use rgdal::readOGR or sf::st_read 
+#2: readShapePoly is deprecated; use rgdal::readOGR or sf::st_read 
+
 rm(list=ls()) #start afresh
 
 #some shorthand
@@ -41,24 +45,25 @@ neg<-function(x) -x
 #location of the data and subscripts
 MAINDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
 RDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/R/"
-#FLEX<-T  #?use ICES swept areas
 
-# sampling data and biological data 
-QUARTER_LOOP <- c(1,2,3,4) 
-COUNTRY_LOOP <-"Int"# c("Int","GB","NL","GE","BE");
-SEA_LOOP <- "GNS"#CS#  #important for EVHOE as split across OSPAR assessment regions and for BTS where data for seperate surveys combined in downloads
-
-SPPFILE<-paste(MAINDIR,"R/SpeciesInfoSG.csv",sep="")
-LWFILE<-paste(MAINDIR,"R/TakFungLW - plusHakan2020.csv",sep="") #update!!! to include LW for all species
 #Trophic Level data also requires update for MTL analyses
  GOV.SPECIES.OVERWRITE<-"DEM" #apr2020 update to speed up and avoid PEL species and ALL in loop
  #SPECIES <- c("ALL","DEM","PEL");  if(GOV.SPECIES.OVERWRITE!=F) SPECIES <- GOV.SPECIES.OVERWRITE
 
-#location of the subscripts
+#location of the subscripts in function area
  PROC_SCRIPT<- "//lowfilecds/function/Eco Indicators/DATRASoutput/" #for HH and HL processing scripts incl strata by survey
  SHAPEPATH<-paste("Strata/",sep="") #used in Lynam_OSPARsubdiv.r
  SUBSCRIPTS_TRAITS<-paste(PROC_SCRIPT,"MarScot/INDscriptsForV3/",sep="")#max length
 #location of the shapefiles and where is the 'attributes' folder
+
+ #read subscripts and traits
+ PRODDAT<-read.csv(paste(SUBSCRIPTS_TRAITS,"SpeciesAtLength_Productivity.csv",sep=""))
+ FC1Sp<-read.csv(paste(SUBSCRIPTS_TRAITS,"FC1Specieslist.csv",sep=""))# for IA2017
+ #
+ LWFILE<-"TakFungLW - plusHakan2020.csv" #prepared by Tak Fung for LFI paper with some update by Haken Wennhage 
+ #still need to include LW for all species
+
+ 
 #where save output?
 OUTPATHstem<-paste(MAINDIR,"out/",sep="")
 
@@ -93,6 +98,11 @@ CATCHABILITY_COR_WALKER<- F # read estimates from nsea paper for q##problem some
   LFI_SP <-F # similar to OSPAR FC2. LFI_SP alters demersal sp list for all indicators selected
   FC1_SP<-F #if T remove others not considered in sens/resil/inter spreadsheet for OSPAR FC1
 
+  SPPFILE<-"R/SpeciesInfoSG.csv" # prepared by Simon Greenstreet for IA02017 shared in ICES WGBIODIV
+  #SPPFILE is read just after running Lynam_IND_script_process_exchange_HL2021.r 
+  #and removes rare species
+
+    
   #subscripts for indicators 
   BYGROUP<-F; if(BYGROUP){ BYGUILD<-F } # elasmos etc 
   BYICESGROUP<-F; if(BYICESGROUP){ BYGUILD<-F } # apex predators etc
@@ -110,8 +120,7 @@ QUADS<-NULL #created by Lynam_OSPARsubdiv_Feb2019.r
 
 ##NOTE additional choices below for plotting
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#read subscripts and traits
-#setwd(SUBSCRIPTS_TRAITS)
+
 PRODDAT<-read.csv("R/SpeciesAtLength_Productivity.csv")
 FC1Sp<-read.csv("R/FC1Specieslist.csv")# for IA2017
 #additional functions
@@ -133,7 +142,7 @@ if(MEANTLs) source("Lynam_INDfn_Dec2017_MeanTL.r")# TL output by rectangle and y
 #trait_file <- paste("fishspecieslifehistorytraits_v3.csv",sep='')
 # should have some similar file in final dataproduct!
 # dataset with traits by species for indicator script
-#trait <- read.csv(trait_file)
+LW <- read.csv(LWFILE)
 #trait$SpeciesSciName <- paste(trait$Genus,trait$Species,sep='')
 
 #max length observed in ospar dataproduct by species
@@ -193,11 +202,17 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   GEAR= combs$Gear
   SAMP_STRAT= combs$SAMP_STRAT # average hauls by ICESStSq rect in north sea #if set to FALSE need to update Attibutes table as area only given by rect
   BYSUBDIV = combs$BYSUBDIV    # average indicator by LFI-subdivision
-  SPECIES= combs$Species
+  SPECIES = combs$Species
   
-  if(survey=='GNSFraOT4'){
-#  if(T){
+  if(GOV.SPECIES.OVERWRITE!=F) SPECIES <- GOV.SPECIES.OVERWRITE
+  if(BYGUILD) SPECIES <- c("ALL","DEM"); 
+  if(FC1_SP) SPECIES <- c("DEM"); 
+
+  
+#  if(survey=='GNSFraOT4'){
+  if(T){
   #need survey last so that once overwritten below resets for next Quarter/Country/Sea
+   if(survey=="CSEngBT4") next #need strata for WChane
   print(paste(survey," Q",QUARTER,sep=""))
     #rename to OSPAR survey names:
 
@@ -231,8 +246,28 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
   
-  samp<-samp[samp$Quarter==QUARTER,]
-  if(survey %in% c("GNSEngBT3","GNSBelBT3","GNSGerBT3","GNSNetBT3")) samp<-samp[samp$Country==COUNTRY,]
+  if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
+  
+  #need split SEA DATA FOR BTS Q3 ENG' 
+  if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
+  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
+  if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
+    samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
+    samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
+  #if(survey=="CSEngBT1") samp<- samp[samp$Year %in% 2016:2019,] #not all strata sampled
+  if(survey%in% c("CSEngBT3","CSEngBT1") ) samp<- samp[samp$Year != 2020,] #not all strata sampled COVID
+  }#samp$WingSpread[is.na(samp$WingSpread)]<-mean(samp$WingSpread[!is.na(samp$WingSpread)]) }
+  if(survey_alt_name == "BTS"){ 
+    samp$SweptAreaWSKM2[is.na(samp$SweptAreaWSKM2)] <- samp$WingSpread[is.na(samp$SweptAreaWSKM2)]*samp$Distance[is.na(samp$SweptAreaWSKM2)]
+    samp$SweptAreaDSKM2[is.na(samp$SweptAreaDSKM2)] <- samp$DoorSpread[is.na(samp$SweptAreaDSKM2)]*samp$Distance[is.na(samp$SweptAreaDSKM2)]
+    samp$WingSwpArea_sqkm[is.na(samp$WingSwpArea_sqkm)] <- samp$SweptAreaWSKM2[is.na(samp$WingSwpArea_sqkm)]*samp$Distance[is.na(samp$WingSwpArea_sqkm)]
+  }
+  if(nrow(samp)==0){ print(paste("no data for",survey, COUNTRY)); next; }
+  #add a directory for files out
+  if(!file.exists(paste(OUTPATHstem,survey,sep=''))) dir.create(file.path(OUTPATHstem, survey))
+
+  
+  #if(survey %in% c("GNSEngBT3","GNSBelBT3","GNSGerBT3","GNSNetBT3")) samp<-samp[samp$Country==COUNTRY,]
   samp<-samp[samp$HaulVal=="V",] ###
   samp<-samp[samp$StdSpecRecCode==1,]
   samp$StNo[is.na(samp$StNo)] <- -9 #to match bio
@@ -254,9 +289,16 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   names(samp)[which(names(samp) == "StatRec")] <- "ICESStSq"
   names(samp)[which(names(samp) == "DepthStratum")] <- "SurvStratum"
 
+  if( nrow(samp[is.na(samp$ShootLat_degdec),])>0) samp<-samp[!is.na(samp$ShootLat_degdec),]
+  if( nrow(samp[is.na(samp$ShootLong_degdec),])>0) samp<-samp[!is.na(samp$ShootLong_degdec),]
+  #correction needed!
+  samp$Ship[samp$Ship=="7.40E+10"]<- "74E9" #correction! excel error pre-upload!
+
+  
   #samp<-  merge(samp,flex,by="HaulID", all.x=F,all.y=F)
   #with(samp[samp$ShootLong_degdec>7,], xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   #with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
+  with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   # biological data
   bio <- read.csv(BIOL_FILE,as.is = c(1,2,4,5,6,10,11) )  #avoid conversions of rect to e+07 etc #,as.is=1 ) #
   
@@ -280,7 +322,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
   bio <- bio[bio$Quarter==QUARTER,]
   bio <- bio[!is.na(bio$ValidAphiaID),] #remove invalids
-  bio <- bio[(bio$SpecVal %in% c(1,4,7,10) ),]#remove invalids
+  bio <- bio[(bio$SpecVal %in% c(1,4,7,10) ),]#remove invalids 0=Invalid information	 2=Partly valid information	   https://vocab.ices.dk/?ref=5
+  if(survey=="BBICnSpaOT4") bio <- bio[bio$Year>=2017,] #no valid data 1998-2016
   #summary( bio$HaulNo)
   unique( bio$StNo)
   bio$HaulID	<- paste(paste(survey,QUARTER,sep=""), bio$Country, #bio$Gear, 
@@ -327,29 +370,42 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
    print("process_exchange_HL")
    LW<-read.csv(LWFILE)#LWfile needs to be complete - TakFungLW - plusHakan2020.csv is not
    source('R/Lynam_IND_script_process_exchange_HL2021.R')
-  
+   
+   SPPLIST<-read.csv(SPPFILE)
+   #check which species would be removed by SPPLIST
+   BIONAM<-ac(unique(bio$SpeciesSciName))
+   BIONAM[!BIONAM %in% SPPLIST[,1]]#species excluded 
+   #"Aspitrigla cuculus"       "Callionymus"              "Chelidonichthys lucernus" "Gobius"                   "Pomatoschistus"           "Raja"                    
+   #"Scophthalmus maximus"     "Syngnathus"               "Zeugopterus"
+   write.table(BIONAM[!BIONAM %in% SPPLIST[,1]],paste(OUTPATH,"lostspp_",survey,"_Q",QUARTER,".txt",sep=""))
+   
+   #SPPLIST<- SPPLIST[SPPLIST$Habit=="DEMERSAL",]
+   bio <- bio[bio$SpeciesSciName %in% SPPLIST[,1],]#remove rare spp
+   bio$SpeciesSciName<-af(ac(bio$SpeciesSciName))  #relevel 131 from >700
+
    
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#quick eyeball of sampling data 
   # quick check   unique(bio[bio$LngtCode==1,"SubFactor"])
   #par(mfrow=c(1,1))
-  x11(); par(mfrow=c(4,4))
+  x11(); 
+  if(substr(survey,7,8)!="BT" & substr(survey,6,7)!="BT" & substr(survey,8,9)!="BT"){ 
+    par(mfrow=c(4,4)) } else { par(mfrow=c(2,4)) }
+
   plot(samp$ShootLong_degdec, samp$ShootLat_degdec); map(add=T)#,xlim=c(4,14)
   abline(v=c(4,8));  abline(h=55.5)
   with(samp, hist(MonthShot))
   with(samp, hist(HaulDur_min))
   with(samp, hist(Depth_m))
 
-  if(substr(survey,7,8)!="BT"){
-    if(substr(survey,6,7)!="BT"){
-      with(samp, hist(WingSpread_m))
-      with(samp, hist(DoorSpread_m))
-      with(samp, hist(NetOpen_m))
-      with(samp, hist(WingSwpArea_sqkm) )
-      with(samp, hist(WingSwpVol_CorF ))
-      with(samp, hist(DoorSwptArea_CorF) )
-      with(samp, hist(DoorSwptVol_CorF))
-  }}
-  
+  if(substr(survey,7,8)!="BT" & substr(survey,6,7)!="BT" & substr(survey,8,9)!="BT"){ 
+   with(samp, hist(WingSpread_m))
+   with(samp, hist(DoorSpread_m))
+   with(samp, hist(NetOpen_m))
+   with(samp, hist(WingSwpArea_sqkm) )
+   with(samp, hist(WingSwpVol_CorF ))
+   with(samp, hist(DoorSwptArea_CorF) )
+   with(samp, hist(DoorSwptVol_CorF))
+  }
   
   with(samp, hist(Distance_km))
   #samp[(samp$Distance_km)==max(samp$Distance_km),]
@@ -371,7 +427,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
   #now merge datasets on haul and species for indicator script
   #bio <- read.csv(BIOL_FILE) #reduce memory usage
-  bio <- bio[,c("HaulID","SpeciesSciName","FishLength_cm","DensBiom_kg_Sqkm","SubFactor","ValidAphiaID")]
+  bio <- bio[,c("HaulID","SpeciesSciName","FishLength_cm","DensBiom_kg_Sqkm","SubFactor")]  
   bio$sciName<-as.character(bio$SpeciesSciName)
   
   samporiginal<-samp
@@ -386,17 +442,14 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   ave_NetOpen_m<-mean(samp$NetOpen_m)
   #samp$WingSwpVol_CorF <- ave_NetOpen_m / samp$NetOpen_m # scale down if larger than usual net opening
   #"SubFactor",  
-  #dhspp2 <- merge(bio,samp,by="HaulID",all.x=T,all.y=T)
-  #failed1=dhspp2[!is.finite(dhspp2$ShootLat_degdec),]
-  #failed=dhspp2[!is.finite(dhspp2$SpeciesSciName),]
   dhspp <- merge(bio,samp,by="HaulID")
-  
+  with(dhspp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
+  lostID<-unique(bio[!(bio$HaulID %in% dhspp$HaulID),"HaulID"])#all bio matched with StnNo
+
   
   # JR edit - dhspp contains NA lats and longs
   dhspp = dhspp[is.finite(dhspp$ShootLat_degdec) & is.finite(dhspp$ShootLong_degdec),]
   
-  with(dhspp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
-  lostID<-unique(bio[!(bio$HaulID %in% dhspp$HaulID),"HaulID"])#all matched with StnNo
   if(length(lostID) >0){print(paste("losing", length(lostID) ,"hauls from",length(unique(bio$HaulID)),"when merge bio and samp")) } else { print("successful merge HL and HH to create dhspp")}
   write.table(lostID,paste(OUTPATH,"lostID_",survey,"_Q",QUARTER,".txt",sep=""))
   
@@ -598,8 +651,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   print(paste("Finished",survey, "survey",sep=" "))
   dev.off()
   
-  
   }
-}
+  }
+
 print("script complete")
   
