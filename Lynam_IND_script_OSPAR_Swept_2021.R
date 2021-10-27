@@ -511,7 +511,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   print("now add strata")
   #source("//lowfilecds/Function/Eco Indicators/DATRASoutput/MarScot/INDscriptsForV3/Lynam_OSPARsubdiv_Feb2019.r")
   dhspporig=dhspp
-  source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Feb2019.r",sep=""))
+  source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Oct2021.r",sep=""))
   
   #replace sampstrat with  quadrants if QUAD==T
   #if(SURVEY=="IBTS"){ survey<-SURVEY }
