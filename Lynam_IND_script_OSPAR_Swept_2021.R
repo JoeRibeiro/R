@@ -299,6 +299,12 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   #with(samp[samp$ShootLong_degdec>7,], xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   #with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
+  
+  
+#DEFINE SSA HERE  
+  
+  
+  
   # biological data
   bio <- read.csv(BIOL_FILE,as.is = c(1,2,4,5,6,10,11) )  #avoid conversions of rect to e+07 etc #,as.is=1 ) #
   
