@@ -629,6 +629,12 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   ##### NO TAXA GROUPING ##### 
   #do this last to make sure have all species in final biomass plots
   print("NO TAXA GROUPING")
+  # IND_OUT = c("LFI_by_sub_all" ,    "TyL.cm.sea_all"  ,   "FishLength_cmsea_all","MaxLsea_all"    ,    "Loosea_all"     ,    "Lmsea_all"  ,         
+  # "TLsea_all"        ,    "LFI_by_sub_dem"   ,    "TyL.cm.sea_dem"  ,    "FishLength_cmsea_dem" ,"MaxLsea_dem"    ,    "Loosea_dem"   ,       
+  # "Lmsea_dem"        ,    "TLsea_dem"        ,    "LFI_by_sub_pel"   ,    "TyL.cm.sea_pel"   ,    "FishLength_cmsea_pel","MaxLsea_pel" ,        
+  # "Loosea_pel"       ,    "Lmsea_pel"        ,    "TLsea_pel"     ,       "species_bio_by_area" , "numhauls"     ,        "numhaulsyr" ,         
+  # "numhaulsBYsampstrat" , "numhaulsBYsubdiv")
+
   if(LFI_NULL) LFI_THRESHOLD<-NULL
    try(
     IND_OUT <- INDfn( DATA=dhspp, WRITE=T, BOOT=F, LFI=LFI, LFI_THRESHOLD=LFI_THRESHOLD, LFI_SP = LFI_SP,
@@ -647,7 +653,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   #invesigate an indicator with GAM    library(mgcv)
   #and plot some (with bootstrap?)
   #IND_OUT <- IND_OUT_BYGROUP[["Elasmobranchii"]]; BOOT_OUT <- BOOT_OUT_BYGROUP[["Elasmobranchii"]]
-  if(FINALPLOTS){ print("Final plots"); source(paste(MAINDIR,"R/Lynam_IND_script_FINALPLOTS.R",sep="")) }
+  if(FINALPLOTS){ print("Final plots");    try( source(paste(MAINDIR,"R/Lynam_IND_script_FINALPLOTS.R",sep="")),silent=F) }
   print(paste("Finished",survey, "survey",sep=" "))
   dev.off()
   

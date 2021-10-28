@@ -113,6 +113,7 @@ if(survey=="GNSFraOT4"){
 surveyread<-survey
 if(survey=="GNSBelBT3"){ surveyread<-"GNSIntOT1" } 
 if(survey %in% c("BBICFraBT4")){ surveyread<-"CSFraOT4" } 
+if(survey %in% c("CSEngBT1")){ surveyread<-"CSEngBT1_attrib_subdivkm2" } 
 ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/",surveyread,".csv",sep=''))
 SAMP_FACT <- "KM2_LAM"
 if(SAMP_STRAT){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsampstrat)] <- "sampstrat"; SAMP_FACT <- c(SAMP_FACT, "sampstrat") }
@@ -124,7 +125,7 @@ if(EHDS_PP){  ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep=
 ATTRIB <- ATTRIB[,which(names(ATTRIB) %in% SAMP_FACT )]
 #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
 #subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV
-if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","IBTS")){
+if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GNSEngBT3","IBTS")){
   ATTRIB_SUBDIV <- aggregate(x=ATTRIB$KM2_LAM,by=list(SurvStratum=ATTRIB$SurvStratum), FUN=sum)
   names(ATTRIB_SUBDIV)[2] <- "KM2_LAM"
 }
