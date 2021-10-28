@@ -113,6 +113,7 @@ if(survey=="GNSFraOT4"){
 surveyread<-survey
 if(survey=="GNSBelBT3"){ surveyread<-"GNSIntOT1" } 
 if(survey %in% c("BBICFraBT4")){ surveyread<-"CSFraOT4" } 
+if(survey %in% c("CSEngBT1")){ surveyread<-"CSEngBT1_attrib_subdivkm2" }
 ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/",surveyread,".csv",sep=''))
 SAMP_FACT <- "KM2_LAM"
 if(SAMP_STRAT){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsampstrat)] <- "sampstrat"; SAMP_FACT <- c(SAMP_FACT, "sampstrat") }
