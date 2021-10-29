@@ -182,7 +182,9 @@ if(MEANTLs==T){
  substr(SciName2GroupEff$sciName,1,1) <- toupper(substr(SciName2GroupEff$sciName,1,1))#correct case
 ##select only those species from LeMans model and correct relative biomasses to match: Q
 if(CATCHABILITY_COR_MOD | SPECIES_IN_MOD_ONLY) source("Lynam_IND_script_CATCHABILITY_MODEL.R")
-  
+
+# for making SSA
+SSAdf=data.frame('rectangle'='','survey'='')
 
 #### indicators survey loop ####
  
@@ -203,7 +205,11 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   SAMP_STRAT= combs$SAMP_STRAT # average hauls by ICESStSq rect in north sea #if set to FALSE need to update Attibutes table as area only given by rect
   BYSUBDIV = combs$BYSUBDIV    # average indicator by LFI-subdivision
   SPECIES = combs$Species
-  
+  FIRSTYEAR = combs$First_year
+  LASTYEAR = combs$Last_year
+  STDGEAR = combs$Std_gear
+
+    
   if(GOV.SPECIES.OVERWRITE!=F) SPECIES <- GOV.SPECIES.OVERWRITE
   if(BYGUILD) SPECIES <- c("ALL","DEM"); 
   if(FC1_SP) SPECIES <- c("DEM"); 
@@ -254,9 +260,22 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
     samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
     samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
-  #if(survey=="CSEngBT1") samp<- samp[samp$Year %in% 2016:2019,] #not all strata sampled
-  if(survey%in% c("CSEngBT3","CSEngBT1") ) samp<- samp[samp$Year != 2020,] #not all strata sampled COVID
-  }#samp$WingSpread[is.na(samp$WingSpread)]<-mean(samp$WingSpread[!is.na(samp$WingSpread)]) }
+  }
+
+  
+
+  #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  samp = samp[samp$Gear %in% STDGEAR,]  
+  samp<- samp[samp$Year > FIRSTYEAR,] 
+  samp<- samp[samp$Year < LASTYEAR,] 
+  samp<- samp[samp$HaulDur > 13,] 
+  samp<- samp[samp$HaulDur < 66,] 
+  #  SMFS 0816 Derivation report Step 1 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  
+  
+    
+  #samp$WingSpread[is.na(samp$WingSpread)]<-mean(samp$WingSpread[!is.na(samp$WingSpread)]) }
   if(survey_alt_name == "BTS"){ 
     samp$SweptAreaWSKM2[is.na(samp$SweptAreaWSKM2)] <- samp$WingSpread[is.na(samp$SweptAreaWSKM2)]*samp$Distance[is.na(samp$SweptAreaWSKM2)]
     samp$SweptAreaDSKM2[is.na(samp$SweptAreaDSKM2)] <- samp$DoorSpread[is.na(samp$SweptAreaDSKM2)]*samp$Distance[is.na(samp$SweptAreaDSKM2)]
@@ -290,18 +309,61 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   names(samp)[which(names(samp) == "DepthStratum")] <- "SurvStratum"
 
   if( nrow(samp[is.na(samp$ShootLat_degdec),])>0) samp<-samp[!is.na(samp$ShootLat_degdec),]
-  if( nrow(samp[is.na(samp$ShootLong_degdec),])>0) samp<-samp[!is.na(samp$ShootLong_degdec),]
+  if( nrow(samp[is.na(samp$ShootLong_degdec),])>0) samp<-samp[!is.na(samp$ShootLong_degdec),]  
   #correction needed!
   samp$Ship[samp$Ship=="7.40E+10"]<- "74E9" #correction! excel error pre-upload!
+  
+  
+  
+  #  SMFS 0816 Derivation report Step 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  library(sf)
+  samp2 = samp
+  samp2$Month <- sprintf("%02s",samp2$Month)
+  samp2$Day <- sprintf("%02s",samp2$Day)
+  samp2$date =  paste0(samp2$Year,"-",samp2$Month,"-",samp2$Day)
+  samp2$date = lubridate::as_date(samp2$date)
+  rects <- sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/ICESRECT.shp"))
+  rects <- sf:::as_Spatial(st_zm(rects))
+  coordinates(samp2) <- ~ ShootLong_degdec + ShootLat_degdec
+  proj4string(samp2) <- CRS("+init=epsg:4326")
+  proj4string(rects) <- CRS("+init=epsg:4326")
+  SSAlist=list()
+  for(re in 1:nrow(rects)){
+    rect=rects[re,]
+    samples_in=samp2[rect,]
+    if(length(samples_in)>0){
+      
+        # loop trough rectangle
+        # subset spatial data by rect
+        # get years with data in samp2
+        
+        # 50 percent rule
+        yearssampled=unique(samples_in$YearShot)
+        nyearssampled=length(yearssampled)
+        nyears = LASTYEAR - FIRSTYEAR 
+        over_50pct <- (nyearssampled/nyears)>=0.5
+        
+        # start & end 20% rule
+        firstdate=lubridate::date_decimal(FIRSTYEAR)
+        lastdate=lubridate::date_decimal(LASTYEAR)
+        datessampled=unique(samples_in$date)
+        mintimesampled = min(samples_in$date)
+        maxtimesampled = max(samples_in$date)
+        speriod = lubridate::date_decimal(FIRSTYEAR+(0.2*nyears))
+        eperiod = lubridate::date_decimal(LASTYEAR-(0.2*nyears))
+        inendperiod =  any( lastdate > datessampled & datessampled > eperiod)
+        instartperiod =  any( firstdate < datessampled & datessampled < speriod)
+        sampled_20pct = instartperiod & instartperiod
 
-  
-  #samp<-  merge(samp,flex,by="HaulID", all.x=F,all.y=F)
-  #with(samp[samp$ShootLong_degdec>7,], xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
-  #with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
-  with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
-  
-  
-#DEFINE SSA HERE  
+        # Accepted y/n?
+        accepted_as_SSA = over_50pct & sampled_20pct
+        SSAlist = c(SSAlist,rect$ICESNAME)
+      }
+    }
+  SSAdfs=data.frame('rectangle'=unlist(SSAlist))
+  SSAdfs$survey=survey
+
+  #  SMFS 0816 Derivation report Step 2 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
   
   
@@ -664,7 +726,11 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   dev.off()
   
   }
-  }
+  SSAdf=rbind(SSAdf,SSAdfs)
+}
+SSAdf=SSAdf[-1,] # first row is null from setup
+write.csv(SSAdf,paste0(RDIR,"/SSA.csv"),row.names = F)
+
 
 print("script complete")
   
