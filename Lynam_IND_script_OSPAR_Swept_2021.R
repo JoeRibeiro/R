@@ -72,13 +72,14 @@ setwd(MAINDIR)
 
 #do you want to write outputs along the way and save workspace
 WRITE <- T #save csvs as we go?
-  WRITE_LDs <- T #write Length distributions by species/year/subdiv? 
+WRITE_LDs <- T #write Length distributions by species/year/subdiv? 
 BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
-  NBOOT<- 9; 
-  B<-0 # restart counter as only output LD once before boostrap starts i.e. when B=0 
-  WRITE_BOOT <- T # every bootstrap dataset and indicator output
+NBOOT<- 9; 
+B<-0 # restart counter as only output LD once before boostrap starts i.e. when B=0 
+WRITE_BOOT <- T # every bootstrap dataset and indicator output
 SAVE <- T # save workspace (after bootstrap)
 FINALPLOTS<-T #create indicator plots with smooths
+FILTER_COUNTRY<-F
 
 # Catchability for general species groups
 CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
@@ -253,7 +254,9 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
   
-  if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
+  if(FILTER_COUNTRY){
+    if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
+  }
   
   #need split SEA DATA FOR BTS Q3 ENG' 
   if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
