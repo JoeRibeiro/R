@@ -72,7 +72,7 @@ setwd(MAINDIR)
 
 #do you want to write outputs along the way and save workspace
 WRITE <- T #save csvs as we go?
-  WRITE_LDs <- F #write Length distributions by species/year/subdiv? 
+  WRITE_LDs <- T #write Length distributions by species/year/subdiv? 
 BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
   NBOOT<- 9; 
   B<-0 # restart counter as only output LD once before boostrap starts i.e. when B=0 
@@ -208,7 +208,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   FIRSTYEAR = combs$First_year
   LASTYEAR = combs$Last_year
   STDGEAR = combs$Std_gear
-
+  GEARSUBSCRIPTS = combs$Std_gear_subscripts
+  GEARSUBSCRIPTS = unlist(str_split(GEARSUBSCRIPTS, ", "))
     
   if(GOV.SPECIES.OVERWRITE!=F) SPECIES <- GOV.SPECIES.OVERWRITE
   if(BYGUILD) SPECIES <- c("ALL","DEM"); 
@@ -265,7 +266,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
 
   #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  samp = samp[samp$Gear %in% STDGEAR,]  
+  samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
   samp<- samp[samp$Year > FIRSTYEAR,] 
   samp<- samp[samp$Year < LASTYEAR,] 
   samp<- samp[samp$HaulDur > 13,] 
