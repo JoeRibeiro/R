@@ -52,10 +52,10 @@ if(PLOTcheck){
 
 ### length cm to weight g 
 #LW<-read.csv(LWFILE)
-names(LW)[1]<-"ScientificName_WoRMS"
+#names(LW)[1]<-"ScientificName_WoRMS"
 LW_COLS<-c("ScientificName_WoRMS","a","b","Max.L..cm.")
-LW[LW$ScientificName_WoRMS=="Psetta maxima","a"]<-LW[LW$ScientificName_WoRMS=="Scophthalmus maximus","a"]
-LW[LW$ScientificName_WoRMS=="Psetta maxima","b"]<-LW[LW$ScientificName_WoRMS=="Scophthalmus maximus","b"]
+#LW[LW$ScientificName_WoRMS=="Psetta maxima","a"]<-LW[LW$ScientificName_WoRMS=="Scophthalmus maximus","a"]
+#LW[LW$ScientificName_WoRMS=="Psetta maxima","b"]<-LW[LW$ScientificName_WoRMS=="Scophthalmus maximus","b"]
 
 length( ISECT<-intersect(LW$ScientificName_WoRMS,bio$ScientificName_WoRMS) )
 sort(unique(bio[bio$ScientificName_WoRMS %in% ISECT,]$ScientificName_WoRMS))
