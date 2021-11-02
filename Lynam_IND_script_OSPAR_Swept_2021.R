@@ -26,6 +26,7 @@ library(sp)
 library(spatstat)
 library(rgeos)    
 library(stringr) 
+library(sf)
 # Known Warning messages to sort out
 #1: readShapeSpatial is deprecated; use rgdal::readOGR or sf::st_read 
 #2: readShapePoly is deprecated; use rgdal::readOGR or sf::st_read 
@@ -41,7 +42,11 @@ neg<-function(x) -x
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #location of the data and subscripts
-MAINDIR<- "C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
+MAINDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
+RDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/R/"
+definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
+definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
+
 
 #Trophic Level data also requires update for MTL analyses
  GOV.SPECIES.OVERWRITE<-"DEM" #apr2020 update to speed up and avoid PEL species and ALL in loop
@@ -49,9 +54,9 @@ MAINDIR<- "C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct20
 
 #location of the subscripts in function area
  PROC_SCRIPT<- "//lowfilecds/function/Eco Indicators/DATRASoutput/" #for HH and HL processing scripts incl strata by survey
- SHAPEPATH<-paste(PROC_SCRIPT,"Strata/",sep="") #used in Lynam_OSPARsubdiv.r
- SUBSCRIPTS_TRAITS<-paste(PROC_SCRIPT,"MarScot/INDscriptsForV3/",sep="")#max length #location of the shapefiles and where is the 'attributes' folder
- #read subscripts and traits
+ SHAPEPATH<-paste("Strata/",sep="") #used in Lynam_OSPARsubdiv.r
+ SUBSCRIPTS_TRAITS<-paste(PROC_SCRIPT,"MarScot/INDscriptsForV3/",sep="")#max length
+  #read subscripts and traits
  PRODDAT<-read.csv(paste(SUBSCRIPTS_TRAITS,"SpeciesAtLength_Productivity.csv",sep=""))
  FC1Sp<-read.csv(paste(SUBSCRIPTS_TRAITS,"FC1Specieslist.csv",sep=""))# for IA2017
  #
@@ -67,16 +72,20 @@ MAINDIR<- "C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct20
 #where save output?
 OUTPATHstem<-paste(MAINDIR,"out/",sep="")
 
+## choices for analyses upfront
+setwd(MAINDIR)
 
 #do you want to write outputs along the way and save workspace
 WRITE <- T #save csvs as we go?
-  WRITE_LDs <- F #write Length distributions by species/year/subdiv? 
+  WRITE_LDs <- T #write Length distributions by species/year/subdiv? 
 BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
   NBOOT<- 9; 
   B<-0 # restart counter as only output LD once before boostrap starts i.e. when B=0 
   WRITE_BOOT <- T # every bootstrap dataset and indicator output
 SAVE <- T # save workspace (after bootstrap)
 FINALPLOTS<-T #create indicator plots with smooths
+FILTER_COUNTRY <- T
+SSA_WRITE_NEW <- F
 
 # Catchability for general species groups
 CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
@@ -116,11 +125,11 @@ QUADS<-NULL #created by Lynam_OSPARsubdiv_Feb2019.r
 
 ##NOTE additional choices below for plotting
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-setwd(MAINDIR)
-setwd("R")
+setwd(RDIR)
 
 #LW<-   SPPLIST<-read.csv(SPPFILE)
  #read.csv(LWFILE)#LWfile needs to be complete - TakFungLW - plusHakan2020.csv is not
+
 
 #additional functions
 source("required.funcs.r")              # using tapply.ID
@@ -144,13 +153,13 @@ if(MEANTLs) source("Lynam_INDfn_Dec2017_MeanTL.r")# TL output by rectangle and y
 
 #max length observed in ospar dataproduct by species
 #Hyperoplus immaculatus 'Greater sand-eel' were missing -> recorded in GNS IBTS Q1 but without length  treat as Ammodytidae 'sandeel'
-trait_file <- paste(SUBSCRIPTS_TRAITS,"traits_by_species_Mar2019.csv",sep='')#inclelasmo taxa
+trait_file <- paste("traits_by_species_Mar2019.csv",sep='')#inclelasmo taxa
 trait_MAXL <- read.csv(trait_file)
 
 if(BYGUILD){#2020 paper
   #guild_file <-  paste("feeding.guilds_12.11.18.csv",sep='')#incl trophic guild ID
-  guild_file <-  paste(SUBSCRIPTS_TRAITS,"feeding.guilds_05.05.19_processed.csv",sep='')#incl trophic guild ID
-  guild_dat <- read.csv(guild_file)
+guild_file <- paste("feeding.guilds_05.05.19_processed.csv",sep='')#incl trophic guild ID
+guild_dat <- read.csv(guild_file)
   guild_dat$fguild <- (guild_dat$F.guild)  #fguild_7_soras.numeric
   #guild_dat<- guild_dat[guild_dat$data=="fguild6",]#1:6
 }
@@ -158,7 +167,7 @@ if(BYGUILD){#2020 paper
 TLceltic <- TLnorth <- TLwest <- NULL
 if(MEANTLs==T){
   #cnrs mtl fw4
-  TLceltic <- read.csv(paste(SUBSCRIPTS_TRAITS,"TL_complete14102016-1.csv",sep=""))
+  TLceltic <- read.csv("TL_complete14102016-1.csv")
   names(TLceltic)[1] <- "SpeciesSciName"
   TLceltic <- TLceltic[,c("SpeciesSciName","TL")]
   
@@ -166,20 +175,22 @@ if(MEANTLs==T){
   TLwest <- NULL
   
   # north sea
-  TLnorth <- read.csv(paste(SUBSCRIPTS_TRAITS,"refspp_LWmerged_edit06Nov2015.csv",sep=""))
+  TLnorth <- read.csv("refspp_LWmerged_edit06Nov2015.csv")
   names(TLnorth)[2] <- "SpeciesSciName"
   ECOPATH_TL <- F; if(ECOPATH_TL)  TLnorth$TL <- TLnorth$TL_Ecopath #for comparison with ewe
   TLnorth <- TLnorth[,c("SpeciesSciName","TL")]
 }
 
 # general species groups # Jan 2018 added 2 stingray Dasyatis spp to lookup and Cetorhinus maximus	Basking shark and Alopias vulpinus to SciName2GroupEff to stop error
- SciName2GroupEff <- read.csv(paste(SUBSCRIPTS_TRAITS,"SciName2GroupEff_Jan2018.csv",sep=""))
+ SciName2GroupEff <- read.csv("SciName2GroupEff_Jan2018.csv")
  SciName2GroupEff$Group <- paste("GRP",SciName2GroupEff$Group, sep="")
  SciName2GroupEff$sciName<-as.character(SciName2GroupEff$sciName)
  substr(SciName2GroupEff$sciName,1,1) <- toupper(substr(SciName2GroupEff$sciName,1,1))#correct case
 ##select only those species from LeMans model and correct relative biomasses to match: Q
 if(CATCHABILITY_COR_MOD | SPECIES_IN_MOD_ONLY) source("Lynam_IND_script_CATCHABILITY_MODEL.R")
-  
+
+ # for making SSA
+SSAdf=data.frame('rectangle'='','survey'='')
 
 #### indicators survey loop ####
  #"WASpaOT3" "BBICnSpaOT4" "BBICPorOT4"  "BBICsSpaOT1" "BBICsSpaOT4" 
@@ -206,6 +217,12 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   BYSUBDIV = combs$BYSUBDIV    # average indicator by LFI-subdivision
   
   SPECIES= combs$Species
+  FIRSTYEAR = combs$First_year
+  LASTYEAR = combs$Last_year
+  STDGEAR = combs$Std_gear
+  GEARSUBSCRIPTS = combs$Std_gear_subscripts
+  GEARSUBSCRIPTS = unlist(str_split(GEARSUBSCRIPTS, ", "))  
+
   if(GOV.SPECIES.OVERWRITE!=F) SPECIES <- GOV.SPECIES.OVERWRITE
   if(BYGUILD) SPECIES <- c("ALL","DEM"); 
   if(FC1_SP) SPECIES <- c("DEM"); 
@@ -238,17 +255,40 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   #sampling data 
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
   
-  samp<-samp[samp$Quarter==QUARTER,]
-  if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
-  #need split SEA DATA FOR BTS Q3 ENG' 
-  if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
-  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
-  if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
-    samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
-    samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
-  #if(survey=="CSEngBT1") samp<- samp[samp$Year %in% 2016:2019,] #not all strata sampled
-  if(survey%in% c("CSEngBT3","CSEngBT1") ) samp<- samp[samp$Year != 2020,] #not all strata sampled COVID
-  }#samp$WingSpread[is.na(samp$WingSpread)]<-mean(samp$WingSpread[!is.na(samp$WingSpread)]) }
+  
+  
+  
+  
+  samp <- samp[samp$Quarter==QUARTER,]
+
+  # Don't remove data if we're defining SSA
+  if(FILTER_COUNTRY & !SSA_WRITE_NEW){
+    if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
+  }
+
+
+  # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
+  # need to split SEA DATA FOR BTS Q3 ENG' 
+  if(SSA_WRITE_NEW){
+    if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
+    if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
+    if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
+      samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
+      samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
+    }
+  }
+  
+  
+    #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
+  samp<- samp[samp$Year > FIRSTYEAR,] 
+  samp<- samp[samp$Year < LASTYEAR,] 
+  samp<- samp[samp$HaulDur > 13,] 
+  samp<- samp[samp$HaulDur < 66,] 
+  #  SMFS 0816 Derivation report Step 1 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  
+  
   if(survey_alt_name == "BTS"){ 
     samp$SweptAreaWSKM2[is.na(samp$SweptAreaWSKM2)] <- samp$WingSpread[is.na(samp$SweptAreaWSKM2)]*samp$Distance[is.na(samp$SweptAreaWSKM2)]
     samp$SweptAreaDSKM2[is.na(samp$SweptAreaDSKM2)] <- samp$DoorSpread[is.na(samp$SweptAreaDSKM2)]*samp$Distance[is.na(samp$SweptAreaDSKM2)]
@@ -286,11 +326,72 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   
   #samp<-  merge(samp,flex,by="HaulID", all.x=F,all.y=F)
   #with(samp[samp$ShootLong_degdec>7,], xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
-  with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
+  
+  
+  #  SMFS 0816 Derivation report Step 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  samp$Month <- sprintf("%02s",samp$Month)
+  samp$Day <- sprintf("%02s",samp$Day)
+  samp$date =  paste0(samp$Year,"-",samp$Month,"-",samp$Day)
+  samp$date = lubridate::as_date(samp$date)
+  rects <- sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/ICESRECT.shp"))
+  rects <- sf:::as_Spatial(st_zm(rects))
+  coordinates(samp) <- ~ ShootLong_degdec + ShootLat_degdec
+  proj4string(samp) <- CRS("+init=epsg:4326")
+  proj4string(rects) <- CRS("+init=epsg:4326")
+  if(SSA_WRITE_NEW){
+  SSAlist=list()
+    for(re in 1:nrow(rects)){
+      rect=rects[re,]
+      samples_in=samp[rect,]
+      if(length(samples_in)>0){
+
+          # loop trough rectangle
+          # subset spatial data by rect
+          # get years with data in samp
+
+          # 50 percent rule
+          yearssampled=unique(samples_in$YearShot)
+          nyearssampled=length(yearssampled)
+          nyears = LASTYEAR - FIRSTYEAR 
+          over_50pct <- (nyearssampled/nyears)>=0.5
+
+          # start & end 20% rule
+          firstdate=lubridate::date_decimal(FIRSTYEAR)
+          lastdate=lubridate::date_decimal(LASTYEAR)
+          datessampled=unique(samples_in$date)
+          mintimesampled = min(samples_in$date)
+          maxtimesampled = max(samples_in$date)
+          speriod = lubridate::date_decimal(FIRSTYEAR+(0.2*nyears))
+          eperiod = lubridate::date_decimal(LASTYEAR-(0.2*nyears))
+          inendperiod =  any( lastdate > datessampled & datessampled > eperiod)
+          instartperiod =  any( firstdate < datessampled & datessampled < speriod)
+          sampled_20pct = inendperiod & instartperiod
+
+          # Accepted y/n?
+          accepted_as_SSA = over_50pct & sampled_20pct
+          SSAlist = c(SSAlist,rect$ICESNAME)
+        }
+      }
+    SSAdfs=data.frame('rectangle'=unlist(SSAlist))
+    SSAdfs$survey=survey
+  }
+  #  SMFS 0816 Derivation report Step 2 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+  # Filter down to SSA
+  surveySSA = definedSSA[definedSSA$survey==survey,]
+  samp = samp[surveySSA,]
+  samp@data$ShootLong_degdec = samp$ShootLong_degdec
+  samp@data$ShootLat_degdec = samp$ShootLat_degdec
+  samp=samp@data
+  
+  
+  
   # biological data
   bio <- read.csv(BIOL_FILE,as.is = c(1,2,4,5,6,10,11) )  #avoid conversions of rect to e+07 etc #,as.is=1 ) #
   
   #correction needed!
+  samp$Ship[samp$Ship=="7.40E+10"]<- "74E9" #correction! excel error pre-upload!
   #if(nrow(bio[nchar(bio$StNo)==6 & substr(bio$StNo,1,3)=="000",]) >0) bio[nchar(bio$StNo)==6 & substr(bio$StNo,1,3)=="000",]$StNo <- substr(bio[nchar(bio$StNo)==6 & substr(bio$StNo,1,3)=="000",]$StNo,4,6) #correction!
   #if(nrow(samp[nchar(samp$StNo)==6 & substr(samp$StNo,1,3)=="000",]) >0) samp[nchar(samp$StNo)==6 & substr(samp$StNo,1,3)=="000",]$StNo <- substr(samp[nchar(samp$StNo)==6 & substr(samp$StNo,1,3)=="000",]$StNo,4,6) #correction!
   #correction!
@@ -426,14 +527,17 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   #use gear efficiency to correct catches
   #the probability that fish in the path of a trawl will be caught and retained
   if(CATCHABILITY_COR_WALKER) print("now CATCHABILITY correct data with WALKER")
-  if(CATCHABILITY_COR_WALKER) source(PROC_SCRIPT,"Lynam_IND_script_CATCHABILITY_COR_WALKER.R",sep="/")
-
+  if(CATCHABILITY_COR_WALKER) source(paste(PROC_SCRIPT,"Lynam_IND_script_CATCHABILITY_COR_WALKER.R",sep="/"))
+  
   ave_NetOpen_m<-mean(samp$NetOpen_m)
   #samp$WingSwpVol_CorF <- ave_NetOpen_m / samp$NetOpen_m # scale down if larger than usual net opening
   #"SubFactor",  
   dhspp <- merge(bio,samp,by="HaulID")
   with(dhspp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   lostID<-unique(bio[!(bio$HaulID %in% dhspp$HaulID),"HaulID"])#all bio matched with StnNo
+   # JR edit - dhspp contains NA lats and longs
+  dhspp = dhspp[is.finite(dhspp$ShootLat_degdec) & is.finite(dhspp$ShootLong_degdec),]
+   
   if(length(lostID) >0){print(paste("losing", length(lostID) ,"hauls from",length(unique(bio$HaulID)),"when merge bio and samp")) } else { print("successful merge HL and HH to create dhspp")}
   write.table(lostID,paste(OUTPATH,"lostID_",survey,"_Q",QUARTER,".txt",sep=""))
   #bioraw$HaulID<- paste(paste(survey,QUARTER,sep=""), bioraw$Ship, bioraw$YearShot, bioraw$HaulNo,sep="/")#
@@ -477,7 +581,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   # and read attributes of shapefiles create table ATTRIB with names SurvStratum & KM2_LAM 
   #source("//lowfilecds/Function/Eco Indicators/DATRASoutput/MarScot/INDscriptsForV3/Lynam_OSPARsubdiv_Jan2018.r")  
   
-  #now use quadrants## load("C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/biodiv19 ref/RUNuptoOSPARsubdiv.rdata.RData")
+  #now use quadrants## load("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/biodiv19 ref/RUNuptoOSPARsubdiv.rdata.RData")
   #if(survey=="IBTS"){ survey<-"GNSIntOT1" }
   ##### strata ##### 
   print("now add strata")
@@ -618,7 +722,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   #invesigate an indicator with GAM    library(mgcv)
   #and plot some (with bootstrap?)
   #IND_OUT <- IND_OUT_BYGROUP[["Elasmobranchii"]]; BOOT_OUT <- BOOT_OUT_BYGROUP[["Elasmobranchii"]]
-  if(FINALPLOTS){ print("Final plots"); source(paste(MAINDIR,"R/Lynam_IND_script_FINALPLOTS.R",sep="")) }
+  if(FINALPLOTS){ print("Final plots"); try( source(paste(MAINDIR,"R/Lynam_IND_script_FINALPLOTS.R",sep="")) ,silent=F) }
   print(paste("Finished",survey, "survey",sep=" "))
   dev.off()
 } # next survey
