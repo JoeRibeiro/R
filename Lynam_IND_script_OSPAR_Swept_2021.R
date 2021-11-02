@@ -81,7 +81,7 @@ B<-0 # restart counter as only output LD once before boostrap starts i.e. when B
 WRITE_BOOT <- T # every bootstrap dataset and indicator output
 SAVE <- T # save workspace (after bootstrap)
 FINALPLOTS<-T #create indicator plots with smooths
-FILTER_COUNTRY <- F
+FILTER_COUNTRY <- T
 SSA_WRITE_NEW <- F
 
 # Catchability for general species groups
