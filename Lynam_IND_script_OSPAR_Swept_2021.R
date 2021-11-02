@@ -45,6 +45,8 @@ neg<-function(x) -x
 #location of the data and subscripts
 MAINDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
 RDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/R/"
+definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
+definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
 
 #Trophic Level data also requires update for MTL analyses
  GOV.SPECIES.OVERWRITE<-"DEM" #apr2020 update to speed up and avoid PEL species and ALL in loop
@@ -79,7 +81,8 @@ B<-0 # restart counter as only output LD once before boostrap starts i.e. when B
 WRITE_BOOT <- T # every bootstrap dataset and indicator output
 SAVE <- T # save workspace (after bootstrap)
 FINALPLOTS<-T #create indicator plots with smooths
-FILTER_COUNTRY<-F
+FILTER_COUNTRY <- F
+SSA_WRITE_NEW <- F
 
 # Catchability for general species groups
 CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
@@ -253,21 +256,29 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   #samp0 matches samp exactly! :)
   
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
+  samp <- samp[samp$Quarter==QUARTER,]
   
-  if(FILTER_COUNTRY){
+  # Don't remove data if we're defining SSA
+  if(FILTER_COUNTRY & !SSA_WRITE_NEW){
     if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
   }
   
-  #need split SEA DATA FOR BTS Q3 ENG' 
-  if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
-  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
-  if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
-    samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
-    samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
+  
+  # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
+  # need to split SEA DATA FOR BTS Q3 ENG' 
+  if(SSA_WRITE_NEW){
+    if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
+    if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
+    if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
+      samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
+      samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
+    }
   }
+  
 
   
 
+  
   #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
   samp<- samp[samp$Year > FIRSTYEAR,] 
@@ -321,56 +332,62 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
   #  SMFS 0816 Derivation report Step 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   library(sf)
-  samp2 = samp
-  samp2$Month <- sprintf("%02s",samp2$Month)
-  samp2$Day <- sprintf("%02s",samp2$Day)
-  samp2$date =  paste0(samp2$Year,"-",samp2$Month,"-",samp2$Day)
-  samp2$date = lubridate::as_date(samp2$date)
+  samp$Month <- sprintf("%02s",samp$Month)
+  samp$Day <- sprintf("%02s",samp$Day)
+  samp$date =  paste0(samp$Year,"-",samp$Month,"-",samp$Day)
+  samp$date = lubridate::as_date(samp$date)
   rects <- sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/ICESRECT.shp"))
   rects <- sf:::as_Spatial(st_zm(rects))
-  coordinates(samp2) <- ~ ShootLong_degdec + ShootLat_degdec
-  proj4string(samp2) <- CRS("+init=epsg:4326")
+  coordinates(samp) <- ~ ShootLong_degdec + ShootLat_degdec
+  proj4string(samp) <- CRS("+init=epsg:4326")
   proj4string(rects) <- CRS("+init=epsg:4326")
+  if(SSA_WRITE_NEW){
   SSAlist=list()
-  for(re in 1:nrow(rects)){
-    rect=rects[re,]
-    samples_in=samp2[rect,]
-    if(length(samples_in)>0){
-      
-        # loop trough rectangle
-        # subset spatial data by rect
-        # get years with data in samp2
+    for(re in 1:nrow(rects)){
+      rect=rects[re,]
+      samples_in=samp[rect,]
+      if(length(samples_in)>0){
         
-        # 50 percent rule
-        yearssampled=unique(samples_in$YearShot)
-        nyearssampled=length(yearssampled)
-        nyears = LASTYEAR - FIRSTYEAR 
-        over_50pct <- (nyearssampled/nyears)>=0.5
-        
-        # start & end 20% rule
-        firstdate=lubridate::date_decimal(FIRSTYEAR)
-        lastdate=lubridate::date_decimal(LASTYEAR)
-        datessampled=unique(samples_in$date)
-        mintimesampled = min(samples_in$date)
-        maxtimesampled = max(samples_in$date)
-        speriod = lubridate::date_decimal(FIRSTYEAR+(0.2*nyears))
-        eperiod = lubridate::date_decimal(LASTYEAR-(0.2*nyears))
-        inendperiod =  any( lastdate > datessampled & datessampled > eperiod)
-        instartperiod =  any( firstdate < datessampled & datessampled < speriod)
-        sampled_20pct = instartperiod & instartperiod
-
-        # Accepted y/n?
-        accepted_as_SSA = over_50pct & sampled_20pct
-        SSAlist = c(SSAlist,rect$ICESNAME)
+          # loop trough rectangle
+          # subset spatial data by rect
+          # get years with data in samp
+          
+          # 50 percent rule
+          yearssampled=unique(samples_in$YearShot)
+          nyearssampled=length(yearssampled)
+          nyears = LASTYEAR - FIRSTYEAR 
+          over_50pct <- (nyearssampled/nyears)>=0.5
+          
+          # start & end 20% rule
+          firstdate=lubridate::date_decimal(FIRSTYEAR)
+          lastdate=lubridate::date_decimal(LASTYEAR)
+          datessampled=unique(samples_in$date)
+          mintimesampled = min(samples_in$date)
+          maxtimesampled = max(samples_in$date)
+          speriod = lubridate::date_decimal(FIRSTYEAR+(0.2*nyears))
+          eperiod = lubridate::date_decimal(LASTYEAR-(0.2*nyears))
+          inendperiod =  any( lastdate > datessampled & datessampled > eperiod)
+          instartperiod =  any( firstdate < datessampled & datessampled < speriod)
+          sampled_20pct = instartperiod & instartperiod
+  
+          # Accepted y/n?
+          accepted_as_SSA = over_50pct & sampled_20pct
+          SSAlist = c(SSAlist,rect$ICESNAME)
+        }
       }
-    }
-  SSAdfs=data.frame('rectangle'=unlist(SSAlist))
-  SSAdfs$survey=survey
-
+    SSAdfs=data.frame('rectangle'=unlist(SSAlist))
+    SSAdfs$survey=survey
+  }
   #  SMFS 0816 Derivation report Step 2 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
   
-  
+  # Filter down to SSA
+  surveySSA = definedSSA[definedSSA$survey==survey,]
+  samp = samp[surveySSA,]
+  samp@data$ShootLong_degdec = samp$ShootLong_degdec
+  samp@data$ShootLat_degdec = samp$ShootLat_degdec
+  samp=samp@data
+
   # biological data
   bio <- read.csv(BIOL_FILE,as.is = c(1,2,4,5,6,10,11) )  #avoid conversions of rect to e+07 etc #,as.is=1 ) #
   
@@ -537,7 +554,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
   
     #bioraw$HaulID<- paste(paste(survey,QUARTER,sep=""), bioraw$Ship, bioraw$YearShot, bioraw$HaulNo,sep="/")#
-  #bioraw[(bioraw$HaulID%in% lostID),]
+    #bioraw[(bioraw$HaulID%in% lostID),]
 
     #LOSE RECORDS MISSING LENGTH (already done above) and MISSING DATATYPE
     #dhspp <- dhspp[!(dhspp$FishLength_cm== -9 & !is.na(dhspp$FishLength_cm)),] 
@@ -730,11 +747,15 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   dev.off()
   
   }
-  SSAdf=rbind(SSAdf,SSAdfs)
+  if(SSA_WRITE_NEW) { SSAdf=rbind(SSAdf,SSAdfs)}
 }
-SSAdf=SSAdf[-1,] # first row is null from setup
-write.csv(SSAdf,paste0(RDIR,"/SSA.csv"),row.names = F)
 
+if(SSA_WRITE_NEW) { SSAdf=SSAdf[-1,] # first row is null from setup
+  write.csv(SSAdf,paste0(RDIR,"/SSA.csv"),row.names = F)
+  rects$rectangle = rects$ICESNAME
+  spatialSSA=sp::merge(rects,SSAdf,on='rectangle',all.x=F,all.y=T, duplicateGeoms = TRUE)
+  setwd(paste0(RDIR,"/rectanglesICESdl29oct2021/"))
+  writeOGR(spatialSSA, "shp", "SSAspatial" , driver = "ESRI Shapefile") 
+}
 
 print("script complete")
-  
