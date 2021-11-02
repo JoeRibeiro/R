@@ -91,8 +91,5 @@ names(bio)[which(names(bio) == "ScientificName_WoRMS")] <- "SpeciesSciName"
 #still need to correct DensAbund_N_Sqkm for haul duration or swept area
 bio$DensAbund_N_Sqkm <- bio$Number
 
-SPPLIST<-read.csv(SPPFILE)
-#SPPLIST<- SPPLIST[SPPLIST$Habit=="DEMERSAL",]
-bio <- bio[bio$SpeciesSciName %in% SPPLIST[,1],]#remove rare spp
-bio$SpeciesSciName<-af(ac(bio$SpeciesSciName))#relevel 131 from >700
+
 

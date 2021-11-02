@@ -368,7 +368,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
           eperiod = lubridate::date_decimal(LASTYEAR-(0.2*nyears))
           inendperiod =  any( lastdate > datessampled & datessampled > eperiod)
           instartperiod =  any( firstdate < datessampled & datessampled < speriod)
-          sampled_20pct = instartperiod & instartperiod
+          sampled_20pct = inendperiod & instartperiod
   
           # Accepted y/n?
           accepted_as_SSA = over_50pct & sampled_20pct
@@ -463,7 +463,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
    SPPLIST<-read.csv(SPPFILE)
    #check which species would be removed by SPPLIST
    BIONAM<-ac(unique(bio$SpeciesSciName))
-   BIONAM[!BIONAM %in% SPPLIST[,1]]#species excluded 
+   print('excluded:')
+   print(BIONAM[!BIONAM %in% SPPLIST[,1]])#species excluded 
    #"Aspitrigla cuculus"       "Callionymus"              "Chelidonichthys lucernus" "Gobius"                   "Pomatoschistus"           "Raja"                    
    #"Scophthalmus maximus"     "Syngnathus"               "Zeugopterus"
    write.table(BIONAM[!BIONAM %in% SPPLIST[,1]],paste(OUTPATH,"lostspp_",survey,"_Q",QUARTER,".txt",sep=""))
