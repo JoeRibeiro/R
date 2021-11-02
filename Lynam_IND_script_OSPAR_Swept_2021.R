@@ -25,6 +25,7 @@ library(sp)
 library(spatstat)
 library(rgeos)    
 library(stringr) 
+library(sf)
 
 # Known Warning messages to sort out
 #1: readShapeSpatial is deprecated; use rgdal::readOGR or sf::st_read 
@@ -331,7 +332,6 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){
   
   
   #  SMFS 0816 Derivation report Step 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  library(sf)
   samp$Month <- sprintf("%02s",samp$Month)
   samp$Day <- sprintf("%02s",samp$Day)
   samp$date =  paste0(samp$Year,"-",samp$Month,"-",samp$Day)
