@@ -63,7 +63,8 @@ definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
  SPPFILE<-"R/Species_List_Final.csv" # prepared by Meadhbh Moriarty and Simon Greenstreet for IA02017 shared in ICES WGBIODIV
  #LWFILE<-"TakFungLW - plusHakan2020.csv" #prepared by Tak Fung for LFI paper with some update by Haken Wennhage 
  #still need to include LW for all species
- LW<-read.csv(SPPFILE)
+ setwd(MAINDIR)
+LW<-read.csv(SPPFILE)
  names(LW)[2]<-"ScientificName_WoRMS"
  LW$a <- LW$LWRa
  LW$b <- LW$LWRb
@@ -73,7 +74,6 @@ definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
 OUTPATHstem<-paste(MAINDIR,"out/",sep="")
 
 ## choices for analyses upfront
-setwd(MAINDIR)
 
 #do you want to write outputs along the way and save workspace
 WRITE <- T #save csvs as we go?
@@ -104,7 +104,6 @@ CATCHABILITY_COR_WALKER<- F # read estimates from nsea paper for q##problem some
   #remove species??
   LFI_SP <-F # similar to OSPAR FC2. LFI_SP alters demersal sp list for all indicators selected
   FC1_SP<-F #if T remove others not considered in sens/resil/inter spreadsheet for OSPAR FC1
-  #SPPFILE<-"R/Species_List_Final.csv" # prepared by Meadhbh Moriarty and Simon Greenstreet for IA02017 shared in ICES WGBIODIV
   #SPPFILE is read just after running Lynam_IND_script_process_exchange_HL2021.r 
   #and removes rare species
   
@@ -233,7 +232,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   # survey <-"BTS"; QUARTER<-3; COUNTRY<-"GB"; SEA<-"GNS"
   
   print(survey) #new OSPAR name as in Mar Scot dataproduct
-  if(survey=="CSEngBT4") next #need strata for WChane
+  if(survey=="CSEngBT4") next
   #add a directory for files out
   if(!file.exists(paste(OUTPATHstem,survey,sep=''))) dir.create(file.path(OUTPATHstem, survey))
   OUTPATH <- paste(OUTPATHstem,survey,"/",sep='')
@@ -261,10 +260,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   
   samp <- samp[samp$Quarter==QUARTER,]
 
-  # Don't remove data if we're defining SSA
-  if(FILTER_COUNTRY & !SSA_WRITE_NEW){
-    if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
-  }
+  # BTS is downloaded as all countries in one file
+  if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
 
 
   # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
@@ -352,7 +349,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
           # 50 percent rule
           yearssampled=unique(samples_in$YearShot)
           nyearssampled=length(yearssampled)
-          nyears = LASTYEAR - FIRSTYEAR 
+          nyears = length(FIRSTYEAR:LASTYEAR)          
           over_50pct <- (nyearssampled/nyears)>=0.5
 
           # start & end 20% rule
@@ -725,6 +722,15 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   if(FINALPLOTS){ print("Final plots"); try( source(paste(MAINDIR,"R/Lynam_IND_script_FINALPLOTS.R",sep="")) ,silent=F) }
   print(paste("Finished",survey, "survey",sep=" "))
   dev.off()
-} # next survey
+  if(SSA_WRITE_NEW) { SSAdf=rbind(SSAdf,SSAdfs)}
+}
+
+if(SSA_WRITE_NEW) { SSAdf=SSAdf[-1,] # first row is null from setup
+  write.csv(SSAdf,paste0(RDIR,"/SSA.csv"),row.names = F)
+  rects$rectangle = rects$ICESNAME
+  spatialSSA=sp::merge(rects,SSAdf,on='rectangle',all.x=F,all.y=T, duplicateGeoms = TRUE)
+  setwd(paste0(RDIR,"/rectanglesICESdl29oct2021/"))
+  writeOGR(spatialSSA, "shp", "SSAspatial" , driver = "ESRI Shapefile") 
+}
+
 print("script complete")
-  
