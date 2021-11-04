@@ -502,7 +502,7 @@ INDfn <- function(DATA, WRITE=F, BOOT=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM="", 
         
      #indicators by species dem pel groups    h(species_bioL_by_area_DEMPEL[species_bioL_by_area_DEMPEL$DEMPEL=='PEL',])
      FILENAM_DEMPEL <- FILENAM # copy as overwrite later
-
+    #meanLD_bio_by_area = meanLD_bio_by_area[!is.na(meanLD_bio_by_area$DEMPEL),]
      
      for(SP in SPECIES){ # SP<-"ALL" 
        print(SP)
@@ -534,6 +534,9 @@ INDfn <- function(DATA, WRITE=F, BOOT=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM="", 
            } else { species_bio_by_area <- species_bio_by_area[species_bio_by_area$Group==GROUP,]; } 
          if(SP!= "ALL" & nrow( species_bio_by_area[species_bio_by_area$DEMPEL==SP,])==0 ) next
        }
+       
+
+       
         #Large Fish Indicator
         if(!SAMP_STRAT) numsampstrat_by_sea <- 0*numhaulsyr
         if(LFI & SP!="PEL"){   IND_LFI <- INDfn_LFI( species_bio_by_area=species_bio_by_area, SP=SP,

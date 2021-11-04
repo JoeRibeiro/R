@@ -11,7 +11,7 @@
 # May 2020 use exchange data once again
 # OCT 2021 - new HH output from SWEPT AREA ASSESSMENT OUTPUT [KLAAS] to combine with HL data from exchange
 
-rm(list=ls()) #start afresh
+rm(list=ls()) #clear environment, start afresh
 
 #useful packages
 library(tidyverse)
@@ -42,8 +42,10 @@ neg<-function(x) -x
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #location of the data and subscripts
-MAINDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
-RDIR<- "C:/Users/JR13/Desktop/Fish_dataproduct_QSR/SweptArea_29Oct2021/R/"
+
+RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R
+MAINDIR<- paste0(strsplit(RDIR,"/R")[[1]],"//")
+RDIR = paste0(RDIR,"//")
 definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
 definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
 
@@ -266,15 +268,14 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
 
   # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
   # need to split SEA DATA FOR BTS Q3 ENG' 
-  if(SSA_WRITE_NEW){
-    if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
-    if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
-    if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
-      samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
-      samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
-    }
+  # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
+  # need to split SEA DATA FOR BTS Q3 ENG' 
+  if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
+  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
+  if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
+    samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
+    samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
   }
-  
   
     #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
