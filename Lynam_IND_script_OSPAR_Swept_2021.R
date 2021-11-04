@@ -43,7 +43,7 @@ neg<-function(x) -x
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #location of the data and subscripts
 
-RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R
+RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R. Note this will only work if the file is SOURCED, not if it is run in the console. Alternatively, please define your WD
 MAINDIR<- paste0(strsplit(RDIR,"/R")[[1]],"//")
 RDIR = paste0(RDIR,"//")
 definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
@@ -209,7 +209,6 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   QUARTER=combs$Quarter
   COUNTRY=combs$Country
   SEA=combs$Sea
-  SSA=combs$SSAfilename
   survey=combs$Surveynam1
   survey_alt_name=combs$Surveynam2
   LFI_THRESHOLD = combs$LFI_threshold
@@ -255,7 +254,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   ##load data
   #sampling data 
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
-  
+  print(max(samp$Ship))
+
   
   
   
@@ -279,10 +279,10 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   
     #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
-  samp<- samp[samp$Year > FIRSTYEAR,] 
-  samp<- samp[samp$Year < LASTYEAR,] 
-  samp<- samp[samp$HaulDur > 13,] 
-  samp<- samp[samp$HaulDur < 66,] 
+  samp<- samp[samp$Year >= FIRSTYEAR,] 
+  samp<- samp[samp$Year <= LASTYEAR,] 
+  samp<- samp[samp$HaulDur >= 13,] 
+  samp<- samp[samp$HaulDur <= 66,] 
   #  SMFS 0816 Derivation report Step 1 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
   
@@ -367,23 +367,23 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
 
           # Accepted y/n?
           accepted_as_SSA = over_50pct & sampled_20pct
-          SSAlist = c(SSAlist,rect$ICESNAME)
+          if(accepted_as_SSA){SSAlist = c(SSAlist,rect$ICESNAME)}
         }
       }
     SSAdfs=data.frame('rectangle'=unlist(SSAlist))
-    SSAdfs$survey=survey
-  }
-  #  SMFS 0816 Derivation report Step 2 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    if(length(SSAdfs)>0){
+      SSAdfs$survey=survey
+    }
+  }  #  SMFS 0816 Derivation report Step 2 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+  else{
   # Filter down to SSA
   surveySSA = definedSSA[definedSSA$survey==survey,]
   samp = samp[surveySSA,]
+  }
   samp@data$ShootLong_degdec = samp$ShootLong_degdec
   samp@data$ShootLat_degdec = samp$ShootLat_degdec
   samp=samp@data
-  
-  
   
   # biological data
   bio <- read.csv(BIOL_FILE,as.is = c(1,2,4,5,6,10,11) )  #avoid conversions of rect to e+07 etc #,as.is=1 ) #
@@ -409,7 +409,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   bio <- bio[bio$Quarter==QUARTER,]
   bio <- bio[!is.na(bio$ValidAphiaID),] #remove invalids
   bio <- bio[(bio$SpecVal %in% c(1,4,7,10) ),]#remove invalids 0=Invalid information	 2=Partly valid information	   https://vocab.ices.dk/?ref=5
-  if(survey=="BBICnSpaOT4") bio <- bio[bio$Year>=2017,] #no valid data 1998-2016
+  if(survey=="BBICnSpaOT4" & FIRSTYEAR< 2017 & LASTYEAR > 2017) bio <- bio[bio$Year>=2017,]
   #summary( bio$HaulNo)
   unique( bio$StNo)
   bio$HaulID	<- paste(paste(survey,QUARTER,sep=""), bio$Country, #bio$Gear, 
@@ -461,6 +461,14 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
    if(nrow(bio[bio$SpeciesSciName == "Phrynorhombus norvegicus",]) >0) bio[bio$SpeciesSciName == "Phrynorhombus norvegicus",]$SpeciesSciName <- "Zeugopterus norvegicus"
    if(nrow(bio[bio$SpeciesSciName == "Psetta maxima",]) >0) bio[bio$SpeciesSciName == "Psetta maxima",]$SpeciesSciName <- "Scophthalmus maximus"
    if(nrow(bio[bio$SpeciesSciName == "Mullus barbatus",]) >0) bio[bio$SpeciesSciName == "Mullus barbatus",]$SpeciesSciName <- "Mullus barbatus barbatus"
+   if(nrow(bio[bio$SpeciesSciName == "Trisopterus esmarki",]) >0) bio[bio$SpeciesSciName == "Trisopterus esmarki",]$SpeciesSciName <- "Trisopterus esmarkii"
+   if(nrow(bio[bio$SpeciesSciName == "Solea",]) >0) bio[bio$SpeciesSciName == "Solea",]$SpeciesSciName <- "Solea solea"
+   if(nrow(bio[bio$SpeciesSciName == "Solea vulgaris",]) >0) bio[bio$SpeciesSciName == "Solea vulgaris",]$SpeciesSciName <- "Solea solea"
+   if(nrow(bio[bio$SpeciesSciName == "Dipturus flossada",]) >0) bio[bio$SpeciesSciName == "Dipturus flossada",]$SpeciesSciName <- "Dipturus"
+   if(nrow(bio[bio$SpeciesSciName == "Dipturus intermedia",]) >0) bio[bio$SpeciesSciName == "Dipturus intermedia",]$SpeciesSciName <- "Dipturus"
+   if(nrow(bio[bio$SpeciesSciName == "Microchirus (Microchirus) variegatus",]) >0) bio[bio$SpeciesSciName == "Microchirus (Microchirus) variegatus",]$SpeciesSciName <- "Microchirus variegatus"
+   if(nrow(bio[bio$SpeciesSciName == "Malacocephalus (Malacocephalus) laevis",]) >0) bio[bio$SpeciesSciName == "Malacocephalus (Malacocephalus) laevis",]$SpeciesSciName <- "Malacocephalus laevis"
+   if(nrow(bio[bio$SpeciesSciName == "Engraulis",]) >0) bio[bio$SpeciesSciName == "Engraulis",]$SpeciesSciName <- "Engraulis albidus"
    #happy to lose snail: "Liparis liparis"
    #wo-spotted clingfish "Diplecogaster bimaculata"
    #three-spined stickleback "Gasterosteus aculeatus"   
@@ -731,7 +739,7 @@ if(SSA_WRITE_NEW) { SSAdf=SSAdf[-1,] # first row is null from setup
   rects$rectangle = rects$ICESNAME
   spatialSSA=sp::merge(rects,SSAdf,on='rectangle',all.x=F,all.y=T, duplicateGeoms = TRUE)
   setwd(paste0(RDIR,"/rectanglesICESdl29oct2021/"))
-  writeOGR(spatialSSA, "shp", "SSAspatial" , driver = "ESRI Shapefile") 
+  writeOGR(spatialSSA, "shp", "SSAspatial" , driver = "ESRI Shapefile", overwrite_layer = T) 
 }
 
 print("script complete")
