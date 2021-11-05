@@ -11,8 +11,7 @@ INDPLOTFN<-function(DATA2PLOT=DATA2PLOT, BOOTDATA2PLOT=BOOTDATA2PLOT,YRS=YRS,YLI
   #DATA2PLOT<-DATA2PLOT[,n]; YRS<-YRSPLOT#an(names(DATA2PLOT))
   plot(YRS,DATA2PLOT,col='white',ylim=YLIM,ylab=YLAB)
   title(TITLE)
-  if( (ADDGAM & (!ADDBOOTTREND_CI | !BOOTSTRAP)) | BEST_AND_BOOT)  points(YRS,   DATA2PLOT,col=4, pch=1); 
-  #jul2020 changed from green triangles to blue circles
+if( (ADDGAM & (!ADDBOOTTREND_CI | !BOOTSTRAP)) | BEST_AND_BOOT | ( length(DATA2PLOT)<5 & length(DATA2PLOT)>0) ) points(YRS, DATA2PLOT,col=4, pch=1);  #jul2020 changed from green triangles to blue circles
   
   #add gam fit
   if(ADDGAM){

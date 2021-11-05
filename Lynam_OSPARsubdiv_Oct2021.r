@@ -24,7 +24,7 @@ if(substr(survey,1,2) == "GN"){
 #shapefiles for assessment subdivisions
 require(maptools)
 
-if(survey %in% c("GNSIntOT1","GNSIntOT3","IBTS")){
+if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","IBTS")){
   SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') )
   if(EHDS_PP) SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_EHDPP/ehu_polygons.shp",sep='') ) 
   if(BYSUBDIV) NAMsubdiv <- "NAME"     #new areas as used for FC/FW3
@@ -126,7 +126,7 @@ if(EHDS_PP){  ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep=
 ATTRIB <- ATTRIB[,which(names(ATTRIB) %in% SAMP_FACT )]
 #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
 #subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV
-if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GNSEngBT3","IBTS")){
+if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GNSEngBT3","IBTS")){
   ATTRIB_SUBDIV <- aggregate(x=ATTRIB$KM2_LAM,by=list(SurvStratum=ATTRIB$SurvStratum), FUN=sum)
   names(ATTRIB_SUBDIV)[2] <- "KM2_LAM"
 }
@@ -204,7 +204,7 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
   }
   
 
-  if(!QUAD & (SAMP_STRAT & (survey %in% c("GNSGerBT3", "GNSNetBT3", "GNSIntOT1", "GNSIntOT3","IBTS"))) ){
+  if(!QUAD & (SAMP_STRAT & (survey %in% c("GNSGerBT3", "GNSNetBT3", "GNSIntOT1","GNSIntOT1_channel", "GNSIntOT3","IBTS"))) ){
     dhspp <- dhspp[,-which(names(dhspp) == "sampstrat")]
     dhspp$sampstrat <- dhspp$ICESStSq
   }
@@ -229,6 +229,16 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     dhspp <- dhspp[ dhspp$Year>2004,]
     print("Excluded pre 2005 poor sampling")
   }
+  
+  
+  if(survey == "CSEngBT1"){
+  #exclude A J and l as poorly sampled
+  EXCLUDES <- c("StratumA","StratumI","StratumJ")
+  dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
+  ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+  print("Excluded StratumA, StratumI and StratumJ")
+  }
+  
   
   if(survey=="CSBBFraOT4"){
     #exclude northern strata

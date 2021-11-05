@@ -202,7 +202,7 @@ SSAdf=data.frame('rectangle'='','survey'='')
  
 setwd(MAINDIR) #
 survey_Q_C_S_combinations<-read.csv("R/survey_Q_C_S_combinations.csv")# for IA2017
-for(combrow in nrow(survey_Q_C_S_combinations):nrow(survey_Q_C_S_combinations)){#16
+for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   #### combrow<-11 #### combrow<-18
   combs=survey_Q_C_S_combinations[combrow,]
   
@@ -270,6 +270,8 @@ samp$SweptAreaDSKM2 <- samp$SweptAreaWSKM2 <- samp$SweptAreaBWKM2
 # need to split SEA DATA FOR BTS Q3 ENG'
 # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
 # need to split SEA DATA FOR BTS Q3 ENG'
+if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
+if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52,]
 if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
 if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3 & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
 if(survey %in% c("CSEngBT3","CSEngBT1") ){
@@ -688,7 +690,7 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
   #trophic GUILD - this subsets dhspp so copy as _raw and the replace at end
   if(BYGUILD){#dhspp<-dhspp_raw
     dhspp_raw <- dhspp
-    if(survey == "GNSIntOT1" & USE_GUILD_COVARIATE_SITES){
+    if(survey == "GNSIntOT1" & USE_GUILD_COVARIATE_SITES | survey == "GNSIntOT1_channel" & USE_GUILD_COVARIATE_SITES){
       print("reading GUILD_COVARIATE_SITES")
       #load("Z:/Foodweb Models/Feeding guilds_BX020/Script/results/Ices_rectangles_for_analysis.RData")
       load(file=paste(PROC_SCRIPT,'Processed_data_for_models_13.11.18.RData',sep="")) #fulldat

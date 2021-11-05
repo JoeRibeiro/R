@@ -12,7 +12,7 @@ if(survey == "CSFraOT4"){
   SPECIES_SUBSET <-sub("[.]", " ", SPECIES_SUBSET) #remove the R created .
   Q[1,-c(1,2)] <- SPECIES_SUBSET
 }
-if(survey == "GNSIntOT1"){
+if(survey == "GNSIntOT1" | survey == "GNSIntOT1_channel"){
   Q <- read.table("//lowfilecds/CDP/C5716_FizzyFish/Working_Area/WP3 Food web indicators/lenmodels/NSea RATIO SURVEY_MODEL.csv",header=T,sep=',',as.is=T)
   SPECIES_SUBSET <- names(Q[1,-c(1,2)])
   SPECIES_SUBSET <-sub("[.]", " ", SPECIES_SUBSET) #remove the R created .

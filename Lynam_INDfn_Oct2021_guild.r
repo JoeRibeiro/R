@@ -124,7 +124,7 @@ INDfn <- function(DATA, WRITE=F, BOOT=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM="", 
             ATTRIB <- ATTRIB[,which(names(ATTRIB) %in% SAMP_FACT )]
             #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
             #subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV
-            if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")){
+            if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")){
               ATTRIB_SUBDIV <- aggregate(x=ATTRIB$KM2_LAM,by=list(SurvStratum=ATTRIB$SurvStratum), FUN=sum)
               names(ATTRIB_SUBDIV)[2] <- "KM2_LAM"
             }
@@ -314,7 +314,7 @@ INDfn <- function(DATA, WRITE=F, BOOT=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM="", 
           areasurveyed_by_sub <- tapply.ID(df=num_by_sub, datacols=c("KM2_LAM"), 
                                  factorcols=c("Year"), sum,c("KM2_LAM")) 
           #proportion of regional sea area sampled #ATTRIB_SUBDIV is same as totalarea for GNS 'SAMP_STRAT+BYSUBDIV'
-          if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")) {
+          if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")) {
                    totalarea <- sum(ATTRIB_SUBDIV$KM2_LAM)
           } else { totalarea <- sum(ATTRIB$KM2_LAM) }
           areasurveyed_by_sub$scale <- totalarea/areasurveyed_by_sub$KM2_LAM
@@ -365,7 +365,7 @@ INDfn <- function(DATA, WRITE=F, BOOT=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM="", 
          if(BYSUBDIV & SAMP_STRAT){
            #use catches scaled by size of grid (rects not constant over sea area)
            # and scale to SUBDIV (beware GNSGerBT3 only sampled a small part of NE so should not do this)
-           if(!survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")) print(paste(survey,"survey does not have two level stratification"))
+           if(!survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")) print(paste(survey,"survey does not have two level stratification"))
            #work out value to scale up subdiv by
            #lose species and length (otherwise inflate sum of areas)                           factorcols=c("sampstrat","Year","subdiv")
            area_by_subdiv <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), factorcols=c("sampstrat","Year"), sum,c("CatCatchWgtSweptsum"))  

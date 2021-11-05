@@ -3,8 +3,8 @@
 # Version: 3
 # Date: Oct 2021 
 
-bioraw<-bio # bio<-bioraw
-bio<-bio[bio$Quarter==QUARTER,]
+# bioraw<-bio # bio<-bioraw
+# bio<-bio[bio$Quarter==QUARTER,]
 #remove -9 entries  #unique(bio[bio$LngtCode== -9,'Number'])#all -9
 bio<- bio[bio$HLNoAtLngt!= -9 & bio$HLNoAtLngt!= 0,]
 #rename to match MSS names
