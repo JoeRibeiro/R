@@ -10,6 +10,7 @@
 # calc average densities across quadrants - to do: hauls in a 60km radius of quadrant mid-points 
 # May 2020 use exchange data once again
 # OCT 2021 - new HH output from SWEPT AREA ASSESSMENT OUTPUT [KLAAS] to combine with HL data from exchange
+# NOV 2021 - define SSA (code by Joseph Ribeiro)
 
 rm(list=ls()) #clear environment, start afresh
 
@@ -43,15 +44,18 @@ neg<-function(x) -x
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #location of the data and subscripts
 
-RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R. Note this will only work if the file is SOURCED, not if it is run in the console. Alternatively, please define your WD
-MAINDIR<- paste0(strsplit(RDIR,"/R")[[1]],"//")
-RDIR = paste0(RDIR,"//")
+#RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R. Note this will only work if the file is SOURCED, not if it is run in the console. Alternatively, please define your WD
+#MAINDIR<- paste0(strsplit(RDIR,"/R")[[1]],"/")
+#RDIR = paste0(RDIR,"//")
+MAINDIR<- "C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
+RDIR<- paste0(MAINDIR,"R/")
+
 definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
 definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
 
 
 #Trophic Level data also requires update for MTL analyses
- GOV.SPECIES.OVERWRITE<-"DEM" #apr2020 update to speed up and avoid PEL species and ALL in loop
+ GOV.SPECIES.OVERWRITE<-F #"DEM" #apr2020 update to speed up and avoid PEL species and ALL in loop
  #SPECIES <- c("ALL","DEM","PEL");  if(GOV.SPECIES.OVERWRITE!=F) SPECIES <- GOV.SPECIES.OVERWRITE
 
 #location of the subscripts in function area
@@ -59,13 +63,13 @@ definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
  SHAPEPATH<-paste("Strata/",sep="") #used in Lynam_OSPARsubdiv.r
  SUBSCRIPTS_TRAITS<-paste(PROC_SCRIPT,"MarScot/INDscriptsForV3/",sep="")#max length
   #read subscripts and traits
- PRODDAT<-read.csv(paste(SUBSCRIPTS_TRAITS,"SpeciesAtLength_Productivity.csv",sep=""))
+ # PRODDAT<-read.csv(paste(SUBSCRIPTS_TRAITS,"SpeciesAtLength_Productivity.csv",sep=""))
  FC1Sp<-read.csv(paste(SUBSCRIPTS_TRAITS,"FC1Specieslist.csv",sep=""))# for IA2017
  #
  SPPFILE<-"R/Species_List_Final.csv" # prepared by Meadhbh Moriarty and Simon Greenstreet for IA02017 shared in ICES WGBIODIV
  #LWFILE<-"TakFungLW - plusHakan2020.csv" #prepared by Tak Fung for LFI paper with some update by Haken Wennhage 
  #still need to include LW for all species
- setwd(MAINDIR)
+setwd(MAINDIR)
 LW<-read.csv(SPPFILE)
  names(LW)[2]<-"ScientificName_WoRMS"
  LW$a <- LW$LWRa
@@ -154,7 +158,7 @@ if(MEANTLs) source("Lynam_INDfn_Dec2017_MeanTL.r")# TL output by rectangle and y
 
 #max length observed in ospar dataproduct by species
 #Hyperoplus immaculatus 'Greater sand-eel' were missing -> recorded in GNS IBTS Q1 but without length  treat as Ammodytidae 'sandeel'
-trait_file <- paste("traits_by_species_Mar2019.csv",sep='')#inclelasmo taxa
+trait_file <- paste(SUBSCRIPTS_TRAITS,"traits_by_species_Mar2019.csv",sep='')#inclelasmo taxa
 trait_MAXL <- read.csv(trait_file)
 
 if(BYGUILD){#2020 paper
@@ -203,7 +207,7 @@ SSAdf=data.frame('rectangle'='','survey'='')
 setwd(MAINDIR) #
 survey_Q_C_S_combinations<-read.csv("R/survey_Q_C_S_combinations.csv")# for IA2017
 for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
-  #### combrow<-11 #### combrow<-18
+  #### combrow<-9 #### combrow<-nrow(survey_Q_C_S_combinations) # combrow<-2
   combs=survey_Q_C_S_combinations[combrow,]
   
   QUARTER=combs$Quarter
@@ -218,7 +222,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   
   SPECIES= combs$Species
   FIRSTYEAR = combs$First_year
-  LASTYEAR = combs$Last_year
+  LASTYEAR = combs$Last_year #note line 401: if(survey=="BBICnSpaOT4" & FIRSTYEAR< 2017 & LASTYEAR > 2017) bio <- bio[bio$Year>=2017,] #no valid data 2010-2016
   STDGEAR = combs$Std_gear
   GEARSUBSCRIPTS = combs$Std_gear_subscripts
   GEARSUBSCRIPTS = unlist(str_split(GEARSUBSCRIPTS, ", "))  
@@ -255,35 +259,25 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   #sampling data 
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
   print(max(samp$Ship))
-
-  
-  
-  
   
   samp <- samp[samp$Quarter==QUARTER,]
 
-# BTS is downloaded as all countries in one file
-if(GEAR == "BEAM"){ samp<-samp[samp$Country==COUNTRY,]
-samp$DoorSpread <- samp$WingSpread <- samp$BeamWidth
-samp$SweptAreaDSKM2 <- samp$SweptAreaWSKM2 <- samp$SweptAreaBWKM2
-} # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
-# need to split SEA DATA FOR BTS Q3 ENG'
-# where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
-# need to split SEA DATA FOR BTS Q3 ENG'
-if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
-if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52,]
-if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
-if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3 & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
-if(survey %in% c("CSEngBT3","CSEngBT1") ){
-samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
-samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
-}
+  # BTS is downloaded as all countries in one file
+  if(GEAR == "BEAM"){ samp<-samp[samp$Country==COUNTRY,]
+    samp$DoorSpread <- samp$WingSpread <- samp$BeamWidth
+    samp$SweptAreaDSKM2 <- samp$SweptAreaWSKM2 <- samp$SweptAreaBWKM2 
+  }
 
-
-  
+  # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
+  # need to split SEA DATA FOR BTS Q3 ENG' 
   if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
-  if(survey %in% "GNSIntOT1") samp<-samp[samp$ShootLat> 51,]
-
+  if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52 & samp$ShootLong< -3,]
+  if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
+  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
+  if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
+    samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
+    samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
+  }
   
     #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
@@ -332,6 +326,7 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
   
   #samp<-  merge(samp,flex,by="HaulID", all.x=F,all.y=F)
   #with(samp[samp$ShootLong_degdec>7,], xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
+  #with(samp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   
   
   #  SMFS 0816 Derivation report Step 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -382,33 +377,22 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
     if(length(SSAdfs)>0){
       SSAdfs$survey=survey
     }
-  }  #  SMFS 0816 Derivation report Step 2 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  else{
-  # Filter down to SSA
-  surveySSA = definedSSA[definedSSA$survey==survey,]
-  samp = samp[surveySSA,]
+    #  SMFS 0816 Derivation report Step 2 END ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  } else {
+    # Filter down to SSA
+    surveySSA = definedSSA[definedSSA$survey==survey,]
+    samp = samp[surveySSA,]
   }
   samp@data$ShootLong_degdec = samp$ShootLong_degdec
   samp@data$ShootLat_degdec = samp$ShootLat_degdec
   samp=samp@data
   
+  
+  
   # biological data
   bio <- read.csv(BIOL_FILE,as.is = c(1,2,4,5,6,10,11) )  #avoid conversions of rect to e+07 etc #,as.is=1 ) #
   
-  #correction needed!
-  samp$Ship[samp$Ship=="7.40E+10"]<- "74E9" #correction! excel error pre-upload!
-  #if(nrow(bio[nchar(bio$StNo)==6 & substr(bio$StNo,1,3)=="000",]) >0) bio[nchar(bio$StNo)==6 & substr(bio$StNo,1,3)=="000",]$StNo <- substr(bio[nchar(bio$StNo)==6 & substr(bio$StNo,1,3)=="000",]$StNo,4,6) #correction!
-  #if(nrow(samp[nchar(samp$StNo)==6 & substr(samp$StNo,1,3)=="000",]) >0) samp[nchar(samp$StNo)==6 & substr(samp$StNo,1,3)=="000",]$StNo <- substr(samp[nchar(samp$StNo)==6 & substr(samp$StNo,1,3)=="000",]$StNo,4,6) #correction!
-  #correction!
-  #sometimes missing zero in front. add one in everytime just in case
-  #if(nrow(bio[nchar(bio$StNo)==1,]) >0)    bio[nchar(bio$StNo)==1, ]$StNo <-  paste("0",bio[nchar(bio$StNo)==1,]$StNo,sep="") #correction!
-  #if(nrow(samp[nchar(samp$StNo)==1,]) >0) samp[nchar(samp$StNo)==1,]$StNo <- paste("0",samp[nchar(samp$StNo)==1,]$StNo,sep="")#correction!
-  #sometimes missing zero in front. add one in everytime just in case
-  #if(nrow(bio[nchar(bio$HaulNo)==1,]) >0)    bio[nchar(bio$HaulNo)==1, ]$HaulNo <-  paste("0",bio[nchar(bio$HaulNo)==1,]$HaulNo,sep="") #correction!
-  #if(nrow(samp[nchar(samp$HaulNo)==1,]) >0) samp[nchar(samp$HaulNo)==1,]$HaulNo <- paste("0",samp[nchar(samp$HaulNo)==1,]$HaulNo,sep="") #correction!
-  #corrections complete!
-  #alternatively remove all leading zeroes
+  #correction needed to remove all leading zeroes
   if(length(bio$HaulNo[substr(bio$HaulNo,1,1)%in%"0"])>0) bio$HaulNo <- str_replace(bio$HaulNo, "^0+" ,"") 
   if(length(bio$StNo[substr(bio$StNo,1,1)%in%"0"])>0) bio$StNo <- str_replace(bio$StNo, "^0+" ,"") 
   if(length(samp$HaulNo[substr(samp$HaulNo,1,1)%in%"0"])>0) samp$HaulNo <- str_replace(samp$HaulNo, "^0+" ,"") 
@@ -417,28 +401,15 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
   bio <- bio[bio$Quarter==QUARTER,]
   bio <- bio[!is.na(bio$ValidAphiaID),] #remove invalids
   bio <- bio[(bio$SpecVal %in% c(1,4,7,10) ),]#remove invalids 0=Invalid information	 2=Partly valid information	   https://vocab.ices.dk/?ref=5
-  if(survey=="BBICnSpaOT4" & FIRSTYEAR< 2017 & LASTYEAR > 2017) bio <- bio[bio$Year>=2017,]
+  if(survey=="BBICnSpaOT4" & FIRSTYEAR< 2017 & LASTYEAR > 2017) bio <- bio[bio$Year>=2017,] #no valid data 2010-2016
   #summary( bio$HaulNo)
-  unique( bio$StNo)
+  #unique( bio$StNo)
   bio$HaulID	<- paste(paste(survey,QUARTER,sep=""), bio$Country, #bio$Gear, 
                       bio$Ship,  bio$StNo, bio$HaulNo, bio$Year,sep=":")
   
   samp$HaulID <- paste(paste(survey,QUARTER,sep=""),samp$Country,#samp$Gear,
                        samp$Ship, samp$StNo, samp$HaulNo, samp$YearShot,sep=":" )#HaulNo and StNo ,samp$Month,samp$Day
   # KLASS/RUTH use:  Survey,Country,Quarter,Gear,Ship,StNo,HaulNo,Year,Month,Day
-  
-  
-    #sort(unique(samp$Gear)) # "GOV" "H18"
-    #sort(unique(bio$Gear))  # "ABD" "DHT" "GOV" "GRT" "H18" "HOB"
-    #bio$Gear[bio$Gear=="ABD"] <- "GOV"
-  
-    #library(openxlsx)
-    #gears <- read.xlsx("Fishing_gears_input_RKynoch_FBurns.xlsx")
-    #gear_cats <- gears[,c(1,2,6,7)]
-    #colnames(gear_cats) <- c("Survey","Gear","GearCat","Comment")
-  
-    #bio <- bio[!bio$Gear%in% c("HOB","H18"),]
-    #samp <-samp[!samp$Gear%in% c("HOB","H18"),]
   
   haulidhl <- sort(unique(samp$HaulID))
   haulidhh <- sort(unique(bio$HaulID))
@@ -451,15 +422,6 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
   haulidhlm <- sort(unique(haulidhlm$HaulID) ); length(haulidhlm) 
   100*length(haulidhlm)/nrow(bio) #samp hauls not match in bio
   
-  #haulidm <- sort(c(haulidhlm,haulidhhm))
-  #haulidm <- haulidm[!duplicated(haulidm)]
-  #
-  #unique(samp$HaulNo[!samp$HaulNo %in% bio$HaulNo])#all match
-  #sort(unique(samp$StNo[!samp$StNo %in% bio$StNo]))
-  #sort(unique(bio$StNo[!bio$StNo %in% samp$StNo]))
-  
-  #samp[!samp$StNo %in% bio$StNo,c("Country","Ship","YearShot","StNo","HaulNo")]
-  #view(bio[!(bio$StNo %in% samp$StNo) ,c("Country","Ship","Year","StNo","HaulNo")])
   
    SPPLIST <- LW$ScientificName_WoRMS
    #check which species would be removed by SPPLIST
@@ -477,16 +439,16 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
    if(nrow(bio[bio$SpeciesSciName == "Microchirus (Microchirus) variegatus",]) >0) bio[bio$SpeciesSciName == "Microchirus (Microchirus) variegatus",]$SpeciesSciName <- "Microchirus variegatus"
    if(nrow(bio[bio$SpeciesSciName == "Malacocephalus (Malacocephalus) laevis",]) >0) bio[bio$SpeciesSciName == "Malacocephalus (Malacocephalus) laevis",]$SpeciesSciName <- "Malacocephalus laevis"
    if(nrow(bio[bio$SpeciesSciName == "Engraulis",]) >0) bio[bio$SpeciesSciName == "Engraulis",]$SpeciesSciName <- "Engraulis albidus"
-   bio$ScientificName_WoRMS <- (bio$SpeciesSciName)   #happy to lose snail: "Liparis liparis"
-   #wo-spotted clingfish "Diplecogaster bimaculata"
-   #three-spined stickleback "Gasterosteus aculeatus"   
+   if(nrow(bio[bio$SpeciesSciName == "Trisopterus esmarki",]) >0) bio[bio$SpeciesSciName == "Trisopterus esmarki",]$SpeciesSciName <- "Trisopterus esmarkii"
+   bio$ScientificName_WoRMS <- (bio$SpeciesSciName)#edit
+   
+   #happy to lose snail "Liparis liparis"   #wo-spotted clingfish "Diplecogaster bimaculata"   #three-spined stickleback "Gasterosteus aculeatus"   etc
    
    BIONAM<-ac(unique(bio$SpeciesSciName))
-   BIONAM[!BIONAM %in% SPPLIST]#species excluded 
+   sort(BIONAM[!BIONAM %in% SPPLIST])#species excluded 
    write.table(BIONAM[!BIONAM %in% SPPLIST],paste(OUTPATH,"lostspp_",survey,"_Q",QUARTER,".txt",sep=""))
    
-   #SPPLIST<- SPPLIST[SPPLIST$Habit=="DEMERSAL",]
-   bio <- bio[bio$SpeciesSciName %in% SPPLIST,]#remove rare spp
+   bio <- bio[bio$SpeciesSciName %in% SPPLIST,]#remove rare spp keep 550 species
    bio$SpeciesSciName<-af(ac(bio$SpeciesSciName))  #relevel 131 from >700
    
    print("process_exchange_HL") #moved down
@@ -546,14 +508,16 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
   ave_NetOpen_m<-mean(samp$NetOpen_m)
   #samp$WingSwpVol_CorF <- ave_NetOpen_m / samp$NetOpen_m # scale down if larger than usual net opening
   #"SubFactor",  
-  dhspp <- merge(bio,samp,by="HaulID")
-  with(dhspp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
+  dhspp <- merge(bio,samp,by="HaulID",all = FALSE)
+  # plot(dhspp$ShootLong_degdec, dhspp$ShootLat_degdec); map(add=T)#,xlim=c(4,14)
+  #with(dhspp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
   lostID<-unique(bio[!(bio$HaulID %in% dhspp$HaulID),"HaulID"])#all bio matched with StnNo
    # JR edit - dhspp contains NA lats and longs
   dhspp = dhspp[is.finite(dhspp$ShootLat_degdec) & is.finite(dhspp$ShootLong_degdec),]
    
   if(length(lostID) >0){print(paste("losing", length(lostID) ,"hauls from",length(unique(bio$HaulID)),"when merge bio and samp")) } else { print("successful merge HL and HH to create dhspp")}
   write.table(lostID,paste(OUTPATH,"lostID_",survey,"_Q",QUARTER,".txt",sep=""))
+  rm(bio,samp)
   #bioraw$HaulID<- paste(paste(survey,QUARTER,sep=""), bioraw$Ship, bioraw$YearShot, bioraw$HaulNo,sep="/")#
   #bioraw[(bioraw$HaulID%in% lostID),]
 
@@ -690,7 +654,7 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
   #trophic GUILD - this subsets dhspp so copy as _raw and the replace at end
   if(BYGUILD){#dhspp<-dhspp_raw
     dhspp_raw <- dhspp
-    if(survey == "GNSIntOT1" & USE_GUILD_COVARIATE_SITES | survey == "GNSIntOT1_channel" & USE_GUILD_COVARIATE_SITES){
+    if(survey == "GNSIntOT1" & USE_GUILD_COVARIATE_SITES){
       print("reading GUILD_COVARIATE_SITES")
       #load("Z:/Foodweb Models/Feeding guilds_BX020/Script/results/Ices_rectangles_for_analysis.RData")
       load(file=paste(PROC_SCRIPT,'Processed_data_for_models_13.11.18.RData',sep="")) #fulldat
@@ -740,7 +704,9 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
   print(paste("Finished",survey, "survey",sep=" "))
   dev.off()
   if(SSA_WRITE_NEW) { SSAdf=rbind(SSAdf,SSAdfs)}
-}
+  
+  rm(dhspp)
+} #next survey
 
 if(SSA_WRITE_NEW) { SSAdf=SSAdf[-1,] # first row is null from setup
   write.csv(SSAdf,paste0(RDIR,"/SSA.csv"),row.names = F)
@@ -749,5 +715,6 @@ if(SSA_WRITE_NEW) { SSAdf=SSAdf[-1,] # first row is null from setup
   setwd(paste0(RDIR,"/rectanglesICESdl29oct2021/"))
   writeOGR(spatialSSA, "shp", "SSAspatial" , driver = "ESRI Shapefile", overwrite_layer = T) 
 }
+
 
 print("script complete")

@@ -24,13 +24,14 @@ if(substr(survey,1,2) == "GN"){
 #shapefiles for assessment subdivisions
 require(maptools)
 
-if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","IBTS")){
+if(survey %in% c("GNSIntOT1","GNSIntOT3")){
   SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') )
   if(EHDS_PP) SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_EHDPP/ehu_polygons.shp",sep='') ) 
   if(BYSUBDIV) NAMsubdiv <- "NAME"     #new areas as used for FC/FW3
   #if(BYSUBDIV) NAMsubdiv <- "LFIregion" #old spatial areas - 25 year plan
   NAMsampstrat<-"ICESNAME"
 } 
+
 
 if(survey %in% c("GNSGerBT3")){
   SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSGerBT3/GNSstrat_Atlantis.shp",sep='') ) 
@@ -42,8 +43,9 @@ if(survey %in% c("GNSNetBT3", "GNSBelBT3")){
   SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSNetBT3/GNSstrat_Atlantis.shp",sep='') ) 
   if(BYSUBDIV) NAMsubdiv <- "NAME"
   NAMsampstrat<-"ICESNAME"
-} 
-if(survey=="GNSEngBT3"){ 
+}
+
+if(survey %in% c("GNSEngBT3","GNSIntOT1_channel") ){ 
   SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"EChanEngBeamSimple/EChanBT3Simple.shp",sep=''))
   NAMsubdiv <- "name"
 }
@@ -59,7 +61,7 @@ if(survey=="CSEngBT3") {
   SUBDIV<-readShapeSpatial(paste(SHAPEPATH,"irish_seaBT//NI_IBTS.WGS84.shp",sep=''))
   NAMsubdiv <- "Features"
 }
-if(survey=="CSEngBT3bc"){ 
+if(survey=="CSEngBT3_Bchannel"){ 
   SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"BChanEngBeam/BChanBT3.shp",sep=''))
   NAMsubdiv <- "Stratum"
 }
@@ -112,7 +114,7 @@ if(survey=="GNSFraOT4"){
 #if(OVERWITE_SUBDIV){ BYSUBDIV<-F; if(!SAMP_STRAT){ NAMsampstrat<-NAMsubdiv; SAMP_STRAT<-T }}###01Feb2017
 surveyread<-survey
 if(survey=="GNSBelBT3"){ surveyread<-"GNSIntOT1" } 
-if(survey=="GNSIntOT1_channel"){ surveyread<-"GNSIntOT1" } 
+if(survey=="GNSIntOT1_channel"){ surveyread<-"GNSEngBT3" } 
 if(survey %in% c("BBICFraBT4")){ surveyread<-"CSFraOT4" } 
 if(survey %in% c("CSEngBT1")){ surveyread<-"CSEngBT1_attrib_subdivkm2" }
 ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/",surveyread,".csv",sep=''))
@@ -126,7 +128,7 @@ if(EHDS_PP){  ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep=
 ATTRIB <- ATTRIB[,which(names(ATTRIB) %in% SAMP_FACT )]
 #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
 #subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV
-if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GNSEngBT3","IBTS")){
+if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GNSEngBT3","GNSIntOT1_channel")){
   ATTRIB_SUBDIV <- aggregate(x=ATTRIB$KM2_LAM,by=list(SurvStratum=ATTRIB$SurvStratum), FUN=sum)
   names(ATTRIB_SUBDIV)[2] <- "KM2_LAM"
 }
@@ -148,7 +150,7 @@ if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGer
 #if(QUAD) #replace sampstrat with quads
   ###### feb2019 quadrants
   if(QUAD){
-    if(survey %in% c("GNSIntOT1","GNSIntOT3","IBTS")) SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') ) 
+    if(survey %in% c("GNSIntOT1","GNSIntOT3")) SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') ) 
     if(survey %in% "GNSGerBT3") SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSGerBT3/GNSstrat_Atlantis.shp",sep='') ) 
     if(survey %in% "GNSNetBT3") SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSNetBT3/GNSstrat_Atlantis.shp",sep='') ) 
       
@@ -204,7 +206,7 @@ if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGer
   }
   
 
-  if(!QUAD & (SAMP_STRAT & (survey %in% c("GNSGerBT3", "GNSNetBT3", "GNSIntOT1","GNSIntOT1_channel", "GNSIntOT3","IBTS"))) ){
+  if(!QUAD & (SAMP_STRAT & (survey %in% c("GNSGerBT3", "GNSNetBT3", "GNSIntOT1", "GNSIntOT3"))) ){
     dhspp <- dhspp[,-which(names(dhspp) == "sampstrat")]
     dhspp$sampstrat <- dhspp$ICESStSq
   }
@@ -229,16 +231,6 @@ if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGer
     dhspp <- dhspp[ dhspp$Year>2004,]
     print("Excluded pre 2005 poor sampling")
   }
-  
-  
-  if(survey == "CSEngBT1"){
-  #exclude A J and l as poorly sampled
-  EXCLUDES <- c("StratumA","StratumI","StratumJ")
-  dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
-  ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
-  print("Excluded StratumA, StratumI and StratumJ")
-  }
-  
   
   if(survey=="CSBBFraOT4"){
     #exclude northern strata
@@ -286,6 +278,22 @@ if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGer
     dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
     ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
     print("Excluded VIIj_Slope, VIIb_Slope and VIa_Slope")
+  }
+  
+  if(survey == "CSEngBT1"){
+    #exclude A J and l as poorly sampled 
+    EXCLUDES <- c("StratumA","StratumI","StratumJ")
+    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    print("Excluded StratumA, StratumI and StratumJ")
+  }
+  
+  if(survey == "GNSIntOT1_channel"){
+    #exclude "UKcoast <25m" as poorly sampled 
+    EXCLUDES <- c("UKcoast <25m")
+    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    print("Excluded UKcoast <25m")
   }
   
   #outside survey strata?
