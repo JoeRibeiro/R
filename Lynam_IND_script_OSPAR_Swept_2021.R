@@ -87,7 +87,7 @@ BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
 SAVE <- T # save workspace (after bootstrap)
 FINALPLOTS<-T #create indicator plots with smooths
 FILTER_COUNTRY <- T
-SSA_WRITE_NEW <- F
+SSA_WRITE_NEW <- T
 
 # Catchability for general species groups
 CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
@@ -202,7 +202,7 @@ SSAdf=data.frame('rectangle'='','survey'='')
  
 setwd(MAINDIR) #
 survey_Q_C_S_combinations<-read.csv("R/survey_Q_C_S_combinations.csv")# for IA2017
-for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
+for(combrow in nrow(survey_Q_C_S_combinations):nrow(survey_Q_C_S_combinations)){#16
   #### combrow<-11 #### combrow<-18
   combs=survey_Q_C_S_combinations[combrow,]
   
@@ -262,20 +262,26 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   
   samp <- samp[samp$Quarter==QUARTER,]
 
-  # BTS is downloaded as all countries in one file
-  if(survey_alt_name == "BTS") samp<-samp[samp$Country==COUNTRY,]
+# BTS is downloaded as all countries in one file
+if(GEAR == "BEAM"){ samp<-samp[samp$Country==COUNTRY,]
+samp$DoorSpread <- samp$WingSpread <- samp$BeamWidth
+samp$SweptAreaDSKM2 <- samp$SweptAreaWSKM2 <- samp$SweptAreaBWKM2
+} # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
+# need to split SEA DATA FOR BTS Q3 ENG'
+# where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
+# need to split SEA DATA FOR BTS Q3 ENG'
+if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
+if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3 & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
+if(survey %in% c("CSEngBT3","CSEngBT1") ){
+samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
+samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
+}
 
 
-  # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
-  # need to split SEA DATA FOR BTS Q3 ENG' 
-  # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
-  # need to split SEA DATA FOR BTS Q3 ENG' 
-  if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
-  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
-  if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
-    samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
-    samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
-  }
+  
+  if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
+  if(survey %in% "GNSIntOT1") samp<-samp[samp$ShootLat> 51,]
+
   
     #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
