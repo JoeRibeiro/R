@@ -44,11 +44,9 @@ neg<-function(x) -x
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #location of the data and subscripts
 
-#RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R. Note this will only work if the file is SOURCED, not if it is run in the console. Alternatively, please define your WD
-#MAINDIR<- paste0(strsplit(RDIR,"/R")[[1]],"/")
-#RDIR = paste0(RDIR,"//")
-MAINDIR<- "C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
-RDIR<- paste0(MAINDIR,"R/")
+RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R. Note this will only work if the file is SOURCED, not if it is run in the console. Alternatively, please define your WD
+MAINDIR<- paste0(strsplit(RDIR,"/R")[[1]],"//")
+RDIR = paste0(RDIR,"//")
 
 definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
 definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
@@ -158,7 +156,7 @@ if(MEANTLs) source("Lynam_INDfn_Dec2017_MeanTL.r")# TL output by rectangle and y
 
 #max length observed in ospar dataproduct by species
 #Hyperoplus immaculatus 'Greater sand-eel' were missing -> recorded in GNS IBTS Q1 but without length  treat as Ammodytidae 'sandeel'
-trait_file <- paste(SUBSCRIPTS_TRAITS,"traits_by_species_Mar2019.csv",sep='')#inclelasmo taxa
+trait_file <- paste("traits_by_species_Mar2019.csv",sep='')#inclelasmo taxa
 trait_MAXL <- read.csv(trait_file)
 
 if(BYGUILD){#2020 paper
@@ -654,7 +652,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   #trophic GUILD - this subsets dhspp so copy as _raw and the replace at end
   if(BYGUILD){#dhspp<-dhspp_raw
     dhspp_raw <- dhspp
-    if(survey == "GNSIntOT1" & USE_GUILD_COVARIATE_SITES){
+    if(survey == "GNSIntOT1" & USE_GUILD_COVARIATE_SITES | survey == "GNSIntOT1_channel" & USE_GUILD_COVARIATE_SITES){
       print("reading GUILD_COVARIATE_SITES")
       #load("Z:/Foodweb Models/Feeding guilds_BX020/Script/results/Ices_rectangles_for_analysis.RData")
       load(file=paste(PROC_SCRIPT,'Processed_data_for_models_13.11.18.RData',sep="")) #fulldat

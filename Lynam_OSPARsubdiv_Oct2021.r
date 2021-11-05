@@ -24,7 +24,7 @@ if(substr(survey,1,2) == "GN"){
 #shapefiles for assessment subdivisions
 require(maptools)
 
-if(survey %in% c("GNSIntOT1","GNSIntOT3")){
+if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","IBTS")){
   SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') )
   if(EHDS_PP) SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_EHDPP/ehu_polygons.shp",sep='') ) 
   if(BYSUBDIV) NAMsubdiv <- "NAME"     #new areas as used for FC/FW3
