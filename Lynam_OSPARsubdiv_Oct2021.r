@@ -112,6 +112,7 @@ if(survey=="GNSFraOT4"){
 #if(OVERWITE_SUBDIV){ BYSUBDIV<-F; if(!SAMP_STRAT){ NAMsampstrat<-NAMsubdiv; SAMP_STRAT<-T }}###01Feb2017
 surveyread<-survey
 if(survey=="GNSBelBT3"){ surveyread<-"GNSIntOT1" } 
+if(survey=="GNSIntOT1_channel"){ surveyread<-"GNSIntOT1" } 
 if(survey %in% c("BBICFraBT4")){ surveyread<-"CSFraOT4" } 
 if(survey %in% c("CSEngBT1")){ surveyread<-"CSEngBT1_attrib_subdivkm2" }
 ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/",surveyread,".csv",sep=''))

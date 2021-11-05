@@ -475,7 +475,7 @@ samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
    if(nrow(bio[bio$SpeciesSciName == "Microchirus (Microchirus) variegatus",]) >0) bio[bio$SpeciesSciName == "Microchirus (Microchirus) variegatus",]$SpeciesSciName <- "Microchirus variegatus"
    if(nrow(bio[bio$SpeciesSciName == "Malacocephalus (Malacocephalus) laevis",]) >0) bio[bio$SpeciesSciName == "Malacocephalus (Malacocephalus) laevis",]$SpeciesSciName <- "Malacocephalus laevis"
    if(nrow(bio[bio$SpeciesSciName == "Engraulis",]) >0) bio[bio$SpeciesSciName == "Engraulis",]$SpeciesSciName <- "Engraulis albidus"
-   #happy to lose snail: "Liparis liparis"
+   bio$ScientificName_WoRMS <- (bio$SpeciesSciName)   #happy to lose snail: "Liparis liparis"
    #wo-spotted clingfish "Diplecogaster bimaculata"
    #three-spined stickleback "Gasterosteus aculeatus"   
    

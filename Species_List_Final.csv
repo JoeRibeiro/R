@@ -1,5 +1,5 @@
 ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,rank,FRS_Common Name,LmaxFB,Lmin,LWRa,LWRb,LWRSource
-154271,Abramis,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Cypriniformes,Cyprinidae,Abramis,Genus,NA,0,0,0.01,3,Generic_Cube
+154271,Abramis,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Cypriniformes,Cyprinidae,Abramis,Genus,NA,82,0,0.01,3,Generic_Cube
 126957,Acantholabrus palloni,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Acantholabrus,Species,Scale-rayed wrasse,25,0.86,0.0108,3.074,FishBase
 126279,Acipenser sturio,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Acipenseriformes,Acipenseridae,Acipenser,Species,Sturgeon,600,4.19,0.0041,3.04,FishBase
 871951,Aetomylaeus bovinus,"(Geoffroy Saint-Hilaire, 1817)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Myliobatidae,Pteromylaeus,Species,Bull ray,222,45,0.0182,3,FB_Baysian_(Sub)family-body shape
@@ -202,13 +202,13 @@ ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,
 126287,Gnathophis mystax,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,Gnathophis,Species,Thinlip conger,60,6.86,0.001,3.058,FishBase
 125477,Gobiesocidae,"Bleeker, 1859",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,0,Family,NA,6.5,0,0.01466982,3.003333,Mean_Species
 125537,Gobiidae,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,0,Family,NA,27,0,0.007087382,3.103394118,Mean_Species
-151743,Gobioidei,0,Animalia,Chordata,Actinopteri,Perciformes,0,0,Suborder,NA,0,0,0.01,3,Generic_Cube
+151743,Gobioidei,0,Animalia,Chordata,Actinopteri,Perciformes,0,0,Suborder,NA,27,0,0.01,3,Generic_Cube
 125988,Gobius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Genus,NA,27,0,0.01081637,3.0725,Mean_Species
 126886,Gobius cobitis,"Pallas, 1814",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Giant goby,27,2.08,0.011,3.11,FishBase
 126890,Gobius gasteveni,"Miller, 1974",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Steven's goby,12,1.8,0.0101,3.05,FishBase
 126892,Gobius niger,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Black goby,18,1.2,0.011,3.03,FishBase
 126893,Gobius paganellus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Rock goby,13,1.15,0.0112,3.1,FishBase
-126898,Gobiusculus flavescens,"(Fabricius, 1779)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobiusculus,Species,Two-spotted goby,0,1.68,0.00589,3.12,FB_Baysian_(Sub)family-body shape
+126898,Gobiusculus flavescens,"(Fabricius, 1779)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobiusculus,Species,Two-spotted goby,6,1.68,0.00589,3.12,FB_Baysian_(Sub)family-body shape
 126189,Gonostoma,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Gonostoma,Genus,NA,27.5,0,0.00363,3.07,Mean_Species
 127296,Gonostoma elongatum,"Günther, 1878",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Gonostoma,Species,Elongated bristlemouth fish,27.5,2.06,0.00363,3.07,FB_Baysian_(Sub)family-body shape
 158978,Guttigadus latifrons,"(Holt & Byrne, 1908)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Guttigadus,Species,NONE,18.2,1.95,0.0038,3.12,FB_Baysian_(Sub)family-body shape
@@ -227,7 +227,7 @@ ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,
 126403,Hoplostethus cadenati,"Quéro, 1974",Animalia,Chordata,Actinopteri,Beryciformes,Trachichthyidae,Hoplostethus,Species,Black slimehead,30,1.95,0.0166,3.05,FB_Baysian_(Sub)family-body shape
 159409,Hoplostethus mediterraneus mediterraneus,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Beryciformes,Trachichthyidae,Hoplostethus,Species,Mediterranean slimehead,42,2.06,0.0153,3.0712,FishBase
 126994,Howella brodiei,"Ogilby, 1899",Animalia,Chordata,Actinopteri,Perciformes,Howellidae,Howella,Species,Pelagic basslet,7.6,1.52,0.01122,3.04,FB_Baysian_Body shape
-126995,Howella sherborni,"(Norman, 1930)",Animalia,Chordata,Actinopteri,Perciformes,Howellidae,Howella,Species,Sherborn's pelagic basslet,0,0,0.01122,3.04,FB_Baysian_body shape
+126995,Howella sherborni,"(Norman, 1930)",Animalia,Chordata,Actinopteri,Perciformes,Howellidae,Howella,Species,Sherborn's pelagic basslet,8,0,0.01122,3.04,FB_Baysian_body shape
 105826,Hydrolagus mirabilis,"(Collett, 1904)",Animalia,Chordata,Holocephali,Chimaeriformes,Chimaeridae,Hydrolagus,Species,Large-eyed rabbitfish,52.48,18,0.00309,3.11,FB_Baysian_(Sub)family-body shape
 125823,Hygophum,"Bolin, 1939",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Hygophum,Genus,NA,5.5,0,0.01023,3.11,Mean_Species
 126602,Hygophum benoiti,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Hygophum,Species,Benoit's lantern fish,5.5,1.3,0.01023,3.11,FB_Baysian_(Sub)family-body shape
@@ -263,7 +263,7 @@ ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,
 126906,Lesueurigobius sanzi,"(de Buen, 1918)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Lesueurigobius,Species,Sanzo's goby,11,1.78,0.0067,3.121,FishBase
 105873,Leucoraja circularis,"(Couch, 1838)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Sandy ray,120,12.47,0.00242,3.175,MS-S
 105874,Leucoraja fullonica,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Shagreen ray,120,12.4,0.00211,3.163,MS-S
-271564,Leucoraja lentiginosa,"(Bigelow & Schroeder, 1951)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,INCORRECT DISTRIBUTION,0,0,0.00295,3.21,FB_Baysian_(Sub)family-body shape
+271564,Leucoraja lentiginosa,"(Bigelow & Schroeder, 1951)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,INCORRECT DISTRIBUTION,43,0,0.00295,3.21,FB_Baysian_(Sub)family-body shape
 105876,Leucoraja naevus,"(Müller & Henle, 1841)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Cuckoo ray,71,12,0.0019,3.28,FishBase
 127139,Limanda limanda,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Limanda,Species,Common dab,40,1.6,0.0065,3.15,FishBase
 234519,Liparidae,"Gill, 1861",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,0,Family,NA,15,0,0.018211497,2.955,Mean_Species
@@ -316,7 +316,7 @@ ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,
 127155,Monochirus hispidus,"Rafinesque, 1814",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Monochirus,Species,Whiskered sole,20,1.07,0.01439,3.16,FishBase
 275922,Monolene microstoma,"Cadenat, 1937",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Monolene,Species,Smallmouth moonflounder,20.1,2.1,0.00759,3.09,FB_Baysian_(Sub)family-body shape
 126497,Mora moro,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Mora,Species,Mora,80,2.54,0.0044,3.22,FishBase
-125474,Moridae,"Moreau, 1881",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,0,Family,NA,NA,0,0.00326975,3.149,Mean_Species
+125474,Moridae,"Moreau, 1881",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,0,Family,NA,90,0,0.00326975,3.149,Mean_Species
 126983,Mugil cephalus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Mugil,Species,Flathead (grey) mullet,100,2.09,0.0148,2.95,FishBase
 125546,Mugilidae,"Jarocki, 1822",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,0,Family,NA,100,0,0.010958288,2.995,Mean_Species
 125547,Mullidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,0,Family,NA,40,0,0.008394641,3.135,Mean_Species
@@ -347,7 +347,7 @@ ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,
 126308,Nettastoma melanurum,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Anguilliformes,Nettastomatidae,Nettastoma,Species,Blackfin scorcerer,77.3,7.15,0.00081,3.02,FB_Baysian_(Sub)family-body shape
 125754,Nezumia,"Jordan, 1904 ",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Genus,na,40,0,0.002170096,3.117667,Mean_Species
 126473,Nezumia aequalis,"(Günther, 1878)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,Common Atlantic Grenadier,36,1.75,0.00376,3,FishBase
-183289,Nezumia bairdii,"(Goode & Bean, 1877)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,INCORRECT DISTRIBUTION,0,0,0.00302,3.12,FB_Baysian_(Sub)family-body shape
+183289,Nezumia bairdii,"(Goode & Bean, 1877)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,INCORRECT DISTRIBUTION,40,0,0.00302,3.12,FB_Baysian_(Sub)family-body shape
 126475,Nezumia sclerorhynchus,"(Valenciennes, 1838)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,Roughtip grenadier,36,2.16,0.0009,3.233,FishBase
 125501,Notacanthidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Notacanthiformes,Notacanthidae,0,Family,NA,26,0,0.001106345,3.06,Mean_Species
 126642,Notacanthus bonaparte,"Risso, 1840",Animalia,Chordata,Actinopteri,Notacanthiformes,Notacanthidae,Notacanthus,Species,Shortfin spiny eel,26,1.88,0.0012,3.06,FishBase
@@ -508,7 +508,7 @@ ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,
 126937,Thorogobius ephippiatus,"(Lowe, 1839)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Thorogobius,Species,Leopard-spotted-goby,13,1.89,0.00589,3.12,FB_Baysian_(Sub)family-body shape
 127029,Thunnus thynnus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Thunnus,Species,Bluefin tuna,458,3.04,0.0129,2.92,FishBase
 271684,Torpedo marmorata,"Risso, 1810",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Marbled electric ray,100,12,0.0275,2.9,FishBase
-157868,Torpedo nobiliana,"Bonaparte, 1835",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Electric Ray,0,0,0.0672,2.926,FishBase
+157868,Torpedo nobiliana,"Bonaparte, 1835",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Electric Ray,180,0,0.0672,2.926,FishBase
 271691,Torpedo torpedo,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Eyed electric ray,60,9,0.0302,2.81,FishBase
 127082,Trachinus draco,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Trachinidae,Trachinus,Species,Greater weever,53,1.6,0.0059,3.08,FishBase
 126527,Trachipterus arcticus,"(Brünnich, 1788)",Animalia,Chordata,Actinopteri,Lampriformes,Trachipteridae,Trachipterus,Species,Dealfish,300,3.78,0.00183,3,FishBase
@@ -534,7 +534,7 @@ ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,
 127012,Umbrina cirrosa,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Umbrina,Species,Shi drum,73,2.24,0.0117,3.02,FishBase
 127013,Umbrina ronchus,"Valenciennes, 1843",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Umbrina,Species,Fusca drum,100,2.2,0.00891,3.09,FB_Baysian_Genus-body shape
 127093,Uranoscopus scaber,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Uranoscopidae,Uranoscopus,Species,Stargazer,40,1.92,0.0126,3.08,FishBase
-126503,Urophycis chuss,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,Urophycis,Species,red hake/squirrel hake Questionable DISTRIBUTION,0,0,0.01245,3,FishBase
+126503,Urophycis chuss,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,Urophycis,Species,red hake/squirrel hake Questionable DISTRIBUTION,66,0,0.01245,3,FishBase
 127304,Vinciguerria poweriae,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Stomiiformes,Phosichthyidae,Vinciguerria,Species,Power's deep-water bristle-mouth,4.3,1.51,0.00933,3.09,FB_Baysian_(Sub)family-body shape
 126714,Xenodermichthys copei,"(Gill, 1884)",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,Xenodermichthys,Species,Bluntsnout smooth-head,31,4.97,0.0066,3,FishBase
 159432,Xenolepidichthys dalgleishi,"Gilchrist, 1922",Animalia,Chordata,Actinopteri,Zeiformes,Grammicolepididae,Xenolepidichthys,Species,Spotted tinselfish,15,1.31,0.02451,2.891,FishBase
