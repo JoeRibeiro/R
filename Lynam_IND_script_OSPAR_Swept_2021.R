@@ -48,7 +48,7 @@ RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R.
 MAINDIR<- paste0(strsplit(RDIR,"/R")[[1]],"//")
 RDIR = paste0(RDIR,"//")
 
-definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
+definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp_dir_for_original/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
 definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
 
 
