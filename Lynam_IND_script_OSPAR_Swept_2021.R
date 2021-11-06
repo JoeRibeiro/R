@@ -271,7 +271,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
   if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52 & samp$ShootLong< -3,]
   if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
-  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>= 50.5 & samp$ShootLat< 56,]
+  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>52 & samp$ShootLat< 56,]
   if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
     samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
     samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
