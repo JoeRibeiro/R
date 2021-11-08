@@ -89,7 +89,7 @@ BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
 SAVE <- T # save workspace (after bootstrap)
 FINALPLOTS<-T #create indicator plots with smooths
 FILTER_COUNTRY <- T
-SSA_WRITE_NEW <- F
+SSA_WRITE_NEW <- T
 
 # Catchability for general species groups
 CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
@@ -728,9 +728,9 @@ if(SSA_WRITE_NEW) { SSAdf=SSAdf[-1,] # first row is null from setup
   dpi <- gDifference(spatialSSA, blpi, byid = T)
   
   # bring desired attributes over  
-  dpi$rectangle <- definedSSA$rectangle
-  dpi$Ecoregion<- definedSSA$Ecoregion
-  dpi$survey <- definedSSA$survey
+  dpi$rectangle <- spatialSSA$rectangle
+  dpi$Ecoregion<- spatialSSA$Ecoregion
+  dpi$survey <- spatialSSA$survey
   dpi$dummy <- NULL
   
   # cast from multipolygons to single with disaggregate
