@@ -712,7 +712,34 @@ if(SSA_WRITE_NEW) { SSAdf=SSAdf[-1,] # first row is null from setup
   spatialSSA=sp::merge(rects,SSAdf,on='rectangle',all.x=F,all.y=T, duplicateGeoms = TRUE)
   setwd(paste0(RDIR,"/rectanglesICESdl29oct2021/"))
   writeOGR(spatialSSA, "shp", "SSAspatial" , driver = "ESRI Shapefile", overwrite_layer = T) 
+  # SSA saved to csv and shapefile now.
+  
+  
+  # Split rects into 4 using a grid defined in QGIS.
+  # This grid was made using 'create_grid' tool with a spacing of 0.5 degrees longitude and 0.25 degrees latitude in wgs84. Any other settings were default.
+  quarter_rects_grid = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/qgis_create_grid_spacing_05h_025v_wgs84.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
+  quarter_rects_grid <- sf:::as_Spatial(st_zm(quarter_rects_grid))
+
+  # For some reason I can't find an r function which intersects polygons by a grid to get smaller polygons, hence this long approach which involves merging again afterwards:
+  lpi = gIntersection(spatialSSA,quarter_rects_grid)
+  blpi <- gBuffer(lpi, width = 0.00000001, byid = T)  # create a very thin polygon 
+  dpi <- gDifference(spatialSSA, blpi, byid = T)
+  
+  # bring desired attributes over  
+  dpi$rectangle <- definedSSA$rectangle
+  dpi$Ecoregion<- definedSSA$Ecoregion
+  dpi$survey <- definedSSA$survey
+  dpi$dummy <- NULL
+  
+  # cast from multipolygons to single with disaggregate
+  dpi = sp::disaggregate(dpi)
+  dpi$quadid <- 1:length(dpi)
+  # write
+  dpi = as(dpi, "SpatialPolygonsDataFrame" )
+  writeOGR(dpi, "shp", "SSAspatial_quarters" , driver = "ESRI Shapefile", overwrite_layer = T) 
 }
 
 
 print("script complete")
+
+
