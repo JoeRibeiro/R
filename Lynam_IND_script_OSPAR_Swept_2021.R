@@ -89,7 +89,7 @@ BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
 SAVE <- T # save workspace (after bootstrap)
 FINALPLOTS<-T #create indicator plots with smooths
 FILTER_COUNTRY <- T
-SSA_WRITE_NEW <- T
+SSA_WRITE_NEW <- F
 
 # Catchability for general species groups
 CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
@@ -704,7 +704,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   print(paste("Finished",survey, "survey",sep=" "))
   dev.off()
   if(SSA_WRITE_NEW) { SSAdf=rbind(SSAdf,SSAdfs)}
-  
+  write.csv(dhspp,paste0(MAINDIR,"out/haul_by_spp_",survey,".csv"),row.names = F)
   rm(dhspp)
 } #next survey
 
