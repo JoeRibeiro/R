@@ -267,15 +267,17 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   }
 
   # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
-  # need to split SEA DATA FOR BTS Q3 ENG' 
-  if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
-  if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52 & samp$ShootLong< -3,]
-  if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
-  if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3  & samp$ShootLat>52 & samp$ShootLat< 56,]
-  if(survey %in% c("CSEngBT3","CSEngBT1") ){ 
+  # need to split SEA DATA FOR BTS Q3 ENG'
+    if(survey %in% "CSBBFraOT4") samp<-samp[samp$ShootLat<= 48,]
+    if(survey %in% "CSFraOT4") samp<-samp[samp$ShootLat> 48,]
+    if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
+    if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52 & samp$ShootLong< -3,]
+    if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
+    if(survey %in% "CSEngBT3") samp<-samp[samp$ShootLong< -3 & samp$ShootLat>= 52 & samp$ShootLat< 56,]
+    if(survey %in% c("CSEngBT3","CSEngBT1") ){
     samp$DoorSpread[is.na(samp$DoorSpread) | samp$DoorSpread<2] <- 4
     samp$WingSpread[is.na(samp$WingSpread) | samp$WingSpread<2] <- 4
-  }
+    }
   
     #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
