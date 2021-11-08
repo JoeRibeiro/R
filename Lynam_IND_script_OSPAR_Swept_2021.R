@@ -89,7 +89,7 @@ BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
 SAVE <- T # save workspace (after bootstrap)
 FINALPLOTS<-T #create indicator plots with smooths
 FILTER_COUNTRY <- T
-SSA_WRITE_NEW <- F
+SSA_WRITE_NEW <- T
 
 # Catchability for general species groups
 CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
@@ -136,7 +136,7 @@ setwd(RDIR)
 
 #additional functions
 source("required.funcs.r")              # using tapply.ID
-source("Lynam_INDfn_Oct2021_guild.r") #Feb2019 now use QUAD to average biomass prior to indicators # Dec2017 update to include TAXA_GROUPINGS, Jan to calc Loo and Lm through Lynam_INDfn_Jan2018_Mtrait.r; Mar to include BX020_guilds
+source("Lynam_INDfn_Nov2021.r") #Feb2019 now use QUAD to average biomass prior to indicators # Dec2017 update to include TAXA_GROUPINGS, Jan to calc Loo and Lm through Lynam_INDfn_Jan2018_Mtrait.r; Mar to include BX020_guilds
 source("Lynam_INDPLOTFN_Nov2018.r")             # plot options 
 if(BOOTSTRAP) source("Lynam_IND_BOOTfn_Aug_2017 - OSPAR.r")  # bootstrap the hauls by STSQ and subdiv
 
@@ -256,6 +256,10 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   ##load data
   #sampling data 
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
+  samp$StatRec <- ices.rect2(ices.rect(samp$StatRec)$lon,ices.rect(samp$StatRec)$lat)
+  library(mapplots)
+  ices.rect(samp$StatRec)
+  
   print(max(samp$Ship))
   
   samp <- samp[samp$Quarter==QUARTER,]
