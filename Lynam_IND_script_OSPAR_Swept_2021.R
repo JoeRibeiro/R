@@ -28,6 +28,8 @@ library(spatstat)
 library(rgeos)    
 library(stringr) 
 library(sf)
+library(mapplots)
+
 # Known Warning messages to sort out
 #1: readShapeSpatial is deprecated; use rgdal::readOGR or sf::st_read 
 #2: readShapePoly is deprecated; use rgdal::readOGR or sf::st_read 
@@ -257,9 +259,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   #sampling data 
   samp <- read.table(SAMP_FILE ,as.is = c(1,2,4,5,6,10,11,23),header = TRUE,sep=",") 
   samp$StatRec <- ices.rect2(ices.rect(samp$StatRec)$lon,ices.rect(samp$StatRec)$lat)
-  library(mapplots)
-  ices.rect(samp$StatRec)
-  
+
   print(max(samp$Ship))
   
   samp <- samp[samp$Quarter==QUARTER,]
@@ -385,7 +385,6 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   } else {
     # Filter down to SSA
     surveySSA = definedSSA[definedSSA$survey==survey,]
-    samp = samp[surveySSA,]
   }
   samp@data$ShootLong_degdec = samp$ShootLong_degdec
   samp@data$ShootLat_degdec = samp$ShootLat_degdec
@@ -497,12 +496,12 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   
   #now merge datasets on haul and species for indicator script
   #bio <- read.csv(BIOL_FILE) #reduce memory usage
-  bio <- bio[,c("HaulID","SpeciesSciName","FishLength_cm","DensBiom_kg_Sqkm","SubFactor")]
+  bio <- bio[,c("HaulID","SpeciesSciName","FishLength_cm","DensBiom_kg_Sqkm","DensAbund_N_Sqkm","SubFactor")]
   bio$sciName<-as.character(bio$SpeciesSciName)
   
   
   samp <-samp[,c("HaulDur_min","DataType","HaulID","YearShot","ShootLat_degdec","ShootLong_degdec",
-                 "ICESStSq","SurvStratum","WingSwpArea_sqkm","WingSwpVol_CorF","NetOpen_m")] 
+                 "ICESStSq","SurvStratum","WingSwpArea_sqkm","WingSwpVol_CorF","NetOpen_m","Gear","Ship","YearShot","MonthShot","Day","TimeShot")] 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  #add efficiency of E=GOV gear
   #use gear efficiency to correct catches
   #the probability that fish in the path of a trawl will be caught and retained
@@ -515,13 +514,28 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   dhspp <- merge(bio,samp,by="HaulID",all = FALSE)
   # plot(dhspp$ShootLong_degdec, dhspp$ShootLat_degdec); map(add=T)#,xlim=c(4,14)
   #with(dhspp, xyplot(ShootLat_degdec~ShootLong_degdec | ac(YearShot) ))
-  lostID<-unique(bio[!(bio$HaulID %in% dhspp$HaulID),"HaulID"])#all bio matched with StnNo
+  lostID_from_lack_of_matching_haulID<-unique(bio[!(bio$HaulID %in% dhspp$HaulID),"HaulID"])#all bio matched with StnNo
    # JR edit - dhspp contains NA lats and longs
   dhspp = dhspp[is.finite(dhspp$ShootLat_degdec) & is.finite(dhspp$ShootLong_degdec),]
    
-  if(length(lostID) >0){print(paste("losing", length(lostID) ,"hauls from",length(unique(bio$HaulID)),"when merge bio and samp")) } else { print("successful merge HL and HH to create dhspp")}
-  write.table(lostID,paste(OUTPATH,"lostID_",survey,"_Q",QUARTER,".txt",sep=""))
+  if(length(lostID_from_lack_of_matching_haulID) >0){print(paste("losing", length(lostID_from_lack_of_matching_haulID) ,"hauls from",length(unique(bio$HaulID)),"when merge bio and samp")) } else { print("successful merge HL and HH to create dhspp")}
+  write.table(lostID_from_lack_of_matching_haulID,paste(OUTPATH,"lostID_from_lack_of_matching_haulID_",survey,"_Q",QUARTER,".txt",sep=""))
   rm(bio,samp)
+  
+  # Make spatial, filter by SSA, then drop spatial aspect
+  predhspp <- dhspp
+  coordinates(dhspp) <- ~ ShootLong_degdec + ShootLat_degdec
+  proj4string(dhspp) <- CRS("+init=epsg:4326")
+  dhspp = dhspp[surveySSA,]
+  dhspp@data$ShootLong_degdec = dhspp$ShootLong_degdec
+  dhspp@data$ShootLat_degdec = dhspp$ShootLat_degdec
+  dhspp=dhspp@data
+
+  lostID_from_SSA_filtering<-unique(predhspp[!(predhspp$HaulID %in% dhspp$HaulID),"HaulID"])#all predhspp matched with StnNo
+  if(length(lostID_from_SSA_filtering) >0){print(paste("losing", length(lostID_from_SSA_filtering) ,"hauls from",length(unique(predhspp$HaulID)),"when merge predhspp and samp")) } else { print("successful merge HL and HH to create dhspp")}
+  write.table(lostID_from_SSA_filtering,paste(OUTPATH,"lostID_from_SSA_filtering_",survey,"_Q",QUARTER,".txt",sep=""))
+  rm(predhspp)
+  
   #bioraw$HaulID<- paste(paste(survey,QUARTER,sep=""), bioraw$Ship, bioraw$YearShot, bioraw$HaulNo,sep="/")#
   #bioraw[(bioraw$HaulID%in% lostID),]
 
@@ -532,9 +546,9 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
     # subfactor to raise measured num at length to total num fish in haul 
     # datatype C is per hour #dhspp$DataType == C DATA ARE CPUE, SO
     # if R or S: HLNoAtLngt*SubFactor   
-    #dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$DensAbund_N_Sqkm <-
-     # dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$DensAbund_N_Sqkm *
-      #dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$SubFactor
+    dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$DensAbund_N_Sqkm <-
+    dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$DensAbund_N_Sqkm *
+    dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$SubFactor
     
     dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensBiom_kg_Sqkm),]$DensBiom_kg_Sqkm <-
       dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensBiom_kg_Sqkm),]$DensBiom_kg_Sqkm *
@@ -543,10 +557,11 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
     #standardise per 60 min tow with DurRaise
     dhspp$DurRaise <- dhspp$HaulDur_min/60;  # per hour # hist(dhspp$DurRaise)  
     if(nrow(dhspp[dhspp$DataType=="C" ,])>0) dhspp[dhspp$DataType=="C" ,]$DurRaise <- 1 # already per hour
-    #dhspp$DensAbund_N_Sqkm <- dhspp$DensAbund_N_Sqkm/dhspp$DurRaise  #num per 60 min as in 'C'
+    dhspp$DensAbund_N_Sqkm <- dhspp$DensAbund_N_Sqkm/dhspp$DurRaise  #num per 60 min as in 'C'
     dhspp$DensBiom_kg_Sqkm <- dhspp$DensBiom_kg_Sqkm/dhspp$DurRaise  #CPUE per 60 min
     
     ##add swept area from ICES?
+    dhspp$DensAbund_N_Sqkm<-( dhspp$DensAbund_N_Sqkm*dhspp$DurRaise)/ dhspp$WingSwpArea_sqkm
     dhspp$DensBiom_kg_Sqkm<-( dhspp$DensBiom_kg_Sqkm*dhspp$DurRaise)/ dhspp$WingSwpArea_sqkm
     
   #rm(samp,bio)
@@ -596,6 +611,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   # density*samp$WingSwptVol_CorF
   #if(survey!="IBTS") dhspp[dhspp$DEMPEL %in% "PEL",]$DensBiom_kg_Sqkm <- dhspp[dhspp$DEMPEL %in% "PEL",]$DensBiom_kg_Sqkm*dhspp[dhspp$DEMPEL %in% "PEL",]$WingSwpVol_CorF
   if(CATCHABILITY_COR_WALKER) dhspp[dhspp$DEMPEL %in% "PEL",]$DensBiom_kg_Sqkm_beforeQmult <- dhspp[dhspp$DEMPEL %in% "PEL",]$DensBiom_kg_Sqkm_beforeQmult*dhspp[dhspp$DEMPEL %in% "PEL",]$WingSwpVol_CorF
+  if(CATCHABILITY_COR_WALKER) dhspp[dhspp$DEMPEL %in% "PEL",]$DensAbund_N_Sqkm_beforeQmult <- dhspp[dhspp$DEMPEL %in% "PEL",]$DensAbund_N_Sqkm_beforeQmult*dhspp[dhspp$DEMPEL %in% "PEL",]$WingSwpVol_CorF
 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #### Calc ALL indicators ####  

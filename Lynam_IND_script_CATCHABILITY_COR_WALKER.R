@@ -106,3 +106,6 @@ if( nrow(NAS) > 0 | nrow(INFS)>0 ){
 }
 bio$DensBiom_kg_Sqkm_beforeQmult <- bio$DensBiom_kg_Sqkm
 bio$DensBiom_kg_Sqkm <- bio$DensBiom_kg_Sqkm*bio$mult
+
+bio$DensAbund_kg_Sqkm_beforeQmult <- bio$DensAbund_kg_Sqkm
+bio$DensAbund_kg_Sqkm <- bio$DensAbund_kg_Sqkm*bio$mult
