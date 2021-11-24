@@ -342,7 +342,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   rects <- sf:::as_Spatial(st_zm(rects))
   coordinates(samp) <- ~ ShootLong_degdec + ShootLat_degdec
   proj4string(samp) <- CRS("+init=epsg:4326")
-  proj4string(rects) <- CRS("+init=epsg:4326")
+  suppressWarnings(proj4string(rects) <- CRS("+init=epsg:4326"))
   if(SSA_WRITE_NEW){
   SSAlist=list()
     for(re in 1:nrow(rects)){
