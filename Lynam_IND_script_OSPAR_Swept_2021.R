@@ -762,6 +762,12 @@ if(SSA_WRITE_NEW) { SSAdf=SSAdf[-1,] # first row is null from setup
 }
 
 
+
+
+# append all the outputs that relate to Chibuzor modelling work. Column for sampstrat and SurvStratum is inconsistent across files, so dropping these. 
+fileslisted=list.files(OUTPATHstem,'.csv',full.names=T); file1=read.csv(fileslisted[1]); file1 = file1[ , -which(names(file1) %in% c("sampstrat","SurvStratum"))]
+for(file in 2:length(fileslisted)){file2=read.csv(fileslisted[file]); file2 = file2[ , -which(names(file2) %in% c("sampstrat","SurvStratum"))]; file1=rbind(file1,file2)}
+write.csv(file1,paste0(OUTPATHstem,"haul_by_spp_all.csv"))
 print("script complete")
 
 
