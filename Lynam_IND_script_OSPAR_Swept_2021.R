@@ -77,7 +77,7 @@ LW<-read.csv(SPPFILE)
  LW$"Max.L..cm." <- LW$LmaxFB
  #LW_COLS<-c("ScientificName_WoRMS","a","b","Max.L..cm.") #this is used in Lynam_IND_script_process_exchange_HL2021.r
 #where save output?
-OUTPATHstem<-paste(MAINDIR,"out/",sep="")
+OUTPATHstem<-paste(MAINDIR,"out_for_chibuzor2/",sep="")
 
 ## choices for analyses upfront
 

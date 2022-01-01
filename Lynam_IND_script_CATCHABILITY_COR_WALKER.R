@@ -1,5 +1,10 @@
-#use gear efficiency to correct catches
-#the probability that fish in the path of a trawl will be caught and retained
+# Author: C Lynam, Cefas
+# Contact: chris.lynam@cefas.co.uk
+# Version: 2
+# Date: Dec 2021
+# use gear efficiency to correct catches
+# the probability that fish in the path of a trawl will be caught and retained
+# moved PEL vol cor here
 
 # add catchability by length group
 Q <- read.csv("//lowfilecds/Function/Eco Indicators/DATRASoutput/Walker_GearEfficiency_ICESJMarSci17_Supp/EfficiencyTab.csv")
@@ -109,3 +114,13 @@ bio$DensBiom_kg_Sqkm <- bio$DensBiom_kg_Sqkm*bio$mult
 
 bio$DensAbund_kg_Sqkm_beforeQmult <- bio$DensAbund_kg_Sqkm
 bio$DensAbund_kg_Sqkm <- bio$DensAbund_kg_Sqkm*bio$mult
+
+#for pelagics use volume correction
+# density*samp$WingSwptVol_CorF
+#if(survey!="IBTS") dhspp[dhspp$DEMPEL %in% "PEL",]$DensBiom_kg_Sqkm <- dhspp[dhspp$DEMPEL %in% "PEL",]$DensBiom_kg_Sqkm*dhspp[dhspp$DEMPEL %in% "PEL",]$WingSwpVol_CorF
+if(nrow(dhspp[dhspp$DEMPEL %in% "PEL",])>0){
+  dhspp[dhspp$DEMPEL %in% "PEL",]$DensBiom_kg_Sqkm_beforeQmult <- dhspp[dhspp$DEMPEL %in% "PEL",]$DensBiom_kg_Sqkm_beforeQmult*dhspp[dhspp$DEMPEL %in% "PEL",]$WingSwpVol_CorF
+  dhspp[dhspp$DEMPEL %in% "PEL",]$DensAbund_N_Sqkm_beforeQmult <- dhspp[dhspp$DEMPEL %in% "PEL",]$DensAbund_N_Sqkm_beforeQmult*dhspp[dhspp$DEMPEL %in% "PEL",]$WingSwpVol_CorF
+}
+
+

@@ -1,0 +1,4 @@
+Surveynam1,Surveynam2,Quarter,Country,Sea,LFI_threshold,Gear,Species,hhfilename,hlfilename,strata,SAMP_STRAT,BYSUBDIV,First_year,Last_year,Std_gear,Std_gear_subscripts,MinTrawlDuration,MaxTrawlDuration
+WAScoOT3_hist,SCOROC,3,GB-SCT,WA,35,GOV,DEM,HH-ROCKALL.csv,HL-ROCKALL.csv,SWC_Q3.shp,FALSE,TRUE,1999,2009,GOV,,13,66
+CSScoOT1_hist,SCOWCGFS,1,GB-SCT,CS,35,GOV,DEM,HH-SWC-IBTS.csv,HL-SWC-IBTS.csv,SWC_Q1.shp,FALSE,TRUE,1985,2010,GOV,,13,66
+CSScoOT4_hist,SCOWCGFS,4,GB-SCT,CS,40,GOV,DEM,HH-SWC-IBTS.csv,HL-SWC-IBTS.csv,SWC_Q4.shp,FALSE,TRUE,1985,2010,GOV,,13,66

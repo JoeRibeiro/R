@@ -1,0 +1,897 @@
+[1] "Calc Biomass and Indicators"
+>   FILENAM<-paste(OUTPATH,survey,"_",format(Sys.time(), "%d%b%Y"),sep="")
+[1] "Finished BBICFraBT4 survey"
+>   rm(dhspp)
+> combrow
+[1] 20
+> source('C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/R/Lynam_IND_script_OSPAR_Swept_2021.R')
+Reading layer `SSAspatial' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\shp_dir_for_original\SSAspatial.shp' using driver `ESRI Shapefile'
+Simple feature collection with 861 features and 18 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -16 ymin: 36 xmax: 13 ymax: 62
+geographic CRS: WGS 84
+[1] "CSEngBT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 954 hauls from 1467 when merge bio and samp"
+[1] "losing 70 hauls from 513 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\WChanEngBeam\WChanBT4.shp", layer: "WChanBT4"
+with 23 features
+It has 4 fields
+[1] "losing 1474 HL rows from 93866 when  when excluding strata"
+[1] "Excluded StratumA, StratumI and StratumJ"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2016" "survey area not fully covered in 2017" "survey area not fully covered in 2018"
+[4] "survey area not fully covered in 2019"
+[1] "DEM"
+[1] "Final plots"
+[1] "Finished CSEngBT1 survey"
+[1] "GNSBelBT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 11648 hauls from 12628 when merge bio and samp"
+[1] "losing 2 hauls from 980 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSNetBT3\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 96 features
+It has 9 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+ [1] "survey area not fully covered in 2004" "survey area not fully covered in 2005" "survey area not fully covered in 2006"
+ [4] "survey area not fully covered in 2007" "survey area not fully covered in 2008" "survey area not fully covered in 2009"
+ [7] "survey area not fully covered in 2010" "survey area not fully covered in 2011" "survey area not fully covered in 2012"
+[10] "survey area not fully covered in 2013" "survey area not fully covered in 2014" "survey area not fully covered in 2015"
+[13] "survey area not fully covered in 2016" "survey area not fully covered in 2017" "survey area not fully covered in 2018"
+[16] "survey area not fully covered in 2019" "survey area not fully covered in 2020"
+[1] "DEM"
+[1] "Final plots"
+[1] "Finished GNSBelBT3 survey"
+[1] "GNSGerBT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 11400 hauls from 12628 when merge bio and samp"
+[1] "losing 141 hauls from 1228 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSGerBT3\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 20 features
+It has 9 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2000"
+[1] "DEM"
+[1] "Final plots"
+[1] "Finished GNSGerBT3 survey"
+[1] "GNSNetBT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 9400 hauls from 12628 when merge bio and samp"
+[1] "losing 136 hauls from 3228 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSNetBT3\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 96 features
+It has 9 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "DEM"
+[1] "Final plots"
+[1] "Finished GNSNetBT3 survey"
+[1] "CSEngBT3_Bchannel"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 11463 hauls from 12628 when merge bio and samp"
+[1] "losing 34 hauls from 1165 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\BChanEngBeam\BChanBT3.shp", layer: "BChanBT3"
+with 1 features
+It has 7 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "DEM"
+[1] "Final plots"
+[1] "Finished CSEngBT3_Bchannel survey"
+[1] "WAScoOT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 3 hauls from 415 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\SWC-RockQ3.WGS84\SWC_Q3.shp", layer: "SWC_Q3"
+with 4 features
+It has 6 fields
+[1] "losing 7467 HL rows from 52071 when  when excluding strata"
+[1] "Excluded mylightblue_lam"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished WAScoOT3 survey"
+[1] "WASpaOT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 81 hauls from 1198 when merge bio and samp"
+[1] "losing 12 hauls from 1117 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Sp-PorcGFS.WGS84\Porcupine.WGS84.shp", layer: "Porcupine.WGS84"
+with 6 features
+It has 6 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished WASpaOT3 survey"
+[1] "BBICnSpaOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 669 hauls from 1799 when merge bio and samp"
+[1] "losing 4 hauls from 1130 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Sp-NGFS.WGS84\Sp_North.WGS84.shp", layer: "Sp_North.WGS84"
+with 15 features
+It has 6 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished BBICnSpaOT4 survey"
+[1] "BBICPorOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 168 hauls from 1340 when merge bio and samp"
+[1] "losing 26 hauls from 1172 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\BBICPorOT4\Contour3strata_sector.shp", layer: "Contour3strata_sector"
+with 34 features
+It has 5 fields
+[1] "losing 2900 HL rows from 67270 when excluding strata"
+[1] "Excluded strata 17, 21, 37 and 42"
+[1] "Excluded pre 2005 poor sampling"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2006" "survey area not fully covered in 2011" "survey area not fully covered in 2014"
+[4] "survey area not fully covered in 2016" "survey area not fully covered in 2018"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished BBICPorOT4 survey"
+[1] "BBICsSpaOT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 56 hauls from 713 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Sp-Cadiz.WGS84\Sp_Cadiz.WGS84.shp", layer: "Sp_Cadiz.WGS84"
+with 5 features
+It has 8 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2007" "survey area not fully covered in 2010"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished BBICsSpaOT1 survey"
+[1] "BBICsSpaOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 1 hauls from 706 when merge bio and samp"
+[1] "losing 6 hauls from 705 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Sp-Cadiz.WGS84\Sp_Cadiz.WGS84.shp", layer: "Sp_Cadiz.WGS84"
+with 5 features
+It has 8 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished BBICsSpaOT4 survey"
+[1] "CSBBFraOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 1490 hauls from 3283 when merge bio and samp"
+[1] "losing 2 hauls from 1793 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Fr-EVHOE.WGS84\EVHOE.WGS84.shp", layer: "EVHOE.WGS84"
+with 23 features
+It has 7 fields
+[1] "losing 13103 HL rows from 224771 when  when excluding strata"
+[1] "Excluded northern strata"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2000" "survey area not fully covered in 2017"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished CSBBFraOT4 survey"
+[1] "CSFraOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 1795 hauls from 3283 when merge bio and samp"
+[1] "losing 98 hauls from 1488 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Fr-EVHOE.WGS84_original\EVHOE.WGS84.shp", layer: "EVHOE.WGS84"
+with 29 features
+It has 8 fields
+[1] "losing 36398 HL rows from 211319 when  when excluding strata"
+[1] "Excluded southern strata, deep and poorly sampled"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished CSFraOT4 survey"
+[1] "CSIreOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 195 hauls from 2880 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\IGFS.WGS84\IGFS.WGS84.shp", layer: "IGFS.WGS84"
+with 15 features
+It has 9 fields
+[1] "losing 46245 HL rows from 488725 when  when excluding strata"
+[1] "Excluded VIIj_Slope, VIIb_Slope and VIa_Slope"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+ [1] "survey area not fully covered in 2003" "survey area not fully covered in 2004" "survey area not fully covered in 2005"
+ [4] "survey area not fully covered in 2006" "survey area not fully covered in 2007" "survey area not fully covered in 2008"
+ [7] "survey area not fully covered in 2009" "survey area not fully covered in 2010" "survey area not fully covered in 2011"
+[10] "survey area not fully covered in 2012" "survey area not fully covered in 2013" "survey area not fully covered in 2014"
+[13] "survey area not fully covered in 2015" "survey area not fully covered in 2016" "survey area not fully covered in 2017"
+[16] "survey area not fully covered in 2018" "survey area not fully covered in 2019" "survey area not fully covered in 2020"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished CSIreOT4 survey"
+[1] "CSNIrOT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 9 hauls from 769 when merge bio and samp"
+[1] "losing 4 hauls from 760 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\irish_seaBT\NI_IBTS.WGS84.shp", layer: "NI_IBTS.WGS84"
+with 4 features
+It has 4 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished CSNIrOT1 survey"
+[1] "CSNIrOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 8 hauls from 718 when merge bio and samp"
+[1] "losing 12 hauls from 710 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\irish_seaBT\NI_IBTS.WGS84.shp", layer: "NI_IBTS.WGS84"
+with 4 features
+It has 4 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished CSNIrOT4 survey"
+[1] "CSScoOT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 65 hauls from 616 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\SWCQ1.WGS84\SWC_Q1.shp", layer: "SWC_Q1"
+with 11 features
+It has 4 fields
+[1] "losing 4239 HL rows from 92229 when  when excluding strata"
+[1] "Excluded red1_lam"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished CSScoOT1 survey"
+[1] "CSScoOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 88 hauls from 552 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\SWCQ4.WGS84\SWC_Q4.shp", layer: "SWC_Q4"
+with 11 features
+It has 4 fields
+[1] "Excluded pre 1997 poor sampling"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2011" "survey area not fully covered in 2013" "survey area not fully covered in 2015"
+[4] "survey area not fully covered in 2016" "survey area not fully covered in 2017"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished CSScoOT4 survey"
+[1] "GNSFraOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 739 hauls from 2810 when merge bio and samp"
+[1] "losing 84 hauls from 2071 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNSFraOT4\GNSFraOT4_EngBT3Simple.shp", layer: "GNSFraOT4_EngBT3Simple"
+with 142 features
+It has 7 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished GNSFraOT4 survey"
+[1] "GNSIntOT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 87 hauls from 15058 when merge bio and samp"
+[1] "losing 428 hauls from 14971 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSIntOT\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 177 features
+It has 24 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished GNSIntOT1 survey"
+[1] "GNSIntOT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 2135 hauls from 9775 when merge bio and samp"
+[1] "losing 127 hauls from 7640 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSIntOT\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 177 features
+It has 24 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2000"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished GNSIntOT3 survey"
+[1] "GNSIntOT1_channel"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 14830 hauls from 15058 when merge bio and samp"
+[1] "losing 31 hauls from 228 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSIntOT\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 177 features
+It has 24 fields
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\EChanEngBeamSimple\EChanBT3Simple.shp", layer: "EChanBT3Simple"
+with 3 features
+It has 10 fields
+[1] "losing 654 HL rows from 20713 when  when excluding strata"
+[1] "Excluded UKcoast <25m"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+ [1] "survey area not fully covered in 2007" "survey area not fully covered in 2008" "survey area not fully covered in 2009"
+ [4] "survey area not fully covered in 2010" "survey area not fully covered in 2011" "survey area not fully covered in 2012"
+ [7] "survey area not fully covered in 2013" "survey area not fully covered in 2014" "survey area not fully covered in 2015"
+[10] "survey area not fully covered in 2016" "survey area not fully covered in 2017" "survey area not fully covered in 2018"
+[13] "survey area not fully covered in 2019" "survey area not fully covered in 2020"
+[1] "ALL"
+[1] "Final plots"
+[1] "Finished GNSIntOT1_channel survey"
+[1] "WAScoOT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 3 hauls from 415 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\SWC-RockQ3.WGS84\SWC_Q3.shp", layer: "SWC_Q3"
+with 4 features
+It has 6 fields
+[1] "losing 7467 HL rows from 52071 when  when excluding strata"
+[1] "Excluded mylightblue_lam"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished WAScoOT3 survey"
+[1] "WASpaOT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 81 hauls from 1198 when merge bio and samp"
+[1] "losing 12 hauls from 1117 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Sp-PorcGFS.WGS84\Porcupine.WGS84.shp", layer: "Porcupine.WGS84"
+with 6 features
+It has 6 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished WASpaOT3 survey"
+[1] "BBICnSpaOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 669 hauls from 1799 when merge bio and samp"
+[1] "losing 4 hauls from 1130 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Sp-NGFS.WGS84\Sp_North.WGS84.shp", layer: "Sp_North.WGS84"
+with 15 features
+It has 6 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished BBICnSpaOT4 survey"
+[1] "BBICPorOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 168 hauls from 1340 when merge bio and samp"
+[1] "losing 26 hauls from 1172 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\BBICPorOT4\Contour3strata_sector.shp", layer: "Contour3strata_sector"
+with 34 features
+It has 5 fields
+[1] "losing 2900 HL rows from 67270 when excluding strata"
+[1] "Excluded strata 17, 21, 37 and 42"
+[1] "Excluded pre 2005 poor sampling"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2006" "survey area not fully covered in 2011" "survey area not fully covered in 2014"
+[4] "survey area not fully covered in 2016" "survey area not fully covered in 2018"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished BBICPorOT4 survey"
+[1] "BBICsSpaOT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 56 hauls from 713 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Sp-Cadiz.WGS84\Sp_Cadiz.WGS84.shp", layer: "Sp_Cadiz.WGS84"
+with 5 features
+It has 8 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2007" "survey area not fully covered in 2010"
+[1] "PEL"
+[1] "<5 species recorded in group PEL"
+[1] "<5 species recorded in group PEL"
+[1] "Final plots"
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'object' in selecting a method for function 'summary': invalid type (NULL) for variable 'DATA2PLOT'
+In addition: Warning messages:
+1: In if (is.na(GEARSUBSCRIPTS)) GEARSUBSCRIPTS <- "" :
+  the condition has length > 1 and only the first element will be used
+2: In if (is.na(GEARSUBSCRIPTS)) GEARSUBSCRIPTS <- "" :
+  the condition has length > 1 and only the first element will be used
+3: In if (is.na(GEARSUBSCRIPTS)) GEARSUBSCRIPTS <- "" :
+  the condition has length > 1 and only the first element will be used
+[1] "Finished BBICsSpaOT1 survey"
+[1] "BBICsSpaOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 1 hauls from 706 when merge bio and samp"
+[1] "losing 6 hauls from 705 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Sp-Cadiz.WGS84\Sp_Cadiz.WGS84.shp", layer: "Sp_Cadiz.WGS84"
+with 5 features
+It has 8 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "<5 species recorded in group PEL"
+[1] "<5 species recorded in group PEL"
+[1] "Final plots"
+Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument 'object' in selecting a method for function 'summary': invalid type (NULL) for variable 'DATA2PLOT'
+[1] "Finished BBICsSpaOT4 survey"
+[1] "CSBBFraOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 1490 hauls from 3283 when merge bio and samp"
+[1] "losing 2 hauls from 1793 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Fr-EVHOE.WGS84\EVHOE.WGS84.shp", layer: "EVHOE.WGS84"
+with 23 features
+It has 7 fields
+[1] "losing 13103 HL rows from 224771 when  when excluding strata"
+[1] "Excluded northern strata"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2000" "survey area not fully covered in 2017"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished CSBBFraOT4 survey"
+[1] "CSFraOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 1795 hauls from 3283 when merge bio and samp"
+[1] "losing 98 hauls from 1488 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\Fr-EVHOE.WGS84_original\EVHOE.WGS84.shp", layer: "EVHOE.WGS84"
+with 29 features
+It has 8 fields
+[1] "losing 36398 HL rows from 211319 when  when excluding strata"
+[1] "Excluded southern strata, deep and poorly sampled"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished CSFraOT4 survey"
+[1] "CSIreOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 195 hauls from 2880 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\IGFS.WGS84\IGFS.WGS84.shp", layer: "IGFS.WGS84"
+with 15 features
+It has 9 fields
+[1] "losing 46245 HL rows from 488725 when  when excluding strata"
+[1] "Excluded VIIj_Slope, VIIb_Slope and VIa_Slope"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+ [1] "survey area not fully covered in 2003" "survey area not fully covered in 2004" "survey area not fully covered in 2005"
+ [4] "survey area not fully covered in 2006" "survey area not fully covered in 2007" "survey area not fully covered in 2008"
+ [7] "survey area not fully covered in 2009" "survey area not fully covered in 2010" "survey area not fully covered in 2011"
+[10] "survey area not fully covered in 2012" "survey area not fully covered in 2013" "survey area not fully covered in 2014"
+[13] "survey area not fully covered in 2015" "survey area not fully covered in 2016" "survey area not fully covered in 2017"
+[16] "survey area not fully covered in 2018" "survey area not fully covered in 2019" "survey area not fully covered in 2020"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished CSIreOT4 survey"
+[1] "CSNIrOT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 9 hauls from 769 when merge bio and samp"
+[1] "losing 4 hauls from 760 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\irish_seaBT\NI_IBTS.WGS84.shp", layer: "NI_IBTS.WGS84"
+with 4 features
+It has 4 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished CSNIrOT1 survey"
+[1] "CSNIrOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 8 hauls from 718 when merge bio and samp"
+[1] "losing 12 hauls from 710 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\irish_seaBT\NI_IBTS.WGS84.shp", layer: "NI_IBTS.WGS84"
+with 4 features
+It has 4 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished CSNIrOT4 survey"
+[1] "CSScoOT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 65 hauls from 616 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\SWCQ1.WGS84\SWC_Q1.shp", layer: "SWC_Q1"
+with 11 features
+It has 4 fields
+[1] "losing 4239 HL rows from 92229 when  when excluding strata"
+[1] "Excluded red1_lam"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished CSScoOT1 survey"
+[1] "CSScoOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "successful merge HL and HH to create dhspp"
+[1] "losing 88 hauls from 552 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\SWCQ4.WGS84\SWC_Q4.shp", layer: "SWC_Q4"
+with 11 features
+It has 4 fields
+[1] "Excluded pre 1997 poor sampling"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2011" "survey area not fully covered in 2013" "survey area not fully covered in 2015"
+[4] "survey area not fully covered in 2016" "survey area not fully covered in 2017"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished CSScoOT4 survey"
+[1] "GNSFraOT4"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 739 hauls from 2810 when merge bio and samp"
+[1] "losing 84 hauls from 2071 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNSFraOT4\GNSFraOT4_EngBT3Simple.shp", layer: "GNSFraOT4_EngBT3Simple"
+with 142 features
+It has 7 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished GNSFraOT4 survey"
+[1] "GNSIntOT1"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 87 hauls from 15058 when merge bio and samp"
+[1] "losing 428 hauls from 14971 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSIntOT\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 177 features
+It has 24 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished GNSIntOT1 survey"
+[1] "GNSIntOT3"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 2135 hauls from 9775 when merge bio and samp"
+[1] "losing 127 hauls from 7640 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSIntOT\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 177 features
+It has 24 fields
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+[1] "survey area not fully covered in 2000"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished GNSIntOT3 survey"
+[1] "GNSIntOT1_channel"
+Reading layer `ICESRECT' from data source `C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\R\rectanglesICESdl29oct2021\ICESRECT.shp' using driver `ESRI Shapefile'
+Simple feature collection with 6758 features and 16 fields
+geometry type:  POLYGON
+dimension:      XY
+bbox:           xmin: -44 ymin: 36 xmax: 69 ymax: 85
+geographic CRS: WGS 84
+[1] "process_exchange_HL"
+[1] "losing 14830 hauls from 15058 when merge bio and samp"
+[1] "losing 31 hauls from 228 when merge predhspp and samp i.e. from SSA"
+[1] "now add strata"
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\GNS_rectstrat\GNSIntOT\GNSstrat_Atlantis.shp", layer: "GNSstrat_Atlantis"
+with 177 features
+It has 24 fields
+OGR data source with driver: ESRI Shapefile 
+Source: "C:\Users\cl06\OneDrive - CEFAS\Fish_dataproduct_QSR\SweptArea_29Oct2021\Strata\EChanEngBeamSimple\EChanBT3Simple.shp", layer: "EChanBT3Simple"
+with 3 features
+It has 10 fields
+[1] "losing 654 HL rows from 20713 when  when excluding strata"
+[1] "Excluded UKcoast <25m"
+[1] "Calc Biomass and Indicators"
+[1] "NO TAXA GROUPING"
+ [1] "survey area not fully covered in 2007" "survey area not fully covered in 2008" "survey area not fully covered in 2009"
+ [4] "survey area not fully covered in 2010" "survey area not fully covered in 2011" "survey area not fully covered in 2012"
+ [7] "survey area not fully covered in 2013" "survey area not fully covered in 2014" "survey area not fully covered in 2015"
+[10] "survey area not fully covered in 2016" "survey area not fully covered in 2017" "survey area not fully covered in 2018"
+[13] "survey area not fully covered in 2019" "survey area not fully covered in 2020"
+[1] "PEL"
+[1] "Final plots"
+[1] "Finished GNSIntOT1_channel survey"
+[1] "script complete"
+> 

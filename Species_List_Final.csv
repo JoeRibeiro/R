@@ -1,551 +1,552 @@
-ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,rank,FRS_Common Name,LmaxFB,Lmin,LWRa,LWRb,LWRSource
-154271,Abramis,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Cypriniformes,Cyprinidae,Abramis,Genus,NA,82,0,0.01,3,Generic_Cube
-126957,Acantholabrus palloni,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Acantholabrus,Species,Scale-rayed wrasse,25,0.86,0.0108,3.074,FishBase
-126279,Acipenser sturio,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Acipenseriformes,Acipenseridae,Acipenser,Species,Sturgeon,600,4.19,0.0041,3.04,FishBase
-871951,Aetomylaeus bovinus,"(Geoffroy Saint-Hilaire, 1817)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Myliobatidae,Pteromylaeus,Species,Bull ray,222,45,0.0182,3,FB_Baysian_(Sub)family-body shape
-127190,Agonus cataphractus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Agonidae,Agonus,Species,Hooknose,21,1.6,0.02,2.75,MS-S
-125507,Alepocephalidae,"Bonaparte, 1846",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,0,Family,NA,100,0,0.003975519,3.116667,Mean_Species
-126682,Alepocephalus bairdii,"Goode & Bean, 1879",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,Alepocephalus,Species,Baird's slickhead,100,6.23,0.0028,3.21,FishBase
-126684,Alepocephalus rostratus,"Risso, 1820",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,Alepocephalus,Species,Risso's smooth-head,50,5.53,0.0034,3.14,FishBase
-125715,Alosa,"Linck, 1790",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Alosa,Genus,NA,70,0,0.00672392,3.083333,Mean_Species
-416357,Alosa agone,"(Scopoli, 1786)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Alosa,Species,Agone,39,3.9,0.0132,2.94,FishBase
-126413,Alosa alosa,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Alosa,Species,Allis shad,70,4.45,0.0049,3.2,FishBase
-126415,Alosa fallax,"(Lacepède, 1803)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Alosa,Species,Twaite shad,60,2.7,0.0047,3.11,FishBase
-105865,Amblyraja radiata,"(Donovan, 1808)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Amblyraja,Species,Starry ray,105,9.8,0.00842,2.944,MS-S
-125909,Ammodytes,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Ammodytes,Genus,NA,25,0,0.002368544,3.06,Mean_Species
-126751,Ammodytes marinus,"Raitt, 1934",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Ammodytes,Species,Lesser sandeel,25,2.6,0.0017,3.21,FishBase
-126752,Ammodytes tobianus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Ammodytes,Species,Small sandeel,20,2,0.0033,2.91,FishBase
-125516,Ammodytidae,"Bonaparte, 1835",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,0,Family,NA,40,0,0.002062183,3.108917,Mean_Species
-126758,Anarhichas lupus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Anarhichadidae,Anarhichas,Species,Catfish,150,3.6,0.0029,3.28,FishBase
-126759,Anarhichas minor,"Olafsen, 1772",Animalia,Chordata,Actinopteri,Perciformes,Anarhichadidae,Anarhichas,Species,Spotted catfish,180,3.4,0.00172,3.399,FishBase
-125620,Anguilla,"Schrank, 1798",Animalia,Chordata,Actinopteri,Anguilliformes,Anguillidae,Anguilla,Genus,NA,133,0,0.0009,3.19,Mean_Species
-126281,Anguilla anguilla,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Anguilliformes,Anguillidae,Anguilla,Species,European eel,133,7.6,0.0009,3.19,FishBase
-125425,Anguillidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Anguilliformes,Anguillidae,0,Family,NA,133,,0.0009,3.19,Mean_Species
-127031,Anthias anthias,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Anthias,Species,Swallowtail seaperch,27,1.5,0.0242,2.611,FishBase
-127085,Aphanopus carbo,"Lowe, 1839",Animalia,Chordata,Actinopteri,Perciformes,Trichiuridae,Aphanopus,Species,Black scabbard,110,2.46,0.00038,3.27,FishBase
-126868,Aphia minuta,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Aphia,Species,Transparent goby,7.9,2.8,0.0008,3.53,FishBase
-126510,Apletodon dentatus,"(Facciolà, 1887)",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,Apletodon,Species,Small-headed clingfish,4,0.7,0.0055,3.1,FB_Baysian_(Sub)family-body shape
-126352,Arctozenus risso,"(Bonaparte, 1840)",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Arctozenus,Species,Spotted barracudina,30,1.95,0.00324,3.08,FB_Baysian_(Sub)family-body shape
-125885,Argentina,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,Argentina,Genus,NA,70,0,0.004095121,3.171,Mean_Species
-126715,Argentina silus,"(Ascanius, 1775)",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,Argentina,Species,Greater argentine,70,5.6,0.0039,3.203,FishBase
-126716,Argentina sphyraena,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,Argentina,Species,Lesser argentine,35,5,0.0043,3.139,FishBase
-125508,Argentinidae,"Bonaparte, 1846",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,0,Family,NA,70,0,0.003329038,3.220667,Mean_Species
-126196,Argyropelecus,"Cocco, 1829",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Genus,NA,12,0,0.01834574,3,Mean_Species
-127306,Argyropelecus aculeatus,"Valenciennes, 1850",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Species,Lovely hatchetfish,8.3,1.68,0.0182,3,FB_Baysian_(Sub)family-body shape
-127308,Argyropelecus gigas,"Norman, 1930",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Species,Hatchetfish,12,1.78,0.0182,3,FB_Baysian_(Sub)family-body shape
-127309,Argyropelecus hemigymnus,"Cocco, 1829",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Species,Half-naked hatchetfish,3.9,1.5,0.0182,3,FB_Baysian_(Sub)family-body shape
-274967,Argyropelecus olfersii,"(Cuvier, 1829)",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Species,Hatchetfish,9,1.7,0.01879,3,FishBase
-127007,Argyrosomus regius,"(Asso, 1801)",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Argyrosomus,Species,Meagre,230,2.54,0.0151,2.86,FishBase
-126109,Arnoglossus,"Bleeker, 1862",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Genus,NA,25,0,0.004395452,3.1925,Mean_Species
-127124,Arnoglossus imperialis,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Species,Imperial scaldfish,25,2.17,0.0049,3.17,FishBase
-127126,Arnoglossus laterna,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Species,Scaldfish,25,2,0.0024,3.39,MS-S
-127127,Arnoglossus rueppelii,"(Cocco, 1844)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Species,Ruppell's scaldback,15,2.01,0.0046,3.08,FishBase
-127128,Arnoglossus thori,"Kyle, 1913",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Species,Thor's scaldfish,18,2.2,0.0069,3.13,FishBase
-127193,Artediellus atlanticus,"Jordan & Evermann, 1898",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Artediellus,Species,Atlantic hookear sculpin,15,1.39,0.00661,3.17,FB_Baysian_(Sub)family-body shape
-272030,Atherina presbyter,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Atheriniformes,Atherinidae,Atherina,Species,Sand smelt,20,2.5,0.0045,3.18,FishBase
-236487,Auxis rochei rochei,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Auxis,Subspecies,Bullet tuna,50,2.14,0.0081,3.2,FishBase
-126228,Balistes,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Tetraodontiformes,Balistidae,Balistes,Genus,NA,60,0,0.0106,3.121,Mean_Species
-154721,Balistes capriscus,"Gmelin, 1789",Animalia,Chordata,Actinopteri,Tetraodontiformes,Balistidae,Balistes,Species,Grey triggerfish,60,2.29,0.0106,3.121,FishBase
-127152,Bathysolea profundicola,"(Vaillant, 1888)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Bathysolea,Species,Deepwater sole,21,1.07,0.00389,3.14,FB_Baysian_(Sub)family-body shape
-126654,Bellottia apoda,"Giglioli, 1883",Animalia,Chordata,Actinopteri,Ophidiiformes,Bythitidae,Bellottia,Species,Viviparous Brotulas,6.5,5.9,0.01122,3.04,FB_Baysian_Body shape
-126375,Belone belone,"(Linnaeus, 1761)",Animalia,Chordata,Actinopteri,Beloniformes,Belonidae,Belone,Species,Garfish,93,4.8,0.00079,3.1835,FishBase
-126376,Belone svetovidovi,"Collette & Parin, 1970",Animalia,Chordata,Actinopteri,Beloniformes,Belonidae,Belone,Species,Short-beaked garfish,65,4.67,0.00135,3.1,FB_Baysian_(Sub)family-body shape
-127086,Benthodesmus elongatus,"(Clarke, 1879)",Animalia,Chordata,Actinopteri,Perciformes,Trichiuridae,Benthodesmus,Species,Elongate frostfish,100,2.17,0.000048,3.42,FishBase
-126580,Benthosema glaciale,"(Reinhardt, 1837)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Benthosema,Species,Glacier lantern fish,10.3,1.47,0.01023,3.11,FB_Baysian_(Sub)family-body shape
-126394,Beryx decadactylus,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Beryciformes,Berycidae,Beryx,Species,Alfonsino,100,2.5,0.0151,3.13,FishBase
-126395,Beryx splendens,"Lowe, 1834",Animalia,Chordata,Actinopteri,Beryciformes,Berycidae,Beryx,Species,Spendid alfonsino,70,2.35,0.022,3.013,FishBase
-125519,Blenniidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Perciformes,Blenniidae,0,Family,NA,30,0,0.01138251,2.98,Mean_Species
-126761,Blennius ocellaris,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Blenniidae,Blennius,Species,Butterfly blenny,20,1.5,0.0214,2.82,FishBase
-127281,Bonapartia pedaliota,"Goode & Bean, 1896",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Bonapartia,Species,Longray fangjaw,7.2,1.65,0.00363,3.07,FB_Baysian_(Sub)family-body shape
-127047,Boops boops,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Boops,Species,Bogue,36,1.86,0.01015,3.019,FishBase
-127334,Borostomias antarcticus,"(Lönnberg, 1905)",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Borostomias,Species,Snaggletooth,30,2.09,0.0038,3.11,FB_Baysian_(Sub)family-body shape
-125576,Bothidae,"Smitt, 1892",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,0,Family,NA,45,0,0.005521316,3.148333,Mean_Species
-127129,Bothus podas,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Bothus,Species,Wide-eyed flounder,45,2.11,0.01,3.03,FishBase
-126783,Brama brama,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Perciformes,Bramidae,Brama,Species,Atlantic pomfret,100,2.16,0.00597,3.288,FishBase
-126447,Brosme brosme,"(Ascanius, 1772)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Brosme,Species,Tusk,120,3.8,0.00514,3.189,FishBase
-126872,Buenia jeffreysii,"(Günther, 1867)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Buenia,Species,Jeffrey's goby,6,1.62,0.0146,2.6867,English
-126127,Buglossidium,"Chabanaud, 1930",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Buglossidium,Genus,NA,21,0,0.00516,3.3357,Mean_Species
-127153,Buglossidium luteum,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Buglossidium,Species,Solenette,15,1,0.00516,3.3357,FishBase
-126789,Callanthias ruber,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Callanthiidae,Callanthias,Species,Parrot seaperch,60,1.99,0.00977,3.07,FB_Baysian_(Sub)family-body shape
-125522,Callionymidae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,0,Family,NA,30,0,0.01601794,2.66,Mean_Species
-125930,Callionymus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Genus,NA,30,0,0.01601794,2.66,Mean_Species
-126792,Callionymus lyra,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Species,Dragonet,30,1.2,0.0219,2.59,FishBase
-126793,Callionymus maculatus,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Species,Spotted dragonet,16,1.2,0.0129,2.77,FishBase
-126795,Callionymus reticulatus,"Valenciennes, 1837",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Species,Reticulated dragonet,11,1,0.0191,2.47,FishBase
-126796,Callionymus risso,"Lesueur, 1814",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Species,Rissos dragonet,11,1.06,0.0122,2.81,FishBase
-125613,Caproidae,"Bonaparte, 1835",Animalia,Chordata,Actinopteri,Perciformes,Caproidae,0,Family,NA,30,0,0.0275,2.78,Mean_Species
-127419,Capros aper,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Caproidae,Capros,Species,Boarfish,30,1.1,0.0275,2.78,FishBase
-126806,Caranx rhonchus,"Geoffroy Saint-Hilaire, 1817",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Caranx,Species,False scad,60,1.11,0.0251,2.77,FishBase
-126661,Carapus acus,"(Brünnich, 1768)",Animalia,Chordata,Actinopteri,Ophidiiformes,Carapidae,Carapus,Species,Pearl fish,20.8,7.19,0.00102,3.06,FB_Baysian_Body shape
-126656,Cataetyx alleni,"(Byrne, 1906)",Animalia,Chordata,Actinopteri,Ophidiiformes,Bythitidae,Cataetyx,Species,Viviparous Brotulas,12,6.5,0.00389,3.12,FB_Baysian_Body shape
-126961,Centrolabrus exoletus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Centrolabrus,Species,Rock cook,18,0.8,0.0047,3.23,FishBase
-125526,Centrolophidae,"Bonaparte, 1846",Animalia,Chordata,Actinopteri,Perciformes,Centrolophidae,0,Family,NA,150,0,0.009848403,3.122,Mean_Species
-126831,Centrolophus niger,"(Gmelin, 1789)",Animalia,Chordata,Actinopteri,Perciformes,Centrolophidae,Centrolophus,Species,Rudderfish,150,2.32,0.0024,3.346,FishBase
-105899,Centrophorus granulosus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Elasmobranchii,Squaliformes,Centrophoridae,Centrophorus,Species,Gulper shark,170,36,0.0023,3.21,FishBase
-105901,Centrophorus squamosus,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Squaliformes,Centrophoridae,Centrophorus,Species,Leafscale gulper shark,164,39,0.0014,3.31,FishBase
-105906,Centroscyllium fabricii,"(Reinhardt, 1825)",Animalia,Chordata,Elasmobranchii,Squaliformes,Etmopteridae,Centroscyllium,Species,Black dogfish,107,16,0.0009,3.42,FishBase
-105907,Centroscymnus coelolepis,"Barbosa du Bocage & de Brito Capello, 1864",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Centroscymnus,Species,Portuguese dogfish,120,27.75,0.0043,3.12,FishBase
-105908,Centroscymnus crepidater,"(Barbosa du Bocage & de Brito Capello, 1864)",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Centroscymnus,Species,Longnose velvet dogfish,130,31,0.0024,3.25,FishBase
-126835,Cepola macrophthalma,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Cepolidae,Cepola,Species,Red bandfish,80,2,0.0186,2.02,FishBase
-126585,Ceratoscopelus maderensis,"(Lowe, 1839)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Ceratoscopelus,Species,Madeira lantern fish,8.1,1.42,0.00537,3.08,FB_Baysian_(Sub)family-body shape
-127338,Chauliodus sloani,"Bloch & Schneider, 1801",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Chauliodus,Species,Sloanes viperfish,35,2.14,0.0009,3.18,FishBase
-126539,Chaunax pictus,"Lowe, 1846",Animalia,Chordata,Actinopteri,Lophiiformes,Chaunacidae,Chaunax,Species,Pink frogmouth,40,2.64,0.01995,3.01,FB_Baysian_Body shape
-126178,Chelidonichthys,"Kaup, 1873",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Chelidonichthys,Genus,NA,75,0,0.006901566,3.115333,Mean_Species
-127259,Chelidonichthys cuculus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Chelidonichthys,Species,Red gurnard,50,1.5,0.0066,3.14,FishBase
-127262,Chelidonichthys lucerna,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Chelidonichthys,Species,Tub gurnard,75,1.9,0.01132,2.996,FishBase
-127263,Chelidonichthys obscurus,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Chelidonichthys,Species,Longfin gurnard,34,1.92,0.0044,3.21,FishBase
-126977,Chelon labrosus,"(Risso, 1827)",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Chelon,Species,Thick-lipped mullet,75,2.11,0.0083,3.14,FishBase
-125956,Chiasmodon,"Johnson, 1864",Animalia,Chordata,Actinopteri,Perciformes,Chiasmodontidae,Chiasmodon,Genus,NA,25,0,0.00389,3.12,FishBase
-105824,Chimaera monstrosa,"Linnaeus, 1758",Animalia,Chordata,Holocephali,Chimaeriformes,Chimaeridae,Chimaera,Species,Rabbit ratfish,150,10,0.0015,3.11,FishBase
-712407,Chimaera opalescens,"Luchetti, Iglésias & Sellos, 2011",Animalia,Chordata,Holocephali,Chimaeriformes,Chimaeridae,Chimaera,Species,Opal Chimaera,110,14,0.00309,3.11,FB_Baysian_(Sub)family-body shape
-127071,Chirolophis ascanii,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,Chirolophis,Species,Yarrell's blenny,25,3.4,0.04,2.25,MS-S
-127339,Chirostomias pliopterus,"Regan & Trewavas, 1930",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Chirostomias,Species,Barbeled dragonfish,20.5,1.96,0.00389,3.12,FB_Baysian_Body shape
-126336,Chlorophthalmus agassizi,"Bonaparte, 1840",Animalia,Chordata,Actinopteri,Aulopiformes,Chlorophthalmidae,Chlorophthalmus,Species,Shortnose greeneye,40,1.84,0.00786,2.909,FishBase
-126448,Ciliata mustela,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Ciliata,Species,Five-bearded rockling,25,2,0.0027,3.19,MS-S
-126449,Ciliata septentrionalis,"(Collett, 1875)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Ciliata,Species,Northern rockling,20,2.5,0.0083,3.18,FishBase
-127130,Citharus linguatula,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Citharidae,Citharus,Species,Spotted flounder,30,1.66,0.0051,3.12,FishBase
-126417,Clupea harengus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Clupea,Species,Herring,45,4.9,0.0069,3.04,FishBase
-125464,Clupeidae,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,0,Family,NA,70,0,0.006240799,3.085,Mean_Species
-126337,Coccorella atlantica,"(Parr, 1928)",Animalia,Chordata,Actinopteri,Aulopiformes,Evermannellidae,Coccorella,Species,Atlantic sabretooth,18.5,1.73,0.0096,3.009,FishBase
-398381,Coelorinchus caelorhincus,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Coelorinchus,Species,Hollow snout grenadier,48,2.14,0.00219,3.106,FishBase
-280299,Coelorinchus labiatus,"(Köhler, 1896)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Coelorinchus,Species,Spear-snouted grenadier,50,2.42,0.00473,2.9,Scottish
-125624,Conger,"Bosc, 1817",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,Conger,Genus,NA,300,0,0.000322,3.377,Mean_Species
-126285,Conger conger,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,Conger,Species,Conger eel,300,9.33,0.000322,3.377,FishBase
-125427,Congridae,"Kaup, 1856",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,0,Family,NA,300,0,0.000567451,3.2175,Mean_Species
-158960,Coryphaenoides rupestris,"Gunnerus, 1765",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Coryphaenoides,Species,Roundnose grenadier,110,2.6,0.0017,3.16,Modelled_Family
-126762,Coryphoblennius galerita,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Blenniidae,Coryphoblennius,Species,Montagu's blenny,7.6,2,0.00741,3,FB_Baysian_(Sub)family-body shape
-125589,Cottidae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,0,Family,NA,60,0,0.01026505,3.0665,Mean_Species
-127235,Cottunculus microps,"Collett, 1875",Animalia,Chordata,Actinopteri,Scorpaeniformes,Psychrolutidae,Cottunculus,Species,Polar sculpin,30,1.76,0.01239,3.13738,Scottish
-126878,Crystallogobius linearis,"(Düben, 1845)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Crystallogobius,Species,Crystal goby,5,2.5,0.01,2.94,IMARES
-126964,Ctenolabrus rupestris,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Ctenolabrus,Species,Goldsinny wrasse,18,0.9,0.01,3,FishBase
-126990,Cubiceps gracilis,"(Lowe, 1843)",Animalia,Chordata,Actinopteri,Perciformes,Nomeidae,Cubiceps,Species,Driftfish,107,2.19,0.01072,3.03,FB_Baysian_(Sub)family-body shape
-125590,Cyclopteridae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cyclopteridae,0,Family,NA,61,0,0.0587,2.939,Mean_Species
-127214,Cyclopterus lumpus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cyclopteridae,Cyclopterus,Species,Lumpsucker,61,3.5,0.0587,2.939,FishBase
-126187,Cyclothone,"Goode & Bean, 1883",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Cyclothone,Genus,NA,7.5,0,0.00363,3.07,FishBase
-127425,Cyttopsis rosea,"(Lowe, 1843)",Animalia,Chordata,Actinopteri,Zeiformes,Parazenidae,Cyttopsis,Species,Rosy dory,31,1.47,0.01995,3.01,FB_Baysian_Body shape
-105910,Dalatias licha,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Squaliformes,Dalatiidae,Dalatias,Species,Kitefin shark,182,36.75,0.00363,3.12,FB_Baysian_(Sub)family-body shape
-126313,Dalophis imberbis,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Anguilliformes,Ophichthidae,Dalophis,Species,Armless snake eel,150,7.98,0.00151,2.91,FB_Baysian_(Sub)family-body shape
-105851,Dasyatis pastinaca,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Dasyatidae,Dasyatis,Species,Common stingray,90,20,0.0091,3.03,FishBase
-105903,Deania calcea,"(Lowe, 1839)",Animalia,Chordata,Elasmobranchii,Squaliformes,Centrophoridae,Deania,Species,Birdbeak dogfish,122,30.75,0.0012,3.26,FishBase
-105905,Deania profundorum,"(Smith & Radcliffe, 1912)",Animalia,Chordata,Elasmobranchii,Squaliformes,Centrophoridae,Deania,Species,Arrowhead dogfish,79,32,0.00161,3.205,FishBase
-126880,Deltentosteus quadrimaculatus,"(Valenciennes, 1837)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Deltentosteus,Species,Four-spotted goby,8,1.8,0.0052,3.21,FishBase
-273960,Dentex canariensis,"Steindachner, 1881",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Canary dentex,100,2.2,0.0162,3.01,FishBase
-273962,Dentex dentex,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Common dentex,100,2.28,0.0117,3.09,FishBase
-273964,Dentex gibbosus,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Pink dentex,106,2.3,0.0105,3.06,FishBase
-273965,Dentex macrophthalmus,"(Bloch, 1791)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Large-eye dentex,65,1.93,0.017,3.01,FishBase
-273966,Dentex maroccanus,"Valenciennes, 1830",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Morocco dentex,45,1.9,0.0257,2.85,FishBase
-125819,Diaphus,"Eigenmann & Eigenmann, 1890",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Genus,NA,10.3,0,0.007179927,3.0445,Mean_Species
-126587,Diaphus adenomus,"Gilbert, 1905",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Species,Gilbert's large lantern fish,18,1.72,0.00912,3.04,FB_Baysian_(Sub)family-body shape
-126590,Diaphus dumerilii,"(Bleeker, 1856)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Species,Lanternfish,8.7,1.41,0.00595,3.018,FishBase
-126592,Diaphus holti,"Tåning, 1918",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Species,Small lantern fish,7,1.37,0.00912,3.04,FB_Baysian_(Sub)family-body shape
-126596,Diaphus rafinesquii,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Species,White-spotted lantern fish,9,1.46,0.00537,3.08,FB_Baysian_(Sub)family-body shape
-126029,Dicentrarchus,"Gill, 1860",Animalia,Chordata,Actinopteri,Perciformes,Moronidae,Dicentrarchus,Genus,NA,103,0,0.004165142,3.2345,Mean_Species
-126975,Dicentrarchus labrax,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Moronidae,Dicentrarchus,Species,Bass,103,2.2,0.009638,3.029,FishBase
-126976,Dicentrarchus punctatus,"(Bloch, 1792)",Animalia,Chordata,Actinopteri,Perciformes,Moronidae,Dicentrarchus,Species,Spotted seabass,70,2.18,0.0018,3.44,FishBase
-127154,Dicologlossa cuneata,"(Moreau, 1881)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Dicologlossa,Species,Wedge sole,30,1.16,0.0072,3.02,FishBase
-274298,Dicologlossa hexophthalma,"(Bennett, 1831)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Dicologlossa,Species,Ocellated wedge sole,20,1.11,0.0092,3.056,FishBase
-236458,Diplecogaster bimaculata bimaculata,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,Diplecogaster,Subspecies,Two-spotted clingfish,6,1,0.02,2.91,MS-S
-127049,Diplodus annularis,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Species,Annular seabream,24,1.75,0.0123,3.14,FishBase
-127050,Diplodus bellottii,"(Steindachner, 1882)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Species,Senegal seabream,30,1.8,0.0098,3.21,FishBase
-236470,Diplodus cervinus cervinus,"(Lowe, 1838)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Subspecies,Zebra seabream,55,2.07,0.0116,3.14,FishBase
-127052,Diplodus puntazzo,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Species,Sharpsnout seabream,60,1.77,0.0155,2.94,FishBase
-223863,Diplodus sargus sargus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Subspecies,White seabream,45,2.01,0.01,3.12,FishBase
-127054,Diplodus vulgaris,"(Geoffroy Saint-Hilaire, 1817)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Species,Common two-banded seabream,45,1.86,0.0129,3.11,FishBase
-105762,Dipturus,"Rafinesque, 1810",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Genus,NA,200,0,0.002740341,3.24225,Mean_Species
-105869,Dipturus batis,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Species,Blue skate,285,22,0.0108,3.079,FishBase
-105870,Dipturus linteus,"(Fries, 1838)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Species,Sailray,123,13.97,0.00295,3.21,FB_Baysian_(Sub)family-body shape
-105871,Dipturus nidarosiensis,"(Storm, 1881)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Species,Black skate,200,22.92,0.00295,3.21,FB_Baysian_(Sub)family-body shape
-105872,Dipturus oxyrinchus,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Species,Longnosed skate,150,17,0.0006,3.47,FishBase
-126398,Diretmus argenteus,"Johnson, 1864",Animalia,Chordata,Actinopteri,Beryciformes,Diretmidae,Diretmus,Species,Silver spinyfin,27.6,1.91,0.01995,3.01,FB_Baysian_Body shape
-126321,Dysomma brevirostre,"(Facciolà, 1887)",Animalia,Chordata,Actinopteri,Anguilliformes,Synaphobranchidae,Dysomma,Species,Pignosed arrowtooth eel,30,6.11,0.00102,3.06,FB_Baysian_Body shape
-150629,Echiichthys,"Bleeker, 1861",Animalia,Chordata,Actinopteri,Perciformes,Trachinidae,Echiichthys,Genus,NA,15,0,0.0105,3.05,Mean_Species
-150630,Echiichthys vipera,"(Cuvier, 1829)",Animalia,Chordata,Actinopteri,Perciformes,Trachinidae,Echiichthys,Species,Lesser weever,15,1.5,0.0105,3.05,FishBase
-126662,Echiodon dentatus,"(Cuvier, 1829)",Animalia,Chordata,Actinopteri,Ophidiiformes,Carapidae,Echiodon,Species,Pearlfish,17,6.98,0.00102,3.06,FB_Baysian_Body shape
-126663,Echiodon drummondii,"Thompson, 1837",Animalia,Chordata,Actinopteri,Ophidiiformes,Carapidae,Echiodon,Species,Pearlfish,30,7.6,0.01,2.34,MS-S
-127340,Echiostoma barbatum,"Lowe, 1843",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Echiostoma,Species,Threadfin dragonfish,36.8,2.16,0.00389,3.12,FB_Baysian_Body shape
-126600,Electrona risso,"(Cocco, 1829)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Electrona,Species,Electric lanternfish,8.2,1.36,0.00389,3.12,FB_Baysian_(Sub)family-body shape
-126450,Enchelyopus cimbrius,"(Linnaeus, 1766)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Enchelyopus,Species,Four-bearded rockling,41,3.2,0.0035,3.106,FishBase
-125724,Engraulis,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Clupeiformes,Engraulidae,Engraulis,Genus,NA,20,0,0.0056,3.05,Mean_Species
-126426,Engraulis encrasicolus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Clupeiformes,Engraulidae,Engraulis,Species,Anchovy,20,3.5,0.0056,3.05,FishBase
-127379,Entelurus aequoreus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Entelurus,Species,Snake pipefish,40,2.54,0.0008,2.5939,English
-127413,Ephippion guttifer,"(Bennett, 1831)",Animalia,Chordata,Actinopteri,Tetraodontiformes,Tetraodontidae,Ephippion,Species,Prickly puffer,80,2.46,0.0316,2.87,Modelled_Family
-126857,Epigonus denticulatus,"Dieuzeide, 1950",Animalia,Chordata,Actinopteri,Perciformes,Epigonidae,Epigonus,Species,Pencil cardinal,20,1.66,0.0045,3.26,FishBase
-126858,Epigonus telescopus,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Epigonidae,Epigonus,Species,Black cardinal fish,75,2.15,0.01288,2.9642,MS-S
-127033,Epinephelus caninus,"(Valenciennes, 1843)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Epinephelus,Species,Dogtooth grouper,164,2.03,0.01607728,2.89775,Modelled_Family
-105911,Etmopterus princeps,"Collett, 1904",Animalia,Chordata,Elasmobranchii,Squaliformes,Etmopteridae,Etmopterus,Species,Great lanternshark,75,14.4,0.0028,3.15,FishBase
-105912,Etmopterus pusillus,"(Lowe, 1839)",Animalia,Chordata,Elasmobranchii,Squaliformes,Etmopteridae,Etmopterus,Species,Smooth lanternshark,50,12.8,0.0044,3,FishBase
-105913,Etmopterus spinax,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Squaliformes,Etmopteridae,Etmopterus,Species,Velvet belly,60,13,0.0026,3.15,FishBase
-150636,Eutrigla,"Fraser-Brunner, 1938",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Eutrigla,Genus,NA,60,0,0.00915,2.9998,Mean_Species
-150637,Eutrigla gurnardus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Eutrigla,Species,Grey gurnard,60,2.5,0.00915,2.9998,FishBase
-126338,Evermannella balbo,"(Risso, 1820)",Animalia,Chordata,Actinopteri,Aulopiformes,Evermannellidae,Evermannella,Species,Balbo sabretooth,16.9,1.7,0.00417,3.12,FB_Baysian_(Sub)family-body shape
-126307,Facciolella oxyrhyncha,"(Bellotti, 1883)",Animalia,Chordata,Actinopteri,Anguilliformes,Nettastomatidae,Facciolella,Species,Facciola's sorcerer,64.9,6.95,0.00081,3.02,FB_Baysian_(Sub)family-body shape
-126488,Gadella maraldi,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Gadella,Species,Gadella,30,2.12,0.00301,3.304,FishBase
-125731,Gadiculus,"Guichenot, 1850",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Gadiculus,Genus,NA,15,0,0.01757841,2.7619,Mean_Species
-126435,Gadiculus argenteus,"Guichenot, 1850",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Gadiculus,Species,Silvery pout,15,2.9,0.003829,3.321,FishBase
-300719,Gadiculus thori,"Schmidt, 1913",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Gadiculus,Species,NONE,15,2.07,0.0807,2.2028,Scottish
-126436,Gadus morhua,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Gadus,Species,Cod,200,4.5,0.0079,3.05,FishBase
-125743,Gaidropsarus,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Genus,NA,60,0,0.006265875,3.054524,Mean_Species
-126451,Gaidropsarus argentatus,"(Reinhardt, 1837)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Arctic rockling,35,2.24,0.00594,3.03507,Scottish
-126452,Gaidropsarus biscayensis,"(Collett, 1890)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Mediterranean bigeye rockling,40,2.28,0.00407,3.09,FB_Baysian_(Sub)family-body shape
-126456,Gaidropsarus macrophthalmus,"(Günther, 1867)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Bigeye rockling,25,2.13,0.00634,2.95,FishBase
-126457,Gaidropsarus mediterraneus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Shore rockling,50,1.9,0.0051,2.9986,FishBase
-126458,Gaidropsarus vulgaris,"(Cloquet, 1824)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Three-bearded rockling,60,1.9,0.0044,3.21,FishBase
-105820,Galeorhinus galeus,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Triakidae,Galeorhinus,Species,Tope,193,36.5,0.0047,2.994,FishBase
-105811,Galeus atlanticus,"(Vaillant, 1888)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Pentanchidae,Galeus,Species,Atlantic sawtail cat shark,45,8.27,0.0023,3.07,FishBase
-105812,Galeus melastomus,"Rafinesque, 1810",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Pentanchidae,Galeus,Species,Black mouthed dogfish,90,9.49,0.0034,2.96,FishBase
-105813,Galeus murinus,"(Collett, 1904)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Pentanchidae,Galeus,Species,Mouse catshark,63,8.5,0.00316,3.11,FB_Baysian_(Sub)family-body shape
-125476,Gasterosteidae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Gasterosteiformes,Gasterosteidae,0,Family,NA,22,0,0.006140439,3.032667,Mean_Species
-236462,Gasterosteus aculeatus aculeatus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Gasterosteiformes,Gasterosteidae,Gasterosteus,Species,Three-spined stickleback,11,1.1,0.0105,3.049,FishBase
-293602,Gasterosteus aculeatus williamsoni,"Girard, 1854",Animalia,Chordata,Actinopteri,Gasterosteiformes,Gasterosteidae,Gasterosteus,Subspecies,Three-spined stickleback,11,1.1,0.0105,3.049,FishBase
-126717,Glossanodon leioglossus,"(Valenciennes, 1848)",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,Glossanodon,Species,Smalltoothed argentine,20,4.78,0.0022,3.32,FishBase
-127136,Glyptocephalus cynoglossus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Glyptocephalus,Species,Witch,60,4.2,0.0019,3.35,FishBase
-126287,Gnathophis mystax,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,Gnathophis,Species,Thinlip conger,60,6.86,0.001,3.058,FishBase
-125477,Gobiesocidae,"Bleeker, 1859",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,0,Family,NA,6.5,0,0.01466982,3.003333,Mean_Species
-125537,Gobiidae,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,0,Family,NA,27,0,0.007087382,3.103394118,Mean_Species
-151743,Gobioidei,0,Animalia,Chordata,Actinopteri,Perciformes,0,0,Suborder,NA,27,0,0.01,3,Generic_Cube
-125988,Gobius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Genus,NA,27,0,0.01081637,3.0725,Mean_Species
-126886,Gobius cobitis,"Pallas, 1814",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Giant goby,27,2.08,0.011,3.11,FishBase
-126890,Gobius gasteveni,"Miller, 1974",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Steven's goby,12,1.8,0.0101,3.05,FishBase
-126892,Gobius niger,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Black goby,18,1.2,0.011,3.03,FishBase
-126893,Gobius paganellus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Rock goby,13,1.15,0.0112,3.1,FishBase
-126898,Gobiusculus flavescens,"(Fabricius, 1779)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobiusculus,Species,Two-spotted goby,6,1.68,0.00589,3.12,FB_Baysian_(Sub)family-body shape
-126189,Gonostoma,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Gonostoma,Genus,NA,27.5,0,0.00363,3.07,Mean_Species
-127296,Gonostoma elongatum,"Günther, 1878",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Gonostoma,Species,Elongated bristlemouth fish,27.5,2.06,0.00363,3.07,FB_Baysian_(Sub)family-body shape
-158978,Guttigadus latifrons,"(Holt & Byrne, 1908)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Guttigadus,Species,NONE,18.2,1.95,0.0038,3.12,FB_Baysian_(Sub)family-body shape
-126753,Gymnammodytes cicerelus,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Gymnammodytes,Species,Mediterranean sand eel,17,2.25,0.0012,3.307,FishBase
-126754,Gymnammodytes semisquamatus,"(Jourdain, 1879)",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Gymnammodytes,Species,Smooth sandeel,30,2.9,0.0006,3.476,FishBase
-126489,Halargyreus johnsonii,"Günther, 1862",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Halargyreus,Species,Slender codling,56,2.35,0.0038,3.12,FB_Baysian_(Sub)family-body shape
-126374,Halobatrachus didactylus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Actinopteri,Batrachoidiformes,Batrachoididae,Halobatrachus,Species,Lusitanian toadfish,50,2.2,0.0166,3.03,FishBase
-127251,Helicolenus dactylopterus,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Helicolenus,Species,Bluemouth,47,2.1,0.0123,3.1,FishBase
-105832,Heptranchias perlo,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Hexanchiformes,Hexanchidae,Heptranchias,Species,Sharpnose sevengill shark,140,25.5,0.00389,3.12,FB_Baysian_Body shape
-105833,Hexanchus griseus,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Hexanchiformes,Hexanchidae,Hexanchus,Species,Bluntnose sixgill shark,482,63.75,0,3.6786,Scottish
-154776,Hippocampus guttulatus,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Hippocampus,Species,Long-snouted seahorse,21.5,2.36,0.0032,2.9,FishBase
-127380,Hippocampus hippocampus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Hippocampus,Species,Short-snouted seahorse,15,2.19,0.0023,3,FishBase
-127137,Hippoglossoides platessoides,"(Fabricius, 1780)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Hippoglossoides,Species,Long rough dab,45,3,0.0044,3.2,FishBase
-127138,Hippoglossus hippoglossus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Hippoglossus,Species,Halibut,470,3.5,0.0052,3.1655,MS-S
-126402,Hoplostethus atlanticus,"Collett, 1889",Animalia,Chordata,Actinopteri,Beryciformes,Trachichthyidae,Hoplostethus,Species,Orange roughy,75,2.22,0.0603,2.82,FishBase
-126403,Hoplostethus cadenati,"Quéro, 1974",Animalia,Chordata,Actinopteri,Beryciformes,Trachichthyidae,Hoplostethus,Species,Black slimehead,30,1.95,0.0166,3.05,FB_Baysian_(Sub)family-body shape
-159409,Hoplostethus mediterraneus mediterraneus,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Beryciformes,Trachichthyidae,Hoplostethus,Species,Mediterranean slimehead,42,2.06,0.0153,3.0712,FishBase
-126994,Howella brodiei,"Ogilby, 1899",Animalia,Chordata,Actinopteri,Perciformes,Howellidae,Howella,Species,Pelagic basslet,7.6,1.52,0.01122,3.04,FB_Baysian_Body shape
-126995,Howella sherborni,"(Norman, 1930)",Animalia,Chordata,Actinopteri,Perciformes,Howellidae,Howella,Species,Sherborn's pelagic basslet,8,0,0.01122,3.04,FB_Baysian_body shape
-105826,Hydrolagus mirabilis,"(Collett, 1904)",Animalia,Chordata,Holocephali,Chimaeriformes,Chimaeridae,Hydrolagus,Species,Large-eyed rabbitfish,52.48,18,0.00309,3.11,FB_Baysian_(Sub)family-body shape
-125823,Hygophum,"Bolin, 1939",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Hygophum,Genus,NA,5.5,0,0.01023,3.11,Mean_Species
-126602,Hygophum benoiti,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Hygophum,Species,Benoit's lantern fish,5.5,1.3,0.01023,3.11,FB_Baysian_(Sub)family-body shape
-272373,Hymenocephalus gracilis,"Gilbert & Hubbs, 1920",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Hymenocephalus,Species,Slender membranehead,13,1.85,0.00302,3.12,FB_Baysian_(Sub)family-body shape
-158961,Hymenocephalus italicus,"Giglioli, 1884",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Hymenocephalus,Species,Glasshead grenadier,25,1.95,0.00302,3.12,FB_Baysian_(Sub)family-body shape
-125911,Hyperoplus,"Günther, 1862",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Hyperoplus,Genus,NA,40,0,0.004363486,2.87525,Mean_Species
-126755,Hyperoplus immaculatus,"(Corbin, 1950)",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Hyperoplus,Species,Corbin's sandeel,35,2.6,0.0056,2.8225,English
-126756,Hyperoplus lanceolatus,"(Le Sauvage, 1824)",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Hyperoplus,Species,Greater sandeel,40,2.2,0.0034,2.928,FishBase
-127199,Icelus bicornis,"(Reinhardt, 1840)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Icelus,Species,Twohorn sculpin,15.7,1.4,0.00661,3.17,FB_Baysian_(Sub)family-body shape
-125541,Labridae,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Perciformes,Labridae,0,Family,NA,66,0,0.008473111,3.13425,Mean_Species
-126965,Labrus bergylta,"Ascanius, 1767",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Labrus,Species,Ballan wrasse,66,1.1,0.0081,3.16,FishBase
-151501,Labrus mixtus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Labrus,Species,Cuckoo wrasse,40,1,0.0049,3.28,FishBase
-105841,Lamna nasus,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Lamniformes,Lamnidae,Lamna,Species,Porbeagle,350,62.5,0.0204,2.94,FishBase
-125824,Lampadena,"Goode & Bean, 1893",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lampadena,Genus,NA,30,0,0.01,2.98,FishBase
-125825,Lampanyctus,"Bonaparte, 1840",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lampanyctus,Genus,NA,30,0,0.007141432,2.98,Mean_Species
-126612,Lampanyctus crocodilus,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lampanyctus,Species,Jewel lanternfish,30,1.95,0.0051,2.98,FishBase
-126618,Lampanyctus photonotus,"Parr, 1928",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lampanyctus,Species,Lanternfish,8.5,1.44,0.00537,3.08,FB_Baysian_(Sub)family-body shape
-101172,Lampetra fluviatilis,"(Linnaeus, 1758)",Animalia,Chordata,Petromyzonti,Petromyzontiformes,Petromyzontidae,Lampetra,Species,European river lamprey,50,1.3,0.00111,3.141,FishBase
-125781,Lepadogaster,"Goüan, 1770",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,Lepadogaster,Genus,NA,6.5,0,0.0287,3,Mean_Species
-126518,Lepadogaster lepadogaster,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,Lepadogaster,Species,Shore clingfish,6.5,0.7,0.0287,3,FishBase
-126493,Lepidion eques,"(Günther, 1887)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Lepidion,Species,North Atlantic codling,44,2.35,0.0009,3.54,FishBase
-127088,Lepidopus caudatus,"(Euphrasen, 1788)",Animalia,Chordata,Actinopteri,Perciformes,Trichiuridae,Lepidopus,Species,Silver scabbardfish,210,2.54,0.000405,3.1226,FishBase
-127145,Lepidorhombus boscii,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Lepidorhombus,Species,Four spot megrim,40,1.5,0.0046,3.13,FishBase
-127146,Lepidorhombus whiffiagonis,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Lepidorhombus,Species,Megrim,60,1.9,0.0043,3.13,FishBase
-126179,Lepidotrigla,"Günther, 1860",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Lepidotrigla,Genus,NA,20,0,0.009443515,3.1,Mean_Species
-127264,Lepidotrigla cavillone,"(Lacepède, 1801)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Lepidotrigla,Species,Large-scaled gurnard,20,1.78,0.0098,3.1,FishBase
-127265,Lepidotrigla dieuzeidei,"Blanc & Hureau, 1973",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Lepidotrigla,Species,Spiny gurnard,20,1.77,0.0091,3.1,FishBase
-127191,Leptagonus decagonus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Agonidae,Leptagonus,Species,Atlantic poacher,21,1.64,0.02,2.75,Modelled_Family
-127072,Leptoclinus maculatus,"(Fries, 1838)",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,Leptoclinus,Species,Spotted snake blenny,20,3.37,0.01,2.34,MS-S
-236452,Lestidiops jayakari jayakari,"(Boulenger, 1889)",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Lestidiops,Subspecies,Pacific barracudina,20,1.77,0.00128,2.928,FishBase
-125992,Lesueurigobius,"Whitley, 1950",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Lesueurigobius,Genus,NA,13,0,0.006445152,3.0805,Mean_Species
-126904,Lesueurigobius friesii,"(Malm, 1874)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Lesueurigobius,Species,Fries's goby,13,1.69,0.0062,3.04,FishBase
-126906,Lesueurigobius sanzi,"(de Buen, 1918)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Lesueurigobius,Species,Sanzo's goby,11,1.78,0.0067,3.121,FishBase
-105873,Leucoraja circularis,"(Couch, 1838)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Sandy ray,120,12.47,0.00242,3.175,MS-S
-105874,Leucoraja fullonica,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Shagreen ray,120,12.4,0.00211,3.163,MS-S
-271564,Leucoraja lentiginosa,"(Bigelow & Schroeder, 1951)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,INCORRECT DISTRIBUTION,43,0,0.00295,3.21,FB_Baysian_(Sub)family-body shape
-105876,Leucoraja naevus,"(Müller & Henle, 1841)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Cuckoo ray,71,12,0.0019,3.28,FishBase
-127139,Limanda limanda,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Limanda,Species,Common dab,40,1.6,0.0065,3.15,FishBase
-234519,Liparidae,"Gill, 1861",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,0,Family,NA,15,0,0.018211497,2.955,Mean_Species
-126160,Liparis,"Scopoli, 1777",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,Liparis,Genus,NA,15,0,0.02457642,2.955,Mean_Species
-293624,Liparis liparis liparis,"(Linnaeus, 1766)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,Liparis,Species,Striped seasnail,15,1.6,0.0302,3,FishBase
-127220,Liparis montagui,"(Donovan, 1804)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,Liparis,Species,Montagu's seasnail,12,1.2,0.02,2.91,MS-S
-127055,Lithognathus mormyrus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Lithognathus,Species,Striped seabream,55,1.95,0.0135,3.02,FishBase
-126978,Liza aurata,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Liza,Species,Golden grey mullet,59,2.05,0.0129,2.9,FishBase
-126980,Liza ramada,"(Risso, 1827)",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Liza,Species,Thinlip grey mullet,70,2.01,0.0091,2.99,FishBase
-158899,Lobianchia,"Gatti, 1904",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lobianchia,Genus,NA,6,0,0.006990494,3.035,Mean_Species
-158900,Lobianchia dofleini,"(Zugmayer, 1911)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lobianchia,Species,Dofleini's lantern fish,5,1.27,0.00912,3.04,FB_Baysian_(Sub)family-body shape
-158901,Lobianchia gemellarii,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lobianchia,Species,Cocco's lantern fish,6,1.32,0.00537,3.08,FB_Baysian_(Sub)family-body shape
-125493,Lophiidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Lophiiformes,Lophiidae,0,Family,NA,200,0,0.02112817,2.885,Mean_Species
-125802,Lophius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Lophiiformes,Lophiidae,Lophius,Genus,NA,200,0,0.02112817,2.885,Mean_Species
-126554,Lophius budegassa,"Spinola, 1807",Animalia,Chordata,Actinopteri,Lophiiformes,Lophiidae,Lophius,Species,Black bellied angler,100,3.28,0.0155,2.96,FishBase
-126555,Lophius piscatorius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Lophiiformes,Lophiidae,Lophius,Species,Angler,200,3.5,0.0288,2.81,FishBase
-126088,Lumpenus,"Reinhardt, 1836",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,Lumpenus,Genus,NA,50,0,0.0164,2.09,Mean_Species
-154675,Lumpenus lampretaeformis,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,Lumpenus,Species,Snakeblenny,50,4.1,0.0164,2.09,FishBase
-127101,Lycenchelys sarsii,"(Collett, 1871)",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Lycenchelys,Species,Sar's wolf eel,20,1.66,0.0001,4.1,MS-S
-126104,Lycodes,"Reinhardt, 1831",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Lycodes,Genus,NA,52,0,0.007183317,2.67,Mean_Species
-274100,Lycodes gracilis,"Sars, 1867",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Lycodes,Species,Eelpout,28,1.82,0.04,2.25,MS-S
-127118,Lycodes vahlii,"Reinhardt, 1831",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Lycodes,Species,INCORRECT DISTRIBUTION,52,0,0.00129,3.09,FB_Baysian_(Sub)family-body shape
-126356,Macroparalepis affinis,"Ege, 1933",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Macroparalepis,Species,Macroparalepis affine,55,2.25,0.00324,3.08,FB_Baysian_(Sub)family-body shape
-126222,Macroramphosus,"Lacepède, 1803",Animalia,Chordata,Actinopteri,Syngnathiformes,Centriscidae,Macroramphosus,Genus,NA,20,0,0.0087,2.83,Mean_Species
-127378,Macroramphosus scolopax,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Syngnathiformes,Centriscidae,Macroramphosus,Species,Longspine snipefish,20,2.3,0.0087,2.83,FishBase
-125471,Macrouridae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,0,Family,NA,110,0,0.002623926,3.0666,Mean_Species
-126472,Macrourus berglax,"Lacepède, 1801",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Macrourus,Species,Rough-head grenadier,110,2.52,0.012,2.93,FishBase
-126359,Magnisudis atlantica,"(Krøyer, 1868)",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Magnisudis,Species,Duckbill baracudina,56,2.26,0.00324,3.08,FB_Baysian_(Sub)family-body shape
-272392,Malacocephalus laevis,"(Lowe, 1843)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Malacocephalus,Species,Softhead rat tail,60,2.38,0.00411,2.8716,MS-S
-127297,Margrethia obtusirostra,"Jespersen & Tåning, 1919",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Margrethia,Species,Bighead portholefish,8.3,1.69,0.01122,3.04,FB_Baysian_Body shape
-127312,Maurolicus muelleri,"(Gmelin, 1789)",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Maurolicus,Species,Pearlside,8,1.6,0.00164,3.961,FishBase
-126437,Melanogrammus aeglefinus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Melanogrammus,Species,Haddock,112,4.5,0.0074,3.06,FishBase
-126483,Melanonus zugmayeri,"Norman, 1930",Animalia,Chordata,Actinopteri,Gadiformes,Melanonidae,Melanonus,Species,Arrowtail,28,2.1,0.00389,3.12,FB_Baysian_Body shape
-127359,Melanostomias bartonbeani,"Parr, 1927",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Melanostomias,Species,Scaleless black dragonfish,26.2,2.04,0.00389,3.12,FB_Baysian_Body shape
-126438,Merlangius merlangus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Merlangius,Species,Whiting,70,3.4,0.0059,3.08,FishBase
-125473,Merlucciidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Gadiformes,Merlucciidae,0,Family,NA,140,0,0.0046,3.12,Mean_Species
-126484,Merluccius merluccius,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Merlucciidae,Merluccius,Species,Hake,140,1.7,0.0046,3.12,FishBase
-127201,Micrenophrys lilljeborgii,"(Collett, 1875)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Micrenophrys,Species,Norway bullhead,7.4,1.2,0.00661,3.17,FB_Baysian_(Sub)family-body shape
-126129,Microchirus,"Bonaparte, 1833",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Genus,NA,40,0,0.01105173,3.03,Mean_Species
-274299,Microchirus azevia,"(de Brito Capello, 1867)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Species,Sole,40,1.24,0.01,3.07,FishBase
-274300,Microchirus boscanion,"(Chabanaud, 1926)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Species,Lusitanian sole,20,1.11,0.0112,3.03,FishBase
-274302,Microchirus ocellatus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Species,Foureyed sole,20,1.11,0.018,2.9,FishBase
-274304,Microchirus variegatus,"(Donovan, 1808)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Species,Thickback sole,35,1.5,0.0074,3.12,FishBase
-126439,Micromesistius poutassou,"(Risso, 1827)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Micromesistius,Species,Blue whiting,50,1.8,0.0041,3.15,FishBase
-127140,Microstomus kitt,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Microstomus,Species,Lemon sole,65,1.9,0.0083,3.08,FishBase
-127405,Mola mola,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Tetraodontiformes,Molidae,Mola,Species,Ocean sunfish,333,3.88,0.0454,3.05,FishBase
-126459,Molva dypterygia,"(Pennant, 1784)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Molva,Species,Blue ling,155,2.6,0.00191,3.149,FishBase
-126460,Molva macrophthalma,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Molva,Species,Spanish ling,108,2.65,0.0009,3.24,FishBase
-126461,Molva molva,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Molva,Species,Ling,200,2.2,0.004,3.07,FishBase
-127155,Monochirus hispidus,"Rafinesque, 1814",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Monochirus,Species,Whiskered sole,20,1.07,0.01439,3.16,FishBase
-275922,Monolene microstoma,"Cadenat, 1937",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Monolene,Species,Smallmouth moonflounder,20.1,2.1,0.00759,3.09,FB_Baysian_(Sub)family-body shape
-126497,Mora moro,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Mora,Species,Mora,80,2.54,0.0044,3.22,FishBase
-125474,Moridae,"Moreau, 1881",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,0,Family,NA,90,0,0.00326975,3.149,Mean_Species
-126983,Mugil cephalus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Mugil,Species,Flathead (grey) mullet,100,2.09,0.0148,2.95,FishBase
-125546,Mugilidae,"Jarocki, 1822",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,0,Family,NA,100,0,0.010958288,2.995,Mean_Species
-125547,Mullidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,0,Family,NA,40,0,0.008394641,3.135,Mean_Species
-126034,Mullus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,Mullus,Genus,NA,40,0,0.008394639,3.135,Mean_Species
-293632,Mullus barbatus barbatus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,Mullus,Species,Red mullet,33.2,0.84,0.0087,3.11,FishBase
-126986,Mullus surmuletus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,Mullus,Species,Striped red mullet,40,0.9,0.0081,3.16,FishBase
-126303,Muraena helena,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Anguilliformes,Muraenidae,Muraena,Species,Mediterranean moray,150,8.72,0.0022,2.98,FishBase
-105732,Mustelus,"Linck, 1790",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Triakidae,Mustelus,Genus,NA,200,0,0.004242642,2.945,Mean_Species
-105821,Mustelus asterias,"Cloquet, 1819",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Triakidae,Mustelus,Species,Starry smooth hound,140,30,0.0018,3.13,FishBase
-105822,Mustelus mustelus,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Triakidae,Mustelus,Species,Smooth hound,200,34.5,0.01,2.76,FishBase
-125498,Myctophidae,"Gill, 1893",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,0,Family,NA,10.3,0,0.007762067,3.047058824,Mean_Species
-125829,Myctophum,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Myctophum,Genus,NA,11,0,0.00804,3,Mean_Species
-126627,Myctophum punctatum,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Myctophum,Species,Spotted lanternfish,11,1.51,0.00804,3,FishBase
-105860,Myliobatis aquila,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Myliobatidae,Myliobatis,Species,Common eagle ray,183,41.7,0.04997,2.4589,FishBase/MS-S
-254529,Myoxocephalus quadricornis,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Myoxocephalus,Species,Four-horn sculpin,60,1.68,0.0229,2.952,FishBase
-127202,Myoxocephalus scorpioides,"(Fabricius, 1780)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Myoxocephalus,Species,Arctic sculpin,22,1.47,0.00661,3.17,FB_Baysian_(Sub)family-body shape
-127203,Myoxocephalus scorpius,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Myoxocephalus,Species,Bullrout,60,2,0.0141,3.05,FishBase
-101170,Myxine glutinosa,"Linnaeus, 1758",Animalia,Chordata,Myxini,Myxiniformes,Myxinidae,Myxine,Species,Hagfish,80,2.5,0.0003,3.4,MS-S
-125893,Nansenia,"Jordan & Evermann, 1896",Animalia,Chordata,Actinopteri,Osmeriformes,Microstomatidae,Nansenia,Genus,NA,11.2,0,0.00389,3.12,Mean_Species
-126729,Nansenia tenera,"Kawaguchi & Butler, 1984",Animalia,Chordata,Actinopteri,Osmeriformes,Microstomatidae,Nansenia,Species,Pencil Smelt,11.2,4.2,0.00389,3.12,FB_Baysian_Body shape
-126811,Naucrates ductor,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Naucrates,Species,Pilotfish,70,1.12,0.0147,3.04,FishBase
-126306,Nemichthys scolopaceus,"Richardson, 1848",Animalia,Chordata,Actinopteri,Anguilliformes,Nemichthyidae,Nemichthys,Species,Slender snipe eel,130,7.93,0.00102,3.06,FB_Baysian_Body shape
-398306,Neoraja iberica,"Stehmann, Séret, Costa & Baro, 2008",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Neoraja,Species,Iberian pygmy skate,32.7,6,0.00295,3.21,FB_Baysian_(Sub)family-body shape
-127383,Nerophis lumbriciformis,"(Jenyns, 1835)",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Nerophis,Species,Worm pipefish,15,2.19,0.0002,2.749,Modelled_Genus
-127385,Nerophis ophidion,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Nerophis,Species,Straight-nosed pipefish,29,2.53,0.0002,2.749,FishBase
-126865,Nesiarchus nasutus,"Johnson, 1862",Animalia,Chordata,Actinopteri,Perciformes,Gempylidae,Nesiarchus,Species,Black gemfish,130,2.26,0.00398,3.11,FB_Baysian_(Sub)family-body shape
-126292,Nessorhamphus ingolfianus,"(Schmidt, 1912)",Animalia,Chordata,Actinopteri,Anguilliformes,Derichthyidae,Nessorhamphus,Species,Duckbill oceanic eel,59.8,6.85,0.00102,3.06,FB_Baysian_Body shape
-126308,Nettastoma melanurum,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Anguilliformes,Nettastomatidae,Nettastoma,Species,Blackfin scorcerer,77.3,7.15,0.00081,3.02,FB_Baysian_(Sub)family-body shape
-125754,Nezumia,"Jordan, 1904 ",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Genus,na,40,0,0.002170096,3.117667,Mean_Species
-126473,Nezumia aequalis,"(Günther, 1878)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,Common Atlantic Grenadier,36,1.75,0.00376,3,FishBase
-183289,Nezumia bairdii,"(Goode & Bean, 1877)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,INCORRECT DISTRIBUTION,40,0,0.00302,3.12,FB_Baysian_(Sub)family-body shape
-126475,Nezumia sclerorhynchus,"(Valenciennes, 1838)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,Roughtip grenadier,36,2.16,0.0009,3.233,FishBase
-125501,Notacanthidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Notacanthiformes,Notacanthidae,0,Family,NA,26,0,0.001106345,3.06,Mean_Species
-126642,Notacanthus bonaparte,"Risso, 1840",Animalia,Chordata,Actinopteri,Notacanthiformes,Notacanthidae,Notacanthus,Species,Shortfin spiny eel,26,1.88,0.0012,3.06,FishBase
-125831,Notoscopelus,"Günther, 1864",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Notoscopelus,Genus,NA,10.6,0,0.01161034,3,Mean_Species
-158915,Notoscopelus elongatus,"(Costa, 1844)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Notoscopelus,Species,Lanternfish,10.6,1.62,0.01348,3,FishBase
-272728,Notoscopelus kroyeri,"(Malm, 1861)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Notoscopelus,Species,Lancet fish,14.3,1.72,0.01,3,FishBase
-126316,Ophichthus rufus,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Anguilliformes,Ophichthidae,Ophichthus,Species,Rufus snake-eel,60,6.86,0.00151,2.91,FB_Baysian_(Sub)family-body shape
-126675,Ophidion barbatum,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Ophidiiformes,Ophidiidae,Ophidion,Species,Snake blenny,25,7.38,0.0027,3.183,FishBase
-126317,Ophisurus serpens,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Anguilliformes,Ophichthidae,Ophisurus,Species,Serpent eel,250,8.69,0.0006,2.99,FishBase
-126733,Opisthoproctus soleatus,"Vaillant, 1888",Animalia,Chordata,Actinopteri,Osmeriformes,Opisthoproctidae,Opisthoproctus,Species,Barrel-eye,10.5,4.16,0.01995,3.01,FB_Baysian_Body shape
-126736,Osmerus eperlanus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Osmeriformes,Osmeridae,Osmerus,Species,Smelt,45,5,0.0032,3.3,FishBase
-105914,Oxynotus centrina,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Squaliformes,Oxynotidae,Oxynotus,Species,Angular roughshark,150,22.8,0.00389,3.12,FB_Baysian_Body shape
-105915,Oxynotus paradoxus,"Frade, 1929",Animalia,Chordata,Elasmobranchii,Squaliformes,Oxynotidae,Oxynotus,Species,Sailfin roughshark,120,25,0.00389,3.12,FB_Baysian_Body shape
-126079,Pagellus,"Valenciennes, 1830",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Genus,NA,70,0,0.01388863,3.055,Mean_Species
-127057,Pagellus acarne,"(Risso, 1827)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Species,Spanish sea bream,36,1.89,0.0105,3.15,FishBase
-127058,Pagellus bellottii,"Steindachner, 1882",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Species,Red pandora,42,1.91,0.0158,3.03,FishBase
-127059,Pagellus bogaraveo,"(Brünnich, 1768)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Species,Red sea bream,70,2.06,0.0126,3.07,FishBase
-127060,Pagellus erythrinus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Species,Pandora,60,2.01,0.0178,2.97,FishBase
-127061,Pagrus auriga,"Valenciennes, 1843",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagrus,Species,Redbanded seabream,80,2.09,0.022897161,2.94,Modelled_Genus
-127062,Pagrus caeruleostictus,"(Valenciennes, 1830)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagrus,Species,Bluespotted seabream,90,1.96,0.0257,2.9,FishBase
-127063,Pagrus pagrus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagrus,Species,Common seabream,91,2.17,0.0204,2.98,FishBase
-126770,Parablennius gattorugine,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Blenniidae,Parablennius,Species,Tompot blenny,30,2,0.0093,3.12,FishBase
-126361,Paralepis coregonoides,"Risso, 1820",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Paralepis,Species,Sharpchin barracudina,50,2.2,0.00324,3.08,FB_Baysian_(Sub)family-body shape
-127228,Paraliparis membranaceus,"Günther, 1887",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,Paraliparis,Species,Snailfish Questionalble DISTRIBUTION,6,0,0.01,3.04,FB_Baysian_body shape
-126945,Parapristipoma octolineatum,"(Valenciennes, 1833)",Animalia,Chordata,Actinopteri,Perciformes,Haemulidae,Parapristipoma,Species,African striped grunt,50,1.93,0.0089,3.1,FishBase
-275832,Parasudis fraserbrunneri,"(Poll, 1953)",Animalia,Chordata,Actinopteri,Aulopiformes,Chlorophthalmidae,Parasudis,Species,Greeneye,25.3,1.87,0.00389,3.15,FB_Baysian_(Sub)family-body shape
-126131,Pegusa,"Günther, 1862",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Pegusa,Genus,NA,40,0,0.0072,3.14,Mean_Species
-127156,Pegusa lascaris,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Pegusa,Species,Sand sole,40,1.1,0.0072,3.14,FishBase
-127233,Peristedion cataphractum,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Peristediidae,Peristedion,Species,African armoured searobin,40,1.88,0.0056,2.95,FishBase
-101169,Petromyzon,"Linnaeus, 1758",Animalia,Chordata,Petromyzonti,Petromyzontiformes,Petromyzontidae,Petromyzon,Genus,NA,120,0,0.0003,3.4,Mean_Species
-101174,Petromyzon marinus,"Linnaeus, 1758",Animalia,Chordata,Petromyzonti,Petromyzontiformes,Petromyzontidae,Petromyzon,Species,Sea lamprey,120,1.35,0.0003,3.4,MS-S
-101163,Petromyzontidae,"Bonaparte, 1831",Animalia,Chordata,Petromyzonti,Petromyzontiformes,Petromyzontidae,0,Family,NA,120,0,0.000577061,3.2705,Mean_Species
-125550,Pholidae,"Gill, 1893",Animalia,Chordata,Actinopteri,Perciformes,Pholidae,0,Family,NA,25,0,0.0043,3.018,Mean_Species
-126996,Pholis gunnellus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Pholidae,Pholis,Species,Butterfish,25,3.5,0.0043,3.018,FishBase
-127372,Photostomias guernei,"Collett, 1889",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Photostomias,Species,Barbeled dragonfish,16,1.88,0.00389,3.12,FB_Baysian_Body shape
-127147,Phrynorhombus norvegicus,"(Günther, 1862)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Phrynorhombus,Species,Norwegian topknot,12,1.1,0.0161,2.905,FishBase
-125475,Phycidae,"Swainson, 1838",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,0,Family,NA,110,0,0.006791411,3.113333333,Mean_Species
-126501,Phycis blennoides,"(Brünnich, 1768)",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,Phycis,Species,Greater forkbeard,110,2.46,0.0037,3.2,FishBase
-126502,Phycis phycis,"(Linnaeus, 1766)",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,Phycis,Species,Forkbeard,65,2.54,0.0068,3.14,FishBase
-126498,Physiculus dalwigki,"Kaup, 1858",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Physiculus,Species,Black codling,30,2.12,0.0071,2.59,FishBase
-127141,Platichthys flesus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Platichthys,Species,Flounder,60,1,0.0093,3.05,FishBase
-126946,Plectorhinchus mediterraneus,"(Guichenot, 1850)",Animalia,Chordata,Actinopteri,Perciformes,Haemulidae,Plectorhinchus,Species,Rubberlip grunt,80,2.12,0.0081,3.17,FishBase
-127143,Pleuronectes platessa,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Pleuronectes,Species,Plaice,100,1.7,0.0093,3.03,FishBase
-126440,Pollachius pollachius,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Pollachius,Species,Pollack,130,2.5,0.0059,3.12,FishBase
-126441,Pollachius virens,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Pollachius,Species,Saithe,130,2.5,0.0095,2.99,FishBase
-126645,Polyacanthonotus rissoanus,"(De Filippi & Vérany, 1857)",Animalia,Chordata,Actinopteri,Notacanthiformes,Notacanthidae,Polyacanthonotus,Species,Smallmouth spiny eel,9.5,1.48,0.00102,3.06,FB_Baysian_Body shape
-127300,Polymetme corythaeola,"(Alcock, 1898)",Animalia,Chordata,Actinopteri,Stomiiformes,Phosichthyidae,Polymetme,Species,Rendezvous fish,26,2.04,0.00337,3.116,FishBase
-127301,Polymetme thaeocoryla,"Parin & Borodulina, 1990",Animalia,Chordata,Actinopteri,Stomiiformes,Phosichthyidae,Polymetme,Species,Lightfish,21.6,1.98,0.0038,3.12,FB_Baysian_(Sub)family-body shape
-126998,Polyprion americanus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Actinopteri,Perciformes,Polyprionidae,Polyprion,Species,Wreckfish,210,2.43,0.0195,2.96,FishBase
-126947,Pomadasys incisus,"(Bowdich, 1825)",Animalia,Chordata,Actinopteri,Perciformes,Haemulidae,Pomadasys,Species,Bastard grunt,50,1.87,0.0269,2.78,FishBase
-151482,Pomatomus saltatrix,"(Linnaeus, 1766)",Animalia,Chordata,Actinopteri,Perciformes,Pomatomidae,Pomatomus,Species,Bluefish,130,2.3,0.0145,2.9,FishBase
-125999,Pomatoschistus,"Gill, 1863",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Genus,NA,11,0,0.007515513,3.14,Mean_Species
-126925,Pomatoschistus lozanoi,"(de Buen, 1923)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Lozano's goby,8,1.75,0.01,3.04,FishBase
-126927,Pomatoschistus microps,"(Krøyer, 1838)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Common goby,9,1.5,0.0075,3.18,FishBase
-126928,Pomatoschistus minutus,"(Pallas, 1770)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Sand goby,11,1.8,0.0052,3.22,FishBase
-126929,Pomatoschistus norvegicus,"(Collett, 1902)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Norway goby,8,1.8,0.00891,3.07,FB_Baysian_(Sub)family-body shape
-126930,Pomatoschistus pictus,"(Malm, 1865)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Painted goby,6,1.8,0.0069,3.19,FishBase
-127240,Pontinus kuhlii,"(Bowdich, 1825)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Pontinus,Species,Offshore rockfish,52,1.99,0.0132,3.03,FishBase
-127272,Poromitra capito,"Goode & Bean, 1883",Animalia,Chordata,Actinopteri,Stephanoberyciformes,Melamphaidae,Poromitra,Species,Ridgehead,10,1.5,0.01023,3.04,FB_Baysian_(Sub)family-body shape
-158917,Protomyctophum arcticum,"(Lütken, 1892)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Protomyctophum,Species,Artic telescope,6,1.32,0.01023,3.11,FB_Baysian_(Sub)family-body shape
-158540,Pteroplatytrygon violacea,"(Bonaparte, 1832)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Dasyatidae,Pteroplatytrygon,Species,Pelagic stingray,163,22.5,0.00498,2.97,FishBase/WD-TL
-126785,Pterycombus brama,"Fries, 1837",Animalia,Chordata,Actinopteri,Perciformes,Bramidae,Pterycombus,Species,Atlantic fanfish,46,1.91,0.01995,2.96,FB_Baysian_(Sub)family-body shape
-105766,Raja,"Linnaeus, 1758",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Genus,NA,120,0,0.002905104,3.197143,Mean_Species
-105881,Raja asterias,"Delaroche, 1809",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Mediterranean starry ray,70,8,0.0025,3.26,FishBase
-367297,Raja brachyura,"Lafont, 1871",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Blond ray,120,15.38,0.0032,3.2,FishBase
-105883,Raja clavata,"Linnaeus, 1758",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Thornback ray,105,12,0.0022,3.21,FishBase
-105885,Raja microocellata,"Montagu, 1818",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Small eyed ray,86,10,0.0049,3.12,FishBase
-105886,Raja miraletus,"Linnaeus, 1758",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Brown ray,63,10,0.0018,3.21,FishBase
-105887,Raja montagui,"Fowler, 1910",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Spotted ray,80,11.5,0.0025,3.31,FishBase
-105891,Raja undulata,"Lacepède, 1802",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Undulate ray,100,11.92,0.0045,3.07,FishBase
-105892,Rajella bathyphila,"(Holt & Byrne, 1908)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Rajella,Species,Deepwater ray,90,11.5,0.00295,3.21,FB_Baysian_(Sub)family-body shape
-105894,Rajella fyllae,"(Lütken, 1887)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Rajella,Species,Round ray,60,9,0.00484,3.001,Scottish
-105711,Rajidae,"de Blainville, 1816",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,0,Family,NA,200,0,0.003054498,3.1801,Mean_Species
-126442,Raniceps raninus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Raniceps,Species,Tadpole fish,27.5,1.3,0.0062,3.267,FishBase
-127406,Ranzania laevis,"(Pennant, 1776)",Animalia,Chordata,Actinopteri,Tetraodontiformes,Molidae,Ranzania,Species,Slender sunfish,100,2.6,0.02239,3.02,FB_Baysian_(Sub)family-body shape
-126853,Remora remora,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Echeneidae,Remora,Species,Shark sucker,86.4,2.12,0.007528721,3.03837037,Modelled_Order
-105896,Rostroraja alba,"(Lacepède, 1803)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Rostroraja,Species,White skate,230,18.17,0.005,3.06,FishBase
-126867,Ruvettus pretiosus,"Cocco, 1833",Animalia,Chordata,Actinopteri,Perciformes,Gempylidae,Ruvettus,Species,Oilfish,300,2.6,0.0031,3.134,FishBase
-126748,Sagamichthys schnakenbecki,"(Krefft, 1953)",Animalia,Chordata,Actinopteri,Osmeriformes,Platytroctidae,Sagamichthys,Species,Schnakenbeck's searsid,27,4.86,0.00389,3.12,FB_Baysian_Body shape
-126141,Salmo,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Salmoniformes,Salmonidae,Salmo,Genus,NA,150,0,0.01095444,3.015,Mean_Species
-127186,Salmo salar,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Salmoniformes,Salmonidae,Salmo,Species,Salmon,150,3.08,0.012,3,FishBase
-223866,Salmo trutta trutta,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Salmoniformes,Salmonidae,Salmo,Subspecies,Sea trout,140,2.24,0.01,3.03,FishBase
-151308,Sander lucioperca,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Percidae,Sander,Species,Pike perch,100,2.26,0.0071,3.12,FishBase
-127021,Sarda sarda,"(Bloch, 1793)",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Sarda,Species,Atlantic bonito,91.4,2.33,0.0043,3.14,FishBase
-126421,Sardina pilchardus,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Sardina,Species,Pilchard,27.5,4.5,0.0054,3.14,FishBase
-126422,Sardinella aurita,"Valenciennes, 1847",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Sardinella,Species,Round sardinella,30,3.85,0.0072,3.05,FishBase
-127064,Sarpa salpa,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Sarpa,Species,Salema,51,2.01,0.0129,3.06,FishBase
-126833,Schedophilus medusophagus,"(Cocco, 1839)",Animalia,Chordata,Actinopteri,Perciformes,Centrolophidae,Schedophilus,Species,Cornish blackfish,51,1.94,0.01995,3.01,FB_Baysian_Body shape
-126834,Schedophilus ovalis,"(Cuvier, 1833)",Animalia,Chordata,Actinopteri,Perciformes,Centrolophidae,Schedophilus,Species,Imperial blackfish,100,2.17,0.01995,3.01,FB_Baysian_Body shape
-151174,Scomber colias,"Gmelin, 1789",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Scomber,Species,Atlantic chub mackerel,64,2.13,0.0042,3.27,FishBase
-127023,Scomber scombrus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Scomber,Species,Mackerel,60,2.1,0.0055,3.13,FishBase
-236461,Scomberesox saurus saurus,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Beloniformes,Scomberesocidae,Scomberesox,Species,Atlantic saury,50,4.38,0.0015,3.193,FishBase
-127149,Scophthalmus maximus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Scophthalmus,Species,Turbot,100,2,0.011,3.1,FishBase
-127150,Scophthalmus rhombus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Scophthalmus,Species,Brill,75,2,0.0138,3.01,FishBase
-126171,Scorpaena,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Genus,NA,50,0,0.01465309,3.078,Mean_Species
-127242,Scorpaena elongata,"Cadenat, 1943",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Slender rockfish,50,1.91,0.01318,3.02,FB_Baysian_Genus-body shape
-127244,Scorpaena loppei,"Cadenat, 1943",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Cadenat's rockfish,15,1.54,0.0081,3.33,FishBase
-127246,Scorpaena notata,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Small red scorpionfish,24,1.68,0.0174,3.03,FishBase
-127247,Scorpaena porcus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Black scorpionfish,37,1.81,0.0174,3.04,FishBase
-127248,Scorpaena scrofa,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Scorpionfish,50,1.97,0.0209,2.97,FishBase
-125595,Scorpaenidae,"Risso, 1827",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,0,Family,NA,52,0,0.014400244,3.07,Mean_Species
-105729,Scyliorhinus,"Blainville, 1816",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Scyliorhinidae,Scyliorhinus,Genus,NA,100,0,0.002619159,3.09,Mean_Species
-105814,Scyliorhinus canicula,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Scyliorhinidae,Scyliorhinus,Species,Lesser spotted dogfish,100,9.5,0.0014,3.22,FishBase
-105815,Scyliorhinus stellaris,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Scyliorhinidae,Scyliorhinus,Species,Nurse hound,170,16,0.0049,2.96,MS-S
-105918,Scymnodon ringens,"Barbosa du Bocage & de Brito Capello, 1864",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Scymnodon,Species,Knifetooth dogfish,110,23.5,0.0043,3.12,FishBase
-126749,Searsia koefoedi,"Parr, 1937",Animalia,Chordata,Actinopteri,Osmeriformes,Platytroctidae,Searsia,Species,Koefoed's searsid,15,4.41,0.01,3.04,FB_Baysian_Body shape
-126175,Sebastes,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Sebastes,Genus,NA,100,0,0.01663103,3.035667,Mean_Species
-127254,Sebastes mentella,"Travin, 1951",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Sebastes,Species,Redfish,58,1.85,0.02,3.02,FishBase
-151324,Sebastes norvegicus,"(Ascanius, 1772)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Sebastes,Species,Golden redfish,100,1.8,0.02,2.95,MS-S
-127255,Sebastes viviparus,"Krøyer, 1845",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Sebastes,Species,Norway haddock,35,1.6,0.0115,3.137,FishBase
-127041,Serranus cabrilla,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Serranus,Species,Comber,40,1.6,0.017,2.86,FishBase
-127042,Serranus hepatus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Serranus,Species,Brown comber,25,1.4,0.0145,3.06,FishBase
-127043,Serranus scriba,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Serranus,Species,Painted comber,36,1.58,0.0112,3.06,FishBase
-126319,Serrivomer beanii,"Gill & Ryder, 1883",Animalia,Chordata,Actinopteri,Anguilliformes,Serrivomeridae,Serrivomer,Species,Stout sawpalate,78,7.16,0.00102,3.06,FB_Baysian_Body shape
-127258,Setarches guentheri,"Johnson, 1862",Animalia,Chordata,Actinopteri,Scorpaeniformes,Setarchidae,Setarches,Species,Channeled rockfish,25,1.7,0.0104,3.091,FishBase
-398363,Sigmops bathyphilus,"(Vaillant, 1884)",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Sigmops,Species,Spark anglemouth,20,1.95,0.00363,3.07,FB_Baysian_(Sub)family-body shape
-127159,Solea senegalensis,"Kaup, 1858",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Solea,Species,Senegalese sole,60,1.34,0.0078,3.07,FishBase
-127160,Solea solea,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Solea,Species,Dover sole,70,1.1,0.0062,3.13,FishBase
-125581,Soleidae,"Bonaparte, 1833",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,0,Family,NA,70,0,0.008249801,3.097641667,Mean_Species
-105919,Somniosus microcephalus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Somniosus,Species,Greenland shark,730,37.5,0.0065,3.24,FishBase
-105920,Somniosus rostratus,"(Risso, 1827)",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Somniosus,Species,Little sleeper shark,143,24.5,0.00479,3.13,FB_Baysian_(Sub)family-body shape
-125564,Sparidae,"Rafinesque, 1818",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,0,Family,NA,106,0,0.014341981,3.036478261,Mean_Species
-151523,Sparus aurata,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Sparus,Species,Gilthead seabream,70,2.07,0.0151,2.99,FishBase
-127417,Sphoeroides pachygaster,"(Müller & Troschel, 1848)",Animalia,Chordata,Actinopteri,Tetraodontiformes,Tetraodontidae,Sphoeroides,Species,Blunthead puffer,40.5,2.09,0.0316,2.87,FishBase
-127068,Sphyraena sphyraena,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sphyraenidae,Sphyraena,Species,European barracuda,165,2.07,0.0151,2.84,FishBase
-126828,Spicara maena,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Centracanthidae,Spicara,Species,Blotched picarel,25,1.71,0.0083,3.13,FishBase
-126830,Spicara smaris,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Centracanthidae,Spicara,Species,Picarel,20,1.73,0.01,2.98,FishBase
-126508,Spinachia spinachia,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gasterosteiformes,Gasterosteidae,Spinachia,Species,Fifteen spined stickleback,22,2.5,0.0021,3,FishBase
-127066,Spondyliosoma cantharus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Spondyliosoma,Species,Black sea bream,60,1.97,0.0138,3.03,FishBase
-125722,Spratelloides,"Bleeker, 1851 ",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Spratelloides,Genus,na,10.5,0,0.00513,3.14,Mean_Species
-272278,Spratelloides lewisi,"Wongratana, 1983",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Spratelloides,Species,INCORRECT DISTRIBUTION,60,0,0.00513,3.14,FB_Baysian_Spp&(Sub)family-body shape
-126425,Sprattus sprattus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Sprattus,Species,Sprat,16,3.6,0.0055,3.06,FishBase
-105716,Squalidae,"de Blainville, 1816",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,0,Family,NA,160,0,0.003436936,3.07,Mean_Species
-105923,Squalus acanthias,"Linnaeus, 1758",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,Squalus,Species,Spurdog,160,24,0.003,3.07,FishBase
-105924,Squalus blainville,"(Risso, 1827)",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,Squalus,Species,Longnose spurdog,100,23,0.0034,3.05,FishBase
-105925,Squalus megalops,"(MacLeay, 1881)",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,Squalus,Species,Shortnose spurdog,89,23,0.0072,2.93,FishBase
-299235,Squalus uyato,"Rafinesque, 1810",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,Squalus,Species,Little gulper shark,110,42.5,0.0019,3.23,FishBase
-125566,Stichaeidae,"Gill, 1864",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,0,Family,NA,50,0,0.018719803,2.226666667,Mean_Species
-126220,Stomias,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Stomias,Genus,NA,30,0,0.00229,3.16,Mean_Species
-234601,Stomias boa boa,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Stomias,Species,Boa dragonfish,32.2,2.12,0.00229,3.16,FB_Baysian_(Sub)family-body shape
-158737,Stomias boa ferox,"Reinhardt, 1842",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Stomias,Subspecies,Boa dragonfish,30,2.09,0.00229,3.16,FB_Baysian_(Sub)family-body shape
-127076,Stromateus fiatola,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Stromateidae,Stromateus,Species,Blue butterfish,50,1.93,0.0166,3.05,FB_Baysian_(Sub)family-body shape
-126630,Symbolophorus veranyi,"(Moreau, 1888)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Symbolophorus,Species,Large-scale lantern fish,12,1.56,0.0156,2.912,FishBase
-126023,Symphodus,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Symphodus,Genus,NA,28,0,0.01096596,3.11,Mean_Species
-273566,Symphodus bailloni,"(Valenciennes, 1839)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Symphodus,Species,Baillon's wrasse,20,0.83,0.0123,3.11,FishBase
-273571,Symphodus melops,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Symphodus,Species,Corkwing wrasse,28,0.7,0.0071,3.18,FishBase
-273573,Symphodus roissali,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Symphodus,Species,Five-spotted wrasse,17,0.82,0.0151,3.04,FishBase
-127134,Symphurus nigrescens,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Pleuronectiformes,Cynoglossidae,Symphurus,Species,Tonguesole,12,1.39,0.0048,3.21,FishBase
-126328,Synaphobranchus kaupii,"Johnson, 1862",Animalia,Chordata,Actinopteri,Anguilliformes,Synaphobranchidae,Synaphobranchus,Species,Kaup's arrowtooth eel,100,7.47,0.0003,3.36,FishBase
-126798,Synchiropus phaeton,"(Günther, 1861)",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Synchiropus,Species,Phaeton dragonet,18,1.14,0.01309,2.527,FishBase
-125606,Syngnathidae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,0,Family,NA,50,0,0.000440324,2.9789875,Mean_Species
-126227,Syngnathus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Syngnathus,Genus,NA,50,0,0.000181712,3.28,Mean_Species
-127387,Syngnathus acus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Syngnathus,Species,Great pipefish,50,3.4,0.0003,3.19,FishBase
-127389,Syngnathus rostellatus,"Nilsson, 1855",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Syngnathus,Species,Nilsson's pipefish,17,1.6,0.0001,3.53,IMARES
-127393,Syngnathus typhle,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Syngnathus,Species,Broad-nosed pipefish,35,2.8,0.0002,3.12,FishBase
-127204,Taurulus bubalis,"(Euphrasen, 1786)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Taurulus,Species,Sea scorpion,17.5,1.2,0.01,3.11,MS-S
-321911,Tetronarce nobiliana,"(Bonaparte, 1835)",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Electric ray,180,22.75,0.0672,2.926,FishBase
-126937,Thorogobius ephippiatus,"(Lowe, 1839)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Thorogobius,Species,Leopard-spotted-goby,13,1.89,0.00589,3.12,FB_Baysian_(Sub)family-body shape
-127029,Thunnus thynnus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Thunnus,Species,Bluefin tuna,458,3.04,0.0129,2.92,FishBase
-271684,Torpedo marmorata,"Risso, 1810",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Marbled electric ray,100,12,0.0275,2.9,FishBase
-157868,Torpedo nobiliana,"Bonaparte, 1835",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Electric Ray,180,0,0.0672,2.926,FishBase
-271691,Torpedo torpedo,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Eyed electric ray,60,9,0.0302,2.81,FishBase
-127082,Trachinus draco,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Trachinidae,Trachinus,Species,Greater weever,53,1.6,0.0059,3.08,FishBase
-126527,Trachipterus arcticus,"(Brünnich, 1788)",Animalia,Chordata,Actinopteri,Lampriformes,Trachipteridae,Trachipterus,Species,Dealfish,300,3.78,0.00183,3,FishBase
-126528,Trachipterus trachypterus,"(Gmelin, 1789)",Animalia,Chordata,Actinopteri,Lampriformes,Trachipteridae,Trachipterus,Species,Mediterranean dealfish,300,3.38,0.00102,3.06,FB_Baysian_Body shape
-126820,Trachurus mediterraneus,"(Steindachner, 1868)",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Trachurus,Species,Mediterranean horse mackerel,60,1.07,0.0105,2.97,FishBase
-126821,Trachurus picturatus,"(Bowdich, 1825)",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Trachurus,Species,Blue jack mackerel,60,1.16,0.01,3.11,FishBase
-126822,Trachurus trachurus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Trachurus,Species,Horse mackerel,70,1.1,0.0087,2.99,FishBase
-126481,Trachyrincus murrayi,"Günther, 1887",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Trachyrincus,Species,Murray's rat tail,37,2.19,0.00102,3.06,FB_Baysian_Body shape
-126482,Trachyrincus scabrus,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Trachyrincus,Species,Roughsnout grenadier,60,2.26,0.00129,3.232,FishBase
-293753,Trachyscorpia cristulata cristulata,"(Goode & Bean, 1896)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Trachyscorpia,Subspecies,Atlantic thornyhead,50,1.79,0.00912,3.1,FB_Baysian_(Sub)family-body shape
-293754,Trachyscorpia cristulata echinata,"(Köhler, 1896)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Trachyscorpia,Subspecies,Spiny scorpionfish,50,1.79,0.00912,3.1,FB_Baysian_(Sub)family-body shape
-126180,Trigla,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Trigla,Genus,NA,60,2.14,0.011,2.94,Mean_Species
-127266,Trigla lyra,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Trigla,Species,Piper gurnard,60,2.14,0.011,2.94,FishBase
-125598,Triglidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,0,Family,NA,75,0,0.007852628,3.065725,Mean_Species
-154461,Trigloporus,"Smith, 1934",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Trigloporus,Genus,NA,40,0,0.0049,3.04,Mean_Species
-154462,Trigloporus lastoviza,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Trigloporus,Species,Streaked gurnard,40,2.5,0.0049,3.04,FishBase
-126154,Triglops,"Reinhardt, 1830",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Triglops,Genus,NA,20,0,0.02,2.74,Mean_Species
-127205,Triglops murrayi,"Günther, 1888",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Triglops,Species,Moustache sculpin,20,1.45,0.02,2.74,MS-S
-126444,Trisopterus esmarkii,"(Nilsson, 1855)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Trisopterus,Species,Norway pout,35,2.2,0.0044,3.21,MS-S
-126445,Trisopterus luscus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Trisopterus,Species,Bib,46,1.2,0.0079,3.15,FishBase
-126446,Trisopterus minutus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Trisopterus,Species,Poor cod,40,2.3,0.0072,3.13,FishBase
-127011,Umbrina canariensis,"Valenciennes, 1843",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Umbrina,Species,Canary drum,80,2.08,0.0086,3.123,FishBase
-127012,Umbrina cirrosa,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Umbrina,Species,Shi drum,73,2.24,0.0117,3.02,FishBase
-127013,Umbrina ronchus,"Valenciennes, 1843",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Umbrina,Species,Fusca drum,100,2.2,0.00891,3.09,FB_Baysian_Genus-body shape
-127093,Uranoscopus scaber,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Uranoscopidae,Uranoscopus,Species,Stargazer,40,1.92,0.0126,3.08,FishBase
-126503,Urophycis chuss,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,Urophycis,Species,red hake/squirrel hake Questionable DISTRIBUTION,66,0,0.01245,3,FishBase
-127304,Vinciguerria poweriae,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Stomiiformes,Phosichthyidae,Vinciguerria,Species,Power's deep-water bristle-mouth,4.3,1.51,0.00933,3.09,FB_Baysian_(Sub)family-body shape
-126714,Xenodermichthys copei,"(Gill, 1884)",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,Xenodermichthys,Species,Bluntsnout smooth-head,31,4.97,0.0066,3,FishBase
-159432,Xenolepidichthys dalgleishi,"Gilchrist, 1922",Animalia,Chordata,Actinopteri,Zeiformes,Grammicolepididae,Xenolepidichthys,Species,Spotted tinselfish,15,1.31,0.02451,2.891,FishBase
-127094,Xiphias gladius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Xiphiidae,Xiphias,Species,Swordfish,455,2.72,0.0023,3.17,FishBase
-125617,Zeidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Zeiformes,Zeidae,0,Family,NA,90,0,0.007948585,3.145,Mean_Species
-127421,Zenion hololepis,"(Goode & Bean, 1896)",Animalia,Chordata,Actinopteri,Zeiformes,Zeniontidae,Zenion,Species,Zeniontid Fish,12,1.26,0.01122,3.04,FB_Baysian_Body shape
-127426,Zenopsis conchifer,"(Lowe, 1852)",Animalia,Chordata,Actinopteri,Zeiformes,Zeidae,Zenopsis,Species,Silvery John dory,80,1.73,0.0027,3.4,FishBase
-126125,Zeugopterus,"Gottsche, 1835",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Zeugopterus,Genus,NA,25,0,0.01339067,3.1756,mean_Species
-126125,Zeugopterus norvegicus,"Gottsche, 1835",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Zeugopterus,Genus,NA,25,0,0.01339067,3.1756,from Zeugopterus spp
-127151,Zeugopterus punctatus,"(Bloch, 1787)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Zeugopterus,Species,Topknot,25,1.4,0.0139,3.146,FishBase
-236488,Zeugopterus regius,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Zeugopterus,Species,Eckstrom's topknot,20,1.2,0.0129,3.2052,English
-127427,Zeus faber,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Zeiformes,Zeidae,Zeus,Species,John dory,90,1.9,0.0234,2.89,FishBase
-127123,Zoarces viviparus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Zoarces,Species,Viviparous blenny,52,1.9,0.0044,3.03,FishBase
-125575,Zoarcidae,"Swainson, 1839",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,0,Family,NA,52,0,0.002182859,3.1175,Mean_Species
+ValidAphiaID,valid_name,valid_authority,kingdom,phylum,CLASS,order,family,genus,rank,FRS_Common Name,LmaxFB,Lmin,LWRa,LWRb,LWRSource,SensFC1
+154271,Abramis,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Cypriniformes,Cyprinidae,Abramis,Genus,NA,82,0,0.01,3,Generic_Cube,Other
+126957,Acantholabrus palloni,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Acantholabrus,Species,Scale-rayed wrasse,25,0.86,0.0108,3.074,FishBase,Other
+126279,Acipenser sturio,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Acipenseriformes,Acipenseridae,Acipenser,Species,Sturgeon,600,4.19,0.0041,3.04,FishBase,Other
+871951,Aetomylaeus bovinus,"(Geoffroy Saint-Hilaire, 1817)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Myliobatidae,Pteromylaeus,Species,Bull ray,222,45,0.0182,3,FB_Baysian_(Sub)family-body shape,Other
+127190,Agonus cataphractus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Agonidae,Agonus,Species,Hooknose,21,1.6,0.02,2.75,MS-S,Other
+125507,Alepocephalidae,"Bonaparte, 1846",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,0,Family,NA,100,0,0.003975519,3.116667,Mean_Species,Other
+126682,Alepocephalus bairdii,"Goode & Bean, 1879",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,Alepocephalus,Species,Baird's slickhead,100,6.23,0.0028,3.21,FishBase,Other
+126684,Alepocephalus rostratus,"Risso, 1820",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,Alepocephalus,Species,Risso's smooth-head,50,5.53,0.0034,3.14,FishBase,Other
+125715,Alosa,"Linck, 1790",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Alosa,Genus,NA,70,0,0.00672392,3.083333,Mean_Species,FC1
+416357,Alosa agone,"(Scopoli, 1786)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Alosa,Species,Agone,39,3.9,0.0132,2.94,FishBase,Other
+126413,Alosa alosa,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Alosa,Species,Allis shad,70,4.45,0.0049,3.2,FishBase,Other
+126415,Alosa fallax,"(Lacepède, 1803)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Alosa,Species,Twaite shad,60,2.7,0.0047,3.11,FishBase,Other
+105865,Amblyraja radiata,"(Donovan, 1808)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Amblyraja,Species,Starry ray,105,9.8,0.00842,2.944,MS-S,FC1
+125909,Ammodytes,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Ammodytes,Genus,NA,25,0,0.002368544,3.06,Mean_Species,Other
+126751,Ammodytes marinus,"Raitt, 1934",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Ammodytes,Species,Lesser sandeel,25,2.6,0.0017,3.21,FishBase,Other
+126752,Ammodytes tobianus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Ammodytes,Species,Small sandeel,20,2,0.0033,2.91,FishBase,Other
+125516,Ammodytidae,"Bonaparte, 1835",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,0,Family,NA,40,0,0.002062183,3.108917,Mean_Species,Other
+126758,Anarhichas lupus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Anarhichadidae,Anarhichas,Species,Catfish,150,3.6,0.0029,3.28,FishBase,FC1
+126759,Anarhichas minor,"Olafsen, 1772",Animalia,Chordata,Actinopteri,Perciformes,Anarhichadidae,Anarhichas,Species,Spotted catfish,180,3.4,0.00172,3.399,FishBase,Other
+125620,Anguilla,"Schrank, 1798",Animalia,Chordata,Actinopteri,Anguilliformes,Anguillidae,Anguilla,Genus,NA,133,0,0.0009,3.19,Mean_Species,Other
+126281,Anguilla anguilla,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Anguilliformes,Anguillidae,Anguilla,Species,European eel,133,7.6,0.0009,3.19,FishBase,FC1
+125425,Anguillidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Anguilliformes,Anguillidae,0,Family,NA,133,0,0.0009,3.19,Mean_Species,Other
+127031,Anthias anthias,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Anthias,Species,Swallowtail seaperch,27,1.5,0.0242,2.611,FishBase,Other
+127085,Aphanopus carbo,"Lowe, 1839",Animalia,Chordata,Actinopteri,Perciformes,Trichiuridae,Aphanopus,Species,Black scabbard,110,2.46,0.00038,3.27,FishBase,Other
+126868,Aphia minuta,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Aphia,Species,Transparent goby,7.9,2.8,0.0008,3.53,FishBase,Other
+126510,Apletodon dentatus,"(Facciolà, 1887)",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,Apletodon,Species,Small-headed clingfish,4,0.7,0.0055,3.1,FB_Baysian_(Sub)family-body shape,Other
+126352,Arctozenus risso,"(Bonaparte, 1840)",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Arctozenus,Species,Spotted barracudina,30,1.95,0.00324,3.08,FB_Baysian_(Sub)family-body shape,Other
+125885,Argentina,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,Argentina,Genus,NA,70,0,0.004095121,3.171,Mean_Species,Other
+126715,Argentina silus,"(Ascanius, 1775)",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,Argentina,Species,Greater argentine,70,5.6,0.0039,3.203,FishBase,Other
+126716,Argentina sphyraena,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,Argentina,Species,Lesser argentine,35,5,0.0043,3.139,FishBase,Other
+125508,Argentinidae,"Bonaparte, 1846",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,0,Family,NA,70,0,0.003329038,3.220667,Mean_Species,Other
+126196,Argyropelecus,"Cocco, 1829",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Genus,NA,12,0,0.01834574,3,Mean_Species,Other
+127306,Argyropelecus aculeatus,"Valenciennes, 1850",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Species,Lovely hatchetfish,8.3,1.68,0.0182,3,FB_Baysian_(Sub)family-body shape,Other
+127308,Argyropelecus gigas,"Norman, 1930",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Species,Hatchetfish,12,1.78,0.0182,3,FB_Baysian_(Sub)family-body shape,Other
+127309,Argyropelecus hemigymnus,"Cocco, 1829",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Species,Half-naked hatchetfish,3.9,1.5,0.0182,3,FB_Baysian_(Sub)family-body shape,Other
+274967,Argyropelecus olfersii,"(Cuvier, 1829)",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Argyropelecus,Species,Hatchetfish,9,1.7,0.01879,3,FishBase,Other
+127007,Argyrosomus regius,"(Asso, 1801)",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Argyrosomus,Species,Meagre,230,2.54,0.0151,2.86,FishBase,FC1
+126109,Arnoglossus,"Bleeker, 1862",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Genus,NA,25,0,0.004395452,3.1925,Mean_Species,Other
+127124,Arnoglossus imperialis,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Species,Imperial scaldfish,25,2.17,0.0049,3.17,FishBase,Other
+127126,Arnoglossus laterna,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Species,Scaldfish,25,2,0.0024,3.39,MS-S,Other
+127127,Arnoglossus rueppelii,"(Cocco, 1844)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Species,Ruppell's scaldback,15,2.01,0.0046,3.08,FishBase,Other
+127128,Arnoglossus thori,"Kyle, 1913",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Arnoglossus,Species,Thor's scaldfish,18,2.2,0.0069,3.13,FishBase,Other
+127193,Artediellus atlanticus,"Jordan & Evermann, 1898",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Artediellus,Species,Atlantic hookear sculpin,15,1.39,0.00661,3.17,FB_Baysian_(Sub)family-body shape,Other
+272030,Atherina presbyter,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Atheriniformes,Atherinidae,Atherina,Species,Sand smelt,20,2.5,0.0045,3.18,FishBase,Other
+236487,Auxis rochei rochei,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Auxis,Subspecies,Bullet tuna,50,2.14,0.0081,3.2,FishBase,Other
+126228,Balistes,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Tetraodontiformes,Balistidae,Balistes,Genus,NA,60,0,0.0106,3.121,Mean_Species,Other
+154721,Balistes capriscus,"Gmelin, 1789",Animalia,Chordata,Actinopteri,Tetraodontiformes,Balistidae,Balistes,Species,Grey triggerfish,60,2.29,0.0106,3.121,FishBase,Other
+127152,Bathysolea profundicola,"(Vaillant, 1888)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Bathysolea,Species,Deepwater sole,21,1.07,0.00389,3.14,FB_Baysian_(Sub)family-body shape,Other
+126654,Bellottia apoda,"Giglioli, 1883",Animalia,Chordata,Actinopteri,Ophidiiformes,Bythitidae,Bellottia,Species,Viviparous Brotulas,6.5,5.9,0.01122,3.04,FB_Baysian_Body shape,Other
+126375,Belone belone,"(Linnaeus, 1761)",Animalia,Chordata,Actinopteri,Beloniformes,Belonidae,Belone,Species,Garfish,93,4.8,0.00079,3.1835,FishBase,Other
+126376,Belone svetovidovi,"Collette & Parin, 1970",Animalia,Chordata,Actinopteri,Beloniformes,Belonidae,Belone,Species,Short-beaked garfish,65,4.67,0.00135,3.1,FB_Baysian_(Sub)family-body shape,Other
+127086,Benthodesmus elongatus,"(Clarke, 1879)",Animalia,Chordata,Actinopteri,Perciformes,Trichiuridae,Benthodesmus,Species,Elongate frostfish,100,2.17,0.000048,3.42,FishBase,Other
+126580,Benthosema glaciale,"(Reinhardt, 1837)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Benthosema,Species,Glacier lantern fish,10.3,1.47,0.01023,3.11,FB_Baysian_(Sub)family-body shape,Other
+126394,Beryx decadactylus,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Beryciformes,Berycidae,Beryx,Species,Alfonsino,100,2.5,0.0151,3.13,FishBase,Other
+126395,Beryx splendens,"Lowe, 1834",Animalia,Chordata,Actinopteri,Beryciformes,Berycidae,Beryx,Species,Spendid alfonsino,70,2.35,0.022,3.013,FishBase,Other
+125519,Blenniidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Perciformes,Blenniidae,0,Family,NA,30,0,0.01138251,2.98,Mean_Species,Other
+126761,Blennius ocellaris,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Blenniidae,Blennius,Species,Butterfly blenny,20,1.5,0.0214,2.82,FishBase,Other
+127281,Bonapartia pedaliota,"Goode & Bean, 1896",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Bonapartia,Species,Longray fangjaw,7.2,1.65,0.00363,3.07,FB_Baysian_(Sub)family-body shape,Other
+127047,Boops boops,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Boops,Species,Bogue,36,1.86,0.01015,3.019,FishBase,Other
+127334,Borostomias antarcticus,"(Lönnberg, 1905)",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Borostomias,Species,Snaggletooth,30,2.09,0.0038,3.11,FB_Baysian_(Sub)family-body shape,Other
+125576,Bothidae,"Smitt, 1892",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,0,Family,NA,45,0,0.005521316,3.148333,Mean_Species,Other
+127129,Bothus podas,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Bothus,Species,Wide-eyed flounder,45,2.11,0.01,3.03,FishBase,Other
+126783,Brama brama,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Perciformes,Bramidae,Brama,Species,Atlantic pomfret,100,2.16,0.00597,3.288,FishBase,FC1
+126447,Brosme brosme,"(Ascanius, 1772)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Brosme,Species,Tusk,120,3.8,0.00514,3.189,FishBase,FC1
+126872,Buenia jeffreysii,"(Günther, 1867)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Buenia,Species,Jeffrey's goby,6,1.62,0.0146,2.6867,English,Other
+126127,Buglossidium,"Chabanaud, 1930",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Buglossidium,Genus,NA,21,0,0.00516,3.3357,Mean_Species,Other
+127153,Buglossidium luteum,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Buglossidium,Species,Solenette,15,1,0.00516,3.3357,FishBase,Other
+126789,Callanthias ruber,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Callanthiidae,Callanthias,Species,Parrot seaperch,60,1.99,0.00977,3.07,FB_Baysian_(Sub)family-body shape,Other
+125522,Callionymidae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,0,Family,NA,30,0,0.01601794,2.66,Mean_Species,Other
+125930,Callionymus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Genus,NA,30,0,0.01601794,2.66,Mean_Species,Other
+126792,Callionymus lyra,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Species,Dragonet,30,1.2,0.0219,2.59,FishBase,Other
+126793,Callionymus maculatus,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Species,Spotted dragonet,16,1.2,0.0129,2.77,FishBase,Other
+126795,Callionymus reticulatus,"Valenciennes, 1837",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Species,Reticulated dragonet,11,1,0.0191,2.47,FishBase,Other
+126796,Callionymus risso,"Lesueur, 1814",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Callionymus,Species,Rissos dragonet,11,1.06,0.0122,2.81,FishBase,Other
+125613,Caproidae,"Bonaparte, 1835",Animalia,Chordata,Actinopteri,Perciformes,Caproidae,0,Family,NA,30,0,0.0275,2.78,Mean_Species,Other
+127419,Capros aper,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Caproidae,Capros,Species,Boarfish,30,1.1,0.0275,2.78,FishBase,Other
+126806,Caranx rhonchus,"Geoffroy Saint-Hilaire, 1817",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Caranx,Species,False scad,60,1.11,0.0251,2.77,FishBase,Other
+126661,Carapus acus,"(Brünnich, 1768)",Animalia,Chordata,Actinopteri,Ophidiiformes,Carapidae,Carapus,Species,Pearl fish,20.8,7.19,0.00102,3.06,FB_Baysian_Body shape,Other
+126656,Cataetyx alleni,"(Byrne, 1906)",Animalia,Chordata,Actinopteri,Ophidiiformes,Bythitidae,Cataetyx,Species,Viviparous Brotulas,12,6.5,0.00389,3.12,FB_Baysian_Body shape,Other
+126961,Centrolabrus exoletus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Centrolabrus,Species,Rock cook,18,0.8,0.0047,3.23,FishBase,Other
+125526,Centrolophidae,"Bonaparte, 1846",Animalia,Chordata,Actinopteri,Perciformes,Centrolophidae,0,Family,NA,150,0,0.009848403,3.122,Mean_Species,Other
+126831,Centrolophus niger,"(Gmelin, 1789)",Animalia,Chordata,Actinopteri,Perciformes,Centrolophidae,Centrolophus,Species,Rudderfish,150,2.32,0.0024,3.346,FishBase,Other
+105899,Centrophorus granulosus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Elasmobranchii,Squaliformes,Centrophoridae,Centrophorus,Species,Gulper shark,170,36,0.0023,3.21,FishBase,Other
+105901,Centrophorus squamosus,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Squaliformes,Centrophoridae,Centrophorus,Species,Leafscale gulper shark,164,39,0.0014,3.31,FishBase,Other
+105906,Centroscyllium fabricii,"(Reinhardt, 1825)",Animalia,Chordata,Elasmobranchii,Squaliformes,Etmopteridae,Centroscyllium,Species,Black dogfish,107,16,0.0009,3.42,FishBase,Other
+105907,Centroscymnus coelolepis,"Barbosa du Bocage & de Brito Capello, 1864",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Centroscymnus,Species,Portuguese dogfish,120,27.75,0.0043,3.12,FishBase,Other
+105908,Centroscymnus crepidater,"(Barbosa du Bocage & de Brito Capello, 1864)",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Centroscymnus,Species,Longnose velvet dogfish,130,31,0.0024,3.25,FishBase,Other
+126835,Cepola macrophthalma,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Cepolidae,Cepola,Species,Red bandfish,80,2,0.0186,2.02,FishBase,Other
+126585,Ceratoscopelus maderensis,"(Lowe, 1839)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Ceratoscopelus,Species,Madeira lantern fish,8.1,1.42,0.00537,3.08,FB_Baysian_(Sub)family-body shape,Other
+127338,Chauliodus sloani,"Bloch & Schneider, 1801",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Chauliodus,Species,Sloanes viperfish,35,2.14,0.0009,3.18,FishBase,Other
+126539,Chaunax pictus,"Lowe, 1846",Animalia,Chordata,Actinopteri,Lophiiformes,Chaunacidae,Chaunax,Species,Pink frogmouth,40,2.64,0.01995,3.01,FB_Baysian_Body shape,Other
+126178,Chelidonichthys,"Kaup, 1873",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Chelidonichthys,Genus,NA,75,0,0.006901566,3.115333,Mean_Species,Other
+127259,Chelidonichthys cuculus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Chelidonichthys,Species,Red gurnard,50,1.5,0.0066,3.14,FishBase,Other
+127262,Chelidonichthys lucerna,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Chelidonichthys,Species,Tub gurnard,75,1.9,0.01132,2.996,FishBase,FC1
+127263,Chelidonichthys obscurus,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Chelidonichthys,Species,Longfin gurnard,34,1.92,0.0044,3.21,FishBase,Other
+126977,Chelon labrosus,"(Risso, 1827)",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Chelon,Species,Thick-lipped mullet,75,2.11,0.0083,3.14,FishBase,Other
+125956,Chiasmodon,"Johnson, 1864",Animalia,Chordata,Actinopteri,Perciformes,Chiasmodontidae,Chiasmodon,Genus,NA,25,0,0.00389,3.12,FishBase,Other
+105824,Chimaera monstrosa,"Linnaeus, 1758",Animalia,Chordata,Holocephali,Chimaeriformes,Chimaeridae,Chimaera,Species,Rabbit ratfish,150,10,0.0015,3.11,FishBase,FC1
+712407,Chimaera opalescens,"Luchetti, Iglésias & Sellos, 2011",Animalia,Chordata,Holocephali,Chimaeriformes,Chimaeridae,Chimaera,Species,Opal Chimaera,110,14,0.00309,3.11,FB_Baysian_(Sub)family-body shape,Other
+127071,Chirolophis ascanii,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,Chirolophis,Species,Yarrell's blenny,25,3.4,0.04,2.25,MS-S,Other
+127339,Chirostomias pliopterus,"Regan & Trewavas, 1930",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Chirostomias,Species,Barbeled dragonfish,20.5,1.96,0.00389,3.12,FB_Baysian_Body shape,Other
+126336,Chlorophthalmus agassizi,"Bonaparte, 1840",Animalia,Chordata,Actinopteri,Aulopiformes,Chlorophthalmidae,Chlorophthalmus,Species,Shortnose greeneye,40,1.84,0.00786,2.909,FishBase,Other
+126448,Ciliata mustela,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Ciliata,Species,Five-bearded rockling,25,2,0.0027,3.19,MS-S,Other
+126449,Ciliata septentrionalis,"(Collett, 1875)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Ciliata,Species,Northern rockling,20,2.5,0.0083,3.18,FishBase,Other
+127130,Citharus linguatula,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Citharidae,Citharus,Species,Spotted flounder,30,1.66,0.0051,3.12,FishBase,Other
+126417,Clupea harengus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Clupea,Species,Herring,45,4.9,0.0069,3.04,FishBase,Other
+125464,Clupeidae,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,0,Family,NA,70,0,0.006240799,3.085,Mean_Species,Other
+126337,Coccorella atlantica,"(Parr, 1928)",Animalia,Chordata,Actinopteri,Aulopiformes,Evermannellidae,Coccorella,Species,Atlantic sabretooth,18.5,1.73,0.0096,3.009,FishBase,Other
+398381,Coelorinchus caelorhincus,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Coelorinchus,Species,Hollow snout grenadier,48,2.14,0.00219,3.106,FishBase,Other
+280299,Coelorinchus labiatus,"(Köhler, 1896)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Coelorinchus,Species,Spear-snouted grenadier,50,2.42,0.00473,2.9,Scottish,Other
+125624,Conger,"Bosc, 1817",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,Conger,Genus,NA,300,0,0.000322,3.377,Mean_Species,Other
+126285,Conger conger,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,Conger,Species,Conger eel,300,9.33,0.000322,3.377,FishBase,FC1
+125427,Congridae,"Kaup, 1856",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,0,Family,NA,300,0,0.000567451,3.2175,Mean_Species,Other
+158960,Coryphaenoides rupestris,"Gunnerus, 1765",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Coryphaenoides,Species,Roundnose grenadier,110,2.6,0.0017,3.16,Modelled_Family,FC1
+126762,Coryphoblennius galerita,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Blenniidae,Coryphoblennius,Species,Montagu's blenny,7.6,2,0.00741,3,FB_Baysian_(Sub)family-body shape,Other
+125589,Cottidae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,0,Family,NA,60,0,0.01026505,3.0665,Mean_Species,Other
+127235,Cottunculus microps,"Collett, 1875",Animalia,Chordata,Actinopteri,Scorpaeniformes,Psychrolutidae,Cottunculus,Species,Polar sculpin,30,1.76,0.01239,3.13738,Scottish,Other
+126878,Crystallogobius linearis,"(Düben, 1845)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Crystallogobius,Species,Crystal goby,5,2.5,0.01,2.94,IMARES,Other
+126964,Ctenolabrus rupestris,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Ctenolabrus,Species,Goldsinny wrasse,18,0.9,0.01,3,FishBase,Other
+126990,Cubiceps gracilis,"(Lowe, 1843)",Animalia,Chordata,Actinopteri,Perciformes,Nomeidae,Cubiceps,Species,Driftfish,107,2.19,0.01072,3.03,FB_Baysian_(Sub)family-body shape,Other
+125590,Cyclopteridae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cyclopteridae,0,Family,NA,61,0,0.0587,2.939,Mean_Species,Other
+127214,Cyclopterus lumpus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cyclopteridae,Cyclopterus,Species,Lumpsucker,61,3.5,0.0587,2.939,FishBase,FC1
+126187,Cyclothone,"Goode & Bean, 1883",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Cyclothone,Genus,NA,7.5,0,0.00363,3.07,FishBase,Other
+127425,Cyttopsis rosea,"(Lowe, 1843)",Animalia,Chordata,Actinopteri,Zeiformes,Parazenidae,Cyttopsis,Species,Rosy dory,31,1.47,0.01995,3.01,FB_Baysian_Body shape,Other
+105910,Dalatias licha,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Squaliformes,Dalatiidae,Dalatias,Species,Kitefin shark,182,36.75,0.00363,3.12,FB_Baysian_(Sub)family-body shape,FC1
+126313,Dalophis imberbis,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Anguilliformes,Ophichthidae,Dalophis,Species,Armless snake eel,150,7.98,0.00151,2.91,FB_Baysian_(Sub)family-body shape,Other
+105851,Dasyatis pastinaca,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Dasyatidae,Dasyatis,Species,Common stingray,90,20,0.0091,3.03,FishBase,FC1
+105903,Deania calcea,"(Lowe, 1839)",Animalia,Chordata,Elasmobranchii,Squaliformes,Centrophoridae,Deania,Species,Birdbeak dogfish,122,30.75,0.0012,3.26,FishBase,Other
+105905,Deania profundorum,"(Smith & Radcliffe, 1912)",Animalia,Chordata,Elasmobranchii,Squaliformes,Centrophoridae,Deania,Species,Arrowhead dogfish,79,32,0.00161,3.205,FishBase,Other
+126880,Deltentosteus quadrimaculatus,"(Valenciennes, 1837)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Deltentosteus,Species,Four-spotted goby,8,1.8,0.0052,3.21,FishBase,Other
+273960,Dentex canariensis,"Steindachner, 1881",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Canary dentex,100,2.2,0.0162,3.01,FishBase,Other
+273962,Dentex dentex,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Common dentex,100,2.28,0.0117,3.09,FishBase,Other
+273964,Dentex gibbosus,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Pink dentex,106,2.3,0.0105,3.06,FishBase,Other
+273965,Dentex macrophthalmus,"(Bloch, 1791)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Large-eye dentex,65,1.93,0.017,3.01,FishBase,Other
+273966,Dentex maroccanus,"Valenciennes, 1830",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Dentex,Species,Morocco dentex,45,1.9,0.0257,2.85,FishBase,Other
+125819,Diaphus,"Eigenmann & Eigenmann, 1890",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Genus,NA,10.3,0,0.007179927,3.0445,Mean_Species,Other
+126587,Diaphus adenomus,"Gilbert, 1905",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Species,Gilbert's large lantern fish,18,1.72,0.00912,3.04,FB_Baysian_(Sub)family-body shape,Other
+126590,Diaphus dumerilii,"(Bleeker, 1856)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Species,Lanternfish,8.7,1.41,0.00595,3.018,FishBase,Other
+126592,Diaphus holti,"Tåning, 1918",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Species,Small lantern fish,7,1.37,0.00912,3.04,FB_Baysian_(Sub)family-body shape,Other
+126596,Diaphus rafinesquii,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Diaphus,Species,White-spotted lantern fish,9,1.46,0.00537,3.08,FB_Baysian_(Sub)family-body shape,Other
+126029,Dicentrarchus,"Gill, 1860",Animalia,Chordata,Actinopteri,Perciformes,Moronidae,Dicentrarchus,Genus,NA,103,0,0.004165142,3.2345,Mean_Species,Other
+126975,Dicentrarchus labrax,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Moronidae,Dicentrarchus,Species,Bass,103,2.2,0.009638,3.029,FishBase,Other
+126976,Dicentrarchus punctatus,"(Bloch, 1792)",Animalia,Chordata,Actinopteri,Perciformes,Moronidae,Dicentrarchus,Species,Spotted seabass,70,2.18,0.0018,3.44,FishBase,FC1
+127154,Dicologlossa cuneata,"(Moreau, 1881)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Dicologlossa,Species,Wedge sole,30,1.16,0.0072,3.02,FishBase,Other
+274298,Dicologlossa hexophthalma,"(Bennett, 1831)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Dicologlossa,Species,Ocellated wedge sole,20,1.11,0.0092,3.056,FishBase,Other
+236458,Diplecogaster bimaculata bimaculata,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,Diplecogaster,Subspecies,Two-spotted clingfish,6,1,0.02,2.91,MS-S,Other
+127049,Diplodus annularis,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Species,Annular seabream,24,1.75,0.0123,3.14,FishBase,Other
+127050,Diplodus bellottii,"(Steindachner, 1882)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Species,Senegal seabream,30,1.8,0.0098,3.21,FishBase,Other
+236470,Diplodus cervinus cervinus,"(Lowe, 1838)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Subspecies,Zebra seabream,55,2.07,0.0116,3.14,FishBase,Other
+127052,Diplodus puntazzo,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Species,Sharpsnout seabream,60,1.77,0.0155,2.94,FishBase,Other
+223863,Diplodus sargus sargus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Subspecies,White seabream,45,2.01,0.01,3.12,FishBase,Other
+127054,Diplodus vulgaris,"(Geoffroy Saint-Hilaire, 1817)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Diplodus,Species,Common two-banded seabream,45,1.86,0.0129,3.11,FishBase,Other
+105762,Dipturus,"Rafinesque, 1810",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Genus,NA,200,0,0.002740341,3.24225,Mean_Species,FC1
+105869,Dipturus batis,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Species,Blue skate,285,22,0.0108,3.079,FishBase,Other
+105870,Dipturus linteus,"(Fries, 1838)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Species,Sailray,123,13.97,0.00295,3.21,FB_Baysian_(Sub)family-body shape,Other
+105871,Dipturus nidarosiensis,"(Storm, 1881)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Species,Black skate,200,22.92,0.00295,3.21,FB_Baysian_(Sub)family-body shape,Other
+105872,Dipturus oxyrinchus,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Dipturus,Species,Longnosed skate,150,17,0.0006,3.47,FishBase,FC1
+126398,Diretmus argenteus,"Johnson, 1864",Animalia,Chordata,Actinopteri,Beryciformes,Diretmidae,Diretmus,Species,Silver spinyfin,27.6,1.91,0.01995,3.01,FB_Baysian_Body shape,Other
+126321,Dysomma brevirostre,"(Facciolà, 1887)",Animalia,Chordata,Actinopteri,Anguilliformes,Synaphobranchidae,Dysomma,Species,Pignosed arrowtooth eel,30,6.11,0.00102,3.06,FB_Baysian_Body shape,Other
+150629,Echiichthys,"Bleeker, 1861",Animalia,Chordata,Actinopteri,Perciformes,Trachinidae,Echiichthys,Genus,NA,15,0,0.0105,3.05,Mean_Species,Other
+150630,Echiichthys vipera,"(Cuvier, 1829)",Animalia,Chordata,Actinopteri,Perciformes,Trachinidae,Echiichthys,Species,Lesser weever,15,1.5,0.0105,3.05,FishBase,Other
+126662,Echiodon dentatus,"(Cuvier, 1829)",Animalia,Chordata,Actinopteri,Ophidiiformes,Carapidae,Echiodon,Species,Pearlfish,17,6.98,0.00102,3.06,FB_Baysian_Body shape,Other
+126663,Echiodon drummondii,"Thompson, 1837",Animalia,Chordata,Actinopteri,Ophidiiformes,Carapidae,Echiodon,Species,Pearlfish,30,7.6,0.01,2.34,MS-S,Other
+127340,Echiostoma barbatum,"Lowe, 1843",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Echiostoma,Species,Threadfin dragonfish,36.8,2.16,0.00389,3.12,FB_Baysian_Body shape,Other
+126600,Electrona risso,"(Cocco, 1829)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Electrona,Species,Electric lanternfish,8.2,1.36,0.00389,3.12,FB_Baysian_(Sub)family-body shape,Other
+126450,Enchelyopus cimbrius,"(Linnaeus, 1766)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Enchelyopus,Species,Four-bearded rockling,41,3.2,0.0035,3.106,FishBase,Other
+125724,Engraulis,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Clupeiformes,Engraulidae,Engraulis,Genus,NA,20,0,0.0056,3.05,Mean_Species,Other
+126426,Engraulis encrasicolus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Clupeiformes,Engraulidae,Engraulis,Species,Anchovy,20,3.5,0.0056,3.05,FishBase,Other
+127379,Entelurus aequoreus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Entelurus,Species,Snake pipefish,40,2.54,0.0008,2.5939,English,Other
+127413,Ephippion guttifer,"(Bennett, 1831)",Animalia,Chordata,Actinopteri,Tetraodontiformes,Tetraodontidae,Ephippion,Species,Prickly puffer,80,2.46,0.0316,2.87,Modelled_Family,Other
+126857,Epigonus denticulatus,"Dieuzeide, 1950",Animalia,Chordata,Actinopteri,Perciformes,Epigonidae,Epigonus,Species,Pencil cardinal,20,1.66,0.0045,3.26,FishBase,Other
+126858,Epigonus telescopus,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Epigonidae,Epigonus,Species,Black cardinal fish,75,2.15,0.01288,2.9642,MS-S,Other
+127033,Epinephelus caninus,"(Valenciennes, 1843)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Epinephelus,Species,Dogtooth grouper,164,2.03,0.01607728,2.89775,Modelled_Family,Other
+105911,Etmopterus princeps,"Collett, 1904",Animalia,Chordata,Elasmobranchii,Squaliformes,Etmopteridae,Etmopterus,Species,Great lanternshark,75,14.4,0.0028,3.15,FishBase,Other
+105912,Etmopterus pusillus,"(Lowe, 1839)",Animalia,Chordata,Elasmobranchii,Squaliformes,Etmopteridae,Etmopterus,Species,Smooth lanternshark,50,12.8,0.0044,3,FishBase,Other
+105913,Etmopterus spinax,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Squaliformes,Etmopteridae,Etmopterus,Species,Velvet belly,60,13,0.0026,3.15,FishBase,FC1
+150636,Eutrigla,"Fraser-Brunner, 1938",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Eutrigla,Genus,NA,60,0,0.00915,2.9998,Mean_Species,Other
+150637,Eutrigla gurnardus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Eutrigla,Species,Grey gurnard,60,2.5,0.00915,2.9998,FishBase,Other
+126338,Evermannella balbo,"(Risso, 1820)",Animalia,Chordata,Actinopteri,Aulopiformes,Evermannellidae,Evermannella,Species,Balbo sabretooth,16.9,1.7,0.00417,3.12,FB_Baysian_(Sub)family-body shape,Other
+126307,Facciolella oxyrhyncha,"(Bellotti, 1883)",Animalia,Chordata,Actinopteri,Anguilliformes,Nettastomatidae,Facciolella,Species,Facciola's sorcerer,64.9,6.95,0.00081,3.02,FB_Baysian_(Sub)family-body shape,Other
+126488,Gadella maraldi,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Gadella,Species,Gadella,30,2.12,0.00301,3.304,FishBase,Other
+125731,Gadiculus,"Guichenot, 1850",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Gadiculus,Genus,NA,15,0,0.01757841,2.7619,Mean_Species,Other
+126435,Gadiculus argenteus,"Guichenot, 1850",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Gadiculus,Species,Silvery pout,15,2.9,0.003829,3.321,FishBase,Other
+300719,Gadiculus thori,"Schmidt, 1913",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Gadiculus,Species,NONE,15,2.07,0.0807,2.2028,Scottish,Other
+126436,Gadus morhua,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Gadus,Species,Cod,200,4.5,0.0079,3.05,FishBase,Other
+125743,Gaidropsarus,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Genus,NA,60,0,0.006265875,3.054524,Mean_Species,Other
+126451,Gaidropsarus argentatus,"(Reinhardt, 1837)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Arctic rockling,35,2.24,0.00594,3.03507,Scottish,Other
+126452,Gaidropsarus biscayensis,"(Collett, 1890)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Mediterranean bigeye rockling,40,2.28,0.00407,3.09,FB_Baysian_(Sub)family-body shape,Other
+126456,Gaidropsarus macrophthalmus,"(Günther, 1867)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Bigeye rockling,25,2.13,0.00634,2.95,FishBase,Other
+126457,Gaidropsarus mediterraneus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Shore rockling,50,1.9,0.0051,2.9986,FishBase,Other
+126458,Gaidropsarus vulgaris,"(Cloquet, 1824)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Gaidropsarus,Species,Three-bearded rockling,60,1.9,0.0044,3.21,FishBase,Other
+105820,Galeorhinus galeus,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Triakidae,Galeorhinus,Species,Tope,193,36.5,0.0047,2.994,FishBase,FC1
+105811,Galeus atlanticus,"(Vaillant, 1888)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Pentanchidae,Galeus,Species,Atlantic sawtail cat shark,45,8.27,0.0023,3.07,FishBase,FC1
+105812,Galeus melastomus,"Rafinesque, 1810",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Pentanchidae,Galeus,Species,Black mouthed dogfish,90,9.49,0.0034,2.96,FishBase,FC1
+105813,Galeus murinus,"(Collett, 1904)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Pentanchidae,Galeus,Species,Mouse catshark,63,8.5,0.00316,3.11,FB_Baysian_(Sub)family-body shape,Other
+125476,Gasterosteidae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Gasterosteiformes,Gasterosteidae,0,Family,NA,22,0,0.006140439,3.032667,Mean_Species,Other
+236462,Gasterosteus aculeatus aculeatus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Gasterosteiformes,Gasterosteidae,Gasterosteus,Species,Three-spined stickleback,11,1.1,0.0105,3.049,FishBase,Other
+293602,Gasterosteus aculeatus williamsoni,"Girard, 1854",Animalia,Chordata,Actinopteri,Gasterosteiformes,Gasterosteidae,Gasterosteus,Subspecies,Three-spined stickleback,11,1.1,0.0105,3.049,FishBase,Other
+126717,Glossanodon leioglossus,"(Valenciennes, 1848)",Animalia,Chordata,Actinopteri,Osmeriformes,Argentinidae,Glossanodon,Species,Smalltoothed argentine,20,4.78,0.0022,3.32,FishBase,Other
+127136,Glyptocephalus cynoglossus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Glyptocephalus,Species,Witch,60,4.2,0.0019,3.35,FishBase,Other
+126287,Gnathophis mystax,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Anguilliformes,Congridae,Gnathophis,Species,Thinlip conger,60,6.86,0.001,3.058,FishBase,Other
+125477,Gobiesocidae,"Bleeker, 1859",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,0,Family,NA,6.5,0,0.01466982,3.003333,Mean_Species,Other
+125537,Gobiidae,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,0,Family,NA,27,0,0.007087382,3.103394118,Mean_Species,Other
+151743,Gobioidei,0,Animalia,Chordata,Actinopteri,Perciformes,0,0,Suborder,NA,27,0,0.01,3,Generic_Cube,Other
+125988,Gobius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Genus,NA,27,0,0.01081637,3.0725,Mean_Species,Other
+126886,Gobius cobitis,"Pallas, 1814",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Giant goby,27,2.08,0.011,3.11,FishBase,Other
+126890,Gobius gasteveni,"Miller, 1974",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Steven's goby,12,1.8,0.0101,3.05,FishBase,Other
+126892,Gobius niger,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Black goby,18,1.2,0.011,3.03,FishBase,Other
+126893,Gobius paganellus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobius,Species,Rock goby,13,1.15,0.0112,3.1,FishBase,Other
+126898,Gobiusculus flavescens,"(Fabricius, 1779)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Gobiusculus,Species,Two-spotted goby,6,1.68,0.00589,3.12,FB_Baysian_(Sub)family-body shape,Other
+126189,Gonostoma,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Gonostoma,Genus,NA,27.5,0,0.00363,3.07,Mean_Species,Other
+127296,Gonostoma elongatum,"Günther, 1878",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Gonostoma,Species,Elongated bristlemouth fish,27.5,2.06,0.00363,3.07,FB_Baysian_(Sub)family-body shape,Other
+158978,Guttigadus latifrons,"(Holt & Byrne, 1908)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Guttigadus,Species,NONE,18.2,1.95,0.0038,3.12,FB_Baysian_(Sub)family-body shape,Other
+126753,Gymnammodytes cicerelus,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Gymnammodytes,Species,Mediterranean sand eel,17,2.25,0.0012,3.307,FishBase,Other
+126754,Gymnammodytes semisquamatus,"(Jourdain, 1879)",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Gymnammodytes,Species,Smooth sandeel,30,2.9,0.0006,3.476,FishBase,Other
+126489,Halargyreus johnsonii,"Günther, 1862",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Halargyreus,Species,Slender codling,56,2.35,0.0038,3.12,FB_Baysian_(Sub)family-body shape,Other
+126374,Halobatrachus didactylus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Actinopteri,Batrachoidiformes,Batrachoididae,Halobatrachus,Species,Lusitanian toadfish,50,2.2,0.0166,3.03,FishBase,Other
+127251,Helicolenus dactylopterus,"(Delaroche, 1809)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Helicolenus,Species,Bluemouth,47,2.1,0.0123,3.1,FishBase,FC1
+105832,Heptranchias perlo,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Hexanchiformes,Hexanchidae,Heptranchias,Species,Sharpnose sevengill shark,140,25.5,0.00389,3.12,FB_Baysian_Body shape,Other
+105833,Hexanchus griseus,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Hexanchiformes,Hexanchidae,Hexanchus,Species,Bluntnose sixgill shark,482,63.75,0,3.6786,Scottish,FC1
+154776,Hippocampus guttulatus,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Hippocampus,Species,Long-snouted seahorse,21.5,2.36,0.0032,2.9,FishBase,FC1
+126224,Hippocampus spp.,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Hippocampus,Genus,seahorse,18.25,2.275,0.00275,2.95,FishBase_avespp_short_long,FC1
+127380,Hippocampus hippocampus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Hippocampus,Species,Short-snouted seahorse,15,2.19,0.0023,3,FishBase,FC1
+127137,Hippoglossoides platessoides,"(Fabricius, 1780)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Hippoglossoides,Species,Long rough dab,45,3,0.0044,3.2,FishBase,Other
+127138,Hippoglossus hippoglossus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Hippoglossus,Species,Halibut,470,3.5,0.0052,3.1655,MS-S,FC1
+126402,Hoplostethus atlanticus,"Collett, 1889",Animalia,Chordata,Actinopteri,Beryciformes,Trachichthyidae,Hoplostethus,Species,Orange roughy,75,2.22,0.0603,2.82,FishBase,Other
+126403,Hoplostethus cadenati,"Quéro, 1974",Animalia,Chordata,Actinopteri,Beryciformes,Trachichthyidae,Hoplostethus,Species,Black slimehead,30,1.95,0.0166,3.05,FB_Baysian_(Sub)family-body shape,Other
+159409,Hoplostethus mediterraneus mediterraneus,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Beryciformes,Trachichthyidae,Hoplostethus,Species,Mediterranean slimehead,42,2.06,0.0153,3.0712,FishBase,Other
+126994,Howella brodiei,"Ogilby, 1899",Animalia,Chordata,Actinopteri,Perciformes,Howellidae,Howella,Species,Pelagic basslet,7.6,1.52,0.01122,3.04,FB_Baysian_Body shape,Other
+126995,Howella sherborni,"(Norman, 1930)",Animalia,Chordata,Actinopteri,Perciformes,Howellidae,Howella,Species,Sherborn's pelagic basslet,8,0,0.01122,3.04,FB_Baysian_body shape,Other
+105826,Hydrolagus mirabilis,"(Collett, 1904)",Animalia,Chordata,Holocephali,Chimaeriformes,Chimaeridae,Hydrolagus,Species,Large-eyed rabbitfish,52.48,18,0.00309,3.11,FB_Baysian_(Sub)family-body shape,Other
+125823,Hygophum,"Bolin, 1939",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Hygophum,Genus,NA,5.5,0,0.01023,3.11,Mean_Species,Other
+126602,Hygophum benoiti,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Hygophum,Species,Benoit's lantern fish,5.5,1.3,0.01023,3.11,FB_Baysian_(Sub)family-body shape,Other
+272373,Hymenocephalus gracilis,"Gilbert & Hubbs, 1920",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Hymenocephalus,Species,Slender membranehead,13,1.85,0.00302,3.12,FB_Baysian_(Sub)family-body shape,Other
+158961,Hymenocephalus italicus,"Giglioli, 1884",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Hymenocephalus,Species,Glasshead grenadier,25,1.95,0.00302,3.12,FB_Baysian_(Sub)family-body shape,Other
+125911,Hyperoplus,"Günther, 1862",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Hyperoplus,Genus,NA,40,0,0.004363486,2.87525,Mean_Species,Other
+126755,Hyperoplus immaculatus,"(Corbin, 1950)",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Hyperoplus,Species,Corbin's sandeel,35,2.6,0.0056,2.8225,English,Other
+126756,Hyperoplus lanceolatus,"(Le Sauvage, 1824)",Animalia,Chordata,Actinopteri,Perciformes,Ammodytidae,Hyperoplus,Species,Greater sandeel,40,2.2,0.0034,2.928,FishBase,Other
+127199,Icelus bicornis,"(Reinhardt, 1840)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Icelus,Species,Twohorn sculpin,15.7,1.4,0.00661,3.17,FB_Baysian_(Sub)family-body shape,Other
+125541,Labridae,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Perciformes,Labridae,0,Family,NA,66,0,0.008473111,3.13425,Mean_Species,Other
+126965,Labrus bergylta,"Ascanius, 1767",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Labrus,Species,Ballan wrasse,66,1.1,0.0081,3.16,FishBase,Other
+151501,Labrus mixtus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Labrus,Species,Cuckoo wrasse,40,1,0.0049,3.28,FishBase,Other
+105841,Lamna nasus,"(Bonnaterre, 1788)",Animalia,Chordata,Elasmobranchii,Lamniformes,Lamnidae,Lamna,Species,Porbeagle,350,62.5,0.0204,2.94,FishBase,Other
+125824,Lampadena,"Goode & Bean, 1893",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lampadena,Genus,NA,30,0,0.01,2.98,FishBase,Other
+125825,Lampanyctus,"Bonaparte, 1840",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lampanyctus,Genus,NA,30,0,0.007141432,2.98,Mean_Species,Other
+126612,Lampanyctus crocodilus,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lampanyctus,Species,Jewel lanternfish,30,1.95,0.0051,2.98,FishBase,Other
+126618,Lampanyctus photonotus,"Parr, 1928",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lampanyctus,Species,Lanternfish,8.5,1.44,0.00537,3.08,FB_Baysian_(Sub)family-body shape,Other
+101172,Lampetra fluviatilis,"(Linnaeus, 1758)",Animalia,Chordata,Petromyzonti,Petromyzontiformes,Petromyzontidae,Lampetra,Species,European river lamprey,50,1.3,0.00111,3.141,FishBase,FC1
+125781,Lepadogaster,"Goüan, 1770",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,Lepadogaster,Genus,NA,6.5,0,0.0287,3,Mean_Species,Other
+126518,Lepadogaster lepadogaster,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Gobiesociformes,Gobiesocidae,Lepadogaster,Species,Shore clingfish,6.5,0.7,0.0287,3,FishBase,Other
+126493,Lepidion eques,"(Günther, 1887)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Lepidion,Species,North Atlantic codling,44,2.35,0.0009,3.54,FishBase,Other
+127088,Lepidopus caudatus,"(Euphrasen, 1788)",Animalia,Chordata,Actinopteri,Perciformes,Trichiuridae,Lepidopus,Species,Silver scabbardfish,210,2.54,0.000405,3.1226,FishBase,Other
+127145,Lepidorhombus boscii,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Lepidorhombus,Species,Four spot megrim,40,1.5,0.0046,3.13,FishBase,Other
+127146,Lepidorhombus whiffiagonis,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Lepidorhombus,Species,Megrim,60,1.9,0.0043,3.13,FishBase,FC1
+126179,Lepidotrigla,"Günther, 1860",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Lepidotrigla,Genus,NA,20,0,0.009443515,3.1,Mean_Species,Other
+127264,Lepidotrigla cavillone,"(Lacepède, 1801)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Lepidotrigla,Species,Large-scaled gurnard,20,1.78,0.0098,3.1,FishBase,Other
+127265,Lepidotrigla dieuzeidei,"Blanc & Hureau, 1973",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Lepidotrigla,Species,Spiny gurnard,20,1.77,0.0091,3.1,FishBase,Other
+127191,Leptagonus decagonus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Agonidae,Leptagonus,Species,Atlantic poacher,21,1.64,0.02,2.75,Modelled_Family,Other
+127072,Leptoclinus maculatus,"(Fries, 1838)",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,Leptoclinus,Species,Spotted snake blenny,20,3.37,0.01,2.34,MS-S,Other
+236452,Lestidiops jayakari jayakari,"(Boulenger, 1889)",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Lestidiops,Subspecies,Pacific barracudina,20,1.77,0.00128,2.928,FishBase,Other
+125992,Lesueurigobius,"Whitley, 1950",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Lesueurigobius,Genus,NA,13,0,0.006445152,3.0805,Mean_Species,Other
+126904,Lesueurigobius friesii,"(Malm, 1874)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Lesueurigobius,Species,Fries's goby,13,1.69,0.0062,3.04,FishBase,Other
+126906,Lesueurigobius sanzi,"(de Buen, 1918)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Lesueurigobius,Species,Sanzo's goby,11,1.78,0.0067,3.121,FishBase,Other
+105873,Leucoraja circularis,"(Couch, 1838)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Sandy ray,120,12.47,0.00242,3.175,MS-S,FC1
+105874,Leucoraja fullonica,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Shagreen ray,120,12.4,0.00211,3.163,MS-S,FC1
+271564,Leucoraja lentiginosa,"(Bigelow & Schroeder, 1951)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,INCORRECT DISTRIBUTION,43,0,0.00295,3.21,FB_Baysian_(Sub)family-body shape,Other
+105876,Leucoraja naevus,"(Müller & Henle, 1841)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Leucoraja,Species,Cuckoo ray,71,12,0.0019,3.28,FishBase,FC1
+127139,Limanda limanda,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Limanda,Species,Common dab,40,1.6,0.0065,3.15,FishBase,Other
+234519,Liparidae,"Gill, 1861",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,0,Family,NA,15,0,0.018211497,2.955,Mean_Species,Other
+126160,Liparis,"Scopoli, 1777",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,Liparis,Genus,NA,15,0,0.02457642,2.955,Mean_Species,Other
+293624,Liparis liparis liparis,"(Linnaeus, 1766)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,Liparis,Species,Striped seasnail,15,1.6,0.0302,3,FishBase,Other
+127220,Liparis montagui,"(Donovan, 1804)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,Liparis,Species,Montagu's seasnail,12,1.2,0.02,2.91,MS-S,Other
+127055,Lithognathus mormyrus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Lithognathus,Species,Striped seabream,55,1.95,0.0135,3.02,FishBase,Other
+126978,Liza aurata,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Liza,Species,Golden grey mullet,59,2.05,0.0129,2.9,FishBase,Other
+126980,Liza ramada,"(Risso, 1827)",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Liza,Species,Thinlip grey mullet,70,2.01,0.0091,2.99,FishBase,Other
+158899,Lobianchia,"Gatti, 1904",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lobianchia,Genus,NA,6,0,0.006990494,3.035,Mean_Species,Other
+158900,Lobianchia dofleini,"(Zugmayer, 1911)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lobianchia,Species,Dofleini's lantern fish,5,1.27,0.00912,3.04,FB_Baysian_(Sub)family-body shape,Other
+158901,Lobianchia gemellarii,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Lobianchia,Species,Cocco's lantern fish,6,1.32,0.00537,3.08,FB_Baysian_(Sub)family-body shape,Other
+125493,Lophiidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Lophiiformes,Lophiidae,0,Family,NA,200,0,0.02112817,2.885,Mean_Species,Other
+125802,Lophius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Lophiiformes,Lophiidae,Lophius,Genus,NA,200,0,0.02112817,2.885,Mean_Species,Other
+126554,Lophius budegassa,"Spinola, 1807",Animalia,Chordata,Actinopteri,Lophiiformes,Lophiidae,Lophius,Species,Black bellied angler,100,3.28,0.0155,2.96,FishBase,FC1
+126555,Lophius piscatorius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Lophiiformes,Lophiidae,Lophius,Species,Angler,200,3.5,0.0288,2.81,FishBase,FC1
+126088,Lumpenus,"Reinhardt, 1836",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,Lumpenus,Genus,NA,50,0,0.0164,2.09,Mean_Species,Other
+154675,Lumpenus lampretaeformis,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,Lumpenus,Species,Snakeblenny,50,4.1,0.0164,2.09,FishBase,Other
+127101,Lycenchelys sarsii,"(Collett, 1871)",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Lycenchelys,Species,Sar's wolf eel,20,1.66,0.0001,4.1,MS-S,Other
+126104,Lycodes,"Reinhardt, 1831",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Lycodes,Genus,NA,52,0,0.007183317,2.67,Mean_Species,Other
+274100,Lycodes gracilis,"Sars, 1867",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Lycodes,Species,Eelpout,28,1.82,0.04,2.25,MS-S,Other
+127118,Lycodes vahlii,"Reinhardt, 1831",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Lycodes,Species,INCORRECT DISTRIBUTION,52,0,0.00129,3.09,FB_Baysian_(Sub)family-body shape,Other
+126356,Macroparalepis affinis,"Ege, 1933",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Macroparalepis,Species,Macroparalepis affine,55,2.25,0.00324,3.08,FB_Baysian_(Sub)family-body shape,Other
+126222,Macroramphosus,"Lacepède, 1803",Animalia,Chordata,Actinopteri,Syngnathiformes,Centriscidae,Macroramphosus,Genus,NA,20,0,0.0087,2.83,Mean_Species,Other
+127378,Macroramphosus scolopax,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Syngnathiformes,Centriscidae,Macroramphosus,Species,Longspine snipefish,20,2.3,0.0087,2.83,FishBase,Other
+125471,Macrouridae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,0,Family,NA,110,0,0.002623926,3.0666,Mean_Species,Other
+126472,Macrourus berglax,"Lacepède, 1801",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Macrourus,Species,Rough-head grenadier,110,2.52,0.012,2.93,FishBase,Other
+126359,Magnisudis atlantica,"(Krøyer, 1868)",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Magnisudis,Species,Duckbill baracudina,56,2.26,0.00324,3.08,FB_Baysian_(Sub)family-body shape,Other
+272392,Malacocephalus laevis,"(Lowe, 1843)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Malacocephalus,Species,Softhead rat tail,60,2.38,0.00411,2.8716,MS-S,Other
+127297,Margrethia obtusirostra,"Jespersen & Tåning, 1919",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Margrethia,Species,Bighead portholefish,8.3,1.69,0.01122,3.04,FB_Baysian_Body shape,Other
+127312,Maurolicus muelleri,"(Gmelin, 1789)",Animalia,Chordata,Actinopteri,Stomiiformes,Sternoptychidae,Maurolicus,Species,Pearlside,8,1.6,0.00164,3.961,FishBase,Other
+126437,Melanogrammus aeglefinus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Melanogrammus,Species,Haddock,112,4.5,0.0074,3.06,FishBase,Other
+126483,Melanonus zugmayeri,"Norman, 1930",Animalia,Chordata,Actinopteri,Gadiformes,Melanonidae,Melanonus,Species,Arrowtail,28,2.1,0.00389,3.12,FB_Baysian_Body shape,Other
+127359,Melanostomias bartonbeani,"Parr, 1927",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Melanostomias,Species,Scaleless black dragonfish,26.2,2.04,0.00389,3.12,FB_Baysian_Body shape,Other
+126438,Merlangius merlangus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Merlangius,Species,Whiting,70,3.4,0.0059,3.08,FishBase,Other
+125473,Merlucciidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Gadiformes,Merlucciidae,0,Family,NA,140,0,0.0046,3.12,Mean_Species,Other
+126484,Merluccius merluccius,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Merlucciidae,Merluccius,Species,Hake,140,1.7,0.0046,3.12,FishBase,Other
+127201,Micrenophrys lilljeborgii,"(Collett, 1875)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Micrenophrys,Species,Norway bullhead,7.4,1.2,0.00661,3.17,FB_Baysian_(Sub)family-body shape,Other
+126129,Microchirus,"Bonaparte, 1833",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Genus,NA,40,0,0.01105173,3.03,Mean_Species,Other
+274299,Microchirus azevia,"(de Brito Capello, 1867)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Species,Sole,40,1.24,0.01,3.07,FishBase,Other
+274300,Microchirus boscanion,"(Chabanaud, 1926)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Species,Lusitanian sole,20,1.11,0.0112,3.03,FishBase,Other
+274302,Microchirus ocellatus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Species,Foureyed sole,20,1.11,0.018,2.9,FishBase,Other
+274304,Microchirus variegatus,"(Donovan, 1808)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Microchirus,Species,Thickback sole,35,1.5,0.0074,3.12,FishBase,Other
+126439,Micromesistius poutassou,"(Risso, 1827)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Micromesistius,Species,Blue whiting,50,1.8,0.0041,3.15,FishBase,Other
+127140,Microstomus kitt,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Microstomus,Species,Lemon sole,65,1.9,0.0083,3.08,FishBase,Other
+127405,Mola mola,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Tetraodontiformes,Molidae,Mola,Species,Ocean sunfish,333,3.88,0.0454,3.05,FishBase,FC1
+126459,Molva dypterygia,"(Pennant, 1784)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Molva,Species,Blue ling,155,2.6,0.00191,3.149,FishBase,FC1
+126460,Molva macrophthalma,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Molva,Species,Spanish ling,108,2.65,0.0009,3.24,FishBase,FC1
+126461,Molva molva,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Lotidae,Molva,Species,Ling,200,2.2,0.004,3.07,FishBase,FC1
+127155,Monochirus hispidus,"Rafinesque, 1814",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Monochirus,Species,Whiskered sole,20,1.07,0.01439,3.16,FishBase,Other
+275922,Monolene microstoma,"Cadenat, 1937",Animalia,Chordata,Actinopteri,Pleuronectiformes,Bothidae,Monolene,Species,Smallmouth moonflounder,20.1,2.1,0.00759,3.09,FB_Baysian_(Sub)family-body shape,Other
+126497,Mora moro,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Mora,Species,Mora,80,2.54,0.0044,3.22,FishBase,FC1
+125474,Moridae,"Moreau, 1881",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,0,Family,NA,90,0,0.00326975,3.149,Mean_Species,Other
+126983,Mugil cephalus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,Mugil,Species,Flathead (grey) mullet,100,2.09,0.0148,2.95,FishBase,Other
+125546,Mugilidae,"Jarocki, 1822",Animalia,Chordata,Actinopteri,Perciformes,Mugilidae,0,Family,NA,100,0,0.010958288,2.995,Mean_Species,Other
+125547,Mullidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,0,Family,NA,40,0,0.008394641,3.135,Mean_Species,Other
+126034,Mullus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,Mullus,Genus,NA,40,0,0.008394639,3.135,Mean_Species,Other
+293632,Mullus barbatus barbatus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,Mullus,Species,Red mullet,33.2,0.84,0.0087,3.11,FishBase,Other
+126986,Mullus surmuletus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Mullidae,Mullus,Species,Striped red mullet,40,0.9,0.0081,3.16,FishBase,Other
+126303,Muraena helena,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Anguilliformes,Muraenidae,Muraena,Species,Mediterranean moray,150,8.72,0.0022,2.98,FishBase,Other
+105732,Mustelus,"Linck, 1790",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Triakidae,Mustelus,Genus,NA,200,0,0.004242642,2.945,Mean_Species,FC1
+105821,Mustelus asterias,"Cloquet, 1819",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Triakidae,Mustelus,Species,Starry smooth hound,140,30,0.0018,3.13,FishBase,Other
+105822,Mustelus mustelus,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Triakidae,Mustelus,Species,Smooth hound,200,34.5,0.01,2.76,FishBase,Other
+125498,Myctophidae,"Gill, 1893",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,0,Family,NA,10.3,0,0.007762067,3.047058824,Mean_Species,Other
+125829,Myctophum,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Myctophum,Genus,NA,11,0,0.00804,3,Mean_Species,Other
+126627,Myctophum punctatum,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Myctophum,Species,Spotted lanternfish,11,1.51,0.00804,3,FishBase,Other
+105860,Myliobatis aquila,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Myliobatidae,Myliobatis,Species,Common eagle ray,183,41.7,0.04997,2.4589,FishBase/MS-S,FC1
+254529,Myoxocephalus quadricornis,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Myoxocephalus,Species,Four-horn sculpin,60,1.68,0.0229,2.952,FishBase,Other
+127202,Myoxocephalus scorpioides,"(Fabricius, 1780)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Myoxocephalus,Species,Arctic sculpin,22,1.47,0.00661,3.17,FB_Baysian_(Sub)family-body shape,Other
+127203,Myoxocephalus scorpius,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Myoxocephalus,Species,Bullrout,60,2,0.0141,3.05,FishBase,Other
+101170,Myxine glutinosa,"Linnaeus, 1758",Animalia,Chordata,Myxini,Myxiniformes,Myxinidae,Myxine,Species,Hagfish,80,2.5,0.0003,3.4,MS-S,Other
+125893,Nansenia,"Jordan & Evermann, 1896",Animalia,Chordata,Actinopteri,Osmeriformes,Microstomatidae,Nansenia,Genus,NA,11.2,0,0.00389,3.12,Mean_Species,Other
+126729,Nansenia tenera,"Kawaguchi & Butler, 1984",Animalia,Chordata,Actinopteri,Osmeriformes,Microstomatidae,Nansenia,Species,Pencil Smelt,11.2,4.2,0.00389,3.12,FB_Baysian_Body shape,Other
+126811,Naucrates ductor,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Naucrates,Species,Pilotfish,70,1.12,0.0147,3.04,FishBase,Other
+126306,Nemichthys scolopaceus,"Richardson, 1848",Animalia,Chordata,Actinopteri,Anguilliformes,Nemichthyidae,Nemichthys,Species,Slender snipe eel,130,7.93,0.00102,3.06,FB_Baysian_Body shape,Other
+398306,Neoraja iberica,"Stehmann, Séret, Costa & Baro, 2008",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Neoraja,Species,Iberian pygmy skate,32.7,6,0.00295,3.21,FB_Baysian_(Sub)family-body shape,Other
+127383,Nerophis lumbriciformis,"(Jenyns, 1835)",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Nerophis,Species,Worm pipefish,15,2.19,0.0002,2.749,Modelled_Genus,Other
+127385,Nerophis ophidion,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Nerophis,Species,Straight-nosed pipefish,29,2.53,0.0002,2.749,FishBase,Other
+126865,Nesiarchus nasutus,"Johnson, 1862",Animalia,Chordata,Actinopteri,Perciformes,Gempylidae,Nesiarchus,Species,Black gemfish,130,2.26,0.00398,3.11,FB_Baysian_(Sub)family-body shape,Other
+126292,Nessorhamphus ingolfianus,"(Schmidt, 1912)",Animalia,Chordata,Actinopteri,Anguilliformes,Derichthyidae,Nessorhamphus,Species,Duckbill oceanic eel,59.8,6.85,0.00102,3.06,FB_Baysian_Body shape,Other
+126308,Nettastoma melanurum,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Anguilliformes,Nettastomatidae,Nettastoma,Species,Blackfin scorcerer,77.3,7.15,0.00081,3.02,FB_Baysian_(Sub)family-body shape,Other
+125754,Nezumia,"Jordan, 1904 ",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Genus,na,40,0,0.002170096,3.117667,Mean_Species,Other
+126473,Nezumia aequalis,"(Günther, 1878)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,Common Atlantic Grenadier,36,1.75,0.00376,3,FishBase,Other
+183289,Nezumia bairdii,"(Goode & Bean, 1877)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,INCORRECT DISTRIBUTION,40,0,0.00302,3.12,FB_Baysian_(Sub)family-body shape,Other
+126475,Nezumia sclerorhynchus,"(Valenciennes, 1838)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Nezumia,Species,Roughtip grenadier,36,2.16,0.0009,3.233,FishBase,Other
+125501,Notacanthidae,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Notacanthiformes,Notacanthidae,0,Family,NA,26,0,0.001106345,3.06,Mean_Species,Other
+126642,Notacanthus bonaparte,"Risso, 1840",Animalia,Chordata,Actinopteri,Notacanthiformes,Notacanthidae,Notacanthus,Species,Shortfin spiny eel,26,1.88,0.0012,3.06,FishBase,Other
+125831,Notoscopelus,"Günther, 1864",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Notoscopelus,Genus,NA,10.6,0,0.01161034,3,Mean_Species,Other
+158915,Notoscopelus elongatus,"(Costa, 1844)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Notoscopelus,Species,Lanternfish,10.6,1.62,0.01348,3,FishBase,Other
+272728,Notoscopelus kroyeri,"(Malm, 1861)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Notoscopelus,Species,Lancet fish,14.3,1.72,0.01,3,FishBase,Other
+126316,Ophichthus rufus,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Anguilliformes,Ophichthidae,Ophichthus,Species,Rufus snake-eel,60,6.86,0.00151,2.91,FB_Baysian_(Sub)family-body shape,Other
+126675,Ophidion barbatum,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Ophidiiformes,Ophidiidae,Ophidion,Species,Snake blenny,25,7.38,0.0027,3.183,FishBase,Other
+126317,Ophisurus serpens,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Anguilliformes,Ophichthidae,Ophisurus,Species,Serpent eel,250,8.69,0.0006,2.99,FishBase,Other
+126733,Opisthoproctus soleatus,"Vaillant, 1888",Animalia,Chordata,Actinopteri,Osmeriformes,Opisthoproctidae,Opisthoproctus,Species,Barrel-eye,10.5,4.16,0.01995,3.01,FB_Baysian_Body shape,Other
+126736,Osmerus eperlanus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Osmeriformes,Osmeridae,Osmerus,Species,Smelt,45,5,0.0032,3.3,FishBase,Other
+105914,Oxynotus centrina,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Squaliformes,Oxynotidae,Oxynotus,Species,Angular roughshark,150,22.8,0.00389,3.12,FB_Baysian_Body shape,Other
+105915,Oxynotus paradoxus,"Frade, 1929",Animalia,Chordata,Elasmobranchii,Squaliformes,Oxynotidae,Oxynotus,Species,Sailfin roughshark,120,25,0.00389,3.12,FB_Baysian_Body shape,Other
+126079,Pagellus,"Valenciennes, 1830",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Genus,NA,70,0,0.01388863,3.055,Mean_Species,Other
+127057,Pagellus acarne,"(Risso, 1827)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Species,Spanish sea bream,36,1.89,0.0105,3.15,FishBase,Other
+127058,Pagellus bellottii,"Steindachner, 1882",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Species,Red pandora,42,1.91,0.0158,3.03,FishBase,Other
+127059,Pagellus bogaraveo,"(Brünnich, 1768)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Species,Red sea bream,70,2.06,0.0126,3.07,FishBase,Other
+127060,Pagellus erythrinus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagellus,Species,Pandora,60,2.01,0.0178,2.97,FishBase,Other
+127061,Pagrus auriga,"Valenciennes, 1843",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagrus,Species,Redbanded seabream,80,2.09,0.022897161,2.94,Modelled_Genus,Other
+127062,Pagrus caeruleostictus,"(Valenciennes, 1830)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagrus,Species,Bluespotted seabream,90,1.96,0.0257,2.9,FishBase,Other
+127063,Pagrus pagrus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Pagrus,Species,Common seabream,91,2.17,0.0204,2.98,FishBase,Other
+126770,Parablennius gattorugine,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Blenniidae,Parablennius,Species,Tompot blenny,30,2,0.0093,3.12,FishBase,Other
+126361,Paralepis coregonoides,"Risso, 1820",Animalia,Chordata,Actinopteri,Aulopiformes,Paralepididae,Paralepis,Species,Sharpchin barracudina,50,2.2,0.00324,3.08,FB_Baysian_(Sub)family-body shape,Other
+127228,Paraliparis membranaceus,"Günther, 1887",Animalia,Chordata,Actinopteri,Scorpaeniformes,Liparidae,Paraliparis,Species,Snailfish Questionalble DISTRIBUTION,6,0,0.01,3.04,FB_Baysian_body shape,Other
+126945,Parapristipoma octolineatum,"(Valenciennes, 1833)",Animalia,Chordata,Actinopteri,Perciformes,Haemulidae,Parapristipoma,Species,African striped grunt,50,1.93,0.0089,3.1,FishBase,Other
+275832,Parasudis fraserbrunneri,"(Poll, 1953)",Animalia,Chordata,Actinopteri,Aulopiformes,Chlorophthalmidae,Parasudis,Species,Greeneye,25.3,1.87,0.00389,3.15,FB_Baysian_(Sub)family-body shape,Other
+126131,Pegusa,"Günther, 1862",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Pegusa,Genus,NA,40,0,0.0072,3.14,Mean_Species,Other
+127156,Pegusa lascaris,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Pegusa,Species,Sand sole,40,1.1,0.0072,3.14,FishBase,Other
+127233,Peristedion cataphractum,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Peristediidae,Peristedion,Species,African armoured searobin,40,1.88,0.0056,2.95,FishBase,Other
+101169,Petromyzon,"Linnaeus, 1758",Animalia,Chordata,Petromyzonti,Petromyzontiformes,Petromyzontidae,Petromyzon,Genus,NA,120,0,0.0003,3.4,Mean_Species,Other
+101174,Petromyzon marinus,"Linnaeus, 1758",Animalia,Chordata,Petromyzonti,Petromyzontiformes,Petromyzontidae,Petromyzon,Species,Sea lamprey,120,1.35,0.0003,3.4,MS-S,FC1
+101163,Petromyzontidae,"Bonaparte, 1831",Animalia,Chordata,Petromyzonti,Petromyzontiformes,Petromyzontidae,0,Family,NA,120,0,0.000577061,3.2705,Mean_Species,Other
+125550,Pholidae,"Gill, 1893",Animalia,Chordata,Actinopteri,Perciformes,Pholidae,0,Family,NA,25,0,0.0043,3.018,Mean_Species,Other
+126996,Pholis gunnellus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Pholidae,Pholis,Species,Butterfish,25,3.5,0.0043,3.018,FishBase,Other
+127372,Photostomias guernei,"Collett, 1889",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Photostomias,Species,Barbeled dragonfish,16,1.88,0.00389,3.12,FB_Baysian_Body shape,Other
+127147,Phrynorhombus norvegicus,"(Günther, 1862)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Phrynorhombus,Species,Norwegian topknot,12,1.1,0.0161,2.905,FishBase,Other
+125475,Phycidae,"Swainson, 1838",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,0,Family,NA,110,0,0.006791411,3.113333333,Mean_Species,Other
+126501,Phycis blennoides,"(Brünnich, 1768)",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,Phycis,Species,Greater forkbeard,110,2.46,0.0037,3.2,FishBase,FC1
+126502,Phycis phycis,"(Linnaeus, 1766)",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,Phycis,Species,Forkbeard,65,2.54,0.0068,3.14,FishBase,Other
+126498,Physiculus dalwigki,"Kaup, 1858",Animalia,Chordata,Actinopteri,Gadiformes,Moridae,Physiculus,Species,Black codling,30,2.12,0.0071,2.59,FishBase,Other
+127141,Platichthys flesus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Platichthys,Species,Flounder,60,1,0.0093,3.05,FishBase,Other
+126946,Plectorhinchus mediterraneus,"(Guichenot, 1850)",Animalia,Chordata,Actinopteri,Perciformes,Haemulidae,Plectorhinchus,Species,Rubberlip grunt,80,2.12,0.0081,3.17,FishBase,Other
+127143,Pleuronectes platessa,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Pleuronectiformes,Pleuronectidae,Pleuronectes,Species,Plaice,100,1.7,0.0093,3.03,FishBase,Other
+126440,Pollachius pollachius,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Pollachius,Species,Pollack,130,2.5,0.0059,3.12,FishBase,FC1
+126441,Pollachius virens,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Pollachius,Species,Saithe,130,2.5,0.0095,2.99,FishBase,Other
+126645,Polyacanthonotus rissoanus,"(De Filippi & Vérany, 1857)",Animalia,Chordata,Actinopteri,Notacanthiformes,Notacanthidae,Polyacanthonotus,Species,Smallmouth spiny eel,9.5,1.48,0.00102,3.06,FB_Baysian_Body shape,Other
+127300,Polymetme corythaeola,"(Alcock, 1898)",Animalia,Chordata,Actinopteri,Stomiiformes,Phosichthyidae,Polymetme,Species,Rendezvous fish,26,2.04,0.00337,3.116,FishBase,Other
+127301,Polymetme thaeocoryla,"Parin & Borodulina, 1990",Animalia,Chordata,Actinopteri,Stomiiformes,Phosichthyidae,Polymetme,Species,Lightfish,21.6,1.98,0.0038,3.12,FB_Baysian_(Sub)family-body shape,Other
+126998,Polyprion americanus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Actinopteri,Perciformes,Polyprionidae,Polyprion,Species,Wreckfish,210,2.43,0.0195,2.96,FishBase,Other
+126947,Pomadasys incisus,"(Bowdich, 1825)",Animalia,Chordata,Actinopteri,Perciformes,Haemulidae,Pomadasys,Species,Bastard grunt,50,1.87,0.0269,2.78,FishBase,Other
+151482,Pomatomus saltatrix,"(Linnaeus, 1766)",Animalia,Chordata,Actinopteri,Perciformes,Pomatomidae,Pomatomus,Species,Bluefish,130,2.3,0.0145,2.9,FishBase,Other
+125999,Pomatoschistus,"Gill, 1863",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Genus,NA,11,0,0.007515513,3.14,Mean_Species,FC1
+126925,Pomatoschistus lozanoi,"(de Buen, 1923)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Lozano's goby,8,1.75,0.01,3.04,FishBase,Other
+126927,Pomatoschistus microps,"(Krøyer, 1838)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Common goby,9,1.5,0.0075,3.18,FishBase,Other
+126928,Pomatoschistus minutus,"(Pallas, 1770)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Sand goby,11,1.8,0.0052,3.22,FishBase,Other
+126929,Pomatoschistus norvegicus,"(Collett, 1902)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Norway goby,8,1.8,0.00891,3.07,FB_Baysian_(Sub)family-body shape,Other
+126930,Pomatoschistus pictus,"(Malm, 1865)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Pomatoschistus,Species,Painted goby,6,1.8,0.0069,3.19,FishBase,Other
+127240,Pontinus kuhlii,"(Bowdich, 1825)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Pontinus,Species,Offshore rockfish,52,1.99,0.0132,3.03,FishBase,Other
+127272,Poromitra capito,"Goode & Bean, 1883",Animalia,Chordata,Actinopteri,Stephanoberyciformes,Melamphaidae,Poromitra,Species,Ridgehead,10,1.5,0.01023,3.04,FB_Baysian_(Sub)family-body shape,Other
+158917,Protomyctophum arcticum,"(Lütken, 1892)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Protomyctophum,Species,Artic telescope,6,1.32,0.01023,3.11,FB_Baysian_(Sub)family-body shape,Other
+158540,Pteroplatytrygon violacea,"(Bonaparte, 1832)",Animalia,Chordata,Elasmobranchii,Myliobatiformes,Dasyatidae,Pteroplatytrygon,Species,Pelagic stingray,163,22.5,0.00498,2.97,FishBase/WD-TL,Other
+126785,Pterycombus brama,"Fries, 1837",Animalia,Chordata,Actinopteri,Perciformes,Bramidae,Pterycombus,Species,Atlantic fanfish,46,1.91,0.01995,2.96,FB_Baysian_(Sub)family-body shape,Other
+105766,Raja,"Linnaeus, 1758",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Genus,NA,120,0,0.002905104,3.197143,Mean_Species,Other
+105881,Raja asterias,"Delaroche, 1809",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Mediterranean starry ray,70,8,0.0025,3.26,FishBase,Other
+367297,Raja brachyura,"Lafont, 1871",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Blond ray,120,15.38,0.0032,3.2,FishBase,FC1
+105883,Raja clavata,"Linnaeus, 1758",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Thornback ray,105,12,0.0022,3.21,FishBase,FC1
+105885,Raja microocellata,"Montagu, 1818",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Small eyed ray,86,10,0.0049,3.12,FishBase,FC1
+105886,Raja miraletus,"Linnaeus, 1758",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Brown ray,63,10,0.0018,3.21,FishBase,Other
+105887,Raja montagui,"Fowler, 1910",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Spotted ray,80,11.5,0.0025,3.31,FishBase,FC1
+105891,Raja undulata,"Lacepède, 1802",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Raja,Species,Undulate ray,100,11.92,0.0045,3.07,FishBase,FC1
+105892,Rajella bathyphila,"(Holt & Byrne, 1908)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Rajella,Species,Deepwater ray,90,11.5,0.00295,3.21,FB_Baysian_(Sub)family-body shape,Other
+105894,Rajella fyllae,"(Lütken, 1887)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Rajella,Species,Round ray,60,9,0.00484,3.001,Scottish,Other
+105711,Rajidae,"de Blainville, 1816",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,0,Family,NA,200,0,0.003054498,3.1801,Mean_Species,Other
+126442,Raniceps raninus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Raniceps,Species,Tadpole fish,27.5,1.3,0.0062,3.267,FishBase,Other
+127406,Ranzania laevis,"(Pennant, 1776)",Animalia,Chordata,Actinopteri,Tetraodontiformes,Molidae,Ranzania,Species,Slender sunfish,100,2.6,0.02239,3.02,FB_Baysian_(Sub)family-body shape,Other
+126853,Remora remora,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Echeneidae,Remora,Species,Shark sucker,86.4,2.12,0.007528721,3.03837037,Modelled_Order,Other
+105896,Rostroraja alba,"(Lacepède, 1803)",Animalia,Chordata,Elasmobranchii,Rajiformes,Rajidae,Rostroraja,Species,White skate,230,18.17,0.005,3.06,FishBase,Other
+126867,Ruvettus pretiosus,"Cocco, 1833",Animalia,Chordata,Actinopteri,Perciformes,Gempylidae,Ruvettus,Species,Oilfish,300,2.6,0.0031,3.134,FishBase,Other
+126748,Sagamichthys schnakenbecki,"(Krefft, 1953)",Animalia,Chordata,Actinopteri,Osmeriformes,Platytroctidae,Sagamichthys,Species,Schnakenbeck's searsid,27,4.86,0.00389,3.12,FB_Baysian_Body shape,Other
+126141,Salmo,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Salmoniformes,Salmonidae,Salmo,Genus,NA,150,0,0.01095444,3.015,Mean_Species,Other
+127186,Salmo salar,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Salmoniformes,Salmonidae,Salmo,Species,Salmon,150,3.08,0.012,3,FishBase,Other
+223866,Salmo trutta trutta,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Salmoniformes,Salmonidae,Salmo,Subspecies,Sea trout,140,2.24,0.01,3.03,FishBase,FC1
+151308,Sander lucioperca,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Percidae,Sander,Species,Pike perch,100,2.26,0.0071,3.12,FishBase,Other
+127021,Sarda sarda,"(Bloch, 1793)",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Sarda,Species,Atlantic bonito,91.4,2.33,0.0043,3.14,FishBase,Other
+126421,Sardina pilchardus,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Sardina,Species,Pilchard,27.5,4.5,0.0054,3.14,FishBase,Other
+126422,Sardinella aurita,"Valenciennes, 1847",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Sardinella,Species,Round sardinella,30,3.85,0.0072,3.05,FishBase,Other
+127064,Sarpa salpa,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Sarpa,Species,Salema,51,2.01,0.0129,3.06,FishBase,Other
+126833,Schedophilus medusophagus,"(Cocco, 1839)",Animalia,Chordata,Actinopteri,Perciformes,Centrolophidae,Schedophilus,Species,Cornish blackfish,51,1.94,0.01995,3.01,FB_Baysian_Body shape,Other
+126834,Schedophilus ovalis,"(Cuvier, 1833)",Animalia,Chordata,Actinopteri,Perciformes,Centrolophidae,Schedophilus,Species,Imperial blackfish,100,2.17,0.01995,3.01,FB_Baysian_Body shape,Other
+151174,Scomber colias,"Gmelin, 1789",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Scomber,Species,Atlantic chub mackerel,64,2.13,0.0042,3.27,FishBase,Other
+127023,Scomber scombrus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Scomber,Species,Mackerel,60,2.1,0.0055,3.13,FishBase,Other
+236461,Scomberesox saurus saurus,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Beloniformes,Scomberesocidae,Scomberesox,Species,Atlantic saury,50,4.38,0.0015,3.193,FishBase,Other
+127149,Scophthalmus maximus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Scophthalmus,Species,Turbot,100,2,0.011,3.1,FishBase,FC1
+127150,Scophthalmus rhombus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Scophthalmus,Species,Brill,75,2,0.0138,3.01,FishBase,FC1
+126171,Scorpaena,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Genus,NA,50,0,0.01465309,3.078,Mean_Species,Other
+127242,Scorpaena elongata,"Cadenat, 1943",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Slender rockfish,50,1.91,0.01318,3.02,FB_Baysian_Genus-body shape,Other
+127244,Scorpaena loppei,"Cadenat, 1943",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Cadenat's rockfish,15,1.54,0.0081,3.33,FishBase,Other
+127246,Scorpaena notata,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Small red scorpionfish,24,1.68,0.0174,3.03,FishBase,Other
+127247,Scorpaena porcus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Black scorpionfish,37,1.81,0.0174,3.04,FishBase,Other
+127248,Scorpaena scrofa,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,Scorpaena,Species,Scorpionfish,50,1.97,0.0209,2.97,FishBase,FC1
+125595,Scorpaenidae,"Risso, 1827",Animalia,Chordata,Actinopteri,Scorpaeniformes,Scorpaenidae,0,Family,NA,52,0,0.014400244,3.07,Mean_Species,Other
+105729,Scyliorhinus,"Blainville, 1816",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Scyliorhinidae,Scyliorhinus,Genus,NA,100,0,0.002619159,3.09,Mean_Species,Other
+105814,Scyliorhinus canicula,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Scyliorhinidae,Scyliorhinus,Species,Lesser spotted dogfish,100,9.5,0.0014,3.22,FishBase,FC1
+105815,Scyliorhinus stellaris,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Carcharhiniformes,Scyliorhinidae,Scyliorhinus,Species,Nurse hound,170,16,0.0049,2.96,MS-S,FC1
+105918,Scymnodon ringens,"Barbosa du Bocage & de Brito Capello, 1864",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Scymnodon,Species,Knifetooth dogfish,110,23.5,0.0043,3.12,FishBase,Other
+126749,Searsia koefoedi,"Parr, 1937",Animalia,Chordata,Actinopteri,Osmeriformes,Platytroctidae,Searsia,Species,Koefoed's searsid,15,4.41,0.01,3.04,FB_Baysian_Body shape,Other
+126175,Sebastes,"Cuvier, 1829",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Sebastes,Genus,NA,100,0,0.01663103,3.035667,Mean_Species,FC1
+127254,Sebastes mentella,"Travin, 1951",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Sebastes,Species,Redfish,58,1.85,0.02,3.02,FishBase,Other
+151324,Sebastes norvegicus,"(Ascanius, 1772)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Sebastes,Species,Golden redfish,100,1.8,0.02,2.95,MS-S,Other
+127255,Sebastes viviparus,"Krøyer, 1845",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Sebastes,Species,Norway haddock,35,1.6,0.0115,3.137,FishBase,FC1
+127041,Serranus cabrilla,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Serranus,Species,Comber,40,1.6,0.017,2.86,FishBase,Other
+127042,Serranus hepatus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Serranus,Species,Brown comber,25,1.4,0.0145,3.06,FishBase,Other
+127043,Serranus scriba,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Serranidae,Serranus,Species,Painted comber,36,1.58,0.0112,3.06,FishBase,Other
+126319,Serrivomer beanii,"Gill & Ryder, 1883",Animalia,Chordata,Actinopteri,Anguilliformes,Serrivomeridae,Serrivomer,Species,Stout sawpalate,78,7.16,0.00102,3.06,FB_Baysian_Body shape,Other
+127258,Setarches guentheri,"Johnson, 1862",Animalia,Chordata,Actinopteri,Scorpaeniformes,Setarchidae,Setarches,Species,Channeled rockfish,25,1.7,0.0104,3.091,FishBase,Other
+398363,Sigmops bathyphilus,"(Vaillant, 1884)",Animalia,Chordata,Actinopteri,Stomiiformes,Gonostomatidae,Sigmops,Species,Spark anglemouth,20,1.95,0.00363,3.07,FB_Baysian_(Sub)family-body shape,Other
+127159,Solea senegalensis,"Kaup, 1858",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Solea,Species,Senegalese sole,60,1.34,0.0078,3.07,FishBase,Other
+127160,Solea solea,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,Solea,Species,Dover sole,70,1.1,0.0062,3.13,FishBase,Other
+125581,Soleidae,"Bonaparte, 1833",Animalia,Chordata,Actinopteri,Pleuronectiformes,Soleidae,0,Family,NA,70,0,0.008249801,3.097641667,Mean_Species,Other
+105919,Somniosus microcephalus,"(Bloch & Schneider, 1801)",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Somniosus,Species,Greenland shark,730,37.5,0.0065,3.24,FishBase,Other
+105920,Somniosus rostratus,"(Risso, 1827)",Animalia,Chordata,Elasmobranchii,Squaliformes,Somniosidae,Somniosus,Species,Little sleeper shark,143,24.5,0.00479,3.13,FB_Baysian_(Sub)family-body shape,Other
+125564,Sparidae,"Rafinesque, 1818",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,0,Family,NA,106,0,0.014341981,3.036478261,Mean_Species,Other
+151523,Sparus aurata,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Sparus,Species,Gilthead seabream,70,2.07,0.0151,2.99,FishBase,FC1
+127417,Sphoeroides pachygaster,"(Müller & Troschel, 1848)",Animalia,Chordata,Actinopteri,Tetraodontiformes,Tetraodontidae,Sphoeroides,Species,Blunthead puffer,40.5,2.09,0.0316,2.87,FishBase,Other
+127068,Sphyraena sphyraena,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sphyraenidae,Sphyraena,Species,European barracuda,165,2.07,0.0151,2.84,FishBase,Other
+126828,Spicara maena,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Centracanthidae,Spicara,Species,Blotched picarel,25,1.71,0.0083,3.13,FishBase,Other
+126830,Spicara smaris,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Centracanthidae,Spicara,Species,Picarel,20,1.73,0.01,2.98,FishBase,Other
+126508,Spinachia spinachia,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gasterosteiformes,Gasterosteidae,Spinachia,Species,Fifteen spined stickleback,22,2.5,0.0021,3,FishBase,Other
+127066,Spondyliosoma cantharus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sparidae,Spondyliosoma,Species,Black sea bream,60,1.97,0.0138,3.03,FishBase,Other
+125722,Spratelloides,"Bleeker, 1851 ",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Spratelloides,Genus,na,10.5,0,0.00513,3.14,Mean_Species,Other
+272278,Spratelloides lewisi,"Wongratana, 1983",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Spratelloides,Species,INCORRECT DISTRIBUTION,60,0,0.00513,3.14,FB_Baysian_Spp&(Sub)family-body shape,Other
+126425,Sprattus sprattus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Clupeiformes,Clupeidae,Sprattus,Species,Sprat,16,3.6,0.0055,3.06,FishBase,Other
+105716,Squalidae,"de Blainville, 1816",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,0,Family,NA,160,0,0.003436936,3.07,Mean_Species,FC1
+105923,Squalus acanthias,"Linnaeus, 1758",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,Squalus,Species,Spurdog,160,24,0.003,3.07,FishBase,Other
+105924,Squalus blainville,"(Risso, 1827)",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,Squalus,Species,Longnose spurdog,100,23,0.0034,3.05,FishBase,Other
+105925,Squalus megalops,"(MacLeay, 1881)",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,Squalus,Species,Shortnose spurdog,89,23,0.0072,2.93,FishBase,Other
+299235,Squalus uyato,"Rafinesque, 1810",Animalia,Chordata,Elasmobranchii,Squaliformes,Squalidae,Squalus,Species,Little gulper shark,110,42.5,0.0019,3.23,FishBase,Other
+125566,Stichaeidae,"Gill, 1864",Animalia,Chordata,Actinopteri,Perciformes,Stichaeidae,0,Family,NA,50,0,0.018719803,2.226666667,Mean_Species,Other
+126220,Stomias,"Cuvier, 1816",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Stomias,Genus,NA,30,0,0.00229,3.16,Mean_Species,Other
+234601,Stomias boa boa,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Stomias,Species,Boa dragonfish,32.2,2.12,0.00229,3.16,FB_Baysian_(Sub)family-body shape,Other
+158737,Stomias boa ferox,"Reinhardt, 1842",Animalia,Chordata,Actinopteri,Stomiiformes,Stomiidae,Stomias,Subspecies,Boa dragonfish,30,2.09,0.00229,3.16,FB_Baysian_(Sub)family-body shape,Other
+127076,Stromateus fiatola,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Stromateidae,Stromateus,Species,Blue butterfish,50,1.93,0.0166,3.05,FB_Baysian_(Sub)family-body shape,Other
+126630,Symbolophorus veranyi,"(Moreau, 1888)",Animalia,Chordata,Actinopteri,Myctophiformes,Myctophidae,Symbolophorus,Species,Large-scale lantern fish,12,1.56,0.0156,2.912,FishBase,Other
+126023,Symphodus,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Symphodus,Genus,NA,28,0,0.01096596,3.11,Mean_Species,Other
+273566,Symphodus bailloni,"(Valenciennes, 1839)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Symphodus,Species,Baillon's wrasse,20,0.83,0.0123,3.11,FishBase,Other
+273571,Symphodus melops,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Symphodus,Species,Corkwing wrasse,28,0.7,0.0071,3.18,FishBase,Other
+273573,Symphodus roissali,"(Risso, 1810)",Animalia,Chordata,Actinopteri,Perciformes,Labridae,Symphodus,Species,Five-spotted wrasse,17,0.82,0.0151,3.04,FishBase,Other
+127134,Symphurus nigrescens,"Rafinesque, 1810",Animalia,Chordata,Actinopteri,Pleuronectiformes,Cynoglossidae,Symphurus,Species,Tonguesole,12,1.39,0.0048,3.21,FishBase,Other
+126328,Synaphobranchus kaupii,"Johnson, 1862",Animalia,Chordata,Actinopteri,Anguilliformes,Synaphobranchidae,Synaphobranchus,Species,Kaup's arrowtooth eel,100,7.47,0.0003,3.36,FishBase,Other
+126798,Synchiropus phaeton,"(Günther, 1861)",Animalia,Chordata,Actinopteri,Perciformes,Callionymidae,Synchiropus,Species,Phaeton dragonet,18,1.14,0.01309,2.527,FishBase,Other
+125606,Syngnathidae,"Bonaparte, 1831",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,0,Family,NA,50,0,0.000440324,2.9789875,Mean_Species,Other
+126227,Syngnathus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Syngnathus,Genus,NA,50,0,0.000181712,3.28,Mean_Species,Other
+127387,Syngnathus acus,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Syngnathus,Species,Great pipefish,50,3.4,0.0003,3.19,FishBase,Other
+127389,Syngnathus rostellatus,"Nilsson, 1855",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Syngnathus,Species,Nilsson's pipefish,17,1.6,0.0001,3.53,IMARES,Other
+127393,Syngnathus typhle,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Syngnathiformes,Syngnathidae,Syngnathus,Species,Broad-nosed pipefish,35,2.8,0.0002,3.12,FishBase,Other
+127204,Taurulus bubalis,"(Euphrasen, 1786)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Taurulus,Species,Sea scorpion,17.5,1.2,0.01,3.11,MS-S,Other
+321911,Tetronarce nobiliana,"(Bonaparte, 1835)",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Electric ray,180,22.75,0.0672,2.926,FishBase,FC1
+126937,Thorogobius ephippiatus,"(Lowe, 1839)",Animalia,Chordata,Actinopteri,Perciformes,Gobiidae,Thorogobius,Species,Leopard-spotted-goby,13,1.89,0.00589,3.12,FB_Baysian_(Sub)family-body shape,Other
+127029,Thunnus thynnus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Scombridae,Thunnus,Species,Bluefin tuna,458,3.04,0.0129,2.92,FishBase,Other
+271684,Torpedo marmorata,"Risso, 1810",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Marbled electric ray,100,12,0.0275,2.9,FishBase,FC1
+157868,Torpedo nobiliana,"Bonaparte, 1835",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Electric Ray,180,0,0.0672,2.926,FishBase,Other
+271691,Torpedo torpedo,"(Linnaeus, 1758)",Animalia,Chordata,Elasmobranchii,Torpediniformes,Torpedinidae,Torpedo,Species,Eyed electric ray,60,9,0.0302,2.81,FishBase,Other
+127082,Trachinus draco,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Trachinidae,Trachinus,Species,Greater weever,53,1.6,0.0059,3.08,FishBase,Other
+126527,Trachipterus arcticus,"(Brünnich, 1788)",Animalia,Chordata,Actinopteri,Lampriformes,Trachipteridae,Trachipterus,Species,Dealfish,300,3.78,0.00183,3,FishBase,Other
+126528,Trachipterus trachypterus,"(Gmelin, 1789)",Animalia,Chordata,Actinopteri,Lampriformes,Trachipteridae,Trachipterus,Species,Mediterranean dealfish,300,3.38,0.00102,3.06,FB_Baysian_Body shape,Other
+126820,Trachurus mediterraneus,"(Steindachner, 1868)",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Trachurus,Species,Mediterranean horse mackerel,60,1.07,0.0105,2.97,FishBase,Other
+126821,Trachurus picturatus,"(Bowdich, 1825)",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Trachurus,Species,Blue jack mackerel,60,1.16,0.01,3.11,FishBase,Other
+126822,Trachurus trachurus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Carangidae,Trachurus,Species,Horse mackerel,70,1.1,0.0087,2.99,FishBase,Other
+126481,Trachyrincus murrayi,"Günther, 1887",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Trachyrincus,Species,Murray's rat tail,37,2.19,0.00102,3.06,FB_Baysian_Body shape,Other
+126482,Trachyrincus scabrus,"(Rafinesque, 1810)",Animalia,Chordata,Actinopteri,Gadiformes,Macrouridae,Trachyrincus,Species,Roughsnout grenadier,60,2.26,0.00129,3.232,FishBase,Other
+293753,Trachyscorpia cristulata cristulata,"(Goode & Bean, 1896)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Trachyscorpia,Subspecies,Atlantic thornyhead,50,1.79,0.00912,3.1,FB_Baysian_(Sub)family-body shape,Other
+293754,Trachyscorpia cristulata echinata,"(Köhler, 1896)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Sebastidae,Trachyscorpia,Subspecies,Spiny scorpionfish,50,1.79,0.00912,3.1,FB_Baysian_(Sub)family-body shape,Other
+126180,Trigla,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Trigla,Genus,NA,60,2.14,0.011,2.94,Mean_Species,Other
+127266,Trigla lyra,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Trigla,Species,Piper gurnard,60,2.14,0.011,2.94,FishBase,Other
+125598,Triglidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,0,Family,NA,75,0,0.007852628,3.065725,Mean_Species,Other
+154461,Trigloporus,"Smith, 1934",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Trigloporus,Genus,NA,40,0,0.0049,3.04,Mean_Species,Other
+154462,Trigloporus lastoviza,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Scorpaeniformes,Triglidae,Trigloporus,Species,Streaked gurnard,40,2.5,0.0049,3.04,FishBase,Other
+126154,Triglops,"Reinhardt, 1830",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Triglops,Genus,NA,20,0,0.02,2.74,Mean_Species,Other
+127205,Triglops murrayi,"Günther, 1888",Animalia,Chordata,Actinopteri,Scorpaeniformes,Cottidae,Triglops,Species,Moustache sculpin,20,1.45,0.02,2.74,MS-S,Other
+126444,Trisopterus esmarkii,"(Nilsson, 1855)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Trisopterus,Species,Norway pout,35,2.2,0.0044,3.21,MS-S,Other
+126445,Trisopterus luscus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Trisopterus,Species,Bib,46,1.2,0.0079,3.15,FishBase,Other
+126446,Trisopterus minutus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Gadiformes,Gadidae,Trisopterus,Species,Poor cod,40,2.3,0.0072,3.13,FishBase,Other
+127011,Umbrina canariensis,"Valenciennes, 1843",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Umbrina,Species,Canary drum,80,2.08,0.0086,3.123,FishBase,Other
+127012,Umbrina cirrosa,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Umbrina,Species,Shi drum,73,2.24,0.0117,3.02,FishBase,Other
+127013,Umbrina ronchus,"Valenciennes, 1843",Animalia,Chordata,Actinopteri,Perciformes,Sciaenidae,Umbrina,Species,Fusca drum,100,2.2,0.00891,3.09,FB_Baysian_Genus-body shape,Other
+127093,Uranoscopus scaber,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Uranoscopidae,Uranoscopus,Species,Stargazer,40,1.92,0.0126,3.08,FishBase,Other
+126503,Urophycis chuss,"(Walbaum, 1792)",Animalia,Chordata,Actinopteri,Gadiformes,Phycidae,Urophycis,Species,red hake/squirrel hake Questionable DISTRIBUTION,66,0,0.01245,3,FishBase,Other
+127304,Vinciguerria poweriae,"(Cocco, 1838)",Animalia,Chordata,Actinopteri,Stomiiformes,Phosichthyidae,Vinciguerria,Species,Power's deep-water bristle-mouth,4.3,1.51,0.00933,3.09,FB_Baysian_(Sub)family-body shape,Other
+126714,Xenodermichthys copei,"(Gill, 1884)",Animalia,Chordata,Actinopteri,Osmeriformes,Alepocephalidae,Xenodermichthys,Species,Bluntsnout smooth-head,31,4.97,0.0066,3,FishBase,Other
+159432,Xenolepidichthys dalgleishi,"Gilchrist, 1922",Animalia,Chordata,Actinopteri,Zeiformes,Grammicolepididae,Xenolepidichthys,Species,Spotted tinselfish,15,1.31,0.02451,2.891,FishBase,Other
+127094,Xiphias gladius,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Perciformes,Xiphiidae,Xiphias,Species,Swordfish,455,2.72,0.0023,3.17,FishBase,Other
+125617,Zeidae,"Rafinesque, 1815",Animalia,Chordata,Actinopteri,Zeiformes,Zeidae,0,Family,NA,90,0,0.007948585,3.145,Mean_Species,Other
+127421,Zenion hololepis,"(Goode & Bean, 1896)",Animalia,Chordata,Actinopteri,Zeiformes,Zeniontidae,Zenion,Species,Zeniontid Fish,12,1.26,0.01122,3.04,FB_Baysian_Body shape,Other
+127426,Zenopsis conchifer,"(Lowe, 1852)",Animalia,Chordata,Actinopteri,Zeiformes,Zeidae,Zenopsis,Species,Silvery John dory,80,1.73,0.0027,3.4,FishBase,Other
+126125,Zeugopterus,"Gottsche, 1835",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Zeugopterus,Genus,NA,25,0,0.01339067,3.1756,mean_Species,Other
+126125,Zeugopterus norvegicus,"Gottsche, 1835",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Zeugopterus,Genus,NA,25,0,0.01339067,3.1756,from Zeugopterus spp,Other
+127151,Zeugopterus punctatus,"(Bloch, 1787)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Zeugopterus,Species,Topknot,25,1.4,0.0139,3.146,FishBase,Other
+236488,Zeugopterus regius,"(Bonnaterre, 1788)",Animalia,Chordata,Actinopteri,Pleuronectiformes,Scophthalmidae,Zeugopterus,Species,Eckstrom's topknot,20,1.2,0.0129,3.2052,English,Other
+127427,Zeus faber,"Linnaeus, 1758",Animalia,Chordata,Actinopteri,Zeiformes,Zeidae,Zeus,Species,John dory,90,1.9,0.0234,2.89,FishBase,Other
+127123,Zoarces viviparus,"(Linnaeus, 1758)",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,Zoarces,Species,Viviparous blenny,52,1.9,0.0044,3.03,FishBase,FC1
+125575,Zoarcidae,"Swainson, 1839",Animalia,Chordata,Actinopteri,Perciformes,Zoarcidae,0,Family,NA,52,0,0.002182859,3.1175,Mean_Species,Other

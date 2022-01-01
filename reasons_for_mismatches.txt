@@ -1,0 +1,7 @@
+BBICPorOT4: CL identified as Poor data availability. lostsamp$ShootLong_degdec is all NA for "BBICPorOT44:PT:68NA:19:29:2011" "BBICPorOT44:PT:68NA:19:61:2010" "BBICPorOT44:PT:68NA:46:54:2011" "BBICPorOT44:PT:68NA:51:30:2005" "BBICPorOT44:PT:68NA:9:7:2011"   "BBICPorOT44:PT:68VG:67:22:2004" "BBICPorOT44:PT:68VG:67:30:2003"
+GNSFraOT4: CL identified that WKABSENS excluded. Many StNo do not exist in the sampling file, the file seems to be missing lots of sampling data. The vessel 35GD is not present in the flexfile, only in the exchange data so it must have been lost in between these? 
+GNSIntOT1: 58EJ at StNo 56:64 not present in sampling file in 1985. These station numbers are missing in the original HH exchange file.
+
+CSScoOT4: RESOLVED? Since Chris's update the lostID file is now empty. lostsamp$ShootLong_degdec was all NA for "CSScoOT44:GB-SCT:748S:487:12:1998" "CSScoOT44:GB-SCT:748S:492:17:1998" "CSScoOT44:GB-SCT:748S:497:22:1998" "CSScoOT44:GB-SCT:748S:503:10:1999" "CSScoOT44:GB-SCT:748S:548:27:2000" "CSScoOT44:GB-SCT:749S:435:2:1996"  "CSScoOT44:GB-SCT:749S:441:8:1996"  "CSScoOT44:GB-SCT:749S:519:7:1997" "CSScoOT44:GB-SCT:749S:529:17:1997"
+CSIreOT4: RESOLVED IN DATA FILE. three StNo saved as dates in the original csv files (MAR04, MAR4, MAR5)
+WASpaOT3: RESOLVED IN DATA FILE. country was NA, but the ship was defined (only one ship used for all this data) so I set the country to ES like the rest, which seems like a reasonable assumption.

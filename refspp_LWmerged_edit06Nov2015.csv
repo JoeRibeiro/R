@@ -1,0 +1,257 @@
+Functional.group,ScientificName_WoRMS,IBTS.species,Code,Common.name,ICES.Statlant.name,ITIS_TSN,WoRMS_AphiaID,Max.L..cm.,a,b,N,Min.L..cm.,Life.span..years.,TL,DEMPEL,TL_Ecopath,max len demersal,max len,LSI demersal,LSI_eco,Trophic_guild,Habitat_1,Piscivore,Bentho-piscivore,Benthivore,Planktivore
+Miscellaneous filter feeding pelagic fish,Maurolicus muelleri,Maurolicus muelleri,PLS,PEARLSIDE,,162187,127312,NA,0.016,2.7931,jo,NA,NA,3.43,PEL,3.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sandeel,Gymnammodytes semisquamatus,Gymnammodytes semisquamatus,SMS,SMOOTH SANDEEL,,171680,126754,NA,0.5621,1.2296,2,NA,4,3.35,DEM,3.35,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Halibut,Hippoglossus hippoglossus,Hippoglossus hippoglossus,HAL,HALIBUT,Atlantic halibut,172933,127138,204,0.235,1.797,8,12,96.8,4.53,DEM,4.537004353,200,200,1,1,Piscivore,Demersal,1,0,0,0
+unclassified,Capros aper,Capros aper,BOF,BOAR FISH,,166320,127419,16,0.2218,1.9707,5,10.5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Caproidae,Caproidae,,Other,,166309,125613,NA,0.2218,1.9707,Average over North Sea species in Caproidae,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Leptoclinus maculatus,Leptoclinus maculatus,SNB,SPOTTED SNAKE BLENNY,,171603,127072,17,0.0244,2.0439,Average over North Sea species in Stichaeidae,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Lumpenus lampretaeformis,Lumpenus lumpretaeformis,,Small demersal fish,,171588,154675,49,0.0244,2.0439,11,16,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Stichaeidae,Stichaeidae,,Other,,171554,125566,NA,0.0244,2.0439,Average over North Sea species in Stichaeidae,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Lycenchelys sarsii,Lycenchelys sarsi,LCS,Small demersal fish,,165243,127101,20,0.0417,2.2532,Average over North Sea species in Zoarcidae,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Zoarcidae,Zoarcidae,EPX,EEL-POUTS,,165215,125575,24,0.0417,2.2532,Average over North Sea species in Zoarcidae,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Lycodes vahlii,Lycodes vahlii,VLP,VAHL'S EELPOUT,,165284,127118,52,0.0417,2.2532,Average over North Sea species in Zoarcidae,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Zoarces viviparus,Zoarces viviparus,ELP,EELPOUT/VIVIPARUS BLENNY,,165324,127123,52,0.0417,2.2532,4,19,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Gaidropsarus vulgaris,Gaidropsarus vulgaris,TBR,THREE-BEARDED ROCKLING,,164765,126458,43,0.012,2.547,14,2.6,NA,3.83,DEM,3.817256765,43,43,0,0,Benthivore,Demersal,0,0,1,0
+Dragonets,Callionymus reticulatus,Callionymus reticulatus,RDT,RETICULATE DRAGONET,,171712,126795,17,0.0158,2.552,33,1,6.6,3.61,DEM,3.985693824,30,30,0,0,Benthivore,Demersal,0,0,1,0
+Sandeel,Ammodytes tobianus,Ammodytes tobianus,TSE,SANDEEL,,171676,126752,NA,0.0098,2.56,26,NA,4,3.35,DEM,3.35,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sandeel,Ammodytes marinus,Ammodytes marinus,,Lesser sandeel,,171677,126751,NA,0.0098,2.56,NA,NA,4,3.35,DEM,3.35,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Dragonets,Callionymus maculatus,Callionymus maculatus,SDT,SPOTTED DRAGONET,,171699,126793,16,0.0162,2.5781,66,10,6.6,3.61,DEM,3.985693824,30,30,0,0,Benthivore,Demersal,0,0,1,0
+Large demersal fish,Coryphaenoides rupestris,Coryphaenoides rupestris,,Roundnose grenadier,Roundnose grenadier,165350,158960,150,0.732,2.587,NA,NA,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Horse mackerel,Trachurus trachurus,Trachurus trachurus,HOM,HORSE-MACKEREL (SCAD),Atlantic horse mackerel,168588,126822,60,0.0317,2.6515,1154,NA,6.7,3.94,PEL,4.243609765,NA,60,NA,0,Planktivore,Pelagic,0,0,0,1
+Dragonets,Callionymus,Callionymus,,Dragonets,,171692,125930,30,0.0135,2.6857,Average over North Sea species in Callionymus,NA,6.6,3.61,DEM,3.985693824,30,30,0,0,Benthivore,Demersal,0,0,1,0
+Small demersal fish,Myxine glutinosa,Myxine glutinosa,HGF,HAGFISH,,159772,101170,45,0.0033,2.699,162,9.2,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Belone belone,Belone belone,GAR,GARFISH,Garfish,165594,126375,NA,0.0045,2.7203,3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Diplecogaster bimaculata,Diplecogaster bimaculata,TSC,TWP SPOTTED CLINGFISH,,164482,126513,NA,0.0141,2.737,12,2,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Megrim,Lepidorhombus whiffiagonis,Lepidorhombus whiffiagonis,MEG,MEGRIM,Megrim,172835,127146,50,0.0134,2.746,14,2.5,22,3.56,DEM,4.498525588,50,50,0,0,Piscivore,Demersal,1,0,0,0
+Megrim,Lepidorhombus boscii,Lepidorhombus boscii,LBI,FOUR SPOT MEGRIM,,172834,127145,50,0.0134,2.746,14,2.5,22,3.56,DEM,4.498525588,50,50,0,0,Piscivore,Demersal,1,0,0,0
+Small sharks,Mustelus mustelus,Mustelus mustelus,SMH,SMOOTH HOUND,,160242,105822,75,0.0062,2.758,16,38,9,4.33,DEM,4.353939294,80,80,0,0,Bentho-piscivore,Demersal,0,1,0,0
+Sandeel,Ammodytes,Ammodytes,f,Sandeel,,171671,125909,NA,0.0049,2.7826,NA,NA,4,3.35,DEM,3.35,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sandeel,Ammodytidae,Ammodytidae,,Sandeel,,171670,125516,NA,0.0049,2.7826,NA,NA,4,3.35,DEM,3.35,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Sandeel,Hyperoplus immaculatus,Hyperoplus immaculatus,ISE,IMMACULATE SANDEEL,,171683,126755,NA,0.0056,2.8225,3,NA,4,3.35,DEM,3.35,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Sparidae,Sparidae,,Black seabream,Black seabream,169180,125564,NA,0.1295,2.838,Average over North Sea species in Sparidae,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Gaidropsarus,Gaidropsarus,,Other gadoids (small),,164764,125743,NA,0.0072,2.865,Average over North Sea species in Gaidropsarus,NA,NA,3.83,DEM,3.817256765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Gaidropsarus argentatus,Gaidropsarus argentatus,,Other gadoids (small),,164768,126451,NA,0.0072,2.865,Average over North Sea species in Gaidropsarus,NA,NA,3.83,DEM,3.817256765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Agonus cataphractus,Agonus cataphractus,POG,POGGE (ARMED BULLHEAD),,167454,127190,21,0.0091,2.905,130,2.1,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Leptagonus decagonus,Leptagonus decagonus,,Other,,167478,127191,NA,0.0091,2.905,Average over North Sea species in Agonidae,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Pagellus erythrinus,Pagellus erythrinus,,Other,,169215,127060,40.5,0.0171,2.906,103,20.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Pagellus acarne,Pagellus acarne,,Other,,169213,127057,NA,0.0171,2.906,103,20.8,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Mullus barbatus,Mullus barbatus,,Small demersal fish,,169419,126985,26.5,0.0139,2.9087,61,11.5,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Zeus faber,Zeus faber,JOD,JOHN DORY,John dory,166287,127427,66,0.023,2.911,Ecotypes,NA,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small sharks,Mustelus,Mustelus,,Small sharks,,160226,105732,145,0.0041,2.9185,Average over North Sea species in Mustelus,NA,9,4.33,DEM,4.353939294,80,80,0,0,Bentho-piscivore,Demersal,0,1,0,0
+Dragonets,Callionymidae,Callionymidae,DTX,DRAGONETS,,171691,125522,20,0.0086,2.927,256,2.6,6.6,3.61,DEM,3.985693824,30,30,0,0,Benthivore,Demersal,0,0,1,0
+Dragonets,Callionymus lyra,Callionymus lyra,CDT,COMMON DRAGONET,,171698,126792,30,0.0086,2.927,256,2.6,6.6,3.61,DEM,3.985693824,30,30,0,0,Benthivore,Demersal,0,0,1,0
+unclassified,Somniosus microcephalus,Somniosus microcephalus,,unclassified,,160611,105919,155,0.0161,2.93,Average over species in Somniosus,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Cyclopterus lumpus,Cyclopterus lumpus,LUM,LUMPSUCKER,,167612,127214,61,0.0587,2.939,19,25,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Echiichthys vipera,Trachinus vipera,WEL,Lesser weever,,170991,150630,15,0.0129,2.947,28,1.7,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Liparis montagui,Liparis montagui,MSS,MONTAGUE'S SEASNAIL,,167581,127220,10,0.0292,2.949,Average over 10 North Sea species with closest surveyed maximum L,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Gaidropsarus macrophthalmus,Gaidropsarus macrophthalmus,,Other gadoids (small),,623025,126456,19,0.0063,2.95,30,10,NA,3.83,DEM,3.817256765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Triglopsis quadricornis,Myoxocephalus quadricornis,,Small demersal fish,,167316,127208,23,0.0229,2.952,352,6.9,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Liparis,Liparis,,Sea-snail,,167550,126160,NA,0.0207,2.9691,Average over North Sea species in Liparis,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Gobius niger,Gobius niger,BLG,BLACK GOBY,,171850,126892,16,0.0124,2.971,225,3.6,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hake,Merlucciidae,Merlucciidae,,Hake,,164789,125473,110,0.0076,2.9722,NA,NA,36,3.85,DEM,4.942409235,110,110,1,1,Piscivore,Demersal,1,0,0,0
+Large demersal fish,Sebastes,Sebastes,,Large demersal fish,,166705,126175,NA,0.0178,2.9724,IBTS3E,NA,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Sebastes mentella,Sebastes mentella,,Large demersal fish,,166756,127254,NA,0.0178,2.9724,IBTS3E,NA,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Monkfish,Lophius piscatorius,Lophius piscatorius,MON,ANGLERFISH (MONK),Angler(=Monk),164501,126555,200,0.0166,2.9776,24,17.5,36.2,4.09,DEM,4.882713824,200,200,1,1,Piscivore,Bathydemersal,1,0,0,0
+Monkfish,Lophiidae,Lophiidae,,Monkfish,,164497,125493,200,0.0166,2.9776,NA,NA,36.2,4.09,DEM,4.882713824,200,200,1,1,Piscivore,Bathydemersal,1,0,0,0
+Long-rough dab,Hippoglossoides platessoides,Hippoglossoides platessoides,PLA,AMERICAN PLAICE (LR DAB),,172877,127137,50,0.007,2.978,670,1.2,31.8,4.03,DEM,4.185995529,50,50,0,0,Bentho-piscivore,Demersal,0,1,0,0
+Miscellaneous filter feeding pelagic fish,Alosa fallax,Alosa fallax,TAS,TWAITE SHAD,,161716,126415,55,0.0096,2.981,coull1989,NA,NA,3.43,PEL,3.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Miscellaneous filter feeding pelagic fish,Alosa alosa,Alosa alosa,AAS,ALLIS SHAD,,161708,126413,60,0.0096,2.981,coull1989,NA,NA,3.43,PEL,3.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Miscellaneous filter feeding pelagic fish,Alosa,Alosa,,Miscellaneous filter feeding pelagic fish,,161701,125715,60,0.0096,2.981,coull1989,NA,NA,3.43,PEL,3.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Liparis liparis,Liparis liparis,,Sea-snail,,167578,127219,18,0.0122,2.9892,Average over 10 North Sea species with closest surveyed maximum L,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Entelurus aequoreus,Entelurus aequerius,,Other,,166591,127379,48,2.00E-04,3,U,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Nerophis ophidion,Nerophis ophidion,,Other,,166595,127385,NA,4.00E-04,3,Average over North Sea species in Nerophis,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Ciliata mustela,Ciliata mustella,,Other,,164779,126448,45,0.0064,3,U,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Triglops murrayi,Triglops murrayi,SPN,SCULPIN,,167375,127205,19,0.0088,3,3,13.5,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Blenniidae,Blenniidae,,Small demersal fish,,171124,125519,NA,0.0093,3,Average over North Sea species in Blenniidae,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Taurulus bubalis,Taurulus bubalis,SSN,Sea scorpion,,167390,127204,27,0.0154,3,U,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Micrenophrys lilljeborgii,Taurulus lilljeborgi,,Other,,167391,127201,NA,0.0154,3,Average over North Sea species in Taurulus,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Liza aurata,Liza aurata,MGN,GOLDEN MULLET,,170377,126978,45,0.00782,3.006,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large piscivorous sharks,Galeorhinus galeus,Galeorhinus galeus,GAG,TOPE SHARK,Tope shark,160181,105820,200,0.0098,3.0085,968,85,41.25,4.91,DEM,4.946418471,200,200,1,1,Piscivore,Benthopelagic,1,0,0,0
+Small demersal fish,Pholis gunnellus,Pholis gunnellus,BTF,BUTTER FISH,,171645,126996,25,0.0043,3.018,59,15,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Pomatoschistus pictus,Pomatoschistus pictus,,Other,,171980,126930,5.8,0.0073,3.02,34,2.6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Mullus surmuletus,Mullus surmuletus,MUR,RED MULLET,Red mullet,169418,126986,40,0.0101,3.0201,34,11.5,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Spondyliosoma cantharus,Spondyliosoma cantharus,BKS,BLACK SEABREAM,Blackbelly rosefish,169229,127066,60,0.0151,3.0233,43,18.5,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Trisopterus minutus,Trisopterus minutus,POD,POOR COD,,164754,126446,26,0.0092,3.0265,452,9,NA,3.83,DEM,3.817256765,26,26,0,0,Benthivore,Demersal,0,0,1,0
+Lesser spotted dogfish,Scyliorhinus canicula,Scyliorhinus canicula,LSD,LESSER SPOTTED DOGFISH,,160065,105814,103,0.0031,3.029,376,37,9,4.29,DEM,4.353939294,80,80,0,0,Bentho-piscivore,Demersal,0,1,0,0
+Greater spotted dogfish,Scyliorhinus stellaris,Scyliorhinus stellaris,,Small sharks,,160067,105815,80,0.0031,3.029,Average over North Sea species in Scyliorhinus,NA,NA,NA,NA,NA,80,80,0,0,Bentho-piscivore,Benthopelagic,0,1,0,0
+Small demersal fish,Mugilidae,Mugilidae,MUL,GREY MULLETS,,170333,125546,75,0.0107,3.0328,Average over North Sea species in Mugilidae,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Myoxocephalus scorpioides,Myoxocephalus scorpioides,,Small demersal fish,,167317,127202,NA,0.0178,3.0378,Average over North Sea species in Myoxocephalus,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Trigloporus lastoviza,Trigloporus lastoviza,,Other,,167046,154462,37,0.0049,3.039,156,6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Helicolenus dactylopterus,Helicolenus dactylopterus,RBM,BLUE-MOUTH REDFISH,,166787,127251,44,0.151,3.0456,6,15,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Gobius,Gobius,,Small demersal fish,,171833,125988,NA,0.0119,3.0495,Average over North Sea species in Gobius,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Plaice,Pleuronectes platessa,Pleuronectes platessa,PLE,EUROPEAN PLAICE,European plaice,172902,127143,100,0.0078,3.0541,"11,551",4.5,47.8,3.67,DEM,3.993582294,100,100,1,1,Benthivore,Demersal,0,0,1,0
+Gurnards,Chelidonichthys lucerna,Trigla lucerna,TUB,TUB GURNARD,Tub gurnard,167039,127262,62.5,0.008,3.061,23,17,17.8,3.65,DEM,4.461899235,50,50,0,0,Benthivore,Demersal,0,0,1,0
+Small sharks,Galeus melastomus,Galeus melastomus,DBM,BLACKMOUTHED DOGFISH,,160034,105812,90,0.0023,3.0632,jo,NA,9,4.33,DEM,4.353939294,80,80,0,0,Bentho-piscivore,Demersal,0,1,0,0
+unclassified,Artediellus atlanticus,Artediellus europaeus,,Other,,167209,127193,NA,0.0135,3.0641,Average over North Sea species in Cottidae,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Argentina sphyraena,Argentina sphyraena,LSS,LSR SILVER SMELT,,162071,126716,32,0.005,3.0728,524,NA,NA,3.83,DEM,3.817256765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Argentina silus,Argentina silus,GSS,GT SILVER SMELT,,162064,126715,60,0.005,3.0728,524,NA,NA,3.83,DEM,3.817256765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Argentina,Argentina,,Argentine,,189396,125885,NA,0.005,3.0728,524,NA,NA,3.83,DEM,3.817256765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Argentinidae,Argentinidae,ARG,ARGENTINES,Argentines,162057,125508,NA,0.005,3.0728,524,NA,NA,3.83,DEM,3.817256765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Common skate,Dipturus batis,Dipturus batis,SKT,Blue skate,,564126,105869,254,0.0036,3.0787,8,25.6,13.7,3.96,DEM,4.439736,92,92,1,1,Piscivore,Demersal,1,0,0,0
+Skates,Dipturus linteus,Dipturus linteus,,Sail ray,,564141,105870,66,0.0036,3.0787,8,25.6,NA,NA,NA,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Skates,Dipturus oxyrinchus,Dipturus oxyrinchus,,Longnosed skate,,564148,105872,NA,0.0036,3.0787,Average over North Sea species in Dipturus,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small sharks,Mustelus asterias,Mustelus asterias,SDS,STARRY SMOOTH HOUND,,160240,105821,117.3,0.002,3.079,67,19.1,9,4.33,DEM,4.353939294,80,80,0,0,Bentho-piscivore,Demersal,0,1,0,0
+Small demersal fish,Soleidae,Soleidae,,Small demersal fish,,172980,125581,70,0.022,3.0848,Average over North Sea species in Soleidae,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Spurdog,Squalus acanthias,Squalus acanthias,DGS,Spurdog,Spurdog,160617,105923,124,0.0034,3.0955,U,NA,41.1,3.41,DEM,4.786241529,105,105,1,1,Piscivore,Benthopelagic,1,0,0,0
+Spurdog,Squalidae,Squalidae,DGS,Spurdog,Spurdog,160604,105716,105,0.0034,3.0955,Average over North Sea species in Squalidae,NA,41.1,3.41,DEM,4.786241529,105,105,1,1,Piscivore,Benthopelagic,1,0,0,0
+Small demersal fish,Arnoglossus laterna,Arnoglossus laterna,SDF,SCALD FISH,,172805,127126,20,0.0065,3.096,"1,342",1.6,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Pomatoschistus,Pomatoschistus,,Other,,171977,125999,10,0.0068,3.0965,Average over North Sea species in Pomatoschistus,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Pomatoschistus microps,Pomatoschistus microps,,Other,,171982,126927,NA,0.0068,3.0965,Average over North Sea species in Pomatoschistus,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Flounder,Platichthys flesus,Platichthys flesus,FLE,FLOUNDER (EUROPEAN),European flounder,172894,127141,55,0.0087,3.0978,178,12,22,3.85,DEM,4.390114882,50,50,0,0,Benthivore,Demersal,0,0,1,0
+Other gadoids (small),Gaidropsarus mediterraneus,Gaidropsarus mediterraneus,,Shore rockling,,164766,126457,18.2,0.0034,3.098,413,5.3,NA,3.83,DEM,3.817256765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (small),Enchelyopus cimbrius,Enchelyopus cimbrius,FRR,FOUR-BEARDED ROCKLING,,164748,126450,43,0.0035,3.1062,63,11,NA,3.83,DEM,3.817256765,43,43,0,0,Benthivore,Demersal,0,0,1,0
+Other gadoids (large),Pollachius pollachius,Pollachius pollachius,POL,POLLACK,Pollack,164728,126440,130,0.0061,3.115,3,40,NA,4.45,DEM,4.571004765,130,130,1,1,Piscivore,Demersal,1,0,0,0
+Large demersal fish,Thunnus thynnus,Thunnus thynnus,,Large demersal fish,,172421,127029,NA,0.00002,2.96,jo,NA,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Blennius,Blennius,,Small demersal fish,,171125,125915,NA,0.00635,3.116,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Cyclopteridae,Cyclopteridae,,Small demersal fish,,167483,125590,NA,0.00635,3.116,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Hyperoplus,Hyperoplus,,Small demersal fish,,171681,125911,NA,0.00635,3.116,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Myoxocephalus,Myoxocephalus,,Small demersal fish,,167311,126152,NA,0.00635,3.116,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Scorpaenidae,Scorpaenidae,,Small demersal fish,,166704,125595,NA,0.00635,3.116,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Hyperoplus lanceolatus,Hyperoplus lanceolatus,,Small demersal fish,,171682,126756,29.8,0.00635,3.116,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Arnoglossus thori,Arnoglossus thori,,Small demersal fish,,172809,127128,NA,0.00635,3.116,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Painted ray,Raja microocellata,Raja microocellata,PTR,SMALL EYED RAY,Painted ray,160882,105885,87,0.0049,3.117,97,15,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Dab,Limanda limanda,Limanda limanda,DAB,DAB,Common dab,172881,127139,40,0.0071,3.119,"1,174",0.9,4.4,4.2,DEM,4.015771059,40,40,0,0,Benthivore,Demersal,0,0,1,0
+Cuckoo ray,Leucoraja naevus,Leucoraja naevus,,Cuckoo ray,,564143,105876,70,0.0056,3.121,19,10.6,13.7,3.88,DEM,4.439736,92,92,1,1,Piscivore,Demersal,1,0,0,0
+Starry Ray,Amblyraja radiata,Amblyraja radiata,SYR,Starry Ray,,564149,105865,90,0.0056,3.121,19,10.6,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Small demersal fish,Myoxocephalus scorpius,Myoxocephalus scorpius,BRT,BULLROUT,,167318,127203,60,0.0126,3.1235,311,12,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Scorpaena scrofa,Scorpaena scrofa,,Small demersal fish,,166839,127248,42.8,0.0121,3.124,22,14.3,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Buglossidium luteum,Buglossidium luteum,SOT,SOLENETTE,,173021,127153,16.6,0.0078,3.128,"3,410",1.2,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Buglossidium,Buglossidium,,Small demersal fish,,173020,126127,NA,0.0078,3.128,Average over North Sea species in Buglossidium,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Gobius cobitis,Gobius cobitis,,Small demersal fish,,171841,126886,8.3,0.0113,3.128,526,2.2,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Pegusa lascaris,Pegusa lascaris,,Other,,173051,127156,33.4,0.007,3.13,22,20.3,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Echiodon drummondii,Echiodon drummondii,,Other,,165116,126663,NA,0.0059,3.1304,Average over 10 North Sea species with closest surveyed maximum L,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Sebastes viviparus,Sebastes viviparus,REV,REDFISH,,166779,127255,36,0.0115,3.1369,358,9,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Norway pout,Trisopterus esmarkii,Trisopterus esmarkii,NOP,Norway Pout,Norway Pout,164756,126444,28.5,0.0046,3.1405,"4,690",7.5,7.9,3.91,PEL,3.608856529,35,35,0,0,Bentho-piscivore,Benthopelagic,0,1,0,0
+unclassified,Lampetra fluviatilis,Lampetra fluviatilis,,Other,,159719,101172,45,0.0011,3.141,7,31,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Microchirus variegatus,Microchirus variegatus,TBS,THICKBACK SOLE,,173026,274304,20,0.008,3.141,15,2.2,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Microchirus,Microchirus,,Small demersal fish,,173022,126129,NA,0.008,3.141,Average over North Sea species in Microchirus,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Gurnards,Triglidae,Triglidae,,Gurnards,Gurnard and Latchet,166972,125598,50,0.0052,3.1457,Average over North Sea species in Triglidae,NA,17.8,3.65,DEM,4.461899235,50,50,0,0,Benthivore,Demersal,0,0,1,0
+Small demersal fish,Phrynorhombus norvegicus,Zeugopterus norvegicus,,Small demersal fish,,616613,127147,10.5,0.0078,3.1457,14,4,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Zeugopterus punctatus,Zeugopterus punctatus,,Topknot,,172829,127151,29,0.0139,3.1457,28,11.5,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Zeugopterus,Zeugopterus,,Small demersal fish,,172828,126125,NA,0.0139,3.1457,Average over North Sea species in Zeugopterus,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Zeugopterus regius,Zeugopterus regius,,Small demersal fish,,616605,236488,NA,0.0139,3.1457,Average over North Sea species in Zeugopterus,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Hake,Merluccius merluccius,Merluccius merluccius,HKE,EUROPEAN HAKE,European hake,164795,126484,120,0.0036,3.1469,53,13.5,36,3.85,DEM,4.942409235,110,110,1,1,Piscivore,Demersal,1,0,0,0
+Other gadoids (large),Molva dypterygia,Molva dypterygia,BLI,BLUE LING,,164761,126459,142,0.0019,3.149,280,69,NA,4.45,DEM,4.571004765,142,142,1,1,Piscivore,Demersal,1,0,0,0
+Small demersal fish,Liza ramada,Liza ramada,MTN,THIN LIPPED MULLET,,170376,126980,60,0.00487,3.154,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Haddock (adult),Melanogrammus aeglefinus,Melanogrammus aeglefinus,HAD,HADDOCK,Haddock,164744,126437,115,0.0052,3.156,"14,421",5.5,12,3.59,DEM,4.254055765,112,112,1,1,Benthivore,Demersal,0,0,1,0
+Small demersal fish,Gobiidae,Gobiidae,GPA,GOBIES,,171746,125537,9,0.008,3.1614,Average over North Sea species in Gobiidae,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Mugil cephalus,Mugil cephalus,MTG,GREY MULLET,Mullets nei,170335,126983,75,0.0049,3.171,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Crystallogobius linearis,Crystallogobius linearis,CLG,CRYSTAL GOBY,,171971,126878,5,0.0062,3.173,sandgoby,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Aphia minuta,Aphia minuta,TPG,TRANSPARENT GOBY,,172033,126868,NA,0.0062,3.173,sandgoby,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Pomatoschistus minutus,Pomatoschistus minutus,SDG,SAND GOBY,,171978,126928,7.3,0.0062,3.173,967,1.4,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Saithe (adult),Pollachius virens,Pollachius virens,POK,SAITHE,Saithe(=Pollock),164727,126441,120,0.0042,3.1753,"2,598",10.5,16.9,4.11,DEM,4.283024412,120,120,1,1,Piscivore,Demersal,1,0,0,0
+unclassified,Ciliata septentrionalis,Ciliata septentrionalis,,Other,,164780,126449,17,0.0055,3.1785,351,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Sebastes marinus,Sebastes marinus,REG,NORWAY HADDOCK,,166745,127253,50,0.0071,3.18,11,10.2,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Triglops pingelii,Triglops pingeli,,Other,,167373,127207,20,0.0031,3.181,213,10,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Whiting (adult),Merlangius merlangus,Merlangius merlangus,WHG,WHITING,Whiting,164758,126438,70,0.0042,3.1842,"15,783",5.5,16.8,4.94,DEM,4.347201353,70,70,0,0,Piscivore,Demersal,1,0,0,0
+Other gadoids (large),Brosme brosme,Brosme brosme,USK,TUSK,,164740,126447,100,0.0051,3.189,7,NA,NA,4.45,DEM,4.571004765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Blue whiting,Micromesistius poutassou,Micromesistius poutassou,WHB,BLUE WHITING,Blue whiting(=Poutassou),164774,126439,50,0.0037,3.1933,459,NA,15.8,3.14,PEL,4.090852353,NA,50,NA,0,Planktivore,Mesopelagic,0,0,0,1
+Thornback ray,Raja clavata,Raja clavata,THR,THORNBACK RAY (ROKER),,160901,105883,118,0.0032,3.194,960,10,13.7,3.76,DEM,4.523824294,100,100,1,1,Bentho-piscivore,Demersal,0,1,0,0
+Small demersal fish,Petromyzon marinus,Petromyzon marinus,SLY,SEA LAMPREY,,159722,101174,120,8.00E-04,3.1956,25,31.5,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other rays,Raja undulata,Raja undulata,UNR,UNDULATE RAY,,160900,105891,101,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Other rays,Raja brachyura,Raja brachyura,,Other rays,,160880,367297,120,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Other rays,Dasyatis pastinaca,Dasyatis pastinaca,,Starry ray + others,,160959,105851,66,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Other rays,Leucoraja circularis,Leucoraja circularis,,Starry ray + others,,564128,105873,66,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Other rays,Leucoraja fullonica,Leucoraja fullonica,,Starry ray + others,,564134,105874,66,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Other rays,Leucoraja lentiginosa,Leucoraja lentiginosa,,Starry ray + others,,564140,271564,66,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Other rays,Raja,Raja,,Starry ray + others,,160846,105766,66,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Other rays,Rajidae,Rajidae,,Starry ray + others,,160845,105711,66,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Other rays,Rajiformes,Rajiformes,,Starry ray + others,,160806,10216,66,0.0023,3.2051,87,19,13.7,4.47,DEM,4.467841412,66,66,0,0,Piscivore,Demersal,1,0,0,0
+Spotted ray,Raja montagui,Raja montagui,SDR,SPOTTED RAY,Spotted ray,160883,105887,90,0.0023,3.2051,87,19,13.7,3.19,DEM,4.523824294,100,100,1,1,Bentho-piscivore,Demersal,0,1,0,0
+Small demersal fish,Etmopterus spinax,Etmopterus spinax,VBY,VELVET BELLY,,160670,105913,47,0.0019,3.212,78,11.2,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Herring (adult),Clupea harengus,Clupea harengus,HER,HERRING,Atlantic herring,161722,126417,40,0.0047,3.212,2185,NA,9.8,3.79,PEL,3.468150235,NA,40,NA,0,Planktivore,Benthopelagic,0,0,0,1
+Small demersal fish,Arnoglossus,Arnoglossus,,Small demersal fish,,172803,126109,NA,0.0047,3.218,Average over North Sea species in Arnoglossus,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Bothidae,Bothidae,,Other,,172714,125576,NA,0.0047,3.218,Average over North Sea species in Bothidae,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Syngnathus typhle,Syngnathus typhle,,Other,,166467,127393,26.2,1.00E-04,3.222,31,8.2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Gurnards,Chelidonichthys cuculus,Aspitrigla cuculus,GUR,RED GURNARD,Red gurnard,167049,127259,50,0.0045,3.2228,480,12,17.8,3.65,DEM,4.461899235,50,50,0,0,Benthivore,Demersal,0,0,1,0
+unclassified,Acentronura,Acentronura,,Other,,166613,159441,NA,2.00E-04,3.2326,Average over North Sea species in Syngnathidae,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Syngnathidae,Syngnathidae,,Other,,166443,125606,NA,2.00E-04,3.2326,Average over North Sea species in Syngnathidae,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cod (adult),Gadus morhua,Gadus morhua,COD,COD,Atlantic cod,164712,126436,190,0.0039,3.2434,"10,199",4.5,15.2,4.35,DEM,4.819384,190,190,1,1,Piscivore,Demersal,1,0,0,0
+Catfish (Wolf-fish),Anarhichas minor,Anarhichas minor,,Catfish (Wolf-fish),,171342,126759,125,0.0033,3.2491,NA,NA,26.2,3.24,DEM,4.287762824,125,125,1,1,Benthivore,Demersal,0,0,1,0
+Catfish (Wolf-fish),Anarrhichthys ocellatus,Anarhichas ocellatus,,Catfish (Wolf-fish),,171338,279605,125,0.0033,3.2491,NA,NA,26.2,3.24,DEM,4.287762824,125,125,1,1,Benthivore,Demersal,0,0,1,0
+Catfish (Wolf-fish),Anarhichas lupus,Anarhichas lupus,CAA,Catfish (Wolf-fish),Atlantic wolffish,171341,126758,125,0.0033,3.2491,58,32,26.2,3.24,DEM,4.287762824,125,125,1,1,Benthivore,Demersal,0,0,1,0
+Gurnards,Eutrigla gurnardus,Eutrigla gurnardus,GUG,GREY GURNARD,Grey gurnard,167044,150637,50,0.0034,3.26,240,16.5,17.8,3.65,DEM,4.461899235,50,50,0,0,Benthivore,Demersal,0,0,1,0
+Small demersal fish,Raniceps raninus,Raniceps raninus,LFB,LESSER FORKBEARD,,164777,126442,30.5,0.0062,3.2667,21,13.5,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Lemon Sole,Microstomus kitt,Microstomus kitt,LEM,LEMON SOLE,Lemon Sole,172888,127140,45,0.0042,3.2695,550,11.5,17,3.67,DEM,3.943399529,45,45,0,0,Benthivore,Demersal,0,0,1,0
+Sole,Solea solea,Solea vulgaris,SOL,Dover sole,Sole,173001,127160,70,0.0038,3.2751,30,10.5,26,4.17,DEM,4.002702824,70,70,0,0,Benthivore,Demersal,0,0,1,0
+Mackerel ,Scomber scombrus,Scomber scombrus,MAC,(EUROPEAN) MACKEREL,Atlantic mackerel,172414,127023,66,0.0036,3.28,741,NA,10.6,3.61,PEL,3.61,NA,66,NA,0,Planktivore,Pelagic,0,0,0,1
+Small demersal fish,Gadiculus argenteus,Gadiculus argenteus,SYP,SILVERY POUT,,164772,126435,15,0.00187975,3.291,Ecotypes,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Brill,Scophthalmus rhombus,Scophthalmus rhombus,BLL,BRILL,Brill,172749,127150,75,0.0055,3.3047,7,25,11,3.79,DEM,4.575944,100,100,1,1,Piscivore,Demersal,1,0,0,0
+Large demersal fish,Conger conger,Conger conger,COE,EUROPEAN CONGER EEL,,161341,126285,180,6.00E-04,3.313,957,10,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Anguilla anguilla,Anguilla anguilla,ELE,EUROPEAN EEL,,161128,126281,100,6.00E-04,3.313,957,10,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Anguillidae,Anguillidae,EEL,EELS,European eel,161125,125425,NA,6.00E-04,3.313,957,10,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Arnoglossus imperialis,Arnoglossus imperialis,ISF,IMPERIAL SCALDFISH,,172806,127124,18,0.0028,3.34,18,9,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Monkfish,Lophius budegassa,Lophius budegassa,WAF,WHITE-ANGLERFISH,,164502,126554,32.9,0.0044,3.345,34,13.6,36.2,4.09,DEM,4.882713824,200,200,1,1,Piscivore,Bathydemersal,1,0,0,0
+Other gadoids (small),Trisopterus luscus,Trisopterus luscus,BIB,WHITING-POUT (BIB),,164755,126445,45,0.0038,3.3665,147,18,NA,3.83,DEM,3.817256765,45,45,0,0,Benthivore,Demersal,0,0,1,0
+Miscellaneous filter feeding pelagic fish,Osmerus eperlanus,Osmerus eperlanus,,Smelt,,162039,126736,45,0.0000023,3.37,mous2000,NA,NA,3.43,PEL,3.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Syngnathus,Syngnathus,,Other,,166444,126227,NA,1.00E-04,3.3877,Average over North Sea species in Syngnathus,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Other gadoids (large),Phycis blennoides,Phycis blennoides,GFB,GREATER FORKBEARD,Greater forkbeard,164751,126501,65,0.0022,3.3892,25,19,NA,4.45,DEM,4.571004765,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Turbot,Scophthalmus maximus,Scophthalmus maximus,TUR,TURBOT,Turbot,172748,154473,68,0.0046,3.3972,44,27.5,25,4,DEM,4.575944,100,100,1,1,Piscivore,Demersal,1,0,0,0
+Small demersal fish,Trachinus draco,Trachinus draco,WEG,Greater weever,,170992,127082,40,0.0018,3.4099,29,24.5,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Syngnathus rostellatus,Syngnathus rostellatus,NPF,NILSSON'S PIPEFISH,,166463,127389,20,1.00E-04,3.414,26,5.2,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Witch,Glyptocephalus cynoglossus,Glyptocephalus cynoglossus,WIT,WITCH,Witch flounder,172873,127136,60,0.0013,3.435,391,4.5,14.2,3.88,DEM,4.049931588,60,60,0,0,Benthivore,Demersal,0,0,1,0
+Other gadoids (large),Molva molva,Molva molva,LIN,COMMON LING,Ling,164760,126461,200,0.001,3.4362,19,20,NA,4.45,DEM,4.571004765,200,200,1,1,Piscivore,Demersal,1,0,0,0
+Sprat,Sprattus sprattus,Sprattus sprattus,SPR,Sprat,European sprat,161789,126425,16,0.002112,3.4746,NA,NA,5.2,4.09,PEL,2.976077294,NA,16,NA,0,Planktivore,Pelagic,0,0,0,1
+Large demersal fish,Chimaera monstrosa,Chimaera monstrosa,RBF,RABBIT FISH(RAT-TAIL),,161022,105824,93.3,3.00E-04,3.475,22,31.6,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Miscellaneous filter feeding pelagic fish,Engraulis encrasicolus,Engraulis encrasicolus,ANE,EUROPEAN ANCHOVY,,161832,126426,20,0.0018,3.4914,5,NA,NA,3.43,PEL,3.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Miscellaneous filter feeding pelagic fish,Sardina pilchardus,Sardina pilchardus,,Sardine,European pilchard(=Sardine),161813,126421,29,0.0018,3.4914,5,NA,NA,3.43,PEL,3.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Lesueurigobius,Lesueurigobius,,Other,,172034,125992,9,0.0026,3.515,Average over North Sea species in Lesuerigobius,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Lesueurigobius friesii,Lesueurigobius friesii,,Other,,172036,126904,11,0.0026,3.515,20,4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Syngnathus acus,Syngnathus acus,GPF,GREAT PIPEFISH,,166464,127387,47,1.00E-04,3.527,4,25,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Illex illecebrosus,Illex illecebrosus,,Cephalopods,,82521,153087,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Loligo subulata,Loligo subulata,,Cephalopods,,556692,341892,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Loligo vulgaris,Loligo vulgaris,LLV,SQUID,Common squids nei,82375,140271,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Octopus vulgaris,Octopus vulgaris,,Cephalopods,Octopuses nei,82603,140605,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Sepia officinalis,Sepia officinalis,CTC,COMMON CUTTLEFISH,Common cuttlefish,82363,141444,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Sepietta oweniana,Sepietta oweniana,STO,Cephalopods,,82359,141452,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large crabs,Homarus gammarus,Homarus gammarus,LBE,EUROPEAN LOBSTER,European lobster,97315,107253,NA,NA,NA,NA,NA,NA,3.69,DEM,3.82539,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Salmo,Salmo,,Large demersal fish,,161994,126141,NA,NA,NA,NA,NA,NA,4.2,NA,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Salmo trutta,Salmo trutta,TRS,SEA TROUT (BROWN TROUT),,161997,127187,NA,NA,NA,NA,NA,NA,4.2,NA,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Dicentrarchus labrax,Dicentrarchus labrax,,Bass,,170317,126975,100,NA,NA,NA,NA,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Nephrops,Nephrops norvegicus,Nephrops norvegicus,NEP,NORWAY LOBSTER,Nephrops,97317,107254,NA,NA,NA,NA,NA,5,3.51,NA,3.522799824,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small mobile epifauna,Pycnogonum litorale,Pycnogonum littorale,PGL,SEA SPIDER,,83665,239867,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Arctozenus risso,Notolepis rissoi,,Other,,162471,126352,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Atherina presbyter,Atherina presbyter,,Other,,166025,272030,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Boops boops,Boops boops,,Other,,169218,127047,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Cephalopoda,Cephalopoda,,Cephalopods,,82326,11707,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Chelon labrosus,Chelon labrosus,,Other,,170371,126977,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Gasterosteidae,Gasterosteidae,,Other,,166363,125476,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Labrus mixtus,Labrus mixtus,,Other,,170739,151501,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Lamna nasus,Lamna nasus,,Other,,159911,105841,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Lepadogaster,Lepadogaster,,Other,,164475,125781,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Percichthyidae,Percichthyidae,,Other,,170315,125549,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Serranus cabrilla,Serranus cabrilla,,Other,,167865,127041,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Zenopsis conchifer,Zenopsis ocellata,,Other,,166283,127426,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Gasterosteus aculeatus,Gasterosteus aculeatus,TSS,THREE-SPINED STICKLEBACK,,166365,126505,7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Symphodus melops,Symphodus melops,,Other,,614239,273571,14,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Cottidae,Cottidae,,Small demersal fish,,167196,125589,20,NA,NA,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Small demersal fish,Ctenolabrus rupestris,Ctenolabrus rupestris,GDY,GOLDSINNY,,170733,126964,20,NA,NA,NA,NA,NA,4.19,DEM,4.196237529,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Labrus bergylta,Labrus bergylta,,Other,,170737,126965,23,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Eledone cirrhosa,Eledone cirrhosa,,Cephalopods,,82646,140600,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Illex coindetii,Illex coindetii,,Cephalopods,,82523,140621,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Loligo forbesii,Loligo forbesii,,Cephalopods,,82374,416668,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Octopodidae,Octopodidae,OCT,OCTOPUSES,,82590,11782,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Rossia macrosoma,Rossia macrosoma,ROM,Cephalopods,,82343,141449,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cephalopods,Sepiidae,Sepiidae,SEY,Cephalopods,,82360,11723,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large crabs,Cancer pagurus,Cancer pagurus,CRE,EDIBLE CRAB,Edible crab,98681,107276,NA,NA,NA,NA,NA,NA,3.69,DEM,3.82539,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large crabs,Lithodes maja,Lithodes maja,LDM,STONE CRAB,,97943,107205,NA,NA,NA,NA,NA,NA,3.69,DEM,3.82539,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Dicentrarchus,Dicentrarchus,,Bass,,170316,126029,NA,NA,NA,NA,NA,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Large demersal fish,Salmo salar,Salmo salar,,Salmon,Atlantic Salmon,161996,127186,NA,NA,NA,NA,NA,NA,4.2,DEM,4.217904059,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Miscellaneous filter feeding pelagic fish,Myctophiformes,Myctophiformes,,Miscellaneous filter feeding pelagic fish,,162368,10309,NA,NA,NA,NA,NA,NA,3.43,PEL,3.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Spotted dogfish,Scyliorhinidae,Scyliorhinidae,,Small sharks,,159985,105693,80,NA,NA,NA,NA,NA,NA,NA,NA,80,80,0,0,Bentho-piscivore,Benthopelagic,0,1,0,0
+unclassified,Acipenser sturio,Acipenser sturio,STU,(EUROPEAN)STURGEON,,161072,126279,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Austrorossia,Austrorossia,,Other,,82337,341410,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Blennius ocellaris,Blennius ocellaris,,Other,,171126,126761,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Brama brama,Brama brama,,Ray's bream,,170290,126783,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Cepola macrophthalma,Cepola rubescens,,Other,,170282,126835,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Chelidonichthys obscurus,Chelidonichthys obscurus,,Other,,643891,127263,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Gadiculus,Gadiculus,,Other,,164771,125731,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Lampetra,Lampetra,,Other,,159700,101167,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,NA,Chelidonichthys gurnardus,,Other,,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Petromyzon,Petromyzon,,Other,,159721,101169,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Scomberesox saurus,Scomberesox saurus,,Atlantic saury,,165612,126392,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Scorpaena loppei,Scorpaena loppei,,Other,,166836,127244,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Spinachia spinachia,Spinachia spinachia,,Other,,166401,126508,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Todaropsis eblanae,Todaropsis eblanae,,Cephalopods,,205728,140625,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Trachyrincus murrayi,Trachyrincus murrayi,,Other,,165419,126481,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+unclassified,Zeiformes,Zeiformes,,Other,,166271,10919,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
