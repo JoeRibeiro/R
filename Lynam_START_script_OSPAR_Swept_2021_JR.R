@@ -595,7 +595,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations) ){
   
   #all indicators calc here and biomass by rectangle
   print("Calc Biomass and Indicators")
-  FILENAM<-paste(OUTPATH,survey,"_",format(Sys.time(), "%d%b%Y"),sep="")
+  time_of_run = format(Sys.time(), "%d%b%Y")
+  FILENAM<-paste(OUTPATH,survey,"_",time_of_run,sep="")
   if(!IEO_FW4){
   if(BYGROUP){
     IND_OUT_BYGROUP<-list()
@@ -735,30 +736,35 @@ if(SSA_WRITE_NEW){
 }
 
 
-
-# append all the outputs that relate to Chibuzor modelling work. Column for sampstrat and SurvStratum is inconsistent across files, so dropping these. 
-fileslisted=list.files(OUTPATHstem,'haul_by_spp',full.names=T,recursive = T); file1=read.csv(fileslisted[1]) 
-# Also get survey name from filename, crude approach
-file1$survey_name = strsplit(fileslisted[1],'/')[[1]][length(strsplit(fileslisted[1],'/')[[1]])-1]
-for(file in 2:length(fileslisted)){file2=read.csv(fileslisted[file]); 
-  file2$survey_name = strsplit(fileslisted[file],'/')[[1]][length(strsplit(fileslisted[file],'/')[[1]])-1]
-  # SurvStratum is required but not present for some surveys, these must be GNS surveys
-  if(!"SurvStratum" %in% colnames(file2)){file2$SurvStratum = file2$ICESStSq}
-  #file2_names = colnames(file2); file1_names = colnames(file1); common_names = intersect(file2_names, file1_names); file1 = rbind(file2[common_names], file1[common_names])
-  file1 = rbind(file2, file1)
-  }
-# Also make a cpua_id
-file1$cpua_id = row.names(file1)
-# rename SAB column
-file1$catcatchwgtswept = file1$DensBiom_kg_Sqkm
-
-# Add species ID from lookup table originating from database table bx005.public.species
-specieslookup=read.csv("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/public_species_table.csv")
-specieslookup$SpeciesSciName = specieslookup$latin_name
-specieslookup$latin_name <- NULL
-specieslookup = specieslookup[,c("SpeciesSciName","species_id")]
-file1=merge(file1,specieslookup,all.x=T)
-write.csv(file1,paste0(OUTPATHstem,"haul_by_spp_all.csv"))
+if(WRITE_LDs | IEO_FW4){
+  # append all the outputs that relate to Chibuzor modelling work. Column for sampstrat and SurvStratum is inconsistent across files, so dropping these. 
+  fileslisted=list.files(OUTPATHstem,'haul_by_spp',full.names=T,recursive = T);
+  # In case of reruns done on previous date
+  fileslisted = fileslisted[grepl(time_of_run, fileslisted)]
+  file1=read.csv(fileslisted[1]) 
+  # Also get survey name from filename, crude approach
+  file1$survey_name = strsplit(fileslisted[1],'/')[[1]][length(strsplit(fileslisted[1],'/')[[1]])-1]
+  for(file in 2:length(fileslisted)){file2=read.csv(fileslisted[file]); 
+    file2$survey_name = strsplit(fileslisted[file],'/')[[1]][length(strsplit(fileslisted[file],'/')[[1]])-1]
+    # SurvStratum is required but not present for some surveys, these must be GNS surveys
+    if(!"SurvStratum" %in% colnames(file2)){file2$SurvStratum = file2$ICESStSq}
+    #file2_names = colnames(file2); file1_names = colnames(file1); common_names = intersect(file2_names, file1_names); file1 = rbind(file2[common_names], file1[common_names])
+    file1 = rbind(file2, file1)
+    }
+  # Also make a cpua_id
+  file1$cpua_id = row.names(file1)
+  # rename SAB column
+  file1$catcatchwgtswept = file1$DensBiom_kg_Sqkm
+  
+  # Add species ID from lookup table originating from database table bx005.public.species
+  specieslookup=read.csv("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/public_species_table.csv")
+  specieslookup$SpeciesSciName = specieslookup$latin_name
+  specieslookup$latin_name <- NULL
+  specieslookup = specieslookup[,c("SpeciesSciName","species_id")]
+  file1=merge(file1,specieslookup,all.x=T)
+  write.csv(file1,paste0(OUTPATHstem,"hauls_by_spp_all.csv"))
+  write.csv(file1[,c("cpua_id","SurvStratum","year","catcatchwgtswept","fishlength_cm","dempel","order","group","survey_name","species_id")],paste0(OUTPATHstem,"hauls_by_spp_trimmed_cpua.csv"))
+}
 
 print("script complete")
 
