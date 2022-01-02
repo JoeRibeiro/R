@@ -737,7 +737,7 @@ if(SSA_WRITE_NEW){
 
 
 if(WRITE_LDs | IEO_FW4){
-  # append all the outputs that relate to Chibuzor modelling work. Column for sampstrat and SurvStratum is inconsistent across files, so dropping these. 
+  # append all the data that are required for (a) Chibuzor's modelling work an (b) an output to go into the BX5 app
   fileslisted=list.files(OUTPATHstem,'haul_by_spp',full.names=T,recursive = T);
   # In case of reruns done on previous date
   fileslisted = fileslisted[grepl(time_of_run, fileslisted)]
@@ -753,8 +753,6 @@ if(WRITE_LDs | IEO_FW4){
     }
   # Also make a cpua_id
   file1$cpua_id = row.names(file1)
-  # rename SAB column
-  file1$catcatchwgtswept = file1$DensBiom_kg_Sqkm
   
   # Add species ID from lookup table originating from database table bx005.public.species
   specieslookup=read.csv("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/public_species_table.csv")
@@ -762,8 +760,15 @@ if(WRITE_LDs | IEO_FW4){
   specieslookup$latin_name <- NULL
   specieslookup = specieslookup[,c("SpeciesSciName","species_id")]
   file1=merge(file1,specieslookup,all.x=T)
+  # rename SAB column
+  file1$catcatchwgtswept = file1$DensBiom_kg_Sqkm
+  # Write file for Chibuzor's modelling work with lats and longs
   write.csv(file1,paste0(OUTPATHstem,"hauls_by_spp_all.csv"))
-  write.csv(file1[,c("cpua_id","SurvStratum","year","catcatchwgtswept","fishlength_cm","dempel","order","group","survey_name","species_id")],paste0(OUTPATHstem,"hauls_by_spp_trimmed_cpua.csv"))
+  # column names to lower, this next file will be going into a postgresql database for the app:
+  colnames(file1) <-tolower(colnames(file1))
+  fileout = file1[,c("cpua_id","survstratum","year","catcatchwgtswept","fishlength_cm","dempel","order","group","survey_name","species_id")]
+  fileout=fileout[c(!is.na(fileout$species_id) & !is.na(fileout$catcatchwgtswept) & !is.na(fileout$year) & !is.na(fileout$survey_name)) ,]
+  write.csv(file1,paste0(OUTPATHstem,"hauls_by_spp_trimmed_cpua.csv"))
 }
 
 print("script complete")
