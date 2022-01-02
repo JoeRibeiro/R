@@ -768,7 +768,7 @@ if(WRITE_LDs | IEO_FW4){
   colnames(file1) <-tolower(colnames(file1))
   fileout = file1[,c("cpua_id","survstratum","year","catcatchwgtswept","fishlength_cm","dempel","order","group","survey_name","species_id")]
   fileout=fileout[c(!is.na(fileout$species_id) & !is.na(fileout$catcatchwgtswept) & !is.na(fileout$year) & !is.na(fileout$survey_name)) ,]
-  write.csv(file1,paste0(OUTPATHstem,"hauls_by_spp_trimmed_cpua.csv"))
+  write.csv(fileout,paste0(OUTPATHstem,"hauls_by_spp_trimmed_cpua.csv"))
 }
 
 print("script complete")
