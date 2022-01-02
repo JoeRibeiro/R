@@ -76,7 +76,7 @@ definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
  trait_MAXL<-LW[,which(names(LW) %in% c("ScientificName_WoRMS","SpeciesSciName","Loo","Max.L..cm.","MaxL","Lm","Order","Group"))]
  
 #where save output?
-OUTPATHstem<-paste(MAINDIR,"out_for_chibuzor/",sep="")
+OUTPATHstem<-paste(MAINDIR,"out/",sep="")
 
 
 ## choices for analyses upfront
