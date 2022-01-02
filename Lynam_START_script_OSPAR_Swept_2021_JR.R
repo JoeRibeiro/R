@@ -91,6 +91,7 @@ BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
   SAVE <- F # save workspace (after bootstrap)
 SSA_WRITE_NEW <- F
 FILTER_COUNTRY <- F
+WRITE_to_DB <- F
 
 # Catchability for general species groups
 CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
@@ -736,6 +737,7 @@ if(SSA_WRITE_NEW){
 }
 
 
+
 if(WRITE_LDs | IEO_FW4){
   # append all the data that are required for (a) Chibuzor's modelling work an (b) an output to go into the BX5 app
   fileslisted=list.files(OUTPATHstem,'haul_by_spp',full.names=T,recursive = T);
@@ -751,8 +753,6 @@ if(WRITE_LDs | IEO_FW4){
     #file2_names = colnames(file2); file1_names = colnames(file1); common_names = intersect(file2_names, file1_names); file1 = rbind(file2[common_names], file1[common_names])
     file1 = rbind(file2, file1)
     }
-  # Also make a cpua_id
-  file1$cpua_id = row.names(file1)
   
   # Add species ID from lookup table originating from database table bx005.public.species
   specieslookup=read.csv("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/public_species_table.csv")
@@ -760,17 +760,51 @@ if(WRITE_LDs | IEO_FW4){
   specieslookup$latin_name <- NULL
   specieslookup = specieslookup[,c("SpeciesSciName","species_id")]
   file1=merge(file1,specieslookup,all.x=T)
-  # rename SAB column
-  file1$catcatchwgtswept = file1$DensBiom_kg_Sqkm
   # Write file for Chibuzor's modelling work with lats and longs
   write.csv(file1,paste0(OUTPATHstem,"hauls_by_spp_all.csv"))
-  # column names to lower, this next file will be going into a postgresql database for the app:
-  colnames(file1) <-tolower(colnames(file1))
-  fileout = file1[,c("cpua_id","survstratum","year","catcatchwgtswept","fishlength_cm","dempel","order","group","survey_name","species_id")]
-  fileout=fileout[c(!is.na(fileout$species_id) & !is.na(fileout$catcatchwgtswept) & !is.na(fileout$year) & !is.na(fileout$survey_name)) ,]
-  write.csv(fileout,paste0(OUTPATHstem,"hauls_by_spp_trimmed_cpua.csv"))
+
+  
+  if(WRITE_to_DB){
+    # upload to postgres database
+    library(DBI)
+    
+    # rename SAB column
+    file1$catcatchwgtswept = file1$DensBiom_kg_Sqkm
+    # Also make a cpua_id
+    file1$cpua_id = row.names(file1)
+
+    # column names to lower, this next file will be going into a postgresql database for the app:
+    colnames(file1) <-tolower(colnames(file1))
+    fileout = file1[,c("cpua_id","survstratum","year","catcatchwgtswept","fishlength_cm","dempel","order","group","survey_name","species_id")]
+    fileout=fileout[c(!is.na(fileout$species_id) & !is.na(fileout$catcatchwgtswept) & !is.na(fileout$year) & !is.na(fileout$survey_name)) ,]
+    fileout$fishlength_cm=as.integer(fileout$fishlength_cm)
+    fileout$fishlength_cm=as.integer(fileout$fishlength_cm)
+    #write.csv(fileout,paste0(OUTPATHstem,"hauls_by_spp_trimmed_cpua.csv"))
+
+    connect_t0_db <- function(connection_info_text="W:/WPx_Application/appBX005IK/ZAPP beta/bxappserver.txt"){
+      connection_info <- read.csv(connection_info_text, header=T, stringsAsFactors=FALSE, sep="\t")
+      #establish connection to the database we want to make the table in
+      drv <- RPostgres::Postgres()
+      con <- RPostgres::dbConnect( #before there was DBI
+        drv,
+        dbname = connection_info$res[connection_info$var == "db"],
+        host = connection_info$res[connection_info$var == "host"],
+        port = connection_info$res[connection_info$var == "port"],
+        user = connection_info$res[connection_info$var == "user"],
+        password = connection_info$res[connection_info$var == "pword"]
+      )
+      return(c(con, drv,connection_info))
+    }
+    conF<-connect_t0_db()
+    con1 <-conF[[1]] 
+    drv <- conF[[2]]
+    con_info <- conF[[3]]
+
+    # Write to table so field types are consistent with other table called cpua
+    DBI::dbWriteTable(con1, Id(schema = "wp2", table = "cpua2022"), value = fileout, field.types = c(cpua_id="INTEGER PRIMARY KEY",survstratum="varchar",year="int",catcatchwgtswept="real",fishlength_cm="int",dempel="varchar",order="varchar",group="varchar",survey_name="varchar",species_id="int"), row.names=FALSE)
+# Setting of primary key isn't working. May not be important, we will see.
+#    DBIExt::dbAddPrimaryKey(con1, SQL('"wp2"."cpua2022"'), primary_key = "cpua_id")
+  }
 }
 
 print("script complete")
-
-
