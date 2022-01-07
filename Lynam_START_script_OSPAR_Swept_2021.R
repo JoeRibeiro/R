@@ -71,7 +71,7 @@ definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
  LW$b <- LW$LWRb
  LW$"Max.L..cm." <- LW$MaxL
  
- FC1Sp<-LW[LW$SensFC1=="FC1",2]
+ FC1Sp<-LW[LW$SensFC1=="FC1",2] #which species are used for sensitive species indicator
  SPPLIST <- LW$ScientificName_WoRMS
  trait_MAXL<-LW[,which(names(LW) %in% c("ScientificName_WoRMS","SpeciesSciName","Loo","Max.L..cm.","MaxL","Lm","Order","Group"))]
  
@@ -97,17 +97,17 @@ CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
 CATCHABILITY_COR_WALKER<- F # read estimates from nsea paper for q##problem somewhere looking for sweptbefore when this false
 
 #which indicators?
-  TyL_GeoM <- F # OSPAR FW3
+  TyL_GeoM <- T # OSPAR FW3
   TyL_SPECIES <- F #ALSO PROVIDE BY SPECIES MEAN LENGTH
-  MaxL <- F # OSPAR FC3
+  MaxL <- T # OSPAR FC3
   Loo <- F # alt for OSPAR FC3
   Lm <- F # 
   MEANTL <- F #similar to OSPAR FW4 # not will not be calc'd for WAsurveys as no data file for TL
   MeanL <- F #not OSPAR but simple
   LFI_NULL <- F # for no group/guild calc 25% biom thresh
-  LFI <- F
-  FINALPLOTS<- F#create indicator plots with smooths
-  IEO_FW4<-T #keep inverts
+  LFI <- T
+  FINALPLOTS<- T#create indicator plots with smooths
+  IEO_FW4<-F #keep inverts
   
   #Deciding on the species to be included in the analysis is the first step in calculating each survey LFI time series.
   #The FishBase website (www.fishbase.org) provided an 'ecotype' classification for all species encountered. 
@@ -215,7 +215,7 @@ survey_Q_C_S_combinations[,1:8]
 for(combrow in 1:nrow(survey_Q_C_S_combinations) ){
   #for(combrow in c(13,26,1,14,18,19,20,21) ){
   #for(combrow in c(26,21) ){
-  #### combrow<-9 #### combrow<-nrow(survey_Q_C_S_combinations) # combrow<-13
+  #### combrow<-9 #### combrow<-nrow(survey_Q_C_S_combinations) # combrow <- 1
   combs=survey_Q_C_S_combinations[combrow,]
   #combs
   QUARTER=combs$Quarter
@@ -426,6 +426,9 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations) ){
   if(length(samp$StNo[substr(samp$StNo,1,1)%in%"0"])>0) samp$StNo <- str_replace(samp$StNo, "^0+" ,"") 
 
   ################################################################################################################################################################################################
+  #write.csv(bio[bio$ScientificName_WoRMS=="Gadus morhua",],"bio_cod.csv")
+  #write.csv(bio[bio$SpeciesSciName=="Gadus morhua",],"C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/bio_cod_SSASMP_kNN.csv")
+  
   ##### Dec 2021 corrections made here AWAITING CORRECTIONS ON DATRAS #####
   #check LenMeasType is total length
   
