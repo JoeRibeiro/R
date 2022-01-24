@@ -636,6 +636,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   
   #all indicators calc here and biomass by rectangle
   print("Calc Biomass and Indicators")
+  time_of_run = format(Sys.time(), "%d%b%Y")
   FILENAM<-paste(OUTPATH,survey,"_",format(Sys.time(), "%d%b%Y"),sep="")
   if(!IEO_FW4){
     
@@ -737,6 +738,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   dhspp$Gear <- GEAR 
   dhspp$GearType <- STDGEAR 
   names(dhspp)[which(names(dhspp)=="MonthShot")] <- "Month"
+  names(dhspp)[which(names(dhspp)=="WingSwpArea_sqkm")] <- "SweptArea_KM2"
   dhspp <- dhspp[, which(names(dhspp) %in% c("HaulID","Survey_Acronym","ICESStSq",
                                              "Year","HaulDur_min","SweptArea_KM2","SurvStratum",
                                              "SciName","SensFC1","DEMPEL","FishLength_cm",
@@ -788,9 +790,8 @@ if(SSA_WRITE_NEW){
   writeOGR(dpi, "shp", "SSAspatial_quarters" , driver = "ESRI Shapefile", overwrite_layer = T) 
 }
 
-source("combine_all_hauls.r")
-source("database_upload.r")
+WRITE_to_DB = T
+source(paste(MAINDIR,"R/combine_all_hauls.r",sep=""))  
+source(paste(MAINDIR,"R/database_upload.r",sep=""))  
 
 print("script complete")
-
-

@@ -1,5 +1,4 @@
 
-
 if(WRITE_LDs | IEO_FW4){
   # append all the data that are required for (a) Chibuzor's modelling work an (b) an output to go into the BX5 app
   fileslisted=list.files(OUTPATHstem,'haul_by_spp',full.names=T,recursive = T);
@@ -17,26 +16,32 @@ if(WRITE_LDs | IEO_FW4){
     }
   
   # Add species ID from lookup table originating from database table bx005.public.species
-  specieslookup=read.csv("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/public_species_table.csv")
-  specieslookup$SpeciesSciName = specieslookup$latin_name
+  specieslookup=read.csv(paste0(MAINDIR,"public_species_table.csv"))
+  specieslookup$SciName = specieslookup$latin_name
   specieslookup$latin_name <- NULL
-  specieslookup = specieslookup[,c("SpeciesSciName","species_id")]
+  specieslookup = specieslookup[,c("SciName","species_id")]
   file1=merge(file1,specieslookup,all.x=T)
   
   # File is too big - aggregate and remove some columns. And rename some to be more consistent with the expected file
-  desiredcols=colnames(cod_final)
-  desiredcols[!desiredcols %in% colnames(file1)]
+  #desiredcols=c("HaulID","Survey_Acronym","Ship","GearType","Gear","YearShot","MonthShot","DayShot","TimeShot","HaulDur_min","ShootLat_degdec","ShootLong_degdec","ICESStSq","SurvStratum","Depth_m","Distance_km","WingSpread_m","DoorSpread_m","NetOpen_m","WingSwpArea_sqkm","WingSwpVol_CorF","DoorSwptArea_CorF","DoorSwptVol_CorF","SpeciesSciName","Aphia_Code","sum_Number","sum_DensAbund_N_Sqkm","sum_DensBiom_kg_Sqkm")
+  rescols=c("SpeciesSciName","HaulID","SensFC1","DEMPEL","HaulDur_min","ICESStSq","WingSwpArea_sqkm","WingSwpVol_CorF","NetOpen_m","Ship","MonthShot","TimeShot","ShootLong_degdec","ShootLat_degdec","habitat.guild","ScientificName_WoRMS","SurvStratum","species_id","Survey_Acronym","GearType","YearShot","DayShot","numhauls","sumDensBiom_kg_Sqkm","sumDensBiom_kg_perhr","sumDensAbund_N_Sqkm","sumDensAbund_N_perhr")
+  rescols[!rescols %in% colnames(file1)]
   file1$Survey_Acronym = file1$survey_name
-  file1$survey_name <- NULL
   file1$GearType = file1$Gear
-  file1$Gear <- NULL
   file1$YearShot = file1$Year
-  file1$Year <- NULL
   file1$DayShot = file1$Day
-  file1$Day <- NULL
-  file1=file1[,!colnames(file1) %in% c("KM2_LAM","checkLen","Order","Group","Loo","Lm","MaxL","Max.L..cm.")]
+  file1$MonthShot = file1$Month
+  file1$ScientificName_WoRMS = file1$SciName
+  file1$SpeciesSciName = file1$SciName
+  file1$WingSwpArea_sqkm = file1$SweptArea_KM2
+  # file1$WingSwpVol_CorF = NA# Because Chris removed this since last time.
+  # file1$habitat.guild = NA # Because Chris removed this since last time.
+  file1=file1[,!colnames(file1) %in% c("KM2_LAM","checkLen","Order","Group","Loo","Lm","MaxL","Max.L..cm.","SciName","survey_name","Gear","Year","Day","Month")]
+
+
+  # Aggregation
   file1$numhauls=1
-  file1=aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm + WingSwpVol_CorF + NetOpen_m + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + habitat.guild + ScientificName_WoRMS + SurvStratum + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = file1, FUN = sum, na.rm = TRUE)
+  file1=aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm + NetOpen_m + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + ScientificName_WoRMS + SurvStratum + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = file1, FUN = sum, na.rm = TRUE)
   file1$sumDensBiom_kg_Sqkm = file1$DensBiom_kg_Sqkm
   file1$sumDensBiom_kg_perhr = file1$DensBiom_kg_perhr
   file1$sumDensAbund_N_Sqkm = file1$DensAbund_N_Sqkm

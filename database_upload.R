@@ -16,7 +16,7 @@ if(WRITE_to_DB){
   }
   
   # Add species ID from lookup table originating from database table bx005.public.species
-  specieslookup=read.csv("C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/public_species_table.csv")
+  specieslookup=read.csv(paste0(MAINDIR,"public_species_table.csv"))
   specieslookup$SpeciesSciName = specieslookup$latin_name
   specieslookup$latin_name <- NULL
   specieslookup = specieslookup[,c("SpeciesSciName","species_id")]

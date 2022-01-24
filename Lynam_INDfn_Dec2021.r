@@ -36,7 +36,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   #HaulID and StNo are lost so now using HaulID#
 
   FACTHAUL <-  c("HaulID","Year","Ship","MonthShot","Day","TimeShot", "HaulDur_min","ShootLat_degdec","ShootLong_degdec","ICESStSq",
-                 "NetOpen_m", "WingSwpArea_sqkm","SurvStratum")
+                 "NetOpen_m", "WingSwpArea_sqkm")
   if(SAMP_STRAT) FACTHAUL <-  c(FACTHAUL,"sampstrat")
   if(BYSUBDIV)   FACTHAUL <-  c(FACTHAUL,"subdiv","STRAT_DIV")
   
@@ -46,6 +46,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   numhauls$Gear <- GEAR 
   numhauls$GearType <- STDGEAR 
   names(numhauls)[which(names(numhauls)=="MonthShot")] <- "Month"
+  names(numhauls)[which(names(numhauls)=="WingSwpArea_sqkm")] <- "SweptArea_KM2"
   #save as txt since we have ICES rect codes here and excel will corrupt otherwise
   if(WRITE & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhauls[,-which(names(numhauls)=="ones")],paste(FILENAM,"hauls.txt",sep="_"),row.names =F,sep=',')
   
