@@ -14,7 +14,7 @@ PLOTCOLN <- length(SPECIES)
 windows(width=PLOTCOLN*8, height=4*PLOTROWN)
 par(mfrow=c(PLOTROWN,PLOTCOLN),mar=c(2,4,2,2),oma=c(1,1,3,1))
 
-YRS<- YRS
+YRS<- sort(unique(IND_OUT$numhaulsyr$Year))
 if(BOOTSTRAP){ ADDBOOTTREND<-F; ADDBOOTTREND_CI<-F; ADDBOOT_ERRBAR<-T; } else { ADDBOOT_ERRBAR<-F; ADDBOOTTREND<-F; ADDBOOTTREND_CI<-F}
 ADDGAM<-F
 BEST_AND_BOOT<- T # add crosses to plot
@@ -49,11 +49,12 @@ if(LFI){
 
 if(TyL_GeoM){
   #### plot tyl geometric
-  YLAB <- "TyL geomean (cm)"
+  YLAB <- "TyL geomean (cm)" # plotgroups <- 1
   for(plotgroups in 1:length(SPECIES)){
     if(SPECIES[plotgroups]=="ALL"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_all"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$all; if(TITAdd){TITLE<-"All fish"} }
     if(SPECIES[plotgroups]=="PEL"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_pel"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$pel; if(TITAdd){TITLE<-"Pelagic fish"} }
     if(SPECIES[plotgroups]=="DEM"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_dem"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$dem; if(TITAdd){TITLE<-"Demersal fish"} }
+    if(length(names(DATA2PLOT)) >0) YRS<- as.numeric(names(DATA2PLOT))
     summary(lmTyL<-gam(DATA2PLOT ~ (YRS))); GAMMOD<-predict(lmTyL,se=T) 
     if(ADDGAM){ summary(gTyL<-gam(DATA2PLOT ~ s(YRS,k=6))); GAMMOD<-predict(gTyL,se=T) }
     YLIM<-c(floor(min(DATA2PLOT,na.rm=T)*.95), ceiling(max(DATA2PLOT,na.rm=T)*1.05) )
@@ -75,6 +76,7 @@ if(MaxL){
     if(SPECIES[plotgroups]=="ALL"){ DATA2PLOT <- IND_OUT[["MaxLsea_all"]][,"sea"]; YLIM<- c(35,50); BOOTDATA2PLOT <- MaxL_regional$all; if(TITAdd){TITLE<-"All fish"} }
     if(SPECIES[plotgroups]=="PEL"){ DATA2PLOT <- IND_OUT[["MaxLsea_pel"]][,"sea"]; YLIM<- c(35,50); BOOTDATA2PLOT <- MaxL_regional$pel; if(TITAdd){TITLE<-"Pelagic fish"}}
     if(SPECIES[plotgroups]=="DEM"){ DATA2PLOT <- IND_OUT[["MaxLsea_dem"]][,"sea"]; YLIM<- c(45,125); BOOTDATA2PLOT <- MaxL_regional$dem; if(TITAdd){TITLE<-"Demersal fish"} }
+    if(length(names(DATA2PLOT)) >0) YRS<- as.numeric(names(DATA2PLOT))
     summary(lmseaMML<-gam(DATA2PLOT ~ (YRS))); GAMMOD<-predict(lmseaMML,se=T) 
     if(ADDGAM){ summary(gseaMML<-gam(DATA2PLOT ~ s(YRS,k=6))); GAMMOD<-predict(gseaMML,se=T) }
     YLIM<-c(floor(min(DATA2PLOT,na.rm=T)*.95), ceiling(max(DATA2PLOT,na.rm=T)*1.05) )
@@ -94,6 +96,7 @@ if(Loo){
     if(SPECIES[plotgroups]=="ALL"){ DATA2PLOT <- IND_OUT[["Loosea_all"]][,"sea"]; YLIM<- c(35,50); BOOTDATA2PLOT <- Loo_regional$all; if(TITAdd){TITLE<-"All fish"} }
     if(SPECIES[plotgroups]=="PEL"){ DATA2PLOT <- IND_OUT[["Loosea_pel"]][,"sea"]; YLIM<- c(35,50); BOOTDATA2PLOT <- Loo_regional$pel; if(TITAdd){TITLE<-"Pelagic fish"}}
     if(SPECIES[plotgroups]=="DEM"){ DATA2PLOT <- IND_OUT[["Loosea_dem"]][,"sea"]; YLIM<- c(45,125); BOOTDATA2PLOT <- Loo_regional$dem; if(TITAdd){TITLE<-"Demersal fish"} }
+    if(length(names(DATA2PLOT)) >0) YRS<- as.numeric(names(DATA2PLOT))
     summary(lmseaMML<-gam(DATA2PLOT ~ (YRS))); GAMMOD<-predict(lmseaMML,se=T) 
     if(ADDGAM){ summary(gseaMML<-gam(DATA2PLOT ~ s(YRS,k=6))); GAMMOD<-predict(gseaMML,se=T) }
     YLIM<-c(floor(min(DATA2PLOT,na.rm=T)*.95), ceiling(max(DATA2PLOT,na.rm=T)*1.05) )
@@ -113,6 +116,7 @@ if(Lm){
     if(SPECIES[plotgroups]=="ALL"){ DATA2PLOT <- IND_OUT[["Lmsea_all"]][,"sea"]; YLIM<- c(35,50); BOOTDATA2PLOT <- Lm_regional$all; if(TITAdd){TITLE<-"All fish"} }
     if(SPECIES[plotgroups]=="PEL"){ DATA2PLOT <- IND_OUT[["Lmsea_pel"]][,"sea"]; YLIM<- c(35,50); BOOTDATA2PLOT <- Lm_regional$pel; if(TITAdd){TITLE<-"Pelagic fish"}}
     if(SPECIES[plotgroups]=="DEM"){ DATA2PLOT <- IND_OUT[["Lmsea_dem"]][,"sea"]; YLIM<- c(45,125); BOOTDATA2PLOT <- Lm_regional$dem; if(TITAdd){TITLE<-"Demersal fish"} }
+    if(length(names(DATA2PLOT)) >0) YRS<- as.numeric(names(DATA2PLOT))
     summary(lmseaMML<-gam(DATA2PLOT ~ (YRS))); GAMMOD<-predict(lmseaMML,se=T) 
     if(ADDGAM){ summary(gseaMML<-gam(DATA2PLOT ~ s(YRS,k=6))); GAMMOD<-predict(gseaMML,se=T) }
     YLIM<-c(floor(min(DATA2PLOT,na.rm=T)*.95), ceiling(max(DATA2PLOT,na.rm=T)*1.05) )
@@ -134,6 +138,7 @@ if(MEANTL){
     if(SPECIES[plotgroups]=="ALL"){ DATA2PLOT <- IND_OUT[["TLsea_all"]][,"sea"]; BOOTDATA2PLOT <- TL_regional$all; if(TITAdd){TITLE<-"All fish"}  }
     if(SPECIES[plotgroups]=="PEL"){ DATA2PLOT <- IND_OUT[["TLsea_pel"]][,"sea"]; BOOTDATA2PLOT <- TL_regional$pel; if(TITAdd){TITLE<-"Pelagic fish"}  }
     if(SPECIES[plotgroups]=="DEM"){ DATA2PLOT <- IND_OUT[["TLsea_dem"]][,"sea"]; BOOTDATA2PLOT <- TL_regional$dem; if(TITAdd){TITLE<-"Demersal fish"}  }
+    if(length(names(DATA2PLOT)) >0) YRS<- as.numeric(names(DATA2PLOT))
     summary(lmTL<-gam(DATA2PLOT ~ (YRS))); GAMMOD<-predict(lmTL,se=T) 
     if(ADDGAM){ summary(gTL<-gam(DATA2PLOT ~ s(YRS,k=6))); GAMMOD<-predict(gTL,se=T) }
     YLIM<-c((min(DATA2PLOT,na.rm=T)*.975), (max(DATA2PLOT,na.rm=T)*1.025) )
@@ -155,6 +160,7 @@ if(RATIOS & MaxL & TyL_GeoM & !Lm){
     if(SPECIES[plotgroups]=="ALL"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_all"]][,"sea"]/IND_OUT[["MaxLsea_all"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$all/MaxL_regional$all }
     if(SPECIES[plotgroups]=="PEL"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_pel"]][,"sea"]/IND_OUT[["MaxLsea_pel"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$pel/MaxL_regional$pel }
     if(SPECIES[plotgroups]=="DEM"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_dem"]][,"sea"]/IND_OUT[["MaxLsea_dem"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$dem/MaxL_regional$dem}
+    if(length(names(DATA2PLOT)) >0) YRS<- as.numeric(names(DATA2PLOT))
     summary(lmTyL<-gam(DATA2PLOT ~ (YRS))); GAMMOD<-predict(lmTyL,se=T) 
     if(ADDGAM){ summary(gTyL<-gam(DATA2PLOT ~ s(YRS,k=6))); GAMMOD<-predict(gTyL,se=T) }
     YLIM<-c((min(DATA2PLOT,na.rm=T)*.95), (max(DATA2PLOT,na.rm=T)*1.05) )
@@ -176,6 +182,7 @@ if(RATIOS & Lm & TyL_GeoM){
     if(SPECIES[plotgroups]=="ALL"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_all"]][,"sea"]/IND_OUT[["Lmsea_all"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$all/Lm_regional$all }
     if(SPECIES[plotgroups]=="PEL"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_pel"]][,"sea"]/IND_OUT[["Lmsea_pel"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$pel/Lm_regional$pel }
     if(SPECIES[plotgroups]=="DEM"){ DATA2PLOT <- IND_OUT[["TyL.cm.sea_dem"]][,"sea"]/IND_OUT[["Lmsea_dem"]][,"sea"]; BOOTDATA2PLOT <- TyLrect_regional$dem/Lm_regional$dem}
+    if(length(names(DATA2PLOT)) >0) YRS<- as.numeric(names(DATA2PLOT))
     summary(lmTyL<-gam(DATA2PLOT ~ (YRS))); GAMMOD<-predict(lmTyL,se=T) 
     if(ADDGAM){ summary(gTyL<-gam(DATA2PLOT ~ s(YRS,k=6))); GAMMOD<-predict(gTyL,se=T) }
     YLIM<-c((min(DATA2PLOT,na.rm=T)*.95), (max(DATA2PLOT,na.rm=T)*1.05) )

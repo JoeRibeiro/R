@@ -18,6 +18,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     #BOOTSTRAP<-F;  WRITE=T; LFI=T; MEANTL=F; MaxL=T; Loo=F; Lm=F; MeanL=F; TyL_GeoM=T; LFI_THRESHOLD<-50; QUAD<-F; QUAD_SMOOTH<-F
   # DATA<-dhspp; GROUP<-NULL;
   #AREASCALE <- T; #similar to CefMAT if F
+  #DATA<-FISHDATA
   LFIout    <- LFI_by_sub    <- FishLength_cmsea    <- MaxLsea    <- Loosea    <- Lmsea    <- TLsea    <- TyL.cm.sea    <- NULL
   LFIout$LFIregional <- NULL
   LFIoutpel <- LFI_by_subpel <- FishLength_cmseapel <- MaxLseapel <- Looseapel <- Lmseapel <- TLseapel <- TyL.cm.seapel <- LFIout$LFIregionalpel <- NULL
@@ -32,15 +33,26 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   numhauls <- DATA;
   
   numhauls$ones <- 0 # 1 val as a marker to pivot around
-  #HaulID and StNo are lost so now using HaulID
-  FACTHAUL <-  c("Year","HaulID","ShootLat_degdec","ShootLong_degdec")
+  #HaulID and StNo are lost so now using HaulID#
+
+  FACTHAUL <-  c("HaulID","Year","Ship","MonthShot","Day","TimeShot", "HaulDur_min","ShootLat_degdec","ShootLong_degdec","ICESStSq",
+                 "NetOpen_m", "WingSwpArea_sqkm","SurvStratum")
   if(SAMP_STRAT) FACTHAUL <-  c(FACTHAUL,"sampstrat")
   if(BYSUBDIV)   FACTHAUL <-  c(FACTHAUL,"subdiv","STRAT_DIV")
   
   numhauls <- tapply.ID(df=numhauls, datacols=c("ones"),factorcols=FACTHAUL,sum,c("ones"))
-  numhauls$ones <- 1  # now 1 val per haul      
-  if(WRITE & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhauls,paste(FILENAM,"hauls.csv",sep="_"),row.names =F,sep=',')
+  numhauls$ones <- 1  # now 1 val per haul    
+  numhauls$Survey_Acronym <- survey 
+  numhauls$Gear <- GEAR 
+  numhauls$GearType <- STDGEAR 
+  names(numhauls)[which(names(numhauls)=="MonthShot")] <- "Month"
+  #save as txt since we have ICES rect codes here and excel will corrupt otherwise
+  if(WRITE & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhauls[,-which(names(numhauls)=="ones")],paste(FILENAM,"hauls.txt",sep="_"),row.names =F,sep=',')
   
+  FACTHAUL <-  c("ones","HaulID","Year","ShootLat_degdec","ShootLong_degdec")
+  if(SAMP_STRAT) FACTHAUL <-  c(FACTHAUL,"sampstrat")
+  if(BYSUBDIV)   FACTHAUL <-  c(FACTHAUL,"subdiv","STRAT_DIV")
+  numhauls<- numhauls[,FACTHAUL]
   numhaulsyr<-aggregate(x=numhauls$HaulID,by=list(numhauls$Year), FUN=length)
   names(numhaulsyr)[1]<-"Year"
   names(numhaulsyr)[ncol(numhaulsyr)]<-"H"
@@ -129,7 +141,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     ATTRIB <- ATTRIB[,which(names(ATTRIB) %in% SAMP_FACT )]
     #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
     #subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV
-    if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")){
+    if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")){
       ATTRIB_SUBDIV <- aggregate(x=ATTRIB$KM2_LAM,by=list(SurvStratum=ATTRIB$SurvStratum), FUN=sum)
       names(ATTRIB_SUBDIV)[2] <- "KM2_LAM"
     }
@@ -385,7 +397,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     areasurveyed_by_sub <- tapply.ID(df=num_by_sub, datacols=c("KM2_LAM"), 
                                      factorcols=c("Year"), sum,c("KM2_LAM")) 
     #proportion of regional sea area sampled #ATTRIB_SUBDIV is same as totalarea for GNS 'SAMP_STRAT+BYSUBDIV'
-    if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")) {
+    if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")) {
       totalarea <- sum(ATTRIB_SUBDIV$KM2_LAM)
     } else { totalarea <- sum(ATTRIB$KM2_LAM) }
     areasurveyed_by_sub$scale <- totalarea/areasurveyed_by_sub$KM2_LAM
@@ -436,7 +448,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     if(BYSUBDIV & SAMP_STRAT){
       #use catches scaled by size of grid (rects not constant over sea area)
       # and scale to SUBDIV (beware GNSGerBT3 only sampled a small part of NE so should not do this)
-      if(!survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3")) print(paste(survey,"survey does not have two level stratification"))
+      if(!survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")) print(paste(survey,"survey does not have two level stratification"))
       #work out value to scale up subdiv by
       #lose species and length (otherwise inflate sum of areas)                           factorcols=c("sampstrat","Year","subdiv")
       area_by_subdiv <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), factorcols=c("sampstrat","Year"), sum,c("CatCatchWgtSweptsum"))  

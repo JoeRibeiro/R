@@ -130,6 +130,7 @@ CATCHABILITY_COR_WALKER<- F # read estimates from nsea paper for q##problem some
   BYGROUP<-F; if(BYGROUP){ BYGUILD<-F } # elasmos etc 
   BYICESGROUP<-F; if(BYICESGROUP){ BYGUILD<-F } # apex predators etc
   BYGUILD <- F; if(BYGUILD){ BYICESGROUP<-F; BYGROUP<-F }#not run BOOTSTRAP
+  USE_GUILD_COVARIATE_SITES<- F #'to match Murray et al'
   FILL_GUILD<-F #if false have a no-guild group
   
 # Spatial analyses
@@ -138,7 +139,7 @@ EHDS_PP <-F #ecohydrodynamic zones
 STRATA <- F  #for output
 QUAD_NS <- F #only north sea
 QUAD_SMOOTH_NS<- F # repeats per guild at present must change - SLOW!
-QUADS<-NULL #created by Lynam_OSPARsubdiv
+QUADS<-NULL #created by Lynam_OSPARsubdiv_Feb2019.r
 
 ##NOTE additional choices below for plotting
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -158,7 +159,7 @@ if(MEANTL) source("Lynam_INDfn_Dec2017_MeanTL.r")# TL output by rectangle and ye
  if(MeanL) source("Lynam_INDfn_Dec2017_MeanL.r") # Mean Length cm
  #if(MaxL | Loo | Lm) source("Lynam_INDfn_Jan2018_Mtrait.r")  # MaxL, Mean L.infinity, Mean L.maturity
 #also sourced below:
-## Lynam_OSPARsubdiv_Jan2022.r
+## Lynam_OSPARsubdiv_Nov2021.r
 ## Lynam_IND_script_process_exchange_HL2021.R
 ## and optionally:
 ## Lynam_IND_script_CATCHABILITY_MODEL.R
@@ -214,8 +215,8 @@ SSAdf=data.frame('rectangle'='','survey'='')
 setwd(MAINDIR)
 survey_Q_C_S_combinations<-read.csv("R/survey_Q_C_S_combinations.csv")# for QSR
 survey_Q_C_S_combinations[,1:8]
-for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
-#for(combrow in 27){  # combrow <- 1
+for(combrow in 3:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
+#for(combrow in 2){  # combrow <- 2
   combs=survey_Q_C_S_combinations[combrow,]
   #combs
   QUARTER=combs$Quarter
@@ -271,7 +272,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
   # need to split SEA DATA FOR BTS Q3 ENG'
   #otter surveys
-  if(survey %in% "BBICFraOT4") samp<-samp[samp$ShootLat<= 48,]
+  if(survey %in% "CSBBFraOT4") samp<-samp[samp$ShootLat<= 48,]
   if(survey %in% "CSFraOT4") samp<-samp[samp$ShootLat> 48,]
   if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
   #beam surveys
@@ -295,16 +296,11 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
       samp$WingSwpArea_sqkm[is.na(samp$WingSwpArea_sqkm)] <- samp$SweptAreaWSKM2[is.na(samp$WingSwpArea_sqkm)]*samp$Distance[is.na(samp$WingSwpArea_sqkm)]
     }
   }
-  if(substr(survey,7,8)=="Bi"){
-    samp$WingSpread <- an(substr(STDGEAR,nchar(STDGEAR),nchar(STDGEAR)))
-    samp$DoorSpread <-  an(substr(STDGEAR,nchar(STDGEAR),nchar(STDGEAR)))
-    samp$SweptAreaWSKM2 <-  samp$SweptAreaDSKM2 <-  samp$SweptAreaBWKM2 
-    
-    samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
-  }  
+
  
   
   #  SMFS 0816 Derivation report Step 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  if(substr(survey,7,8)!="Bi") samp = samp[samp$Gear %in% paste0(STDGEAR,GEARSUBSCRIPTS),]  
   samp<- samp[samp$Year >= FIRSTYEAR,] 
   samp<- samp[samp$Year <= LASTYEAR,] 
   samp<- samp[samp$HaulDur >= MINTDUR,] 
@@ -358,7 +354,6 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   suppressWarnings(proj4string(samp) <- CRS("+init=epsg:4326")) #Warning message: In proj4string(obj) : CRS object has comment, which is lost in output
   suppressWarnings(proj4string(rects) <- CRS("+init=epsg:4326"))#Warning message: In proj4string(obj) : CRS object has comment, which is lost in output
   #plot(rects)
-  #SSA_WRITE_NEW<-T
   if(SSA_WRITE_NEW){ # & !( substr(survey,nchar(survey)-4,nchar(survey))=="_hist" ) 
   SSAlist=list()
     for(re in 1:nrow(rects)){
@@ -559,16 +554,10 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
       bio[bio$ValidAphiaID==126754 & bio$LngtCode==1 & bio$LngtClass>50,]$LngtClass/10 #however in MSS script 170-172 cm should be 170/175/180 mm
   }
   
-  #Nir-gfs Q1
-  #subfactor for 1 record of Scyliorhinus stellaris is non zero - corrected in HL. AFBI confirmed 20/01/2022
-  
   #FRANCE
-  # error in a single record for Galeorhinus galeus in CGFS in 2018 (haul no 6)
-  # the length class should be 1193 rather than 11930 [where LngtCode .] - corrected in HL and confirmaed by ifremer 20/01/2022
-  
   #length code for TWO ALOSA SPECIES in the EVHOE DATA - in these years they are recorded as 'cm' rather than 'mm'.
   #126415 |   126413
-  if( (survey=="BBICFraOT4" | survey=="CSFraOT4") & (nrow(bio[bio$ValidAphiaID==126413 | bio$ValidAphiaID==126415 & bio$LngtCode==1 & bio$LngtClass>100,])>0) ){ 
+  if( (survey=="CSBBFraOT4" | survey=="CSFraOT4") & (nrow(bio[bio$ValidAphiaID==126413 | bio$ValidAphiaID==126415 & bio$LngtCode==1 & bio$LngtClass>100,])>0) ){ 
                              bio[bio$ValidAphiaID==126413 | bio$ValidAphiaID==126415 & bio$LngtCode==1 & bio$LngtClass>100,]$LngtClass <- 
                              bio[bio$ValidAphiaID==126413 | bio$ValidAphiaID==126415 & bio$LngtCode==1 & bio$LngtClass>100,]$LngtClass/10 #confirmed by ifremer 17/12/2021
   }
@@ -615,7 +604,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   # and read attributes of shapefiles create table ATTRIB with names SurvStratum & KM2_LAM 
   ##### strata ##### 
   print("now add strata")
-  source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Jan2022.r",sep=""))
+  source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Nov2021.r",sep=""))
   
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #### Calc ALL indicators ####  
@@ -637,66 +626,72 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   print("Calc Biomass and Indicators")
   FILENAM<-paste(OUTPATH,survey,"_",format(Sys.time(), "%d%b%Y"),sep="")
   if(!IEO_FW4){
-    
-    if(BYGROUP){
-      IND_OUT_BYGROUP<-list()
-      for(SPGROUP in levels(dhspp$Group)){ #SPGROUP<-"Elasmobranchii"
-        print(paste(survey,SPGROUP,sep=""))
-        if(SPGROUP=="Elasmobranchii"){ LFI_THRESHOLD_APPLY <- 60 } 
-        if(SPGROUP=="Pleuronectiformes"){ LFI_THRESHOLD_APPLY <- 20 } 
-        if(SPGROUP=="Scorpaeniformes"){ LFI_THRESHOLD_APPLY <- 20 } 
-        if(SPGROUP=="Other"){ LFI_THRESHOLD_APPLY <- 30 } 
-        if(SPGROUP=="Gadiformes"){ LFI_THRESHOLD_APPLY <- LFI_THRESHOLD} 
-        if(nrow(dhspp[dhspp$Group==SPGROUP,])>3){
-          try(
-          IND_OUT_BYGROUP[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=T, SPECIES=SPECIES, GROUP=SPGROUP,
-                        LFI_THRESHOLD=LFI_THRESHOLD_APPLY, 
-                        SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, FILENAM=FILENAM,
-                        LFI=LFI, MEANTL=F, MaxL=T, Loo=T, Lm=T, MeanL=F, TyL_GeoM=T,
-                        QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
-          ,silent=TRUE)
-        }
-      }
-    }#BYGROUP
-    
-    if(BYICESGROUP){
-      IND_OUT_BYICESGROUP<-list()
-      trait_MAXL <- merge(x=trait_MAXL, y=SciName2GroupEff[,c(1,9)], by.x="SpeciesSciName", by.y="sciName",all.x=T)#INDfn need to re-merge this
-      trait_MAXL$Group <- ac(trait_MAXL$habitat.guild )
-      for(SPGROUP in u(dhspp$habitat.guild)){
-        if(nrow(dhspp[dhspp$Group==SPGROUP,])>3){
-        print(paste(survey,SPGROUP,sep=""))  
-          try(
-            IND_OUT_BYICESGROUP[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=WRITE, SPECIES=SPECIES, GROUP=SPGROUP,
-                        LFI=LFI, LFI_THRESHOLD=NULL, FILENAM=FILENAM,
-                        SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, 
-                        MEANTL=F, MaxL=T, Loo=T, Lm=T, MeanL=F, TyL_GeoM=T,
-                        QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
-            ,silent=TRUE)
-        }
-      }
-    }#BYICESGROUP
-    
-    #trophic GUILD - this subsets dhspp so copy as _raw and the replace at end
-    if(BYGUILD){
-      
-      print("make GUILD GROUPING")
-      IND_OUT_BYGUILD<-list()
-      source(paste(PROC_SCRIPT,"Lynam_IND_script_MAKEGUILDIND.R",sep="")) 
-      print("indicator for Trophic Guilds")
-      for(SPGROUP in sort(u(dhspp$fguild)) ){
-        if(SPGROUP=="5") next
-        print(paste(survey," Guild ",SPGROUP,sep=""))  
+  if(BYGROUP){
+    IND_OUT_BYGROUP<-list()
+    for(SPGROUP in levels(dhspp$Group)){ #SPGROUP<-"Elasmobranchii"
+      print(paste(survey,SPGROUP,sep=""))
+      if(SPGROUP=="Elasmobranchii"){ LFI_THRESHOLD_APPLY <- 60 } 
+      if(SPGROUP=="Pleuronectiformes"){ LFI_THRESHOLD_APPLY <- 20 } 
+      if(SPGROUP=="Scorpaeniformes"){ LFI_THRESHOLD_APPLY <- 20 } 
+      if(SPGROUP=="Other"){ LFI_THRESHOLD_APPLY <- 30 } 
+      if(SPGROUP=="Gadiformes"){ LFI_THRESHOLD_APPLY <- LFI_THRESHOLD} 
+      if(nrow(dhspp[dhspp$Group==SPGROUP,])>3){
         try(
-          IND_OUT_BYGUILD[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=WRITE, SPECIES=SPECIES, GROUP=SPGROUP,
-                                               LFI=F, LFI_THRESHOLD=NULL, FILENAM=FILENAM,
-                                               SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, 
-                                               MEANTL=F, MaxL=T, Loo=F, Lm=F, MeanL=F, TyL_GeoM=T,BYGUILD=BYGUILD,
-                                               QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
+        IND_OUT_BYGROUP[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=T, SPECIES=SPECIES, GROUP=SPGROUP,
+                      LFI_THRESHOLD=LFI_THRESHOLD_APPLY, 
+                      SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, FILENAM=FILENAM,
+                      LFI=LFI, MEANTL=F, MaxL=T, Loo=T, Lm=T, MeanL=F, TyL_GeoM=T,
+                      QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
+        ,silent=TRUE)
+      }
+    }
+  }
+  
+  if(BYICESGROUP){
+    IND_OUT_BYICESGROUP<-list()
+    trait_MAXL <- merge(x=trait_MAXL, y=SciName2GroupEff[,c(1,9)], by.x="SpeciesSciName", by.y="sciName",all.x=T)#INDfn need to re-merge this
+    trait_MAXL$Group <- ac(trait_MAXL$habitat.guild )
+    for(SPGROUP in u(dhspp$habitat.guild)){
+      if(nrow(dhspp[dhspp$Group==SPGROUP,])>3){
+      print(paste(survey,SPGROUP,sep=""))  
+        try(
+          IND_OUT_BYICESGROUP[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=WRITE, SPECIES=SPECIES, GROUP=SPGROUP,
+                      LFI=LFI, LFI_THRESHOLD=NULL, FILENAM=FILENAM,
+                      SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, 
+                      MEANTL=F, MaxL=T, Loo=T, Lm=T, MeanL=F, TyL_GeoM=T,
+                      QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
           ,silent=TRUE)
       }
-      
-    }#BYGUILD
+    }
+  }
+  
+  #trophic GUILD - this subsets dhspp so copy as _raw and the replace at end
+  if(BYGUILD){#dhspp<-dhspp_raw
+    dhspp_raw <- dhspp
+    if(survey == "GNSIntOT1" & USE_GUILD_COVARIATE_SITES | survey == "GNSIntOT1_channel" & USE_GUILD_COVARIATE_SITES){
+      print("reading GUILD_COVARIATE_SITES")
+      load(file=paste(PROC_SCRIPT,'Processed_data_for_models_13.11.18.RData',sep="")) #fulldat
+      sites = unique(fulldat$sampstrat)
+      dhspp<-dhspp[dhspp$sampstrat %in% sites,]
+    }
+    print("make GUILD GROUPING")
+    IND_OUT_BYGUILD<-list()
+    source(paste(PROC_SCRIPT,"Lynam_IND_script_MAKEGUILDIND.R",sep="")) 
+    print("indicator for Trophic Guilds")
+    for(SPGROUP in sort(u(dhspp$fguild)) ){
+      if(SPGROUP=="5") next
+      print(paste(survey," Guild ",SPGROUP,sep=""))  
+      try(
+        IND_OUT_BYGUILD[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=WRITE, SPECIES=SPECIES, GROUP=SPGROUP,
+                                             LFI=F, LFI_THRESHOLD=NULL, FILENAM=FILENAM,
+                                             SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, 
+                                             MEANTL=F, MaxL=T, Loo=F, Lm=F, MeanL=F, TyL_GeoM=T,BYGUILD=BYGUILD,
+                                             QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
+        ,silent=TRUE)
+    }
+    dhspp <- dhspp_raw #return to non-processed dataset
+    rm(dhspp_raw)
+    }
   }
   ##### NO TAXA GROUPING ##### 
   #do this last to make sure have all species in final biomass plots
@@ -722,31 +717,16 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   #investigate an indicator with GAM    library(mgcv)
   #and plot some (with bootstrap?)
   #IND_OUT <- IND_OUT_BYGROUP[["Elasmobranchii"]]; BOOT_OUT <- BOOT_OUT_BYGROUP[["Elasmobranchii"]]
-  if(FINALPLOTS){ 
-    print("Final plots"); 
+  if(FINALPLOTS){ print("Final plots"); 
     SPECIES= combs$Species #EVEN IF HAVE IEO_SPECIES == T, ie FULL LIST, DO ONLY THOSE SELECTED FOR INDS HERE
     try( source(paste(MAINDIR,"R/Lynam_IND_script_FINALPLOTS_Dec2021.R",sep="")) ,silent=F); 
     dev.off()
   }
   if(SSA_WRITE_NEW) { SSAdf=rbind(SSAdf,SSAdfs) }
-  #dhspp<-dhspp[,-which(names(dhspp) %in% c("sciName","SubFactor","DataType","DurRaise","LogLngtClass","LogLngtBio","LFI_Fung_list","LFI_OSPAR_list","sampstrat","subdiv","STRAT_DIV")),]
-  #SciName		Number
-  dhspp$Survey_Acronym <- survey
-  names(dhspp)[which(names(dhspp)=="sciName")] <- "SciName"
-  dhspp$Gear <- GEAR 
-  dhspp$GearType <- STDGEAR 
-  names(dhspp)[which(names(dhspp)=="MonthShot")] <- "Month"
-  dhspp <- dhspp[, which(names(dhspp) %in% c("HaulID","Survey_Acronym","ICESStSq",
-                                             "Year","HaulDur_min","SweptArea_KM2","SurvStratum",
-                                             "SciName","SensFC1","DEMPEL","FishLength_cm",
-                                             "DensAbund_N_perhr","DensBiom_kg_perhr",
-                                             "DensBiom_kg_Sqkm","DensAbund_N_Sqkm",
-                                             "WingSwpArea_sqkm",
-                                             "NetOpen_m","Gear","Ship",
-                                             "Month","Day","TimeShot",
-                                             "ShootLong_degdec","ShootLat_degdec"
-  ) )]
-  if(WRITE_LDs | IEO_FW4) write.csv(dhspp,paste0(FILENAM,"_haul_by_spp.txt"),row.names = F)
+  dhspp<-dhspp[,-which(names(dhspp) %in% c("sciName","SubFactor","DataType","DurRaise",
+                                         "LogLngtClass","LogLngtBio","LFI_Fung_list","LFI_OSPAR_list",
+                                         "sampstrat","subdiv","STRAT_DIV")),]
+  if(WRITE_LDs | IEO_FW4) write.csv(dhspp,paste0(FILENAM,"_haul_by_spp_",survey,".csv"),row.names = F)
   
   print(paste("Finished",survey, "survey",sep=" "))
   rm(dhspp)

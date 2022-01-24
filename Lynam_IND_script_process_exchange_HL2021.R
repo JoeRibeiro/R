@@ -69,7 +69,7 @@ bio$SpeciesSciName<-af(ac(bio$SpeciesSciName))  #relevel 131 from >700
 ##NS-IBTS    North Sea International Bottom Trawl Survey - before 2004    9    + group          #before 2004 only
 # check the LngtCode/FishLength_cm
 
-#SWC-IBTS error for 126754 "Gymnammodytes semisquamatus" entered as cm when in fact mm
+#scottish error SWC-IBTS and NS-IBTS for 126754 "Gymnammodytes semisquamatus" entered as cm when in fact mm
 if(nrow(bio[bio$ValidAphiaID==126754 & bio$LngtCode==1 & bio$LngtClass>30,])>0) bio[bio$ValidAphiaID==126754 & bio$LngtCode==1 & bio$LngtClass>30,]$LngtCode <- 0
 
 if( !is.null(bio[bio$LngtCode=='.' | bio$LngtCode=='0','FishLength_cm']) ){ 
@@ -94,7 +94,7 @@ if(PLOTcheck){
 
 
 ### length cm to weight g 
-#############################################################################################################################
+#### LW #########################################################################################################################
 #separate and keep all records for IEO-MTL-FW4
 if(IEO_FW4){
   bio_oth <- bio[!(bio$SpeciesSciName %in% SPPLIST),]
@@ -112,7 +112,7 @@ if(IEO_FW4){
   #still need to correct DensAbund_N_Sqkm for haul duration or swept area - in main script
   bio_oth$DensAbund_N_Sqkm <- bio_oth$Number
 }
-#############################################################################################################################
+#### SPPLIST #########################################################################################################################
 #now select the fish/elasmo species only 
 bio <- bio[bio$SpeciesSciName %in% SPPLIST,]#remove rare spp keep 550 species
   #sort( unique(bio_oth$SpeciesSciName) )
@@ -144,7 +144,7 @@ if(PLOTcheck){
   }
   dev.off()
 }#ok
-#calc bio at len [kg] from LW
+#calc bio at len [in g so /1000 -> kg] from LW
 bio$DensBiom_kg_Sqkm <- bio$Number*(bio$a*(bio$FishLength_cm^bio$b))/1000
 names(bio)[which(names(bio) == "ScientificName_WoRMS")] <- "SpeciesSciName" 
 #still need to correct DensAbund_N_Sqkm for haul duration or swept area - in main script
@@ -156,14 +156,14 @@ bio$DensAbund_N_Sqkm <- bio$Number
 # quick check   unique(bio[bio$LngtCode==1,"SubFactor"])
 #par(mfrow=c(1,1))
 x11(); 
-if(substr(survey,7,8)!="BT" & substr(survey,6,7)!="BT" & substr(survey,8,9)!="BT"){ 
+if(substr(survey,7,8)!="BT" & substr(survey,6,7)!="BT" & substr(survey,8,9)!="BT" & substr(survey,7,8)!="Bi"){ 
   par(mfrow=c(4,4)) } else { par(mfrow=c(2,4)) }
 plot(samp$ShootLong_degdec, samp$ShootLat_degdec); map(add=T)#,xlim=c(4,14)
 abline(v=c(4,8));  abline(h=55.5)
 with(samp, hist(MonthShot))
 with(samp, hist(HaulDur_min))
 with(samp, hist(Depth_m))
-if(substr(survey,7,8)!="BT" & substr(survey,6,7)!="BT" & substr(survey,8,9)!="BT"){ 
+if(substr(survey,7,8)!="BT" & substr(survey,6,7)!="BT" & substr(survey,8,9)!="BT" & substr(survey,7,8)!="Bi"){ 
   with(samp, hist(WingSpread_m))
   with(samp, hist(DoorSpread_m))
   with(samp, hist(NetOpen_m))
@@ -192,9 +192,7 @@ dev.off()
 
 
 #now merge datasets on haul and species for indicator script
-if(IEO_FW4){
-  bio <- rbind(bio,bio_oth)
-}
+if(IEO_FW4) bio <- rbind(bio,bio_oth)
 
 bio <- bio[,c("HaulID","SpeciesSciName","FishLength_cm","DensBiom_kg_Sqkm","DensAbund_N_Sqkm","SubFactor","SensFC1","DEMPEL")]
 bio$sciName<-as.character(bio$SpeciesSciName)
@@ -233,9 +231,12 @@ if(IEO_FW4) rm(bio_oth)
 
 # Make spatial, filter by SSA, then drop spatial aspect
 predhspp <- dhspp #pre SSA
+#drop hauls not in SSA
+if(SSA_WRITE_NEW) dhspp = dhspp[dhspp$ICESStSq %in% SSAdfs$rectangle,] #cadiz should be 02E2 03E3 etc  as in SSAdfs$rectangle
 coordinates(dhspp) <- ~ ShootLong_degdec + ShootLat_degdec
 suppressWarnings(proj4string(dhspp) <- CRS("+init=epsg:4326"))
-dhspp = dhspp[surveySSA,] #drop hauls not in SSA
+if(!SSA_WRITE_NEW) dhspp = dhspp[surveySSA,] #drop hauls not in SSA
+
 dhspp@data$ShootLong_degdec = dhspp$ShootLong_degdec
 dhspp@data$ShootLat_degdec = dhspp$ShootLat_degdec
 dhspp=dhspp@data
@@ -248,6 +249,8 @@ rm(predhspp)
 # subfactor to raise measured num at length to total num fish in haul 
 # datatype C is per hour #dhspp$DataType == C DATA ARE CPUE, SO
 # if R or S: HLNoAtLngt*SubFactor   
+# also done in Meadhbh script no.7
+# note the Total number (not used here) is already Raised no need to multiply by the Subfactor 
 dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$DensAbund_N_Sqkm <-
   dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$DensAbund_N_Sqkm *
   dhspp[dhspp$DataType!="C" & dhspp$SubFactor!=1 & !is.na(dhspp$DensAbund_N_Sqkm),]$SubFactor
@@ -264,7 +267,7 @@ dhspp$DensBiom_kg_perhr <- dhspp$DensBiom_kg_Sqkm/dhspp$DurRaise  #CPUE per 60 m
 
 #### use swept area from ICES to give per sq km #### 
 dhspp$DurRaise <- 1
-if(nrow(dhspp[dhspp$DataType=="C" ,])>0) dhspp[dhspp$DataType=="C" ,]$DurRaise <- dhspp[dhspp$DataType=="C" ,]$HaulDur_min/60 # do not want per hour
+if(nrow(dhspp[dhspp$DataType=="C" ,])>0) dhspp[dhspp$DataType=="C" ,]$DurRaise <- dhspp[dhspp$DataType=="C" ,]$HaulDur_min/60 # do not want per hour #also done in Meadhbh scripts no.7
 dhspp$DensAbund_N_Sqkm<-( dhspp$DensAbund_N_Sqkm*dhspp$DurRaise) / dhspp$WingSwpArea_sqkm
 dhspp$DensBiom_kg_Sqkm<-( dhspp$DensBiom_kg_Sqkm*dhspp$DurRaise) / dhspp$WingSwpArea_sqkm
 #dhspp$DurRaise for C data
@@ -349,14 +352,14 @@ if(survey=="GNSFraOT4" & nrow(dhspp[dhspp$SpeciesSciName == "Dasyatis tortonesei
 
 
 
-#check lens rel to max for those with V sampling data (excluding A and I)
+#check lens rel to max for those with Valid sampling data (excluding A and I)
 dhspp$checkLen<- dhspp$FishLength_cm/dhspp$Max.L..cm.
 summary(dhspp$checkLen)
 #hist((dhspp$checkLen))
 NAM<-unique(dhspp$sciName[dhspp$checkLen>1]) # The lesser weever (Echiichthys vipera) corrected
 NAM<-ac(NAM[!is.na(NAM)])
 if(PLOTcheck){
-  pdf(file=paste(OUTPATH,survey,"_maxlen_Vsamp.pdf",sep=""))
+  pdf(file=paste(OUTPATH,survey,"_maxlen_Validsamp.pdf",sep=""))
   par(mfrow=c(3,3));
   for(i in NAM){
     #if(which(NAM==i) == c(1,10,19,28) ){ x11(); par(mfrow=c(3,3));}
