@@ -46,7 +46,8 @@ neg<-function(x) -x
 #RDIR<- dirname(parent.frame(2)$ofile) #Where you have saved the folder called R. Note this will only work if the file is SOURCED, not if it is run in the console. Alternatively, please define your WD
 #MAINDIR<- paste0(strsplit(RDIR,"/R")[[1]],"/")
 #RDIR = paste0(RDIR,"//")
-MAINDIR<- "C:/Users/cl06/OneDrive - CEFAS/Fish_dataproduct_QSR/SweptArea_29Oct2021/"
+
+MAINDIR<- "C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR_JR/"
 RDIR<- paste0(MAINDIR,"R/")
 #definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp_dir_for_original/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
 definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
