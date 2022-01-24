@@ -788,6 +788,9 @@ if(SSA_WRITE_NEW){
   writeOGR(dpi, "shp", "SSAspatial_quarters" , driver = "ESRI Shapefile", overwrite_layer = T) 
 }
 
+source("combine_all_hauls.r")
+source("database_upload.r")
+
 print("script complete")
 
 
