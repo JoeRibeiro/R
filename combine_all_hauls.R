@@ -41,7 +41,15 @@ if(WRITE_LDs | IEO_FW4){
 
   # Aggregation
   file1$numhauls=1
-  file1=aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm + NetOpen_m + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + ScientificName_WoRMS + SurvStratum + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = file1, FUN = sum, na.rm = TRUE)
+  # Check we aren't losing data here  
+  for( sv in unique(file1$Survey_Acronym)){ filei = file1[file1$Survey_Acronym==sv,]
+    print(sv)
+    aggd =  aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm  + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + ScientificName_WoRMS + SurvStratum + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = filei, FUN = sum, na.rm = TRUE)
+    print("Any hauls being lost for this survey will be listed below:")
+    print(unique(filei$HaulID)[!unique(filei$HaulID) %in% unique(aggd$HaulID)])
+    }
+  
+  file1=aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + ScientificName_WoRMS + SurvStratum + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = file1, FUN = sum, na.rm = TRUE)
   file1$sumDensBiom_kg_Sqkm = file1$DensBiom_kg_Sqkm
   file1$sumDensBiom_kg_perhr = file1$DensBiom_kg_perhr
   file1$sumDensAbund_N_Sqkm = file1$DensAbund_N_Sqkm
