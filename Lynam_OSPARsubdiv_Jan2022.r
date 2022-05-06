@@ -15,6 +15,20 @@
 surveyread<-survey #for ATTRIBUTES
 if( substr(survey,nchar(survey)-4,nchar(survey))=="_hist" ){ surveyread <- substr(survey,1, nchar(survey)-5) } else { surveyread <- survey}
 
+
+# Joe changes to get from one shapefile
+SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined.shp",sep='')); 
+SUBDIV = SUBDIV[SUBDIV$Survey_Acr==survey,]
+
+NAMsampstrat="SurvStratum"
+NAMsubdiv="SurvStratum"
+SUBDIV$SurvStratum = SUBDIV$SurvStrat
+SUBDIV$SurvStrat <- NULL
+
+# get areas in km2 when in lambert azimuthal equal area projection
+SUBDIV$KM2_LAM=raster::area(spTransform(SUBDIV, CRS("+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"))) / 1000000
+
+ 
 if( !exists("EHDS_PP") ){ EHDS_PP<-F } else { if(EHDS_PP) SAMP_STRAT<-F } # not for standard indicators #mar2017 test for cf to PP 
 dhspp <- dhspp[dhspp$ShootLat_degdec<= 62,]
 if(substr(survey,1,2) == "GN"){
@@ -31,103 +45,103 @@ if(substr(survey,1,2) == "GN"){
 #shapefiles for assessment subdivisions
 require(maptools)
 
-if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","IBTS")){
-  SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') )
-  if(EHDS_PP) SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_EHDPP/ehu_polygons.shp",sep='') ) 
-  if(BYSUBDIV) NAMsubdiv <- "NAME"     #new areas as used for FC/FW3
-  #if(BYSUBDIV) NAMsubdiv <- "LFIregion" #old spatial areas - 25 year plan
-  NAMsampstrat<-"ICESNAME"
-} 
+# if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","IBTS")){
+#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') )
+#   if(EHDS_PP) SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_EHDPP/ehu_polygons.shp",sep='') ) 
+#   if(BYSUBDIV) NAMsubdiv <- "NAME"     #new areas as used for FC/FW3
+#   #if(BYSUBDIV) NAMsubdiv <- "LFIregion" #old spatial areas - 25 year plan
+#   NAMsampstrat<-"ICESNAME"
+# } 
 
-if(survey %in% c("GNSGerBT3")){
-  SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSGerBT3/GNSstrat_Atlantis.shp",sep='') ) 
-  if(BYSUBDIV) NAMsubdiv <- "NAME"
-  NAMsampstrat<-"ICESNAME"
-} 
+# if(survey %in% c("GNSGerBT3")){
+#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSGerBT3/GNSstrat_Atlantis.shp",sep='') ) 
+#   if(BYSUBDIV) NAMsubdiv <- "NAME"
+#   NAMsampstrat<-"ICESNAME"
+# } 
 
-if(survey %in% c("GNSNetBT3", "GNSBelBT3", "GNSNetBi3", "GNSIntBi3")){
-  SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSNetBT3/GNSstrat_Atlantis.shp",sep='') ) 
-  if(BYSUBDIV) NAMsubdiv <- "NAME"
-  NAMsampstrat<-"ICESNAME"
-  if(survey %in% c("GNSBelBT3","GNSNetBi3", "GNSIntBi3")){ surveyread<-"GNSIntOT1" } 
-}
+# if(survey %in% c("GNSNetBT3", "GNSBelBT3", "GNSNetBi3", "GNSIntBi3")){
+#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSNetBT3/GNSstrat_Atlantis.shp",sep='') ) 
+#   if(BYSUBDIV) NAMsubdiv <- "NAME"
+#   NAMsampstrat<-"ICESNAME"
+  if(survey %in% c("GNSBelBT3","GNSNetBi3", "GNSIntBi3")){ surveyread<-"GNSIntOT1" }
+# }
 
-if(survey %in% c("GNSEngBT3","GNSIntOT1_channel") ){ 
-  SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"EChanEngBeamSimple/EChanBT3Simple.shp",sep=''))
-  NAMsubdiv <- "name"
-  if(survey=="GNSIntOT1_channel"){ surveyread<-"GNSEngBT3" } 
-}
-if(survey%in% c("CSEngBT4","CSEngBT1")) { 
-  SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"WChanEngBeam/WChanBT4.shp",sep='')) #no rect "CSEngBT4" carhelmar discontinued
-  #SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Q1SWBEAM/2016onwards/CSEngBT1_rect.shp",sep=''))#does not work with over  #strata split by rect
-  #NAMsampstrat <- "ICESNAME"
-  #Q1SWECOS_Strata3WGS84.shp   #svens#names(SUBDIV)[which(names(SUBDIV)=="Stratum_Ar")]<-"KM2_LAM"#1e6
-  #CelticSea_StrataSurveyGrid_20151015_final_Albers.shp #minigrid
-  NAMsubdiv <- "Stratum"
+# if(survey %in% c("GNSEngBT3","GNSIntOT1_channel") ){ 
+#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"EChanEngBeamSimple/EChanBT3Simple.shp",sep=''))
+#   NAMsubdiv <- "name"
+  if(survey=="GNSIntOT1_channel"){ surveyread<-"GNSEngBT3" }
+# }
+# if(survey%in% c("CSEngBT4","CSEngBT1")) { 
+#   SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"WChanEngBeam/WChanBT4.shp",sep='')) #no rect "CSEngBT4" carhelmar discontinued
+#   #SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Q1SWBEAM/2016onwards/CSEngBT1_rect.shp",sep=''))#does not work with over  #strata split by rect
+#   #NAMsampstrat <- "ICESNAME"
+#   #Q1SWECOS_Strata3WGS84.shp   #svens#names(SUBDIV)[which(names(SUBDIV)=="Stratum_Ar")]<-"KM2_LAM"#1e6
+#   #CelticSea_StrataSurveyGrid_20151015_final_Albers.shp #minigrid
+#   NAMsubdiv <- "Stratum"
   if(survey %in% c("CSEngBT1")){ surveyread<-"CSEngBT1_attrib_subdivkm2" }
-}
-if(survey=="CSEngBT3_Bchannel"){ 
-  SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"BChanEngBeam/BChanBT3.shp",sep=''))
-  NAMsubdiv <- "Stratum"
-}
-if(survey %in% c("CSNIrOT4","CSNIrOT1","CSEngBT3")){ #SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"irish_seaGFS//NI_IBTS.WGS84.shp",sep=''))#not using as not sampled deepwater
-  SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"irish_seaBT//NI_IBTS.WGS84.shp",sep=''))
-  NAMsubdiv <- "Features"
-  if(survey %in% c("CSNIrOT4","CSNIrOT1") ){ surveyread<-"CSEngBT3" } 
-}
-if(survey %in% c("CSScoOT1","CSScoOT1_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWCQ1.WGS84//SWC_Q1.shp",sep=''))
-  NAMsubdiv <- "Name"
-}
-if(survey %in% c("CSScoOT4","CSScoOT4_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWCQ4.WGS84//SWC_Q4.shp",sep=''))
-NAMsubdiv <- "Name"
-}
-if(survey %in% c("WAScoOT3","WAScoOT3_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWC-RockQ3.WGS84//SWC_Q3.shp",sep=''))
-NAMsubdiv <- "Name"
-}
-if(survey %in% c("BBICnSpaOT1","BBICnSpaOT4") ){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Sp-NGFS.WGS84//Sp_North.WGS84.shp",sep=''))
-NAMsubdiv <- "Primary"
-}
-if(survey=="BBICsSpaOT1"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-Cadiz.WGS84/Sp_Cadiz.WGS84.shp",sep=''))
-NAMsubdiv <- "ESTRATO"
-}
-if(survey=="BBICsSpaOT4"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-Cadiz.WGS84/Sp_Cadiz.WGS84.shp",sep=''))
-NAMsubdiv <- "ESTRATO"
-}
-if(survey=="WASpaOT3"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-PorcGFS.WGS84/Porcupine.WGS84.shp",sep=''))
-NAMsubdiv <- "Primary"
-}
-if(survey=="CSIreOT4"){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"IGFS.WGS84//IGFS.WGS84.shp",sep=''))
-NAMsubdiv <- "Primary"
-}
-if(survey == "BBICFraOT4"){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Fr-EVHOE.WGS84//EVHOE.WGS84.shp",sep=''))
-NAMsubdiv <- "STRATE"
-}
-if(survey %in% c("CSFraOT4","BBICFraBT4","BBICFraOT4")){ 
-  SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Fr-EVHOE.WGS84_original//EVHOE.WGS84.shp",sep=''))
-  NAMsubdiv <- "STRATE"
-  if(survey %in% c("BBICFraBT4","BBICFraOT4")){ surveyread<-"CSFraOT4" } 
-}
-if(survey=="BBICPorOT4"){
-  SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"BBICPorOT4/Contour3strata_sector.shp",sep='')); 
-NAMsubdiv <- "ID_1" 
-}
-if(survey=="GNSFraOT4"){
-  SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNSFraOT4/GNSFraOT4_EngBT3Simple.shp",sep='') ) # EChannel
-  if(BYSUBDIV) NAMsubdiv <- "name" # combined with depth layers 
-  NAMsampstrat<-"FID_GNSFra" # mini grid 0.25deg # sampstrat
-}   
+# }
+# if(survey=="CSEngBT3_Bchannel"){ 
+#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"BChanEngBeam/BChanBT3.shp",sep=''))
+#   NAMsubdiv <- "Stratum"
+# }
+# if(survey %in% c("CSNIrOT4","CSNIrOT1","CSEngBT3")){ #SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"irish_seaGFS//NI_IBTS.WGS84.shp",sep=''))#not using as not sampled deepwater
+#   SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"irish_seaBT//NI_IBTS.WGS84.shp",sep=''))
+#   NAMsubdiv <- "Features"
+  if(survey %in% c("CSNIrOT4","CSNIrOT1") ){ surveyread<-"CSEngBT3" }
+# }
+# if(survey %in% c("CSScoOT1","CSScoOT1_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWCQ1.WGS84//SWC_Q1.shp",sep=''))
+#   NAMsubdiv <- "Name"
+# }
+# if(survey %in% c("CSScoOT4","CSScoOT4_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWCQ4.WGS84//SWC_Q4.shp",sep=''))
+# NAMsubdiv <- "Name"
+# }
+# if(survey %in% c("WAScoOT3","WAScoOT3_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWC-RockQ3.WGS84//SWC_Q3.shp",sep=''))
+# NAMsubdiv <- "Name"
+# }
+# if(survey %in% c("BBICnSpaOT1","BBICnSpaOT4") ){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Sp-NGFS.WGS84//Sp_North.WGS84.shp",sep=''))
+# NAMsubdiv <- "Primary"
+# }
+# if(survey=="BBICsSpaOT1"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-Cadiz.WGS84/Sp_Cadiz.WGS84.shp",sep=''))
+# NAMsubdiv <- "ESTRATO"
+# }
+# if(survey=="BBICsSpaOT4"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-Cadiz.WGS84/Sp_Cadiz.WGS84.shp",sep=''))
+# NAMsubdiv <- "ESTRATO"
+# }
+# if(survey=="WASpaOT3"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-PorcGFS.WGS84/Porcupine.WGS84.shp",sep=''))
+# NAMsubdiv <- "Primary"
+# }
+# if(survey=="CSIreOT4"){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"IGFS.WGS84//IGFS.WGS84.shp",sep=''))
+# NAMsubdiv <- "Primary"
+# }
+# if(survey == "BBICFraOT4"){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Fr-EVHOE.WGS84//EVHOE.WGS84.shp",sep=''))
+# NAMsubdiv <- "STRATE"
+# }
+# if(survey %in% c("CSFraOT4","BBICFraBT4","BBICFraOT4")){ 
+#   SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Fr-EVHOE.WGS84_original//EVHOE.WGS84.shp",sep=''))
+#   NAMsubdiv <- "STRATE"
+  if(survey %in% c("BBICFraBT4","BBICFraOT4")){ surveyread<-"CSFraOT4" }
+# }
+# if(survey=="BBICPorOT4"){
+#   SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"BBICPorOT4/Contour3strata_sector.shp",sep='')); 
+# NAMsubdiv <- "ID_1" 
+# }
+# if(survey=="GNSFraOT4"){
+#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNSFraOT4/GNSFraOT4_EngBT3Simple.shp",sep='') ) # EChannel
+#   if(BYSUBDIV) NAMsubdiv <- "name" # combined with depth layers 
+#   NAMsampstrat<-"FID_GNSFra" # mini grid 0.25deg # sampstrat
+# }   
 
 #read in area for strata
 #if(OVERWITE_SUBDIV){ BYSUBDIV<-F; if(!SAMP_STRAT){ NAMsampstrat<-NAMsubdiv; SAMP_STRAT<-T }}###01Feb2017
-ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/",surveyread,".csv",sep=''))
-SAMP_FACT <- "KM2_LAM"
-if(SAMP_STRAT){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsampstrat)] <- "sampstrat"; SAMP_FACT <- c(SAMP_FACT, "sampstrat") }
-if(BYSUBDIV){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c(SAMP_FACT, "SurvStratum")} 
-if(EHDS_PP){  ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep='') ) 
-              names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c("KM2_LAM", "SurvStratum") } 
+# ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/",surveyread,".csv",sep=''))
+# SAMP_FACT <- "KM2_LAM"
+# if(SAMP_STRAT){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsampstrat)] <- "sampstrat"; SAMP_FACT <- c(SAMP_FACT, "sampstrat") }
+# if(BYSUBDIV){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c(SAMP_FACT, "SurvStratum")} 
+# if(EHDS_PP){  ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep='') ) 
+#               names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c("KM2_LAM", "SurvStratum") } 
 #if(OVERWITE_SUBDIV) dhspp$SurvStratum<-dhspp$sampstrat###01Feb2017
-  
-ATTRIB <- ATTRIB[,which(names(ATTRIB) %in% SAMP_FACT )]
+SAMP_FACT <- c("KM2_LAM", "SurvStratum")
+ATTRIB <- SUBDIV@data[,SAMP_FACT]
 #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
 #subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV
 if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GNSEngBT3","GNSIntOT1_channel", "GNSNetBi3", "GNSIntBi3")){
