@@ -92,7 +92,7 @@ BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
   B<-0 # restart counter as only output LD once before boostrap starts i.e. when B=0 
   WRITE_BOOT <- F # every bootstrap dataset and indicator output
   SAVE <- F # save workspace (after bootstrap)
-SSA_WRITE_NEW <- F #create standard sampling area from rects
+SSA_WRITE_NEW <- T #create standard sampling area from rects
 SSA_WRITE_ONLY <- F #skip analysis and output SSA shp only
 FILTER_COUNTRY <- F
 
