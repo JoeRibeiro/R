@@ -1,4 +1,6 @@
 Surveynam1,Surveynam2,Quarter,Country,Sea,LFI_threshold,Gear,Species,hhfilename,hlfilename,strata,SAMP_STRAT,BYSUBDIV,First_year,Last_year,Std_gear,Std_gear_subscripts,MinTrawlDuration,MaxTrawlDuration,insertion date,data update HL
+GNSNetBi3,SNS,3,NL,GNS,30,Beam_inshore,DEM,HH-SNS.csv,HL-SNS.csv,GNSstrat_Atlantis.shp,FALSE,TRUE,2002,2020,BT6,,12,16,18/10/2021,no
+GNSIntBi3,DYFS,3,Int,GNS,30,Beam_inshore,DEM,HH-DYFS.csv,HL-DYFS.csv,GNSstrat_Atlantis.shp,TRUE,TRUE,2002,2020,BT3,,12,16,18/10/2021,no
 BBICFraOT4,EVHOE,4,FR,CS,40,GOV,DEM,HH-EVHOE.csv,HL-EVHOE.csv,EVHOE.WGS84.shp,FALSE,TRUE,1997,2020,GOV,,13,66,19/02/2021,no
 BBICnSpaOT4,SP-NORTH,4,ES,BBIC,25,GOV,DEM,HH-SP-NORTH.csv,HL_SP_NORTH.csv,Sp_North.WGS84.shp,FALSE,TRUE,2011,2020,BAK,,13,66,13/01/2021,updated 18 jan 2022 as 2013/17:18 data changed - still outstanding issues
 WASpaOT3,SP-PORC,3,ES,WA,40,GOV,DEM,HH-SP-PORC.csv,HL-SP-PORC.csv,Porcupine.WGS84.shp,FALSE,TRUE,2006,2020,PORB,,13,66,13/01/2021,updated 18 jan 2022 as 2001:03 data changed - still outstanding issues
@@ -11,8 +13,6 @@ WAScoOT3,SCOROC,3,GB-SCT,WA,35,GOV,DEM,HH-ROCKALL-SCOROC.csv,HL-SCOROC.csv,SWC_Q
 CSScoOT1_hist,SCOWCGFS,1,GB-SCT,CS,35,GOV,DEM,HH-SCOWCGFS_SWC-IBTS.csv,HL-SWC-IBTS.csv,SWC_Q1.shp,FALSE,TRUE,1985,2020,GOV,,13,66,17/02/2016,CL insert FB updates for smooth san 15Jan2022
 CSScoOT4_hist,SCOWCGFS,4,GB-SCT,CS,40,GOV,DEM,HH-SCOWCGFS_SWC-IBTS.csv,HL-SWC-IBTS.csv,SWC_Q4.shp,FALSE,TRUE,1995,2020,GOV,,13,66,07/02/2016,CL insert FB updates for smooth san 15Jan2022
 GNSIntOT1,IBTS,1,Int,GNS,50,GOV,DEM,HH-IBTS.csv,HL-IBTS_Q1.csv,GNSstrat_Atlantis.shp,TRUE,TRUE,1983,2021,GOV,,13,66,12/11/2021,"updated 04 jan 2022 SWE added 1991/92/2018 data,  SCO added 2018 data and "
-GNSNetBi3,SNS,3,NL,GNS,30,Beam_inshore,DEM,HH-SNS.csv,HL-SNS.csv,GNSstrat_Atlantis.shp,TRUE,TRUE,2002,2020,BT6,,12,16,18/10/2021,no
-GNSIntBi3,DYFS,3,Int,GNS,30,Beam_inshore,DEM,HH-DYFS.csv,HL-DYFS.csv,GNSstrat_Atlantis.shp,TRUE,TRUE,2002,2020,BT3,,12,16,18/10/2021,no
 GNSIntOT3,IBTS,3,Int,GNS,50,GOV,DEM,HH-IBTS.csv,HL-IBTS_Q3.csv,GNSstrat_Atlantis.shp,TRUE,TRUE,1998,2020,GOV,,13,66,27/11/2021,updated 04 jan 2022 SCO added 2017 data
 GNSIntOT1_channel,IBTS,1,Int,GNS,50,GOV,DEM,HH-IBTS.csv,HL-IBTS_Q1.csv,EChanBT3Simple.shp,FALSE,TRUE,2007,2021,GOV,,13,66,12/11/2021,"updated 04 jan 2022 SWE added 1991/92/2018 data,  SCO added 2018 data and "
 GNSBelBT3,BTS,3,BE,GNS,45,BEAM,DEM,HH-BTS.csv,HL-BTS.csv,GNSstrat_Atlantis.shp,TRUE,TRUE,2004,2020,BT4,"A, S",13,66,04/10/2021,2021 data only no update
