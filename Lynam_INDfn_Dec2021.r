@@ -7,8 +7,8 @@
 # update 09 Jan 2017 to pass SP to indicators and enable plotting LOESS fns
 # update 09 Jan 2017 now biomass out and plots with and without Q correction
 # species_bio_by_area includes numhauls by subdivision if no sampling strata applied (i.e. no rectangles or minigrid)
-# average over hauls then raise up by area of sampstrat or subdivision
-##second level raising if needed, here weighting is correct for coverage of subdiv (sum of sampstrat areas should be subdiv area - but prone to issues with missing sampstrat)
+# average over hauls then raise up by area of SurvStratum or subdivision
+##second level raising if needed, here weighting is correct for coverage of SUBDIV (sum of SurvStratum areas should be SUBDIV area - but prone to issues with missing SurvStratum)
 # check no zeroes in LD output
 # Dec 2021. changed looping when species ALL - no longer create combined group
 INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM="", SAMP_STRAT=T, BYSUBDIV=T, AREASCALE=T,
@@ -37,8 +37,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
 
   FACTHAUL <-  c("HaulID","Year","Ship","MonthShot","Day","TimeShot", "HaulDur_min","ShootLat_degdec","ShootLong_degdec","ICESStSq",
                  "NetOpen_m", "WingSwpArea_sqkm")
-  if(SAMP_STRAT) FACTHAUL <-  c(FACTHAUL,"sampstrat")
-  if(BYSUBDIV)   FACTHAUL <-  c(FACTHAUL,"subdiv","STRAT_DIV")
+  if(SAMP_STRAT) FACTHAUL <-  c(FACTHAUL,"SurvStratum")
+  if(BYSUBDIV)   FACTHAUL <-  c(FACTHAUL,"SUBDIV","STRAT_DIV")
   
   numhauls <- tapply.ID(df=numhauls, datacols=c("ones"),factorcols=FACTHAUL,sum,c("ones"))
   numhauls$ones <- 1  # now 1 val per haul    
@@ -51,8 +51,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   if(WRITE & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhauls[,-which(names(numhauls)=="ones")],paste(FILENAM,"hauls.txt",sep="_"),row.names =F,sep=',')
   
   FACTHAUL <-  c("ones","HaulID","Year","ShootLat_degdec","ShootLong_degdec")
-  if(SAMP_STRAT) FACTHAUL <-  c(FACTHAUL,"sampstrat")
-  if(BYSUBDIV)   FACTHAUL <-  c(FACTHAUL,"subdiv","STRAT_DIV")
+  if(SAMP_STRAT) FACTHAUL <-  c(FACTHAUL,"SurvStratum")
+  if(BYSUBDIV)   FACTHAUL <-  c(FACTHAUL,"SUBDIV","STRAT_DIV")
   numhauls<- numhauls[,FACTHAUL]
   numhaulsyr<-aggregate(x=numhauls$HaulID,by=list(numhauls$Year), FUN=length)
   names(numhaulsyr)[1]<-"Year"
@@ -70,21 +70,21 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   numhauls$centlat <- (numhauls$centlat + cor) 
   if(QUAD){
     #Feb2019 correct centers here as have already identified which hauls are in which quads
-    numhauls[substr(numhauls$sampstrat,6,7)=="SE",]$centlon<- numhauls[substr(numhauls$sampstrat,6,7)=="SE",]$centlon-0.25; 
-    numhauls[substr(numhauls$sampstrat,6,7)=="SE",]$centlat<- numhauls[substr(numhauls$sampstrat,6,7)=="SE",]$centlat-0.125
-    numhauls[substr(numhauls$sampstrat,6,7)=="SW",]$centlon<- numhauls[substr(numhauls$sampstrat,6,7)=="SW",]$centlon+0.25
-    numhauls[substr(numhauls$sampstrat,6,7)=="SW",]$centlat<- numhauls[substr(numhauls$sampstrat,6,7)=="SW",]$centlat+0.125 
-    numhauls[substr(numhauls$sampstrat,6,7)=="NE",]$centlon<- numhauls[substr(numhauls$sampstrat,6,7)=="NE",]$centlon-0.25
-    numhauls[substr(numhauls$sampstrat,6,7)=="NE",]$centlat<- numhauls[substr(numhauls$sampstrat,6,7)=="NE",]$centlat-0.125 
-    numhauls[substr(numhauls$sampstrat,6,7)=="NW",]$centlon<- numhauls[substr(numhauls$sampstrat,6,7)=="NW",]$centlon+0.25
-    numhauls[substr(numhauls$sampstrat,6,7)=="NW",]$centlat<- numhauls[substr(numhauls$sampstrat,6,7)=="NW",]$centlat+0.125 
+    numhauls[substr(numhauls$SurvStratum,6,7)=="SE",]$centlon<- numhauls[substr(numhauls$SurvStratum,6,7)=="SE",]$centlon-0.25; 
+    numhauls[substr(numhauls$SurvStratum,6,7)=="SE",]$centlat<- numhauls[substr(numhauls$SurvStratum,6,7)=="SE",]$centlat-0.125
+    numhauls[substr(numhauls$SurvStratum,6,7)=="SW",]$centlon<- numhauls[substr(numhauls$SurvStratum,6,7)=="SW",]$centlon+0.25
+    numhauls[substr(numhauls$SurvStratum,6,7)=="SW",]$centlat<- numhauls[substr(numhauls$SurvStratum,6,7)=="SW",]$centlat+0.125 
+    numhauls[substr(numhauls$SurvStratum,6,7)=="NE",]$centlon<- numhauls[substr(numhauls$SurvStratum,6,7)=="NE",]$centlon-0.25
+    numhauls[substr(numhauls$SurvStratum,6,7)=="NE",]$centlat<- numhauls[substr(numhauls$SurvStratum,6,7)=="NE",]$centlat-0.125 
+    numhauls[substr(numhauls$SurvStratum,6,7)=="NW",]$centlon<- numhauls[substr(numhauls$SurvStratum,6,7)=="NW",]$centlon+0.25
+    numhauls[substr(numhauls$SurvStratum,6,7)=="NW",]$centlat<- numhauls[substr(numhauls$SurvStratum,6,7)=="NW",]$centlat+0.125 
     
     fd<-NULL
     if(QUAD_SMOOTH){
       ##if(BYGUILD & GROUP!="1") next
       source("//lowfilecds/Function/Eco Indicators/DATRASoutput/MarScot/INDscriptsForV3/smoothquad.r") #uses fd lat/lon 
       #need to work out dist to nearest quads and find quadrants within 60km to smooth run by year
-      fdhspp <- DATA[,c("Year","sampstrat","ICESStSq","HaulID","ShootLat_degdec","ShootLong_degdec")] 
+      fdhspp <- DATA[,c("Year","SurvStratum","ICESStSq","HaulID","ShootLat_degdec","ShootLong_degdec")] 
       YRS<-sort(unique(DATA$Year))
       dhspp_match_yrs<-NULL
       for(YR in YRS){   # YR<-1998
@@ -100,13 +100,13 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
         
         dhspp_match<-NULL
         for(m in 1:length(XYmatch)){  # m <- 55
-          ##          if(!XYmatch[[m]][3] %in%  DATA[DATA$Year==YR,"sampstrat"]) next #skip quads where no original sample within i.e. all from smooth
+          ##          if(!XYmatch[[m]][3] %in%  DATA[DATA$Year==YR,"SurvStratum"]) next #skip quads where no original sample within i.e. all from smooth
           dmatch <- DATA[DATA$Year==YR & DATA$HaulID %in% XYmatch[[m]][-c(1:4)], c(DATCOL,FACCOL)] #<- # catch at len per species from matches
           
           if( ncol(XYmatch[[m]])>5 ){  #greater than 5 otherwise only 1 haul in the quad and no need to average (here find sum later /numhauls)
             dmatch <- tapply.ID(df=dmatch, datacols=DATCOL,factorcols=FACCOL, func=sum, newnames=DATCOL,na.stuff=T)
-          } ##lose: HaulID,"mult","Ref","Absolute","Abs.l.95","Abs.u.95","Efficiency","Eff.l.95","Eff.u.95","QGroup","LogLngtClass","LogLngtBio","KM2_LAM","SurvStratum","sampstrat"
-          dhspp_match<-rbind(dhspp_match,data.frame(ICESStSq=substr(XYmatch[[m]][3],1,4), sampstrat=XYmatch[[m]][3],numhauls=XYmatch[[m]][4], dmatch[,c(DATCOL,FACCOL)]))
+          } ##lose: HaulID,"mult","Ref","Absolute","Abs.l.95","Abs.u.95","Efficiency","Eff.l.95","Eff.u.95","QGroup","LogLngtClass","LogLngtBio","KM2_LAM","SurvStratum","SurvStratum"
+          dhspp_match<-rbind(dhspp_match,data.frame(ICESStSq=substr(XYmatch[[m]][3],1,4), SurvStratum=XYmatch[[m]][3],numhauls=XYmatch[[m]][4], dmatch[,c(DATCOL,FACCOL)]))
         }
         dhspp_match$"LogLngtClass" <- log(dhspp_match$FishLength_cm)
         dhspp_match$"LogLngtBio" <- dhspp_match$"LogLngtClass"*dhspp_match$DensBiom_kg_Sqkm
@@ -114,33 +114,33 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
         #nrow(dhspp_match) > nrow(dhspp[dhspp$Year==YR,])# have more samples as replicated data across quads through smoothing
         #length(unique(dhspp_match$FishLength_cm))==length(unique(dhspp[dhspp$Year==YR,]$FishLength_cm))
         #length(unique(dhspp_match$sciName))==length(unique(dhspp[dhspp$Year==YR,]$sciName))
-        #length(unique(dhspp_match$sampstrat))==length(unique(dhspp[dhspp$Year==YR,]$sampstrat))
+        #length(unique(dhspp_match$SurvStratum))==length(unique(dhspp[dhspp$Year==YR,]$SurvStratum))
         dhspp_match_yrs<- rbind(dhspp_match_yrs, dhspp_match)
       } 
-      #add back subdiv STRAT_DIV centlon centlat fguild
+      #add back SUBDIV STRAT_DIV centlon centlat fguild
       DATA <- dhspp_match_yrs
       rm(dhspp_match_yrs,fd,fdhspp)
       ##if(BYGUILD & GROUP=="1") dhspp <<- DATA #<<- to make sure this is updated in the global env #problem as lose some cols #note will overwrite with original dhspp_raw after guild loop
     }#end smooth
     
-    DATA <- merge(DATA,QUADS[,c("QUADNAME","KM2_LAM","cent_lat","cent_lon")],by.x=("sampstrat"),by.y=("QUADNAME"))
+    DATA <- merge(DATA,QUADS[,c("QUADNAME","KM2_LAM","cent_lat","cent_lon")],by.x=("SurvStratum"),by.y=("QUADNAME"))
     SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') ) 
     if(EHDS_PP) SUBDIV <- readShapeSpatial(paste(SHAPEPATH,"GNS_EHDPP/ehu_polygons.shp",sep='') ) 
     if(BYSUBDIV) NAMsubdiv <- "NAME"     #new areas as used for FC/FW3
     #if(BYSUBDIV) NAMsubdiv <- "LFIregion" #old spatial areas - 25 year plan
     #NAMsampstrat<-"ICESNAME"
     SAMP_FACT <- "KM2_LAM"
-    if(SAMP_STRAT){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsampstrat)] <- "sampstrat"; SAMP_FACT <- c(SAMP_FACT, "sampstrat") }
+    if(SAMP_STRAT){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsampstrat)] <- "SurvStratum"; SAMP_FACT <- c(SAMP_FACT, "SurvStratum") }
     if(BYSUBDIV){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c(SAMP_FACT, "SurvStratum")} 
     if(EHDS_PP){  
       ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep='') ) 
       names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c("KM2_LAM", "SurvStratum") 
     } 
-    #if(OVERWITE_SUBDIV) DATA$SurvStratum<-DATA$sampstrat###01Feb2017
+    #if(OVERWITE_SUBDIV) DATA$SurvStratum<-DATA$SurvStratum###01Feb2017
     
     ATTRIB <- ATTRIB[,which(names(ATTRIB) %in% SAMP_FACT )]
     #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
-    #subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV
+    #SUBDIV area - if using by rectangle SurvStratum need to sum area for SUBDIV
     if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")){
       ATTRIB_SUBDIV <- aggregate(x=ATTRIB$KM2_LAM,by=list(SurvStratum=ATTRIB$SurvStratum), FUN=sum)
       names(ATTRIB_SUBDIV)[2] <- "KM2_LAM"
@@ -150,7 +150,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     #SUBDIV 
     dhspp0<- DATA 
     coordinates(dhspp0) <- ~ cent_lon +cent_lat
-    ox <- over(dhspp0, SUBDIV) #bring in all attributes of location i..e both sampstrat and subdiv if applicable 
+    ox <- over(dhspp0, SUBDIV) #bring in all attributes of location i..e both SurvStratum and SUBDIV if applicable 
     ## which are the subdivisions and sampling stratification units
     if(BYSUBDIV) names(ox)[which(names(ox)==NAMsubdiv)] <- "SurvStratum" 
     if(EHDS_PP){  
@@ -159,25 +159,25 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
       ox <- ox[!is.na(ox$SurvStratum) & ox$SurvStratum!="Other", ]
     }
     DATA <- cbind(DATA,ox[,c("SurvStratum")])  ### issue here for GNSGerBT3 41F4 and 41F5 do not agree with samp file for 2001 since long shoot == 5 exactly
-    names(DATA)[ncol(DATA)]<-"subdiv"
-    if(QUAD) DATA<- DATA[!is.na(DATA$subdiv),]#plot(sdr); map(add=T); with(DATA[is.na(DATA$subdiv),],points(cent_lon,cent_lat,pch=19,col=4)) # a couple of odd points - poss on land - can be smoothed in
+    names(DATA)[ncol(DATA)]<-"SUBDIV"
+    if(QUAD) DATA<- DATA[!is.na(DATA$SUBDIV),]#plot(sdr); map(add=T); with(DATA[is.na(DATA$SUBDIV),],points(cent_lon,cent_lat,pch=19,col=4)) # a couple of odd points - poss on land - can be smoothed in
   } #end quad 
   ##DATA is updated so have smooth total catch from hauls <60km from q_center by quadrant
-  #DATA[DATA$SurvStratum!=DATA$subdiv,]
+  #DATA[DATA$SurvStratum!=DATA$SUBDIV,]
   ##load("C:/Users/cl06/Desktop/biodiv19 ref/allyrs_DATA_QUADmatch.RData")
-  if(SAMP_STRAT){ #might be STSQ, QUADrants or minigrid see sampstrat
-    FACTHAUL <-  c("Year","centlon","centlat","sampstrat")
-    if(BYSUBDIV) FACTHAUL <-  c(FACTHAUL,"subdiv","STRAT_DIV")
+  if(SAMP_STRAT){ #might be STSQ, QUADrants or minigrid see SurvStratum
+    FACTHAUL <-  c("Year","centlon","centlat","SurvStratum")
+    if(BYSUBDIV) FACTHAUL <-  c(FACTHAUL,"SUBDIV","STRAT_DIV")
     
     if(!QUAD | !QUAD_SMOOTH) numhaulsBYsampstrat <- tapply.ID(df=numhauls, datacols=c("ones"), factorcols=FACTHAUL, sum,c("numhauls"));
     if(QUAD & QUAD_SMOOTH){ 
       DATA$numhauls<- as.numeric(as.character(DATA$numhauls))#numbers read in as factors
-      numhaulsBYsampstrat <- aggregate( x=DATA$numhauls,by=list(Year=DATA$Year,sampstrat=DATA$sampstrat,subdiv=DATA$subdiv),FUN=mean)
+      numhaulsBYsampstrat <- aggregate( x=DATA$numhauls,by=list(Year=DATA$Year,SurvStratum=DATA$SurvStratum,SUBDIV=DATA$SUBDIV),FUN=mean)
       names(numhaulsBYsampstrat)[which(names(numhaulsBYsampstrat)=="x")]<-"numhauls"
     }
     #if(WRITE & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhaulsBYsampstrat,paste(FILENAM,"numhaulsBYsampstrat.csv",sep="_"),row.names =F,sep=',')
-    #and reshape since have one value per year and subdiv combination
-    numhaulsBYsampstratout <- (tapply(numhaulsBYsampstrat$numhauls,list(numhaulsBYsampstrat$Year, numhaulsBYsampstrat$sampstrat), FUN=sum, na.rm=T))
+    #and reshape since have one value per year and SUBDIV combination
+    numhaulsBYsampstratout <- (tapply(numhaulsBYsampstrat$numhauls,list(numhaulsBYsampstrat$Year, numhaulsBYsampstrat$SurvStratum), FUN=sum, na.rm=T))
     if(WRITE  & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhaulsBYsampstratout,paste(FILENAM,"numhaulsBYsampstrat.csv",sep="_"),row.names =T,sep=',')
     rm(numhaulsBYsampstratout)
     
@@ -185,11 +185,11 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   
   if(BYSUBDIV){#user_defined or survey poly
     if(!QUAD) numhaulsBYsubdiv <- tapply.ID(df=numhauls, datacols=c("ones"),
-                                            factorcols=c("Year","subdiv"), sum,c("numhauls"));
+                                            factorcols=c("Year","SUBDIV"), sum,c("numhauls"));
     if(QUAD)  numhaulsBYsubdiv <- tapply.ID(df=numhaulsBYsampstrat, datacols=c("numhauls"),
-                                            factorcols=c("Year","subdiv"),sum,c("numhauls"));
-    #and reshape since have one value per year and subdiv combination
-    numhaulsBYsubdivout <- (tapply(numhaulsBYsubdiv$numhauls,list(numhaulsBYsubdiv$Year, numhaulsBYsubdiv$subdiv), FUN=sum, na.rm=T))
+                                            factorcols=c("Year","SUBDIV"),sum,c("numhauls"));
+    #and reshape since have one value per year and SUBDIV combination
+    numhaulsBYsubdivout <- (tapply(numhaulsBYsubdiv$numhauls,list(numhaulsBYsubdiv$Year, numhaulsBYsubdiv$SUBDIV), FUN=sum, na.rm=T))
     if(WRITE  & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhaulsBYsubdivout,paste(FILENAM,"numhaulsBYsubdiv.csv",sep="_"),row.names =T,sep=',')
     rm(numhaulsBYsubdivout)
   } else { numhaulsBYsubdiv <- NULL }
@@ -225,37 +225,37 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
         #SPECIESSTRATRECS <- xtabs(N ~ Year + SpeciesSciName,data=species_rec_by_area)
         #write.table( SPECIESSTRATRECS,paste(FILENAM,SPECIES,"species_records_yr.csv",sep="_"),row.names =T,sep=',')
       } else { 
-        DATANOLEN<-aggregate(x=DATA$DensBiom_kg_Sqkm, by=list(Year=DATA$Year, SpeciesSciName=DATA$SpeciesSciName, Group=DATA$Group, HaulID=DATA$HaulID, sampstrat=DATA$sampstrat), FUN=sum)  
-        species_rec_by_area <- aggregate(x=DATANOLEN$x, by=list(Year=DATANOLEN$Year, SpeciesSciName=DATANOLEN$SpeciesSciName, sampstrat=DATANOLEN$sampstrat), FUN=length)  
+        DATANOLEN<-aggregate(x=DATA$DensBiom_kg_Sqkm, by=list(Year=DATA$Year, SpeciesSciName=DATA$SpeciesSciName, Group=DATA$Group, HaulID=DATA$HaulID, SurvStratum=DATA$SurvStratum), FUN=sum)  
+        species_rec_by_area <- aggregate(x=DATANOLEN$x, by=list(Year=DATANOLEN$Year, SpeciesSciName=DATANOLEN$SpeciesSciName, SurvStratum=DATANOLEN$SurvStratum), FUN=length)  
         names(species_rec_by_area)[length(names(species_rec_by_area))]<-"N"
-        SPECIESSTRATRECS <- xtabs(N ~ Year + SpeciesSciName + sampstrat,data=species_rec_by_area)
+        SPECIESSTRATRECS <- xtabs(N ~ Year + SpeciesSciName + SurvStratum,data=species_rec_by_area)
         #if(survey != "GNSFraOT4") for(i in 1:dim(SPECIESSTRATRECS)[3]) write.table( SPECIESSTRATRECS[,,i],paste(FILENAM,SPECIES,"species_records_sampstrat",i,"_yr.csv",sep="_"),row.names =T,sep=',')
       }
     }
     
     if(BYSUBDIV){        
       if(!SAMP_STRAT){ 
-        DATANOLEN<-aggregate(x=DATA$DensBiom_kg_Sqkm, by=list(Year=DATA$Year, SpeciesSciName=DATA$SpeciesSciName, Group=DATA$Group, HaulID=DATA$HaulID, subdiv=DATA$subdiv), FUN=sum)  
-        species_rec_by_area <- aggregate(x=DATANOLEN$x, by=list(Year=DATANOLEN$Year, SpeciesSciName=DATANOLEN$SpeciesSciName, subdiv=DATANOLEN$subdiv), FUN=length)  
+        DATANOLEN<-aggregate(x=DATA$DensBiom_kg_Sqkm, by=list(Year=DATA$Year, SpeciesSciName=DATA$SpeciesSciName, Group=DATA$Group, HaulID=DATA$HaulID, SUBDIV=DATA$SUBDIV), FUN=sum)  
+        species_rec_by_area <- aggregate(x=DATANOLEN$x, by=list(Year=DATANOLEN$Year, SpeciesSciName=DATANOLEN$SpeciesSciName, SUBDIV=DATANOLEN$SUBDIV), FUN=length)  
         names(species_rec_by_area)[length(names(species_rec_by_area))]<-"N"
-        SPECIESSTRATRECS <- xtabs(N ~ Year + SpeciesSciName + subdiv,data=species_rec_by_area)
+        SPECIESSTRATRECS <- xtabs(N ~ Year + SpeciesSciName + SUBDIV,data=species_rec_by_area)
         for(i in 1:dim(SPECIESSTRATRECS)[3]){
-          write.table( matrix(c( dimnames(SPECIESSTRATRECS)$subdiv[i], colnames(SPECIESSTRATRECS[,,i]) ),nrow=1),paste(FILENAM,SPECIES,"species_records_subdiv",i,"_yr.csv",sep="_"),row.names =F,col.names =F,sep=',',append = FALSE)
+          write.table( matrix(c( dimnames(SPECIESSTRATRECS)$SUBDIV[i], colnames(SPECIESSTRATRECS[,,i]) ),nrow=1),paste(FILENAM,SPECIES,"species_records_subdiv",i,"_yr.csv",sep="_"),row.names =F,col.names =F,sep=',',append = FALSE)
           write.table( SPECIESSTRATRECS[,,i],paste(FILENAM,SPECIES,"species_records_subdiv",i,"_yr.csv",sep="_"),row.names =T,col.names =F,sep=',',append = TRUE)
         } 
       }
       if(SAMP_STRAT){ 
-        DATANOLEN<-aggregate(x=DATA$DensBiom_kg_Sqkm, by=list(Year=DATA$Year, SpeciesSciName=DATA$SpeciesSciName, Group=DATA$Group, HaulID=DATA$HaulID, sampstrat=DATA$sampstrat,subdiv=DATA$subdiv), FUN=sum)  
-        species_rec_by_area <- aggregate(x=DATANOLEN$x, by=list(Year=DATANOLEN$Year, SpeciesSciName=DATANOLEN$SpeciesSciName, sampstrat=DATANOLEN$sampstrat, subdiv=DATANOLEN$subdiv), FUN=length)  
+        DATANOLEN<-aggregate(x=DATA$DensBiom_kg_Sqkm, by=list(Year=DATA$Year, SpeciesSciName=DATA$SpeciesSciName, Group=DATA$Group, HaulID=DATA$HaulID, SurvStratum=DATA$SurvStratum,SUBDIV=DATA$SUBDIV), FUN=sum)  
+        species_rec_by_area <- aggregate(x=DATANOLEN$x, by=list(Year=DATANOLEN$Year, SpeciesSciName=DATANOLEN$SpeciesSciName, SurvStratum=DATANOLEN$SurvStratum, SUBDIV=DATANOLEN$SUBDIV), FUN=length)  
         names(species_rec_by_area)[length(names(species_rec_by_area))]<-"N"
-        SPECIESSTRATRECS <- xtabs(N ~ Year + SpeciesSciName + subdiv + sampstrat,data=species_rec_by_area)
+        SPECIESSTRATRECS <- xtabs(N ~ Year + SpeciesSciName + SUBDIV + SurvStratum,data=species_rec_by_area)
         #for(i in 1:dim(SPECIESSTRATRECS)[3]) write.table( SPECIESSTRATRECS[,,i,],paste(FILENAM,SPECIES,"species_records_strat_div",i,"_yr.csv",sep="_"),row.names =T,sep=',')
       }
       
       species_records_BY_reg<- aggregate(species_rec_by_area$N, by=list(Year=species_rec_by_area$Year, SpeciesSciName=species_rec_by_area$SpeciesSciName, 
-                                                                        subdiv=species_rec_by_area$subdiv), FUN=sum)
+                                                                        SUBDIV=species_rec_by_area$SUBDIV), FUN=sum)
       names(species_records_BY_reg)[length(names(species_records_BY_reg))]<-"N"
-      species_records_BY_reg <- xtabs(N ~ Year + SpeciesSciName + subdiv,data=species_records_BY_reg)
+      species_records_BY_reg <- xtabs(N ~ Year + SpeciesSciName + SUBDIV,data=species_records_BY_reg)
       write.table(species_records_BY_reg,paste(FILENAM,SPECIES,"species_records_BY_reg_yr.csv",sep="_"),row.names =F,sep=',')
     }
     
@@ -277,14 +277,14 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   # run tapply.id over these factorcols FACT
   FACT <- c("Year","FishLength_cm","SpeciesSciName")
   if(BYGUILD) FACT <- c(FACT,"Group")
-  if(SAMP_STRAT)FACT <- c(FACT,"sampstrat")
-  if(BYSUBDIV)  FACT <- c(FACT,"subdiv")
+  if(SAMP_STRAT)FACT <- c(FACT,"SurvStratum")
+  if(BYSUBDIV)  FACT <- c(FACT,"SUBDIV")
   if(QUAD)  FACT <- c(FACT,"ICESStSq")
   #length(dhspp$DensBiom_kg_Sqkm[is.na(dhspp$DensBiom_kg_Sqkm)]) #check
   #length(DATA$DensBiom_kg_Sqkm[is.na(DATA$DensBiom_kg_Sqkm)]) #check
   #length(species_bio_by_area$DensBiom_kg_Sqkm[is.na(species_bio_by_area$DensBiom_kg_Sqkm)]) #check
   
-  #sum by species by length cat by sampstrat (e.g ICES STSQ)
+  #sum by species by length cat by SurvStratum (e.g ICES STSQ)
   DATACOLS<-c("DensBiom_kg_Sqkm","DensAbund_N_Sqkm")
   if(CATCHABILITY_COR_WALKER | CATCHABILITY_COR_MOD) DATACOLS<- c(DATACOLS, "DensBiom_kg_Sqkm_beforeQmult")
   NEWDATANAM<-c("CatCatchWgtSwept","Abund_N_Swept")
@@ -307,12 +307,12 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     abline(v=LFI_THRESHOLD,col=3)
   }
   
-  # species_bio_by_area[species_bio_by_area$SurvStratum!=species_bio_by_area$subdiv,]
+  # species_bio_by_area[species_bio_by_area$SurvStratum!=species_bio_by_area$SUBDIV,]
   # to average LD must add num hauls to bio data
   if(SAMP_STRAT){
     species_bio_by_area <- merge(x = species_bio_by_area,
-                                 y = numhaulsBYsampstrat[,which(names(numhaulsBYsampstrat) != "STRAT_DIV" & names(numhaulsBYsampstrat) != "subdiv")], #avoid replicating names and creating .x .y
-                                 by = c("Year","sampstrat"),all.x=T)
+                                 y = numhaulsBYsampstrat[,which(names(numhaulsBYsampstrat) != "STRAT_DIV" & names(numhaulsBYsampstrat) != "SUBDIV")], #avoid replicating names and creating .x .y
+                                 by = c("Year","SurvStratum"),all.x=T)
     
     #average species cpue over hauls by rectangle-strata for MaxL, TL , Len, TyL                                                                      
     species_bio_by_area$CatCatchWgtSwept <- species_bio_by_area$CatCatchWgtSwept / species_bio_by_area$numhauls                                        
@@ -323,7 +323,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     if(BYSUBDIV){ # only do here if not using rects/minigrid/etc
       species_bio_by_area <- merge(x = species_bio_by_area,
                                    y = numhaulsBYsubdiv[,which(names(numhaulsBYsubdiv) != "STRAT_DIV")], #avoid replicating names and creating .x .y
-                                   by = c("Year","subdiv"),all.x=T)
+                                   by = c("Year","SUBDIV"),all.x=T)
       
       #average species cpue over hauls by rectangle-strata for MaxL, TL , Len, TyL                                                                      
       species_bio_by_area$CatCatchWgtSwept <- species_bio_by_area$CatCatchWgtSwept / species_bio_by_area$numhauls                                      
@@ -333,7 +333,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   }
   #if both SAMP_STRAT and BYSUBDIV are true will have to sum up catch by SAMP_STRAT within SUBDIV later to avoid change between years due to change in relative sampling of strata..
   #length(species_bio_by_area$DensBiom_kg_Sqkm[is.na(species_bio_by_area$DensBiom_kg_Sqkm)]) #check
-  #length(species_bio_by_area$subdiv[is.na(species_bio_by_area$subdiv)]) #check
+  #length(species_bio_by_area$SUBDIV[is.na(species_bio_by_area$SUBDIV)]) #check
   
   #re-introduce MAXL, Loo, Lm, TL, DEMPEL - warning here is an opportunity for NAs to appear!
   species_bio_by_area <- merge(species_bio_by_area,LW[,c("ScientificName_WoRMS","SensFC1","DEMPEL")], by.x="SpeciesSciName",by.y="ScientificName_WoRMS",all.x=T)
@@ -358,21 +358,21 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   }
   #save a copy 'species_bio_by_area_DEMPEL' so can loop through DEM or PEL etc
   species_bio_by_area_DEMPEL <- species_bio_by_area
-  #species_bio_by_area[species_bio_by_area$SurvStratum!=species_bio_by_area$subdiv,]
+  #species_bio_by_area[species_bio_by_area$SurvStratum!=species_bio_by_area$SUBDIV,]
   #length(species_bio_by_area$DensBiom_kg_Sqkm[is.na(species_bio_by_area$DensBiom_kg_Sqkm)]) #check
-  #length(species_bio_by_area$subdiv[is.na(species_bio_by_area$subdiv)]) #check
+  #length(species_bio_by_area$SUBDIV[is.na(species_bio_by_area$SUBDIV)]) #check
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # record sampling effort for indicators
-  # e.g. num rects sampled by subdiv  sumsampstrat_by_sub   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # e.g. num rects sampled by SUBDIV  sumsampstrat_by_sub   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   if(SAMP_STRAT){
-    FACT<-c("Year","sampstrat")
-    if(BYSUBDIV) FACT<-c(FACT,"subdiv")
+    FACT<-c("Year","SurvStratum")
+    if(BYSUBDIV) FACT<-c(FACT,"SUBDIV")
     numsampstrat_by_sea <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
                                      factorcols=FACT, sum,c("CatCatchWgtSwept"))
     numsampstrat_by_sea$numsampstrat <- 1
     if(BYSUBDIV){ 
-      numsampstrat_by_sub <- tapply.ID(df=numsampstrat_by_sea, datacols=c("numsampstrat"), factorcols=c("Year","subdiv"), sum,c("numsampstrat"))
-      sumsampstrat_by_sub <- xtabs(numsampstrat ~ Year + subdiv, numsampstrat_by_sub)
+      numsampstrat_by_sub <- tapply.ID(df=numsampstrat_by_sea, datacols=c("numsampstrat"), factorcols=c("Year","SUBDIV"), sum,c("numsampstrat"))
+      sumsampstrat_by_sub <- xtabs(numsampstrat ~ Year + SUBDIV, numsampstrat_by_sub)
     }
     numsampstrat_by_sea <- tapply.ID(df=numsampstrat_by_sea, datacols=c("numsampstrat"), factorcols=c("Year"), sum,c("numsampstrat"))
     if(BYSUBDIV){ 
@@ -381,11 +381,11 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     }
     if(WRITE  & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numsampstrat_by_sea,paste(FILENAM,"num_rects_sampled_BY_reg_yr.csv",sep="_"),row.names =T,sep=',')
   }
-  if(BYSUBDIV){ #if no SAMP_STRAT and sampstrat=NA, then above gives same as this
+  if(BYSUBDIV){ #if no SAMP_STRAT and SurvStratum=NA, then above gives same as this
     num_by_sub <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
-                            factorcols=c("Year","subdiv"), sum,c("CatCatchWgtSwept")) 
+                            factorcols=c("Year","SUBDIV"), sum,c("CatCatchWgtSwept")) 
     num_by_sub$numsamp <- 1
-    sum_by_sub <- xtabs(numsamp ~ Year + subdiv, num_by_sub)
+    sum_by_sub <- xtabs(numsamp ~ Year + SUBDIV, num_by_sub)
     num_by_sea <- tapply.ID(df=num_by_sub, datacols=c("numsamp"), factorcols=c("Year"), sum,c("numsamp"))
     if(BYSUBDIV) num_by_sea <- cbind(sum_by_sub,sea=num_by_sea[,1])
     rm(sum_by_sub)
@@ -393,7 +393,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     
     #correction for regional sea sampling area required if missing part of SUBDIV
     #area sampled
-    num_by_sub <- merge(x=num_by_sub,y=ATTRIB,by.x="subdiv",by.y="SurvStratum",all=T)
+    num_by_sub <- merge(x=num_by_sub,y=ATTRIB,by.x="SUBDIV",by.y="SurvStratum",all=T)
     areasurveyed_by_sub <- tapply.ID(df=num_by_sub, datacols=c("KM2_LAM"), 
                                      factorcols=c("Year"), sum,c("KM2_LAM")) 
     #proportion of regional sea area sampled #ATTRIB_SUBDIV is same as totalarea for GNS 'SAMP_STRAT+BYSUBDIV'
@@ -407,30 +407,30 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   }
   
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  #LD+catch raised by kmsq for species    meanLD_bio_by_area[meanLD_bio_by_area$SurvStratum!=meanLD_bio_by_area$subdiv,]
-  #summarise by sampstrat+subdiv raised by spatial area in kmsq and then kg->tonnes
+  #LD+catch raised by kmsq for species    meanLD_bio_by_area[meanLD_bio_by_area$SurvStratum!=meanLD_bio_by_area$SUBDIV,]
+  #summarise by SurvStratum+SUBDIV raised by spatial area in kmsq and then kg->tonnes
   if(BYSUBDIV | SAMP_STRAT){
     #find sampling areas from ATTRIB and merge with species data
     if(SAMP_STRAT){ 
       if(QUAD){  
         ATTRIB$KM2_LAM <- ATTRIB$KM2_LAM/4
-        ATTRIB1<-ATTRIB; ATTRIB1$sampstrat<- paste(ATTRIB1$sampstrat,"SW",sep="_")
-        ATTRIB2<-ATTRIB; ATTRIB2$sampstrat<- paste(ATTRIB2$sampstrat,"SE",sep="_")
-        ATTRIB3<-ATTRIB; ATTRIB3$sampstrat<- paste(ATTRIB3$sampstrat,"NW",sep="_")
-        ATTRIB4<-ATTRIB; ATTRIB4$sampstrat<- paste(ATTRIB4$sampstrat,"NE",sep="_")
+        ATTRIB1<-ATTRIB; ATTRIB1$SurvStratum<- paste(ATTRIB1$SurvStratum,"SW",sep="_")
+        ATTRIB2<-ATTRIB; ATTRIB2$SurvStratum<- paste(ATTRIB2$SurvStratum,"SE",sep="_")
+        ATTRIB3<-ATTRIB; ATTRIB3$SurvStratum<- paste(ATTRIB3$SurvStratum,"NW",sep="_")
+        ATTRIB4<-ATTRIB; ATTRIB4$SurvStratum<- paste(ATTRIB4$SurvStratum,"NE",sep="_")
         ATTRIB <-rbind(ATTRIB1,ATTRIB2,ATTRIB3,ATTRIB4)
         rm(ATTRIB1,ATTRIB2,ATTRIB3,ATTRIB4)
       }
       meanLD_bio_by_area <- merge(x=ATTRIB, 
                                   y=species_bio_by_area, 
                                   all.y=TRUE,
-                                  by=c("sampstrat") ) 
+                                  by=c("SurvStratum","SUBDIV") ) 
     } else {
-      meanLD_bio_by_area <- merge(x=ATTRIB, y=species_bio_by_area, all.y=TRUE, by.x=c("SurvStratum") , by.y=c("subdiv") ) 
-      if( any(names(meanLD_bio_by_area) %in% "SurvStratum") & !any(names(meanLD_bio_by_area) %in% "subdiv") ) meanLD_bio_by_area$subdiv <-meanLD_bio_by_area$SurvStratum
+      meanLD_bio_by_area <- merge(x=ATTRIB, y=species_bio_by_area, all.y=TRUE, by.x=c("SurvStratum") , by.y=c("SUBDIV") ) 
+      if( any(names(meanLD_bio_by_area) %in% "SurvStratum") & !any(names(meanLD_bio_by_area) %in% "SUBDIV") ) meanLD_bio_by_area$SUBDIV <-meanLD_bio_by_area$SurvStratum
       #meanLD_bio_by_area <- meanLD_bio_by_area[,-which(names(meanLD_bio_by_area) == "SurvStratum")] #rm duplicate col
     }
-    #raise by area of lowest resolution of sampling strategy/subdiv
+    #raise by area of lowest resolution of sampling strategy/SUBDIV
     if(AREASCALE){
       meanLD_bio_by_area$CatCatchWgtSwept <- meanLD_bio_by_area$CatCatchWgtSwept*meanLD_bio_by_area$KM2_LAM
       meanLD_bio_by_area$Abund_N_Swept <- meanLD_bio_by_area$Abund_N_Swept*meanLD_bio_by_area$KM2_LAM
@@ -441,43 +441,43 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     if(CATCHABILITY_COR_WALKER | CATCHABILITY_COR_MOD) meanLD_bio_by_area$CatCatchWgtSwept_beforeQmult <- meanLD_bio_by_area$CatCatchWgtSwept_beforeQmult/1000
     
     #output
-    if(SAMP_STRAT & WRITE_LDs & (!BOOTSTRAP | (BOOTSTRAP & B==0) )) write.csv(meanLD_bio_by_area,file = paste(paste(FILENAM,sep='_'),"LD_tonnes_Year_W.by.sampstrat.csv",sep=".") )
-    if(BYSUBDIV & !SAMP_STRAT & WRITE_LDs & (!BOOTSTRAP | (BOOTSTRAP & B==0)) ) write.csv(meanLD_bio_by_area,file = paste(paste(FILENAM,sep='_'),"LD_tonnes_Year_W.by.subdiv.csv",sep=".") )
+    if(SAMP_STRAT & WRITE_LDs & (!BOOTSTRAP | (BOOTSTRAP & B==0) )) write.csv(meanLD_bio_by_area,file = paste(paste(FILENAM,sep='_'),"LD_tonnes_Year_W.by.SurvStratum.csv",sep=".") )
+    if(BYSUBDIV & !SAMP_STRAT & WRITE_LDs & (!BOOTSTRAP | (BOOTSTRAP & B==0)) ) write.csv(meanLD_bio_by_area,file = paste(paste(FILENAM,sep='_'),"LD_tonnes_Year_W.by.SUBDIV.csv",sep=".") )
     
     #second level raising if both levels applied i.e. c("GNSGerBT3","GNSBelBT3","GNSNetBT3","GNSIntOT1","GNSIntOT3")
     if(BYSUBDIV & SAMP_STRAT){
       #use catches scaled by size of grid (rects not constant over sea area)
       # and scale to SUBDIV (beware GNSGerBT3 only sampled a small part of NE so should not do this)
       if(!survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")) print(paste(survey,"survey does not have two level stratification"))
-      #work out value to scale up subdiv by
-      #lose species and length (otherwise inflate sum of areas)                           factorcols=c("sampstrat","Year","subdiv")
-      area_by_subdiv <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), factorcols=c("sampstrat","Year"), sum,c("CatCatchWgtSweptsum"))  
+      #work out value to scale up SUBDIV by
+      #lose species and length (otherwise inflate sum of areas)                           factorcols=c("SurvStratum","Year","SUBDIV")
+      area_by_subdiv <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), factorcols=c("SurvStratum","Year"), sum,c("CatCatchWgtSweptsum"))  
       #merge in area for sample coverage
-      area_by_subdiv <- merge(x=ATTRIB, y=area_by_subdiv, all.y=TRUE, by=c("sampstrat") )#area_by_subdiv can be from sum of ICESStSq or quadrant here 
-      #sum area by subdiv sampled
-      #area_by_subdiv1 <- tapply.ID(df=area_by_subdiv, datacols=c("KM2_LAM"), factorcols=c("Year","subdiv"), sum,c("KM2_LAMsum"))  
+      area_by_subdiv <- merge(x=ATTRIB, y=area_by_subdiv, all.y=TRUE, by=c("SurvStratum") )#area_by_subdiv can be from sum of ICESStSq or quadrant here 
+      #sum area by SUBDIV sampled
+      #area_by_subdiv1 <- tapply.ID(df=area_by_subdiv, datacols=c("KM2_LAM"), factorcols=c("Year","SUBDIV"), sum,c("KM2_LAMsum"))  
       area_by_subdiv <- tapply.ID(df=area_by_subdiv, datacols=c("KM2_LAM"), factorcols=c("Year","SurvStratum"), sum,c("KM2_LAMsum"))  
       
       #compare to area of subdivision for survey (all years)
       area_by_subdiv <- merge(x=ATTRIB_SUBDIV, y=area_by_subdiv, all.y=TRUE, by.x=c("SurvStratum") , by.y=c("SurvStratum") ) 
-      #ratio to scale up to subdiv estimate
+      #ratio to scale up to SUBDIV estimate
       area_by_subdiv$scale <- area_by_subdiv$KM2_LAM / area_by_subdiv$KM2_LAMsum
       if(WRITE  & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.csv(area_by_subdiv, file = paste(FILENAM,"_area_by_subdiv.csv",sep=''))
       #big raising factors?#            #area_by_subdiv[area_by_subdiv$scale>2,]
       #problems?   # area_by_subdiv[area_by_subdiv$scale<1,]
-      #now sum catch by sampstrat to subdiv area and scale for missing area (each year)
-      FACT <- c("Year","FishLength_cm","SpeciesSciName","subdiv","DEMPEL","Order","Group")
+      #now sum catch by SurvStratum to SUBDIV area and scale for missing area (each year)
+      FACT <- c("Year","FishLength_cm","SpeciesSciName","SUBDIV","DEMPEL","Order","Group")
       DATACOLS<-c("CatCatchWgtSwept","Abund_N_Swept")
       if(CATCHABILITY_COR_WALKER | CATCHABILITY_COR_MOD) DATACOLS<- c(DATACOLS, "CatCatchWgtSwept_beforeQmult")
       
       meanLD_bio_by_subdiv <- tapply.ID(df=meanLD_bio_by_area, datacols=DATACOLS, factorcols=FACT,sum,DATACOLS)  
-      meanLD_bio_by_subdiv <- merge(x=area_by_subdiv[,c("SurvStratum","Year","scale")], y=meanLD_bio_by_subdiv, all.y=TRUE, by.x=c("SurvStratum","Year") , by.y=c("subdiv","Year") )  
+      meanLD_bio_by_subdiv <- merge(x=area_by_subdiv[,c("SurvStratum","Year","scale")], y=meanLD_bio_by_subdiv, all.y=TRUE, by.x=c("SurvStratum","Year") , by.y=c("SUBDIV","Year") )  
       if(AREASCALE){
         meanLD_bio_by_subdiv$CatCatchWgtSwept <- meanLD_bio_by_subdiv$scale*meanLD_bio_by_subdiv$CatCatchWgtSwept
         meanLD_bio_by_subdiv$Abund_N_Swept <- meanLD_bio_by_subdiv$scale*meanLD_bio_by_subdiv$Abund_N_Swept
         if(CATCHABILITY_COR_WALKER | CATCHABILITY_COR_MOD) meanLD_bio_by_subdiv$CatCatchWgtSwept_beforeQmult <- meanLD_bio_by_subdiv$scale*meanLD_bio_by_subdiv$CatCatchWgtSwept_beforeQmult
       }
-      if(WRITE_LDs & (!BOOTSTRAP | (BOOTSTRAP & B==0))) write.csv(meanLD_bio_by_subdiv,file = paste(paste(FILENAM,sep='_'), "LD_tonnes_Year_W.by.subdiv.csv",sep=".") )
+      if(WRITE_LDs & (!BOOTSTRAP | (BOOTSTRAP & B==0))) write.csv(meanLD_bio_by_subdiv,file = paste(paste(FILENAM,sep='_'), "LD_tonnes_Year_W.by.SUBDIV.csv",sep=".") )
       #lost DEMPEL, MAXL and TL again
     }
     
@@ -488,7 +488,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     meanLD_bio_by_areaNOYEAR <- tapply.ID(df=meanLD_bio_by_area, datacols=DATACOLS, factorcols= c("FishLength_cm","SpeciesSciName"), mean,DATACOLS)  
     if(WRITE_LDs & (!BOOTSTRAP | (BOOTSTRAP & B==0))) write.csv(meanLD_bio_by_areaNOYEAR,file = paste(paste(FILENAM,sep='_'),"LD_tonnes_YEARave.csv",sep=".") )
     
-    #third level biomass to regional sea (or survey extent i.e. coverage of 'subdiv' in year)
+    #third level biomass to regional sea (or survey extent i.e. coverage of 'SUBDIV' in year)
     for(SP in SPECIES){
       if(SP=="ALL") SP<-c("DEM","PEL")
       if(BYSUBDIV & SAMP_STRAT){
@@ -604,7 +604,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   for(SP in SPECIES_LOOP){ # SP<-"ALL" 
     print(SP)
     FILENAM <-  paste(FILENAM_DEMPEL,SP,sep='') 
-    #meanLD_bio_by_area# is species_bio_by_area_DEMPEL but raised by area to lowest sampstrat
+    #meanLD_bio_by_area# is species_bio_by_area_DEMPEL but raised by area to lowest SurvStratum
     if(BYSUBDIV | SAMP_STRAT){
       if(SP == "ALL"){ species_bio_by_area <- meanLD_bio_by_area
       } else { species_bio_by_area <- meanLD_bio_by_area[meanLD_bio_by_area$DEMPEL==SP,]; }
@@ -614,14 +614,14 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     }
     if(nrow(species_bio_by_area)==0){ print(paste("no species_bio_by_area data for ",SP,sep=''));  break}
     if( length( unique(species_bio_by_area$SpeciesSciName) )<5){ if( length( unique(species_bio_by_area$SpeciesSciName) )<5) print(paste("<5 species recorded in group ",SP,sep='')); print(paste("<5 species recorded in group ",SP,sep=''));  break}
-    # include correction for area of strata here so have CPUE_estimates * area of sampstrat (or subdiv if lowest level)
+    # include correction for area of strata here so have CPUE_estimates * area of SurvStratum (or SUBDIV if lowest level)
     if(BYSUBDIV & SAMP_STRAT){ # merge in scaling factor
-      species_bio_by_area <- merge(x=species_bio_by_area, y=area_by_subdiv, by.x = c("Year","subdiv"),by.y = c("Year","SurvStratum"),all.x=T)
+      species_bio_by_area <- merge(x=species_bio_by_area, y=area_by_subdiv, by.x = c("Year","SurvStratum"),by.y = c("Year","SurvStratum"),all.x=T)
       if(AREASCALE){
         species_bio_by_area$CatCatchWgtSwept <- species_bio_by_area$CatCatchWgtSwept*species_bio_by_area$scale
         if(CATCHABILITY_COR_WALKER | CATCHABILITY_COR_MOD) species_bio_by_area$CatCatchWgtSwept_beforeQmult <- species_bio_by_area$CatCatchWgtSwept_beforeQmult*species_bio_by_area$scale
       }
-    }# corrected for any change in sampling between subdiv, but not scaled up to include missing subdiv
+    }# corrected for any change in sampling between SUBDIV, but not scaled up to include missing SUBDIV
     
     #just elasmos etc
     if(!is.null(GROUP)){
