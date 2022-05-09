@@ -25,9 +25,11 @@ NAMsubdiv="SUBDIV"
 SUBDIV$SurvStratum = SUBDIV$SurvStrat
 SUBDIV$SurvStrat <- NULL
 
-if(BYSUBDIV){ # Overwrite with the subdivisions
-SUBDIV@data["SurvStratum"] = SUBDIV@data[`NAMsubdiv`]
-}
+SAMP_FACT <- c("KM2_LAM", NAMsampstrat,NAMsubdiv)
+
+# if(BYSUBDIV){ # Overwrite with the subdivisions
+# SUBDIV@data["SurvStratum"] = SUBDIV@data[`NAMsubdiv`]
+# }
 
 # get areas in km2 when in lambert azimuthal equal area projection
 SUBDIV$KM2_LAM=raster::area(spTransform(SUBDIV, CRS("+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"))) / 1000000
@@ -144,7 +146,6 @@ require(maptools)
 # if(EHDS_PP){  ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep='') ) 
 #               names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c("KM2_LAM", "SurvStratum") } 
 #if(OVERWITE_SUBDIV) dhspp$SurvStratum<-dhspp$sampstrat###01Feb2017
-SAMP_FACT <- c("KM2_LAM", "SurvStratum")
 ATTRIB <- SUBDIV@data[,SAMP_FACT]
 #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
 #subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV

@@ -13,7 +13,7 @@
 # Dec 2021. changed looping when species ALL - no longer create combined group
 INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM="", SAMP_STRAT=T, BYSUBDIV=T, AREASCALE=T,
                   MEANTL=T, MaxL=T, Loo=T, Lm=T, MeanL=T, TyL_GeoM=F, SPECIES = c("DEM"), 
-                  GROUP=NULL, TyL_SPECIES=F, BYGUILD=F,QUAD=F,QUAD_SMOOTH=F,QUADS=QUADS){
+                  GROUP=NULL, TyL_SPECIES=F, BYGUILD=F,QUAD=F,QUAD_SMOOTH=F,QUADS=QUADS, ATTRIB = ATTRIB, ATTRIB_SUBDIV = ATTRIB_SUBDIV){
     #SAMP_STRAT<-T; BYSUBDIV<-T; SPECIES<-c("DEM"); #
     #BOOTSTRAP<-F;  WRITE=T; LFI=T; MEANTL=F; MaxL=T; Loo=F; Lm=F; MeanL=F; TyL_GeoM=T; LFI_THRESHOLD<-50; QUAD<-F; QUAD_SMOOTH<-F
   # DATA<-dhspp; GROUP<-NULL;
@@ -129,7 +129,6 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     if(BYSUBDIV) NAMsubdiv <- "NAME"     #new areas as used for FC/FW3
     #if(BYSUBDIV) NAMsubdiv <- "LFIregion" #old spatial areas - 25 year plan
     #NAMsampstrat<-"ICESNAME"
-    ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/",survey,".csv",sep=''))
     SAMP_FACT <- "KM2_LAM"
     if(SAMP_STRAT){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsampstrat)] <- "sampstrat"; SAMP_FACT <- c(SAMP_FACT, "sampstrat") }
     if(BYSUBDIV){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c(SAMP_FACT, "SurvStratum")} 
