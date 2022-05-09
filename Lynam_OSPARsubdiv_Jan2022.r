@@ -21,9 +21,13 @@ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined.shp",sep=''));
 SUBDIV = SUBDIV[SUBDIV$Survey_Acr==survey,]
 
 NAMsampstrat="SurvStratum"
-NAMsubdiv="SurvStratum"
+NAMsubdiv="SUBDIV"
 SUBDIV$SurvStratum = SUBDIV$SurvStrat
 SUBDIV$SurvStrat <- NULL
+
+if(BYSUBDIV){ # Overwrite with the subdivisions
+SUBDIV@data["SurvStratum"] = SUBDIV@data[`NAMsubdiv`]
+}
 
 # get areas in km2 when in lambert azimuthal equal area projection
 SUBDIV$KM2_LAM=raster::area(spTransform(SUBDIV, CRS("+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"))) / 1000000
@@ -158,8 +162,8 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
   
   ox <- over(dhspp0, SUBDIV) #bring in all attributes of location i..e both sampstrat and subdiv if applicable #head(ox)
   ## which are the subdivisions and sampling stratification units
-  if(BYSUBDIV) names(ox)[which(names(ox)==NAMsubdiv)] <- "SurvStratum" 
-  if(SAMP_STRAT) names(ox)[which(names(ox)==NAMsampstrat)] <- "sampstrat"
+  # if(BYSUBDIV) names(ox)[which(names(ox)==NAMsubdiv)] <- "SurvStratum" 
+  # if(SAMP_STRAT) names(ox)[which(names(ox)==NAMsampstrat)] <- "sampstrat"
   if(EHDS_PP){  names(ox)[which(names(ox)=="area_1")] <- "KM2_LAM" #rename as not in shp correct
                 dhspp <- dhspp[!is.na(ox$SurvStratum) & ox$SurvStratum!="Other", ] # some areas were cut for PP
                 ox <- ox[!is.na(ox$SurvStratum) & ox$SurvStratum!="Other", ]
@@ -226,16 +230,14 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
   
   #c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")
   if(!QUAD & (SAMP_STRAT & (survey %in% c("GNSGerBT3", "GNSNetBT3", "GNSIntOT1", "GNSIntOT3", "GNSNetBi3", "GNSIntBi3"))) ){
-    dhspp <- dhspp[,-which(names(dhspp) == "sampstrat")]
     dhspp$sampstrat <- dhspp$ICESStSq
   }
   rm(ox,dhspp0)   #altered 17jul2017#dhspp <- dhspp[,-which(names(dhspp)=="optional")]
   
   #exclude poorly sampled
-  if(BYSUBDIV){ dhspp$SurvStratum <- ac(dhspp$SurvStratum)
-                #exclude non-strata
-                dhspp <- dhspp[!is.na(dhspp$SurvStratum),]
-  }
+  dhspp$SurvStratum <- ac(dhspp$SurvStratum)
+  #exclude non-strata
+  dhspp <- dhspp[!is.na(dhspp$SurvStratum),]
   #survey specific excludes
   if(survey=="CSScoOT4" | surveyread=="CSScoOT4"){
     dhspp <- dhspp[ dhspp$Year>1996,]

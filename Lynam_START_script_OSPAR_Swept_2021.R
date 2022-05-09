@@ -616,8 +616,9 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   # and read attributes of shapefiles create table ATTRIB with names SurvStratum & KM2_LAM 
   ##### strata ##### 
   print("now add strata")
+  dhbefore=dhspp
   source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Jan2022.r",sep=""))
-  
+  sdfg  
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #### Calc ALL indicators ####  
   if(EHDS_PP) SAMP_STRAT<-F

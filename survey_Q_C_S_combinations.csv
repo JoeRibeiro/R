@@ -1,5 +1,5 @@
 Surveynam1,Surveynam2,Quarter,Country,Sea,LFI_threshold,Gear,Species,hhfilename,hlfilename,strata,SAMP_STRAT,BYSUBDIV,First_year,Last_year,Std_gear,Std_gear_subscripts,MinTrawlDuration,MaxTrawlDuration,insertion date,data update HL
-GNSNetBi3,SNS,3,NL,GNS,30,Beam_inshore,DEM,HH-SNS.csv,HL-SNS.csv,GNSstrat_Atlantis.shp,FALSE,TRUE,2002,2020,BT6,,12,16,18/10/2021,no
+GNSNetBi3,SNS,3,NL,GNS,30,Beam_inshore,DEM,HH-SNS.csv,HL-SNS.csv,GNSstrat_Atlantis.shp,TRUE,TRUE,2002,2020,BT6,,12,16,18/10/2021,no
 GNSIntBi3,DYFS,3,Int,GNS,30,Beam_inshore,DEM,HH-DYFS.csv,HL-DYFS.csv,GNSstrat_Atlantis.shp,TRUE,TRUE,2002,2020,BT3,,12,16,18/10/2021,no
 BBICFraOT4,EVHOE,4,FR,CS,40,GOV,DEM,HH-EVHOE.csv,HL-EVHOE.csv,EVHOE.WGS84.shp,FALSE,TRUE,1997,2020,GOV,,13,66,19/02/2021,no
 BBICnSpaOT4,SP-NORTH,4,ES,BBIC,25,GOV,DEM,HH-SP-NORTH.csv,HL_SP_NORTH.csv,Sp_North.WGS84.shp,FALSE,TRUE,2011,2020,BAK,,13,66,13/01/2021,updated 18 jan 2022 as 2013/17:18 data changed - still outstanding issues
