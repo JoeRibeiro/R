@@ -17,22 +17,24 @@ if( substr(survey,nchar(survey)-4,nchar(survey))=="_hist" ){ surveyread <- subst
 
 
 # Joe changes to get from one shapefile
-SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined.shp",sep='')); 
-SUBDIV = SUBDIV[SUBDIV$Survey_Acr==survey,]
+subdiv<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined.shp",sep='')); 
+subdiv = subdiv[subdiv$Survey_Acr==survey,]
 
-NAMsampstrat="SurvStratum"
-NAMsubdiv="SUBDIV"
-SUBDIV$SurvStratum = SUBDIV$SurvStrat
-SUBDIV$SurvStrat <- NULL
+NAMsampstrat="SurvStratum" 
+NAMsubdiv="subdiv"
+subdiv$SurvStratum = subdiv$SurvStrat # Names expected by the onward scripts written by CL (indfn scripts)
+subdiv$SurvStrat <- NULL
+subdiv$subdiv = subdiv$SUBDIV
+subdiv$SUBDIV <- NULL
 
 SAMP_FACT <- c("KM2_LAM", NAMsampstrat,NAMsubdiv)
 
 # if(BYSUBDIV){ # Overwrite with the subdivisions
-# SUBDIV@data["SurvStratum"] = SUBDIV@data[`NAMsubdiv`]
+# subdiv@data["SurvStratum"] = subdiv@data[`NAMsubdiv`]
 # }
 
 # get areas in km2 when in lambert azimuthal equal area projection
-SUBDIV$KM2_LAM=raster::area(spTransform(SUBDIV, CRS("+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"))) / 1000000
+subdiv$KM2_LAM=raster::area(spTransform(subdiv, CRS("+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"))) / 1000000
 
  
 if( !exists("EHDS_PP") ){ EHDS_PP<-F } else { if(EHDS_PP) SAMP_STRAT<-F } # not for standard indicators #mar2017 test for cf to PP 
@@ -52,87 +54,87 @@ if(substr(survey,1,2) == "GN"){
 require(maptools)
 
 # if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","IBTS")){
-#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') )
-#   if(EHDS_PP) SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_EHDPP/ehu_polygons.shp",sep='') ) 
+#   subdiv <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') )
+#   if(EHDS_PP) subdiv <- rgdal::readOGR(paste(SHAPEPATH,"GNS_EHDPP/ehu_polygons.shp",sep='') ) 
 #   if(BYSUBDIV) NAMsubdiv <- "NAME"     #new areas as used for FC/FW3
 #   #if(BYSUBDIV) NAMsubdiv <- "LFIregion" #old spatial areas - 25 year plan
 #   NAMsampstrat<-"ICESNAME"
 # } 
 
 # if(survey %in% c("GNSGerBT3")){
-#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSGerBT3/GNSstrat_Atlantis.shp",sep='') ) 
+#   subdiv <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSGerBT3/GNSstrat_Atlantis.shp",sep='') ) 
 #   if(BYSUBDIV) NAMsubdiv <- "NAME"
 #   NAMsampstrat<-"ICESNAME"
 # } 
 
 # if(survey %in% c("GNSNetBT3", "GNSBelBT3", "GNSNetBi3", "GNSIntBi3")){
-#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSNetBT3/GNSstrat_Atlantis.shp",sep='') ) 
+#   subdiv <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSNetBT3/GNSstrat_Atlantis.shp",sep='') ) 
 #   if(BYSUBDIV) NAMsubdiv <- "NAME"
 #   NAMsampstrat<-"ICESNAME"
   if(survey %in% c("GNSBelBT3","GNSNetBi3", "GNSIntBi3")){ surveyread<-"GNSIntOT1" }
 # }
 
 # if(survey %in% c("GNSEngBT3","GNSIntOT1_channel") ){ 
-#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"EChanEngBeamSimple/EChanBT3Simple.shp",sep=''))
+#   subdiv <- rgdal::readOGR(paste(SHAPEPATH,"EChanEngBeamSimple/EChanBT3Simple.shp",sep=''))
 #   NAMsubdiv <- "name"
   if(survey=="GNSIntOT1_channel"){ surveyread<-"GNSEngBT3" }
 # }
 # if(survey%in% c("CSEngBT4","CSEngBT1")) { 
-#   SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"WChanEngBeam/WChanBT4.shp",sep='')) #no rect "CSEngBT4" carhelmar discontinued
-#   #SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Q1SWBEAM/2016onwards/CSEngBT1_rect.shp",sep=''))#does not work with over  #strata split by rect
+#   subdiv<-rgdal::readOGR(paste(SHAPEPATH,"WChanEngBeam/WChanBT4.shp",sep='')) #no rect "CSEngBT4" carhelmar discontinued
+#   #subdiv<-rgdal::readOGR(paste(SHAPEPATH,"Q1SWBEAM/2016onwards/CSEngBT1_rect.shp",sep=''))#does not work with over  #strata split by rect
 #   #NAMsampstrat <- "ICESNAME"
-#   #Q1SWECOS_Strata3WGS84.shp   #svens#names(SUBDIV)[which(names(SUBDIV)=="Stratum_Ar")]<-"KM2_LAM"#1e6
+#   #Q1SWECOS_Strata3WGS84.shp   #svens#names(subdiv)[which(names(subdiv)=="Stratum_Ar")]<-"KM2_LAM"#1e6
 #   #CelticSea_StrataSurveyGrid_20151015_final_Albers.shp #minigrid
 #   NAMsubdiv <- "Stratum"
   if(survey %in% c("CSEngBT1")){ surveyread<-"CSEngBT1_attrib_subdivkm2" }
 # }
 # if(survey=="CSEngBT3_Bchannel"){ 
-#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"BChanEngBeam/BChanBT3.shp",sep=''))
+#   subdiv <- rgdal::readOGR(paste(SHAPEPATH,"BChanEngBeam/BChanBT3.shp",sep=''))
 #   NAMsubdiv <- "Stratum"
 # }
-# if(survey %in% c("CSNIrOT4","CSNIrOT1","CSEngBT3")){ #SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"irish_seaGFS//NI_IBTS.WGS84.shp",sep=''))#not using as not sampled deepwater
-#   SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"irish_seaBT//NI_IBTS.WGS84.shp",sep=''))
+# if(survey %in% c("CSNIrOT4","CSNIrOT1","CSEngBT3")){ #subdiv<-rgdal::readOGR(paste(SHAPEPATH,"irish_seaGFS//NI_IBTS.WGS84.shp",sep=''))#not using as not sampled deepwater
+#   subdiv<-rgdal::readOGR(paste(SHAPEPATH,"irish_seaBT//NI_IBTS.WGS84.shp",sep=''))
 #   NAMsubdiv <- "Features"
   if(survey %in% c("CSNIrOT4","CSNIrOT1") ){ surveyread<-"CSEngBT3" }
 # }
-# if(survey %in% c("CSScoOT1","CSScoOT1_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWCQ1.WGS84//SWC_Q1.shp",sep=''))
+# if(survey %in% c("CSScoOT1","CSScoOT1_hist")){ subdiv<-rgdal::readOGR(paste(SHAPEPATH,"SWCQ1.WGS84//SWC_Q1.shp",sep=''))
 #   NAMsubdiv <- "Name"
 # }
-# if(survey %in% c("CSScoOT4","CSScoOT4_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWCQ4.WGS84//SWC_Q4.shp",sep=''))
+# if(survey %in% c("CSScoOT4","CSScoOT4_hist")){ subdiv<-rgdal::readOGR(paste(SHAPEPATH,"SWCQ4.WGS84//SWC_Q4.shp",sep=''))
 # NAMsubdiv <- "Name"
 # }
-# if(survey %in% c("WAScoOT3","WAScoOT3_hist")){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"SWC-RockQ3.WGS84//SWC_Q3.shp",sep=''))
+# if(survey %in% c("WAScoOT3","WAScoOT3_hist")){ subdiv<-rgdal::readOGR(paste(SHAPEPATH,"SWC-RockQ3.WGS84//SWC_Q3.shp",sep=''))
 # NAMsubdiv <- "Name"
 # }
-# if(survey %in% c("BBICnSpaOT1","BBICnSpaOT4") ){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Sp-NGFS.WGS84//Sp_North.WGS84.shp",sep=''))
+# if(survey %in% c("BBICnSpaOT1","BBICnSpaOT4") ){ subdiv<-rgdal::readOGR(paste(SHAPEPATH,"Sp-NGFS.WGS84//Sp_North.WGS84.shp",sep=''))
 # NAMsubdiv <- "Primary"
 # }
-# if(survey=="BBICsSpaOT1"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-Cadiz.WGS84/Sp_Cadiz.WGS84.shp",sep=''))
+# if(survey=="BBICsSpaOT1"){ subdiv <- rgdal::readOGR(paste(SHAPEPATH,"Sp-Cadiz.WGS84/Sp_Cadiz.WGS84.shp",sep=''))
 # NAMsubdiv <- "ESTRATO"
 # }
-# if(survey=="BBICsSpaOT4"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-Cadiz.WGS84/Sp_Cadiz.WGS84.shp",sep=''))
+# if(survey=="BBICsSpaOT4"){ subdiv <- rgdal::readOGR(paste(SHAPEPATH,"Sp-Cadiz.WGS84/Sp_Cadiz.WGS84.shp",sep=''))
 # NAMsubdiv <- "ESTRATO"
 # }
-# if(survey=="WASpaOT3"){ SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"Sp-PorcGFS.WGS84/Porcupine.WGS84.shp",sep=''))
+# if(survey=="WASpaOT3"){ subdiv <- rgdal::readOGR(paste(SHAPEPATH,"Sp-PorcGFS.WGS84/Porcupine.WGS84.shp",sep=''))
 # NAMsubdiv <- "Primary"
 # }
-# if(survey=="CSIreOT4"){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"IGFS.WGS84//IGFS.WGS84.shp",sep=''))
+# if(survey=="CSIreOT4"){ subdiv<-rgdal::readOGR(paste(SHAPEPATH,"IGFS.WGS84//IGFS.WGS84.shp",sep=''))
 # NAMsubdiv <- "Primary"
 # }
-# if(survey == "BBICFraOT4"){ SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Fr-EVHOE.WGS84//EVHOE.WGS84.shp",sep=''))
+# if(survey == "BBICFraOT4"){ subdiv<-rgdal::readOGR(paste(SHAPEPATH,"Fr-EVHOE.WGS84//EVHOE.WGS84.shp",sep=''))
 # NAMsubdiv <- "STRATE"
 # }
 # if(survey %in% c("CSFraOT4","BBICFraBT4","BBICFraOT4")){ 
-#   SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"Fr-EVHOE.WGS84_original//EVHOE.WGS84.shp",sep=''))
+#   subdiv<-rgdal::readOGR(paste(SHAPEPATH,"Fr-EVHOE.WGS84_original//EVHOE.WGS84.shp",sep=''))
 #   NAMsubdiv <- "STRATE"
   if(survey %in% c("BBICFraBT4","BBICFraOT4")){ surveyread<-"CSFraOT4" }
 # }
 # if(survey=="BBICPorOT4"){
-#   SUBDIV<-rgdal::readOGR(paste(SHAPEPATH,"BBICPorOT4/Contour3strata_sector.shp",sep='')); 
+#   subdiv<-rgdal::readOGR(paste(SHAPEPATH,"BBICPorOT4/Contour3strata_sector.shp",sep='')); 
 # NAMsubdiv <- "ID_1" 
 # }
 # if(survey=="GNSFraOT4"){
-#   SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNSFraOT4/GNSFraOT4_EngBT3Simple.shp",sep='') ) # EChannel
+#   subdiv <- rgdal::readOGR(paste(SHAPEPATH,"GNSFraOT4/GNSFraOT4_EngBT3Simple.shp",sep='') ) # EChannel
 #   if(BYSUBDIV) NAMsubdiv <- "name" # combined with depth layers 
 #   NAMsampstrat<-"FID_GNSFra" # mini grid 0.25deg # sampstrat
 # }   
@@ -146,39 +148,39 @@ require(maptools)
 # if(EHDS_PP){  ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep='') ) 
 #               names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c("KM2_LAM", "SurvStratum") } 
 #if(OVERWITE_SUBDIV) dhspp$SurvStratum<-dhspp$sampstrat###01Feb2017
-ATTRIB <- SUBDIV@data[,SAMP_FACT]
+ATTRIB <- subdiv@data[,SAMP_FACT]
 #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
-#subdiv area - if using by rectangle sampstrat need to sum area for SUBDIV
+#subdiv area - if using by rectangle sampstrat need to sum area for subdiv
 if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GNSEngBT3","GNSIntOT1_channel", "GNSNetBi3", "GNSIntBi3")){
-  ATTRIB_SUBDIV <- aggregate(x=ATTRIB$KM2_LAM,by=list(SurvStratum=ATTRIB$SurvStratum), FUN=sum)
+  ATTRIB_SUBDIV <- aggregate(x=ATTRIB$KM2_LAM,by=list(ATTRIB[,`NAMsampstrat`]), FUN=sum)
   names(ATTRIB_SUBDIV)[2] <- "KM2_LAM"
 }
 
-#SUBDIV 
-  dhspp <- dhspp[,-which(names(dhspp)=="SurvStratum")]
+#subdiv 
+  dhspp <- dhspp[,names(dhspp)!=NAMsampstrat]
   dhspp0<- dhspp #altered 17jul2017
   coordinates(dhspp0) <- ~ ShootLong_degdec +ShootLat_degdec #altered 17jul2017
   suppressWarnings(proj4string(dhspp0) <- CRS("+init=epsg:4326") ) #Warning message: In proj4string(obj) : CRS object has comment, which is lost in output
-  suppressWarnings(proj4string(SUBDIV) <- CRS("+init=epsg:4326") ) #Warning message: In proj4string(obj) : CRS object has comment, which is lost in output
+  suppressWarnings(proj4string(subdiv) <- CRS("+init=epsg:4326") ) #Warning message: In proj4string(obj) : CRS object has comment, which is lost in output
   
-  ox <- over(dhspp0, SUBDIV) #bring in all attributes of location i..e both sampstrat and subdiv if applicable #head(ox)
+  ox <- over(dhspp0, subdiv) #bring in all attributes of location i..e both sampstrat and subdiv if applicable #head(ox)
   ## which are the subdivisions and sampling stratification units
   # if(BYSUBDIV) names(ox)[which(names(ox)==NAMsubdiv)] <- "SurvStratum" 
   # if(SAMP_STRAT) names(ox)[which(names(ox)==NAMsampstrat)] <- "sampstrat"
   if(EHDS_PP){  names(ox)[which(names(ox)=="area_1")] <- "KM2_LAM" #rename as not in shp correct
-                dhspp <- dhspp[!is.na(ox$SurvStratum) & ox$SurvStratum!="Other", ] # some areas were cut for PP
-                ox <- ox[!is.na(ox$SurvStratum) & ox$SurvStratum!="Other", ]
+                dhspp <- dhspp[!is.na(ox[`NAMsampstrat`]) & ox[`NAMsampstrat`]!="Other", ] # some areas were cut for PP
+                ox <- ox[!is.na(ox[`NAMsampstrat`]) & ox[`NAMsampstrat`]!="Other", ]
   }
   dhspp <- cbind(dhspp,ox[,SAMP_FACT])  ### issue here for GNSGerBT3 41F4 and 41F5 do not agree with samp file for 2001 since long shoot == 5 exactly
 
 #if(QUAD) #replace sampstrat with quads
   ###### feb2019 quadrants
   if(QUAD){
-    if(survey %in% c("GNSIntOT1","GNSIntOT3")) SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') ) 
-    if(survey %in% "GNSGerBT3") SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSGerBT3/GNSstrat_Atlantis.shp",sep='') ) 
-    if(survey %in% "GNSNetBT3") SUBDIV <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSNetBT3/GNSstrat_Atlantis.shp",sep='') ) 
+    if(survey %in% c("GNSIntOT1","GNSIntOT3")) subdiv <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSIntOT/GNSstrat_Atlantis.shp",sep='') ) 
+    if(survey %in% "GNSGerBT3") subdiv <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSGerBT3/GNSstrat_Atlantis.shp",sep='') ) 
+    if(survey %in% "GNSNetBT3") subdiv <- rgdal::readOGR(paste(SHAPEPATH,"GNS_rectstrat/GNSNetBT3/GNSstrat_Atlantis.shp",sep='') ) 
       
-    QUAD_DAT <- SUBDIV@data
+    QUAD_DAT <- subdiv@data
     #split rect into 2 x 2 quadrants
     QUAD_DAT$QUADNAME <- QUAD_DAT$ICESNAME
     QUAD_DAT$NS <- QUAD_DAT$NORTH - QUAD_DAT$SOUTH
@@ -221,12 +223,12 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     gridQ = as(gridq, "SpatialGridDataFrame")
     
     ox <- over(dhspp0, gridQ) #bring in all attributes of location i.e. both sampstrat and subdiv if applicable 
-    names(ox)[which(names(ox)=="QUADNAME")] <- "sampstrat"
+    names(ox)[which(names(ox)=="QUADNAME")] <- NAMsampstrat
     #dhspp2 <- data.frame(dhspp0,sampstrat=ox[,"sampstrat"])
     
-    dhspp <- cbind(dhspp[,-which(names(dhspp)=="sampstrat")],sampstrat=ox[,"sampstrat"]) 
+    dhspp <- cbind(dhspp[,-which(names(dhspp)==NAMsampstrat)],sampstrat=ox[,NAMsampstrat]) 
     #determine distance of haul to centre points
-    #should use simon's areas as the SUBDIV
+    #should use simon's areas as the subdiv
   }
   
   #c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")
@@ -236,9 +238,9 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
   rm(ox,dhspp0)   #altered 17jul2017#dhspp <- dhspp[,-which(names(dhspp)=="optional")]
   
   #exclude poorly sampled
-  dhspp$SurvStratum <- ac(dhspp$SurvStratum)
+  dhspp[`NAMsampstrat`] <- ac(dhspp[`NAMsampstrat`])
   #exclude non-strata
-  dhspp <- dhspp[!is.na(dhspp$SurvStratum),]
+  dhspp <- dhspp[!is.na(dhspp[`NAMsampstrat`]),]
   #survey specific excludes
   if(survey=="CSScoOT4" | surveyread=="CSScoOT4"){
     dhspp <- dhspp[ dhspp$Year>1996,]
@@ -248,11 +250,11 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     #exclude poorly sampled strata
     EXCLUDES<- c("17","21","37","42")
     
-    excluded <- dhspp[dhspp$SurvStratum %in% EXCLUDES,]
+    excluded <- dhspp[dhspp[`NAMsampstrat`] %in% EXCLUDES,]
     if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
     
-    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    dhspp <- dhspp[!dhspp[`NAMsampstrat`] %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
     print("Excluded strata 17, 21, 37 and 42")
     dhspp <- dhspp[ dhspp$Year>2004,]
     print("Excluded pre 2005 poor sampling")
@@ -262,11 +264,11 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     #exclude northern strata
     EXCLUDES <- c("Cs3","Cs4","Cs5","Cs6","Cs7", "Cc5","Cc6","Cc7", "Cn3","Cn2", "Cc3e","Cc4e","Cc4w","Cc3w")
     
-    excluded <- dhspp[dhspp$SurvStratum %in% EXCLUDES,]
+    excluded <- dhspp[dhspp[`NAMsampstrat`] %in% EXCLUDES,]
     if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
     
-    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    dhspp <- dhspp[!dhspp[`NAMsampstrat`] %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
     print("Excluded northern strata")
     }
   if(survey=="CSFraOT4"){
@@ -274,11 +276,11 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     EXCLUDES<- c("Gn1","Gn2","Gn3","Gn4","Gn5","Gn6", "Gn7","Gs1","Gs2","Gs3","Gs4","Gs5","Gs6","Gs7", "Cs3"
     ,"Cs6","Cs7","Cc6","Cc7","Cn2e")#deep and missing yrs ,"Cc3w"
     
-    excluded <- dhspp[dhspp$SurvStratum %in% EXCLUDES,]
+    excluded <- dhspp[dhspp[`NAMsampstrat`] %in% EXCLUDES,]
     if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
     
-    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    dhspp <- dhspp[!dhspp[`NAMsampstrat`] %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
     print("Excluded southern strata, deep and poorly sampled")
     #dhspp <- dhspp[ dhspp$Year>2000,]; print("Excluded pre 2001 poor sampling")
     #dhspp <- dhspp[ dhspp$Year>2001,]
@@ -289,40 +291,40 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     #exclude red1_lam	 windsock_lam  edge as poorly sampled
     EXCLUDES<-c("red1_lam")
     
-    excluded <- dhspp[dhspp$SurvStratum %in% EXCLUDES,]
+    excluded <- dhspp[dhspp[`NAMsampstrat`] %in% EXCLUDES,]
     if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
     
-    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    dhspp <- dhspp[!dhspp[`NAMsampstrat`] %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
     print("Excluded red1_lam")
   }
   if(survey=="WAScoOT3" | surveyread=="WAScoOT3"){
     #exclude mylightblue_lam edge as poorly sampled
     EXCLUDES <- "mylightblue_lam" 
     
-    excluded <- dhspp[dhspp$SurvStratum %in% EXCLUDES,]
+    excluded <- dhspp[dhspp[`NAMsampstrat`] %in% EXCLUDES,]
     if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
     
-    dhspp <- dhspp[dhspp$SurvStratum!=EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    dhspp <- dhspp[dhspp[`NAMsampstrat`]!=EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
     print("Excluded mylightblue_lam")
   }
   #if(survey %in% c("CSNIrOT4","CSNIrOT1")){
   #  #exclude st georges channel as poorly sampled
   #  EXCLUDES <- "St George's Channel <100m"
-  #  dhspp <- dhspp[dhspp$SurvStratum!=EXCLUDES,]
-  #  ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+  #  dhspp <- dhspp[dhspp[`NAMsampstrat`]!=EXCLUDES,]
+  #  ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
   #  print("Excluded St George's Channel <100m")
   #}
   if(survey == "CSIreOT4" | surveyread=="CSIreOT4"){
     #exclude slope as poorly sampled and not technically CSeas ecoregion
     EXCLUDES <- c("VIIj_Slope","VIIb_Slope","VIa_Slope")
     
-    excluded <- dhspp[dhspp$SurvStratum %in% EXCLUDES,]
+    excluded <- dhspp[dhspp[`NAMsampstrat`] %in% EXCLUDES,]
     if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
     
-    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    dhspp <- dhspp[!dhspp[`NAMsampstrat`] %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
     print("Excluded VIIj_Slope, VIIb_Slope and VIa_Slope")
   }
   
@@ -330,11 +332,11 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     #exclude A J and l as poorly sampled 
     EXCLUDES <- c("StratumA","StratumI","StratumJ")
     
-    excluded <- dhspp[dhspp$SurvStratum %in% EXCLUDES,]
+    excluded <- dhspp[dhspp[`NAMsampstrat`] %in% EXCLUDES,]
     if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
     
-    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    dhspp <- dhspp[!dhspp[`NAMsampstrat`] %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
     print("Excluded StratumA, StratumI and StratumJ")
   }
   
@@ -342,11 +344,11 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     #exclude "UKcoast <25m" as poorly sampled 
     EXCLUDES <- c("UKcoast <25m")
     
-    excluded <- dhspp[dhspp$SurvStratum %in% EXCLUDES,]
+    excluded <- dhspp[dhspp[`NAMsampstrat`] %in% EXCLUDES,]
     if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
     
-    dhspp <- dhspp[!dhspp$SurvStratum %in% EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB$SurvStratum %in% EXCLUDES,]
+    dhspp <- dhspp[!dhspp[`NAMsampstrat`] %in% EXCLUDES,]
+    ATTRIB <- ATTRIB[!ATTRIB[`NAMsampstrat`] %in% EXCLUDES,]
     print("Excluded UKcoast <25m")
   }
   
@@ -355,10 +357,10 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
   if(PLOTIT){
     #par(bg='light grey')
     x11()
-    plot(SUBDIV,col=af(SUBDIV$Name))#with(dhspp,plot(ShootLong_degdec,ShootLat_degdec))
+    plot(subdiv,col=af(subdiv$Name))#with(dhspp,plot(ShootLong_degdec,ShootLat_degdec))
     with(dhspp,points(ShootLong_degdec,ShootLat_degdec,col="white",pch=19))
-    for(i in 1:length(unique(dhspp$SurvStratum))){
-      with(dhspp[dhspp$SurvStratum== unique(dhspp$SurvStratum)[i],],points(ShootLong_degdec,ShootLat_degdec,col=i+1,cex=0.7))
+    for(i in 1:length(unique(dhspp[`NAMsampstrat`]))){
+      with(dhspp[dhspp[`NAMsampstrat`]== unique(dhspp[`NAMsampstrat`,i]),],points(ShootLong_degdec,ShootLat_degdec,col=i+1,cex=0.7))
     }
     map(add=T)
     savePlot(filename= paste(OUTPATH,survey,"_",format(Sys.time(), "%d%b%Y"),"samp_subdiv",".bmp",sep=''),type="bmp")
@@ -369,7 +371,7 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
   #outside sampstrata?
   if(SAMP_STRAT){  PLOTIT<-F #sometimes have hauls outside of strata! not if exclude NA above
   if(PLOTIT){
-    plot(SUBDIV,col=af(SUBDIV$Name))#with(dhspp,plot(ShootLong_degdec,ShootLat_degdec))
+    plot(subdiv,col=af(subdiv$Name))#with(dhspp,plot(ShootLong_degdec,ShootLat_degdec))
     with(dhspp,points(ShootLong_degdec,ShootLat_degdec,col="white",pch=19))
     for(i in 1:length(unique(dhspp$sampstrat))){
       with(dhspp[dhspp$sampstrat== unique(dhspp$sampstrat)[i],],points(ShootLong_degdec,ShootLat_degdec,col=i,cex=0.7))

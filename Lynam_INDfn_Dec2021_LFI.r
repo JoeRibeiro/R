@@ -4,7 +4,7 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LARGE fish Indicator prep  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #~~~~~~~~~~~~~~~~~ LARGE fish -> species_bioL_by_area and by region and overall sea area  ~~~~~~~
     LFI_FACT<- c("Year","FishLength_cm","SpeciesSciName")
-    if(BYSUBDIV) LFI_FACT<- c(LFI_FACT,"SUBDIV")
+    if(BYSUBDIV) LFI_FACT<- c(LFI_FACT,"subdiv")
     # by length class  #species sum bio cpue at len by rect
     if(nrow(species_bio_by_area[species_bio_by_area$FishLength_cm >LFI_THRESHOLD,])>0){
       suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
@@ -23,17 +23,17 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
     if(BYSUBDIV){
       suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
         species_bio_by_subdiv <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
-                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","SUBDIV"), sum,c("CatCatchWgtSwept"))
+                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","subdiv"), sum,c("CatCatchWgtSwept"))
       )
       if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bio_by_subdiv <- species_bio_by_subdiv[!is.na(species_bio_by_subdiv$Year),]
       
       species_bioL_by_subdiv <- tapply.ID(df=species_bioL_by_area, datacols=c("CatCatchWgtSwept_Large"), 
-                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","SUBDIV"), sum,c("CatCatchWgtSwept_Large"))
+                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","subdiv"), sum,c("CatCatchWgtSwept_Large"))
     }
     
-    #~~~~~~~~~~~~~~ all and large fish by regional sea scale from sampstrat not SUBDIV
-    # from rects if SAMP_STRAT/SUBDIV above or from SUBDIV only
-    # corrected for any change in sampling between SUBDIV
+    #~~~~~~~~~~~~~~ all and large fish by regional sea scale from sampstrat not subdiv
+    # from rects if SAMP_STRAT/subdiv above or from subdiv only
+    # corrected for any change in sampling between subdiv
     suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
       species_bio_by_sea <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
                                       factorcols=c("Year","FishLength_cm","SpeciesSciName"), sum,c("CatCatchWgtSwept"))
@@ -72,7 +72,7 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
   # LFI
     if(BYSUBDIV){
       
-      FACT <- c("Year","SUBDIV")
+      FACT <- c("Year","subdiv")
       # sum numerator of LFI by sub divisions
       LFInumreg <- tapply.ID(df=species_bioL_by_subdiv, datacols=c("CatCatchWgtSwept_Large"), factorcols=FACT, sum,c("CatCatchWgtSwept_Large"))
       # denominator of LFI by sub divisions
@@ -80,7 +80,7 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
       LFIreg <- merge(LFInumreg,LFIdenreg,by=FACT,all.y=T)
       LFIreg$LFI <- LFIreg[,'CatCatchWgtSwept_Large']/ LFIreg[,'CatCatchWgtSwept']
     
-      LFI_by_sub <- xtabs(LFI ~ Year + SUBDIV, LFIreg) # end up with missing years if no large fish
+      LFI_by_sub <- xtabs(LFI ~ Year + subdiv, LFIreg) # end up with missing years if no large fish
       if(WRITE) write.csv(LFI_by_sub,paste(FILENAM,'LFI_subregional.csv',sep="_"),row.names=T)
     } else { LFI_by_sub <- NULL }
   
