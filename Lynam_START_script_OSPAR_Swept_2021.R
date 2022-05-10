@@ -624,7 +624,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   if(SAMP_STRAT){ # dependent on survey see Lynam_OSPARsubdiv.r above# if(survey=="GNSFraOT4"){ dhspp$sampstrat <- dhspp$SurvStratum # minigrid of sqs
     dhspp <- dhspp[!is.na(dhspp$sampstrat),] #rm outside area## lots of KS
   } else { dhspp$sampstrat <- NA } 
-  if(BYSUBDIV){   dhspp$subdiv <- dhspp$SurvStratum; #dhspp$subdiv <-substr(dhspp$subdiv,1,2); # dependent on survey
+  if(BYSUBDIV){   #dhspp$subdiv <- dhspp$SurvStratum; #dhspp$subdiv <-substr(dhspp$subdiv,1,2); # dependent on survey
     dhspp$STRAT_DIV <- paste(dhspp$sampstrat, dhspp$subdiv,sep="_") 
   } else { dhspp$subdiv <- dhspp$STRAT_DIV <- NA; } 
   #could be hauls(sampstrat) within subdiv or only 'NA_subdiv'

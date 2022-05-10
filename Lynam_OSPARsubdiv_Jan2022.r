@@ -20,9 +20,9 @@ if( substr(survey,nchar(survey)-4,nchar(survey))=="_hist" ){ surveyread <- subst
 subdiv<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined.shp",sep='')); 
 subdiv = subdiv[subdiv$Survey_Acr==survey,]
 
-NAMsampstrat="SurvStratum" 
+NAMsampstrat="sampstrat" 
 NAMsubdiv="subdiv"
-subdiv$SurvStratum = subdiv$SurvStrat # Names expected by the onward scripts written by CL (indfn scripts)
+subdiv$sampstrat = subdiv$SurvStrat # Names expected by the onward scripts written by CL (indfn scripts)
 subdiv$SurvStrat <- NULL
 subdiv$subdiv = subdiv$SUBDIV
 subdiv$SUBDIV <- NULL
@@ -30,7 +30,7 @@ subdiv$SUBDIV <- NULL
 SAMP_FACT <- c("KM2_LAM", NAMsampstrat,NAMsubdiv)
 
 # if(BYSUBDIV){ # Overwrite with the subdivisions
-# subdiv@data["SurvStratum"] = subdiv@data[`NAMsubdiv`]
+# subdiv@data["sampstrat"] = subdiv@data[`NAMsubdiv`]
 # }
 
 # get areas in km2 when in lambert azimuthal equal area projection
@@ -144,10 +144,10 @@ require(maptools)
 # ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/",surveyread,".csv",sep=''))
 # SAMP_FACT <- "KM2_LAM"
 # if(SAMP_STRAT){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsampstrat)] <- "sampstrat"; SAMP_FACT <- c(SAMP_FACT, "sampstrat") }
-# if(BYSUBDIV){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c(SAMP_FACT, "SurvStratum")} 
+# if(BYSUBDIV){ names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "sampstrat"; SAMP_FACT <- c(SAMP_FACT, "sampstrat")} 
 # if(EHDS_PP){  ATTRIB <- read.csv(paste(SHAPEPATH,"attributes/GNS_EHDPP.csv",sep='') ) 
-#               names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "SurvStratum"; SAMP_FACT <- c("KM2_LAM", "SurvStratum") } 
-#if(OVERWITE_SUBDIV) dhspp$SurvStratum<-dhspp$sampstrat###01Feb2017
+#               names(ATTRIB)[which(names(ATTRIB) %in% NAMsubdiv)] <- "sampstrat"; SAMP_FACT <- c("KM2_LAM", "sampstrat") } 
+#if(OVERWITE_SUBDIV) dhspp$sampstrat<-dhspp$sampstrat###01Feb2017
 ATTRIB <- subdiv@data[,SAMP_FACT]
 #area relates to lowest sampling strata (i.e. rects, minigrid or survey strata poly)
 #subdiv area - if using by rectangle sampstrat need to sum area for subdiv
@@ -165,7 +165,7 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
   
   ox <- over(dhspp0, subdiv) #bring in all attributes of location i..e both sampstrat and subdiv if applicable #head(ox)
   ## which are the subdivisions and sampling stratification units
-  # if(BYSUBDIV) names(ox)[which(names(ox)==NAMsubdiv)] <- "SurvStratum" 
+  # if(BYSUBDIV) names(ox)[which(names(ox)==NAMsubdiv)] <- "sampstrat" 
   # if(SAMP_STRAT) names(ox)[which(names(ox)==NAMsampstrat)] <- "sampstrat"
   if(EHDS_PP){  names(ox)[which(names(ox)=="area_1")] <- "KM2_LAM" #rename as not in shp correct
                 dhspp <- dhspp[!is.na(ox[`NAMsampstrat`]) & ox[`NAMsampstrat`]!="Other", ] # some areas were cut for PP
@@ -230,15 +230,15 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     #determine distance of haul to centre points
     #should use simon's areas as the subdiv
   }
-  
-  #c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")
-  if(!QUAD & (SAMP_STRAT & (survey %in% c("GNSGerBT3", "GNSNetBT3", "GNSIntOT1", "GNSIntOT3", "GNSNetBi3", "GNSIntBi3"))) ){
-    dhspp$sampstrat <- dhspp$ICESStSq
-  }
-  rm(ox,dhspp0)   #altered 17jul2017#dhspp <- dhspp[,-which(names(dhspp)=="optional")]
-  
-  #exclude poorly sampled
-  dhspp[`NAMsampstrat`] <- ac(dhspp[`NAMsampstrat`])
+
+  # #c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")
+  # if(!QUAD & (SAMP_STRAT & (survey %in% c("GNSGerBT3", "GNSNetBT3", "GNSIntOT1", "GNSIntOT3", "GNSNetBi3", "GNSIntBi3"))) ){
+  #   dhspp$sampstrat <- dhspp$ICESStSq
+  # }
+  # rm(ox,dhspp0)   #altered 17jul2017#dhspp <- dhspp[,-which(names(dhspp)=="optional")]
+  # 
+  # #exclude poorly sampled
+  # dhspp[`NAMsampstrat`] <- ac(dhspp[`NAMsampstrat`])
   #exclude non-strata
   dhspp <- dhspp[!is.na(dhspp[`NAMsampstrat`]),]
   #survey specific excludes
