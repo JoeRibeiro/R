@@ -6,13 +6,11 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
     if(BY_LREG) LFI_FACT<- c(LFI_FACT,"subdiv")
     # by length class  #species sum bio cpue at len by rect
     if(nrow(species_bio_by_area[species_bio_by_area$FishLength_cm >LFI_THRESHOLD,])>0){
-      suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
          species_bioL_by_area <- tapply.ID(df=species_bio_by_area[species_bio_by_area$FishLength_cm >LFI_THRESHOLD,], 
                                       datacols=c("CatCatchWgtSwept"), 
                                       factorcols=LFI_FACT, 
                                       sum,c("CatCatchWgtSwept_Large"))
-                        )
-       
+
       if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bioL_by_area <- species_bioL_by_area[!is.na(species_bioL_by_area$Year),]
     } else { species_bioL_by_area <- species_bio_by_area[species_bio_by_area$FishLength_cm >LFI_THRESHOLD,] }
     #large average over hauls by sampstrat (e.g. rectangle) #species mean bio cpue at len by sampstrat
@@ -20,10 +18,8 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
     
     #~~~~~~~~~~~~~~ all and large fish by subdivision (already ave by #hauls in sampstrat (rect or other)
     if(BY_LREG){
-      suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
         species_bio_by_subdiv <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
                                          factorcols=c("Year","FishLength_cm","SpeciesSciName","subdiv"), sum,c("CatCatchWgtSwept"))
-      )
       if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bio_by_subdiv <- species_bio_by_subdiv[!is.na(species_bio_by_subdiv$Year),]
       
       species_bioL_by_subdiv <- tapply.ID(df=species_bioL_by_area, datacols=c("CatCatchWgtSwept_Large"), 
@@ -33,10 +29,8 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
     #~~~~~~~~~~~~~~ all and large fish by regional sea scale from sampstrat not subdiv
     # from rects if SAMP_STRAT/subdiv above or from subdiv only
     # corrected for any change in sampling between subdiv
-    suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
       species_bio_by_sea <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
                                       factorcols=c("Year","FishLength_cm","SpeciesSciName"), sum,c("CatCatchWgtSwept"))
-    )
     if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bio_by_sea <- species_bio_by_sea[!is.na(species_bio_by_sea$Year),]
     
     
