@@ -398,7 +398,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
                                      factorcols=c("Year"), sum,c("KM2_LAM")) 
     #proportion of regional sea area sampled #ATTRIB_SUBDIV is same as totalarea for GNS 'BY_SREG+BY_LREG'
     if(survey %in% c("GNSIntOT1","GNSIntOT1_channel","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3", "GNSNetBi3", "GNSIntBi3")) {
-      totalarea <- sum(ATTRIB_SUBDIV$KM2_LAM)
+      totalarea <- sum(ATTRIB$KM2_LAM)
     } else { totalarea <- sum(ATTRIB$KM2_LAM) }
     areasurveyed_by_sub$scale <- totalarea/areasurveyed_by_sub$KM2_LAM
     if(length(areasurveyed_by_sub[areasurveyed_by_sub$scale>1,'Year']) >0) print( paste("survey area not fully covered in", areasurveyed_by_sub[areasurveyed_by_sub$scale>1,'Year'] ) )
@@ -635,8 +635,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     #Large Fish Indicator
     if(!BY_SREG) numS_REG_by_sea <- 0*numhaulsyr
     if(LFI & SP!="PEL"){   IND_LFI <- INDfn_LFI( species_bio_by_area=species_bio_by_area, SP=SP,
-                                                 numhaulsyr=numhaulsyr,numS_REG_by_sea=numS_REG_by_sea, WRITE=WRITE, 
-                                                 FILENAM=paste(FILENAM,GROUP,LFI_THRESHOLD,sep="_"),BY_LREG=BY_LREG,LFI_THRESHOLD = LFI_THRESHOLD)
+                                                 numhaulsyr=numhaulsyr,numsampstrat_by_sea=numS_REG_by_sea, WRITE=WRITE, 
+                                                 FILENAM=paste(FILENAM,GROUP,LFI_THRESHOLD,sep="_"),LFI_THRESHOLD = LFI_THRESHOLD)
     } else { IND_LFI <-NULL }
     #Mean Length cm by S_REGa and year 
     if(MeanL) IND_MeanL <- INDfn_MeanL(species_bio_by_area=species_bio_by_area, WRITE=WRITE, FILENAM=paste(FILENAM,GROUP,sep="_"),BY_SREG=BY_SREG,BY_LREG=BY_LREG,SP=SP)

@@ -199,7 +199,7 @@ bio$sciName<-as.character(bio$SpeciesSciName)
 
 
 samp <-samp[,c("HaulDur_min","DataType","HaulID","YearShot","ShootLat_degdec","ShootLong_degdec",
-               "ICESStSq","SurvStratum","WingSwpArea_sqkm","WingSwpVol_CorF","NetOpen_m"
+               "ICESStSq","L_REG","WingSwpArea_sqkm","WingSwpVol_CorF","NetOpen_m"
                ,"Gear","Ship","MonthShot","Day","TimeShot")] 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  #add efficiency of E=GOV gear
 #use gear efficiency to correct catches
