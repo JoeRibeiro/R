@@ -713,7 +713,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   FISHDATA <- dhspp[dhspp$SpeciesSciName%in%SPPLIST,] #if IEO_FW4 FALSE then this is already done in processing script
   #if IEO_FW4 true make sure not including inverts in LFI etc
   #INDfn creates haul_by_spp and hauls.csv i.e. the sampling and biological data used for indicator assessments
-  hjk
+  
   if(LFI_NULL) LFI_THRESHOLD<-NULL
    try(
     IND_OUT <- INDfn( DATA=FISHDATA, WRITE=WRITE, BOOTSTRAP=BOOTSTRAP, LFI=LFI, LFI_THRESHOLD=LFI_THRESHOLD,
