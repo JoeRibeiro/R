@@ -715,6 +715,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   #INDfn creates haul_by_spp and hauls.csv i.e. the sampling and biological data used for indicator assessments
   
   if(LFI_NULL) LFI_THRESHOLD<-NULL
+  fghjk
    try(
     IND_OUT <- INDfn( DATA=FISHDATA, WRITE=WRITE, BOOTSTRAP=BOOTSTRAP, LFI=LFI, LFI_THRESHOLD=LFI_THRESHOLD,
                       FILENAM=FILENAM,BY_SREG=BY_SREG, BY_LREG=BY_LREG, 
