@@ -636,7 +636,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     if(!BY_SREG) numS_REG_by_sea <- 0*numhaulsyr
     if(LFI & SP!="PEL"){   IND_LFI <- INDfn_LFI( species_bio_by_area=species_bio_by_area, SP=SP,
                                                  numhaulsyr=numhaulsyr,numsampstrat_by_sea=numS_REG_by_sea, WRITE=WRITE, 
-                                                 FILENAM=paste(FILENAM,GROUP,LFI_THRESHOLD,sep="_"),LFI_THRESHOLD = LFI_THRESHOLD)
+                                                 FILENAM=paste(FILENAM,GROUP,LFI_THRESHOLD,sep="_"),BY_LREG=BY_LREG,LFI_THRESHOLD = LFI_THRESHOLD)
     } else { IND_LFI <-NULL }
     #Mean Length cm by S_REGa and year 
     if(MeanL) IND_MeanL <- INDfn_MeanL(species_bio_by_area=species_bio_by_area, WRITE=WRITE, FILENAM=paste(FILENAM,GROUP,sep="_"),BY_SREG=BY_SREG,BY_LREG=BY_LREG,SP=SP)

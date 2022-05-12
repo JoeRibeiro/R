@@ -1,9 +1,9 @@
-INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, WRITE=F, FILENAM="",BYSUBDIV=F,LFI_THRESHOLD=LFI_THRESHOLD){
+INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, WRITE=F, FILENAM="",BY_LREG=F,LFI_THRESHOLD=LFI_THRESHOLD){
   
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LARGE fish Indicator prep  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #~~~~~~~~~~~~~~~~~ LARGE fish -> species_bioL_by_area and by region and overall sea area  ~~~~~~~
     LFI_FACT<- c("Year","FishLength_cm","SpeciesSciName")
-    if(BYSUBDIV) LFI_FACT<- c(LFI_FACT,"subdiv")
+    if(BY_LREG) LFI_FACT<- c(LFI_FACT,"subdiv")
     # by length class  #species sum bio cpue at len by rect
     if(nrow(species_bio_by_area[species_bio_by_area$FishLength_cm >LFI_THRESHOLD,])>0){
       suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
@@ -19,7 +19,7 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
     if(nrow(species_bioL_by_area)<4){ print(paste("not enough data above LFI threshold for ",SP,sep='')); LFIout<-LFI_by_sub<-NULL; } else {
     
     #~~~~~~~~~~~~~~ all and large fish by subdivision (already ave by #hauls in sampstrat (rect or other)
-    if(BYSUBDIV){
+    if(BY_LREG){
       suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
         species_bio_by_subdiv <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
                                          factorcols=c("Year","FishLength_cm","SpeciesSciName","subdiv"), sum,c("CatCatchWgtSwept"))
@@ -69,7 +69,7 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
   if(WRITE) write.csv(LFIout,paste(FILENAM,'LFI_sea.csv',sep="_"),row.names=F)
   
   # LFI
-    if(BYSUBDIV){
+    if(BY_LREG){
       
       FACT <- c("Year","subdiv")
       # sum numerator of LFI by sub divisions
@@ -86,7 +86,7 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
   
   
   #plot code
-  if(!BOOTSTRAP & BYSUBDIV & !is.null(LFI_by_sub)){
+  if(!BOOTSTRAP & BY_LREG & !is.null(LFI_by_sub)){
     if(nrow(LFI_by_sub)>3){
     YLAB <- "LFI"
     
