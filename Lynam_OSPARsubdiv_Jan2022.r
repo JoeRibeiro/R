@@ -20,12 +20,13 @@ if( substr(survey,nchar(survey)-4,nchar(survey))=="_hist" ){ surveyread <- subst
 subdiv<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined.shp",sep='')); 
 subdiv = subdiv[subdiv$Survey_Acr==survey,]
 
+
 NAMsampstrat="sampstrat" 
-NAMsubdiv="subdiv"
+NAMsubdiv="SurvStratum"
 subdiv$sampstrat = subdiv$SurvStrat # Names expected by the onward scripts written by CL (indfn scripts)
 subdiv$SurvStrat <- NULL
-subdiv$subdiv = subdiv$SUBDIV
-subdiv$SUBDIV <- NULL
+subdiv$SurvStratum = subdiv$SUBDIV
+subdiv$SurvSUBDIV <- NULL
 
 SAMP_FACT <- c("KM2_LAM", NAMsampstrat,NAMsubdiv)
 
@@ -171,6 +172,8 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
                 dhspp <- dhspp[!is.na(ox[`NAMsampstrat`]) & ox[`NAMsampstrat`]!="Other", ] # some areas were cut for PP
                 ox <- ox[!is.na(ox[`NAMsampstrat`]) & ox[`NAMsampstrat`]!="Other", ]
   }
+  names(dhspp)[which(names(dhspp)==NAMsubdiv)] <- "duplicatedsurvstratum"
+
   dhspp <- cbind(dhspp,ox[,SAMP_FACT])  ### issue here for GNSGerBT3 41F4 and 41F5 do not agree with samp file for 2001 since long shoot == 5 exactly
 
 #if(QUAD) #replace sampstrat with quads
@@ -382,5 +385,3 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
   }
   }
   
-
- 

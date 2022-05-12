@@ -101,11 +101,11 @@ CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
 CATCHABILITY_COR_WALKER<- F # read estimates from nsea paper for q##problem somewhere looking for sweptbefore when this false
 
 #which indicators?
-  TyL_GeoM <- T # OSPAR FW3
-  TyL_SPECIES <- T #ALSO PROVIDE BY SPECIES MEAN LENGTH
-  MaxL <- T # OSPAR FC3
-  Loo <- T # alt for OSPAR FC3
-  Lm <- T # 
+  TyL_GeoM <- F # OSPAR FW3
+  TyL_SPECIES <- F #ALSO PROVIDE BY SPECIES MEAN LENGTH
+  MaxL <- F # OSPAR FC3
+  Loo <- F # alt for OSPAR FC3
+  Lm <- F # 
   MEANTL <- F #similar to OSPAR FW4 # not will not be calc'd for WAsurveys as no data file for TL
   MeanL <- F #not OSPAR but simple
   LFI_NULL <- F # for no group/guild calc 25% biom thresh
@@ -616,18 +616,26 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   # and read attributes of shapefiles create table ATTRIB with names SurvStratum & KM2_LAM 
   ##### strata ##### 
   print("now add strata")
-  dhbefore=dhspp
   source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Jan2022.r",sep=""))
+  
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #### Calc ALL indicators ####  
   if(EHDS_PP) SAMP_STRAT<-F
-  if(SAMP_STRAT){ # dependent on survey see Lynam_OSPARsubdiv.r above# if(survey=="GNSFraOT4"){ dhspp$sampstrat <- dhspp$SurvStratum # minigrid of sqs
-    dhspp <- dhspp[!is.na(dhspp$sampstrat),] #rm outside area## lots of KS
-  } else { dhspp$sampstrat <- NA } 
-  if(BYSUBDIV){   #dhspp$subdiv <- dhspp$SurvStratum; #dhspp$subdiv <-substr(dhspp$subdiv,1,2); # dependent on survey
-    dhspp$STRAT_DIV <- paste(dhspp$sampstrat, dhspp$subdiv,sep="_") 
-  } else { dhspp$subdiv <- dhspp$STRAT_DIV <- NA; } 
-  #could be hauls(sampstrat) within subdiv or only 'NA_subdiv'
+  if(SAMP_STRAT){ # dependent on survey see Lynam_OSPARsubdiv.r above# if(survey=="GNSFraOT4"){ dhspp$sampstrat <- dhspp$sampstrat # minigrid of sqs
+    dhspp <- dhspp[!is.na(dhspp$SurvStratum),] #rm outside area## lots of KS
+  }# else { dhspp$SurvStratum <- NA; ATTRIB$SurvStratum <- NA } 
+ if(BYSUBDIV){   dhspp$SurvStratum <- dhspp$sampstrat; ATTRIB$SurvStratum <- ATTRIB$sampstrat;
+ #dhspp$SurvStratum <-substr(dhspp$SurvStratum,1,2); # dependent on survey
+ #ATTRIB$SurvStratum <-substr(ATTRIB$SurvStratum,1,2); # dependent on survey
+   dhspp$STRAT_DIV <- paste(dhspp$SurvStratum, dhspp$SurvStratum,sep="_"); ATTRIB$STRAT_DIV <- paste(ATTRIB$SurvStratum, ATTRIB$SurvStratum,sep="_")
+ } else { dhspp$SurvStratum <- dhspp$STRAT_DIV <- NA;  ATTRIB$SurvStratum <- ATTRIB$STRAT_DIV <- NA; }
+ #could be hauls(SurvStratum) within subdiv or only 'NA_subdiv'
+  
+  dhspp$STRAT_DIV <- paste(dhspp$SurvStratum, dhspp$subdiv,sep="_"); 
+  ATTRIB$STRAT_DIV <- paste(ATTRIB$SurvStratum, ATTRIB$subdiv,sep="_") 
+
+  
+  
   ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #save(dhspp,file=paste("DHSPP_DAT_",Sys.Date(),".RData",sep=""))
   ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -706,13 +714,12 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   FISHDATA <- dhspp[dhspp$SpeciesSciName%in%SPPLIST,] #if IEO_FW4 FALSE then this is already done in processing script
   #if IEO_FW4 true make sure not including inverts in LFI etc
   #INDfn creates haul_by_spp and hauls.csv i.e. the sampling and biological data used for indicator assessments
-
-    if(LFI_NULL) LFI_THRESHOLD<-NULL
+  if(LFI_NULL) LFI_THRESHOLD<-NULL
    try(
     IND_OUT <- INDfn( DATA=FISHDATA, WRITE=WRITE, BOOTSTRAP=BOOTSTRAP, LFI=LFI, LFI_THRESHOLD=LFI_THRESHOLD,
                       FILENAM=FILENAM,SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, 
                     MEANTL=MEANTL, MaxL=MaxL,Loo=Loo, Lm=Lm, MeanL=MeanL, TyL_GeoM=TyL_GeoM, SPECIES=SPECIES, 
-                    GROUP=NULL, TyL_SPECIES=TyL_SPECIES, BYGUILD=F, QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS, ATTRIB = ATTRIB, ATTRIB_SUBDIV = ATTRIB_SUBDIV)
+                    GROUP=NULL, TyL_SPECIES=TyL_SPECIES, BYGUILD=F, QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS,ATTRIB=ATTRIB)
    ,silent=F)
   
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -791,7 +798,7 @@ if(SSA_WRITE_NEW){
   writeOGR(dpi, "shp", "SSAspatial_quarters" , driver = "ESRI Shapefile", overwrite_layer = T) 
 }
 
-WRITE_to_DB = T
+WRITE_to_DB = F
 source(paste(MAINDIR,"R/combine_all_hauls.r",sep=""))  
 source(paste(MAINDIR,"R/database_upload.r",sep=""))  
 
