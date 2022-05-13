@@ -3,7 +3,7 @@
 surveyread<-survey #for ATTRIBUTES
 if( substr(survey,nchar(survey)-4,nchar(survey))=="_hist" ){ surveyread <- substr(survey,1, nchar(survey)-5) } else { surveyread <- survey}
 
-subdiv<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined.shp",sep='')); 
+subdiv<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined_simple.shp",sep='')); 
 subdiv = subdiv[subdiv$Survey_Acr==survey,]
 
 SAMP_FACT <- c("KM2_LAM", "S_REG","L_REG")
