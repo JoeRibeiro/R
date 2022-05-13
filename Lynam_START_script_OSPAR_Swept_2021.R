@@ -748,7 +748,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   names(dhspp)[which(names(dhspp)=="MonthShot")] <- "Month"
   names(dhspp)[which(names(dhspp)=="WingSwpArea_sqkm")] <- "SweptArea_KM2"
   dhspp <- dhspp[, which(names(dhspp) %in% c("HaulID","Survey_Acronym","ICESStSq",
-                                             "Year","HaulDur_min","SweptArea_KM2","L_REG",
+                                             "Year","HaulDur_min","SweptArea_KM2","L_REG","S_REG",
                                              "SciName","SensFC1","DEMPEL","FishLength_cm",
                                              "DensAbund_N_perhr","DensBiom_kg_perhr",
                                              "DensBiom_kg_Sqkm","DensAbund_N_Sqkm",
