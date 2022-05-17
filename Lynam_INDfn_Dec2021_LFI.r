@@ -1,43 +1,44 @@
-#20 dec 2016 # edit to avoid creating NAs in  c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3") when missing data by year/strata
-INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, WRITE=F, FILENAM="",BYSUBDIV=F,LFI_THRESHOLD=LFI_THRESHOLD){
+INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, WRITE=F, FILENAM="",BY_LREG=F,LFI_THRESHOLD=LFI_THRESHOLD){
   
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LARGE fish Indicator prep  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #~~~~~~~~~~~~~~~~~ LARGE fish -> species_bioL_by_area and by region and overall sea area  ~~~~~~~
     LFI_FACT<- c("Year","FishLength_cm","SpeciesSciName")
-    if(BYSUBDIV) LFI_FACT<- c(LFI_FACT,"subdiv")
+    if(BY_LREG) LFI_FACT<- c(LFI_FACT,"L_REG")
+    if(!BY_LREG) LFI_FACT<- c(LFI_FACT,"S_REG")
     # by length class  #species sum bio cpue at len by rect
     if(nrow(species_bio_by_area[species_bio_by_area$FishLength_cm >LFI_THRESHOLD,])>0){
-      suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
          species_bioL_by_area <- tapply.ID(df=species_bio_by_area[species_bio_by_area$FishLength_cm >LFI_THRESHOLD,], 
                                       datacols=c("CatCatchWgtSwept"), 
                                       factorcols=LFI_FACT, 
                                       sum,c("CatCatchWgtSwept_Large"))
-                        )
-       
+
       if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bioL_by_area <- species_bioL_by_area[!is.na(species_bioL_by_area$Year),]
     } else { species_bioL_by_area <- species_bio_by_area[species_bio_by_area$FishLength_cm >LFI_THRESHOLD,] }
     #large average over hauls by sampstrat (e.g. rectangle) #species mean bio cpue at len by sampstrat
     if(nrow(species_bioL_by_area)<4){ print(paste("not enough data above LFI threshold for ",SP,sep='')); LFIout<-LFI_by_sub<-NULL; } else {
     
-    #~~~~~~~~~~~~~~ all and large fish by subdivision (already ave by #hauls in sampstrat (rect or other)
-    if(BYSUBDIV){
-      suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
-        species_bio_by_subdiv <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
-                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","subdiv"), sum,c("CatCatchWgtSwept"))
-      )
-      if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bio_by_subdiv <- species_bio_by_subdiv[!is.na(species_bio_by_subdiv$Year),]
+    #~~~~~~~~~~~~~~ all and large fish by L_REGision (already ave by #hauls in sampstrat (rect or other)
+    if(BY_LREG){
+        species_bio_by_L_REG <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
+                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","L_REG"), sum,c("CatCatchWgtSwept"))
+      if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bio_by_L_REG <- species_bio_by_L_REG[!is.na(species_bio_by_L_REG$Year),]
       
-      species_bioL_by_subdiv <- tapply.ID(df=species_bioL_by_area, datacols=c("CatCatchWgtSwept_Large"), 
-                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","subdiv"), sum,c("CatCatchWgtSwept_Large"))
+      species_bioL_by_L_REG <- tapply.ID(df=species_bioL_by_area, datacols=c("CatCatchWgtSwept_Large"), 
+                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","L_REG"), sum,c("CatCatchWgtSwept_Large"))
+    }else{ # must be S_REG
+              species_bio_by_S_REG <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
+                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","S_REG"), sum,c("CatCatchWgtSwept"))
+      if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bio_by_S_REG <- species_bio_by_S_REG[!is.na(species_bio_by_S_REG$Year),]
+      
+      species_bioL_by_S_REG <- tapply.ID(df=species_bioL_by_area, datacols=c("CatCatchWgtSwept_Large"), 
+                                         factorcols=c("Year","FishLength_cm","SpeciesSciName","S_REG"), sum,c("CatCatchWgtSwept_Large"))
     }
     
-    #~~~~~~~~~~~~~~ all and large fish by regional sea scale from sampstrat not subdiv
-    # from rects if SAMP_STRAT/subdiv above or from subdiv only
-    # corrected for any change in sampling between subdiv
-    suppressWarnings( #NAs introduced due to missing years on following surveys: BBICsSpaOT1
+    #~~~~~~~~~~~~~~ all and large fish by regional sea scale from sampstrat not L_REG
+    # from rects if SAMP_STRAT/L_REG above or from L_REG only
+    # corrected for any change in sampling between L_REG
       species_bio_by_sea <- tapply.ID(df=species_bio_by_area, datacols=c("CatCatchWgtSwept"), 
                                       factorcols=c("Year","FishLength_cm","SpeciesSciName"), sum,c("CatCatchWgtSwept"))
-    )
     if(survey %in% c("BBICsSpaOT1", "BBICsSpaOT4","WASpaOT3")) species_bio_by_sea <- species_bio_by_sea[!is.na(species_bio_by_sea$Year),]
     
     
@@ -70,24 +71,38 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
   if(WRITE) write.csv(LFIout,paste(FILENAM,'LFI_sea.csv',sep="_"),row.names=F)
   
   # LFI
-    if(BYSUBDIV){
+    if(BY_LREG){
       
-      FACT <- c("Year","subdiv")
+      FACT <- c("Year","L_REG")
       # sum numerator of LFI by sub divisions
-      LFInumreg <- tapply.ID(df=species_bioL_by_subdiv, datacols=c("CatCatchWgtSwept_Large"), factorcols=FACT, sum,c("CatCatchWgtSwept_Large"))
+      LFInumreg <- tapply.ID(df=species_bioL_by_L_REG, datacols=c("CatCatchWgtSwept_Large"), factorcols=FACT, sum,c("CatCatchWgtSwept_Large"))
       # denominator of LFI by sub divisions
-      LFIdenreg <- tapply.ID(df=species_bio_by_subdiv, datacols=c("CatCatchWgtSwept"), factorcols=FACT, sum,c("CatCatchWgtSwept"))
+      LFIdenreg <- tapply.ID(df=species_bio_by_L_REG, datacols=c("CatCatchWgtSwept"), factorcols=FACT, sum,c("CatCatchWgtSwept"))
       LFIreg <- merge(LFInumreg,LFIdenreg,by=FACT,all.y=T)
       LFIreg$LFI <- LFIreg[,'CatCatchWgtSwept_Large']/ LFIreg[,'CatCatchWgtSwept']
     
-      LFI_by_sub <- xtabs(LFI ~ Year + subdiv, LFIreg) # end up with missing years if no large fish
+      LFI_by_sub <- xtabs(LFI ~ Year + L_REG, LFIreg) # end up with missing years if no large fish
       if(WRITE) write.csv(LFI_by_sub,paste(FILENAM,'LFI_subregional.csv',sep="_"),row.names=T)
-    } else { LFI_by_sub <- NULL }
+    } else { 
+      
+    
+      FACT <- c("Year","S_REG")
+      # sum numerator of LFI by sub divisions
+      LFInumreg <- tapply.ID(df=species_bioL_by_S_REG, datacols=c("CatCatchWgtSwept_Large"), factorcols=FACT, sum,c("CatCatchWgtSwept_Large"))
+      # denominator of LFI by sub divisions
+      LFIdenreg <- tapply.ID(df=species_bio_by_S_REG, datacols=c("CatCatchWgtSwept"), factorcols=FACT, sum,c("CatCatchWgtSwept"))
+      LFIreg <- merge(LFInumreg,LFIdenreg,by=FACT,all.y=T)
+      LFIreg$LFI <- LFIreg[,'CatCatchWgtSwept_Large']/ LFIreg[,'CatCatchWgtSwept']
+    
+      LFI_by_sub <- xtabs(LFI ~ Year + S_REG, LFIreg) # end up with missing years if no large fish
+      if(WRITE) write.csv(LFI_by_sub,paste(FILENAM,'LFI_subregional.csv',sep="_"),row.names=T)
+
+       }
   
   
   
   #plot code
-  if(!BOOTSTRAP & BYSUBDIV & !is.null(LFI_by_sub)){
+  if(!BOOTSTRAP & !is.null(LFI_by_sub)){
     if(nrow(LFI_by_sub)>3){
     YLAB <- "LFI"
     
@@ -118,4 +133,3 @@ INDfn_LFI <- function(species_bio_by_area, numhaulsyr, numsampstrat_by_sea, SP, 
   return(list(LFIout, LFI_by_sub))
   
 }
-
