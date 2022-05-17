@@ -92,7 +92,7 @@ BOOTSTRAP <- F # invoke slow slow code? if F next 3 lines redundant
   B<-0 # restart counter as only output LD once before boostrap starts i.e. when B=0 
   WRITE_BOOT <- F # every bootstrap dataset and indicator output
   SAVE <- F # save workspace (after bootstrap)
-SSA_WRITE_NEW <- T #create standard sampling area from rects
+SSA_WRITE_NEW <- F #create standard sampling area from rects
 SSA_WRITE_ONLY <- F #skip analysis and output SSA shp only
 FILTER_COUNTRY <- F
 
@@ -101,11 +101,11 @@ CATCHABILITY_COR_MOD<-SPECIES_IN_MOD_ONLY <-F # for comparison to ewe or lemans'
 CATCHABILITY_COR_WALKER<- F # read estimates from nsea paper for q##problem somewhere looking for sweptbefore when this false
 
 #which indicators?
-  TyL_GeoM <- F # OSPAR FW3
-  TyL_SPECIES <- F #ALSO PROVIDE BY SPECIES MEAN LENGTH
-  MaxL <- F # OSPAR FC3
-  Loo <- F # alt for OSPAR FC3
-  Lm <- F # 
+  TyL_GeoM <- T # OSPAR FW3
+  TyL_SPECIES <- T #ALSO PROVIDE BY SPECIES MEAN LENGTH
+  MaxL <- T # OSPAR FC3
+  Loo <- T # alt for OSPAR FC3
+  Lm <- T # 
   MEANTL <- F #similar to OSPAR FW4 # not will not be calc'd for WAsurveys as no data file for TL
   MeanL <- F #not OSPAR but simple
   LFI_NULL <- F # for no group/guild calc 25% biom thresh
@@ -226,8 +226,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   survey_alt_name=combs$Surveynam2
   LFI_THRESHOLD = combs$LFI_threshold
   GEAR= combs$Gear
-  BY_SREG= combs$BY_SREG # SMALLER REGIONS?
-  BY_LREG = combs$BY_LREG    # AND THEN AGAIN BY LARGER REGIONS?
+  SAMP_STRAT= combs$SAMP_STRAT # average hauls by ICESStSq rect in north sea #if set to FALSE need to update Attibutes table as area only given by rect
+  BYSUBDIV = combs$BYSUBDIV    # average indicator by LFI-subdivision
   
   SPECIES= combs$Species
   if(IEO_FW4) SPECIES<- "ALL"
@@ -336,7 +336,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   names(samp)[which(names(samp) == "Year")] <- "YearShot"
   names(samp)[which(names(samp) == "Month")] <- "MonthShot";
   names(samp)[which(names(samp) == "StatRec")] <- "ICESStSq"
-  names(samp)[which(names(samp) == "DepthStratum")] <- "L_REG"
+  names(samp)[which(names(samp) == "DepthStratum")] <- "SurvStratum"
 
   if( nrow(samp[is.na(samp$ShootLat_degdec),])>0) samp<-samp[!is.na(samp$ShootLat_degdec),]
   if( nrow(samp[is.na(samp$ShootLong_degdec),])>0) samp<-samp[!is.na(samp$ShootLong_degdec),]
@@ -613,28 +613,21 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   #now have merged samp and bio to create 'dhspp'
   
   #### link subdivisional shapefiles to data ####
-  # and read attributes of shapefiles create table ATTRIB with names L_REG & KM2_LAM 
+  # and read attributes of shapefiles create table ATTRIB with names SurvStratum & KM2_LAM 
   ##### strata ##### 
   print("now add strata")
   source(paste(MAINDIR,"R/Lynam_OSPARsubdiv_Jan2022.r",sep=""))
+  
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #### Calc ALL indicators ####  
-  if(EHDS_PP) BY_SREG<-F
-  # if(BY_SREG){ # dependent on survey see Lynam_OSPARsubdiv.r above# if(survey=="GNSFraOT4"){ dhspp$S_REG <- dhspp$S_REG # minigrid of sqs
-  #   dhspp <- dhspp[!is.na(dhspp$L_REG),] #rm outside area## lots of KS
-  # }# else { dhspp$L_REG <- NA; ATTRIB$L_REG <- NA } 
- # if(BY_LREG){   dhspp$L_REG <- dhspp$S_REG; ATTRIB$L_REG <- ATTRIB$S_REG;
- # #dhspp$L_REG <-substr(dhspp$L_REG,1,2); # dependent on survey
- # #ATTRIB$L_REG <-substr(ATTRIB$L_REG,1,2); # dependent on survey
- #   dhspp$S_L_REG <- paste(dhspp$L_REG, dhspp$L_REG,sep="_"); ATTRIB$S_L_REG <- paste(ATTRIB$L_REG, ATTRIB$L_REG,sep="_")
- # } else { dhspp$L_REG <- dhspp$S_L_REG <- NA;  ATTRIB$L_REG <- ATTRIB$S_L_REG <- NA; }
- # #could be hauls(L_REG) within subdiv or only 'NA_subdiv'
-
-  dhspp$S_L_REG <- paste(dhspp$S_REG, dhspp$L_REG,sep="_"); # STRAT_DIV renamed to S_L_REG
-  ATTRIB$S_L_REG <- paste(ATTRIB$S_REG, ATTRIB$L_REG,sep="_") 
-
-  
-  
+  if(EHDS_PP) SAMP_STRAT<-F
+  if(SAMP_STRAT){ # dependent on survey see Lynam_OSPARsubdiv.r above# if(survey=="GNSFraOT4"){ dhspp$sampstrat <- dhspp$SurvStratum # minigrid of sqs
+    dhspp <- dhspp[!is.na(dhspp$sampstrat),] #rm outside area## lots of KS
+  } else { dhspp$sampstrat <- NA } 
+  if(BYSUBDIV){   dhspp$subdiv <- dhspp$SurvStratum; #dhspp$subdiv <-substr(dhspp$subdiv,1,2); # dependent on survey
+    dhspp$STRAT_DIV <- paste(dhspp$sampstrat, dhspp$subdiv,sep="_") 
+  } else { dhspp$subdiv <- dhspp$STRAT_DIV <- NA; } 
+  #could be hauls(sampstrat) within subdiv or only 'NA_subdiv'
   ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #save(dhspp,file=paste("DHSPP_DAT_",Sys.Date(),".RData",sep=""))
   ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -660,7 +653,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
           try(
           IND_OUT_BYGROUP[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=T, SPECIES=SPECIES, GROUP=SPGROUP,
                         LFI_THRESHOLD=LFI_THRESHOLD_APPLY, 
-                        BY_SREG=BY_SREG, BY_LREG=BY_LREG, FILENAM=FILENAM,
+                        SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, FILENAM=FILENAM,
                         LFI=LFI, MEANTL=F, MaxL=T, Loo=T, Lm=T, MeanL=F, TyL_GeoM=T,
                         QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
           ,silent=TRUE)
@@ -678,7 +671,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
           try(
             IND_OUT_BYICESGROUP[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=WRITE, SPECIES=SPECIES, GROUP=SPGROUP,
                         LFI=LFI, LFI_THRESHOLD=NULL, FILENAM=FILENAM,
-                        BY_SREG=BY_SREG, BY_LREG=BY_LREG, 
+                        SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, 
                         MEANTL=F, MaxL=T, Loo=T, Lm=T, MeanL=F, TyL_GeoM=T,
                         QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
             ,silent=TRUE)
@@ -699,7 +692,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
         try(
           IND_OUT_BYGUILD[[SPGROUP]] <- INDfn( DATA=dhspp, WRITE=WRITE, SPECIES=SPECIES, GROUP=SPGROUP,
                                                LFI=F, LFI_THRESHOLD=NULL, FILENAM=FILENAM,
-                                               BY_SREG=BY_SREG, BY_LREG=BY_LREG, 
+                                               SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, 
                                                MEANTL=F, MaxL=T, Loo=F, Lm=F, MeanL=F, TyL_GeoM=T,BYGUILD=BYGUILD,
                                                QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
           ,silent=TRUE)
@@ -713,13 +706,12 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   FISHDATA <- dhspp[dhspp$SpeciesSciName%in%SPPLIST,] #if IEO_FW4 FALSE then this is already done in processing script
   #if IEO_FW4 true make sure not including inverts in LFI etc
   #INDfn creates haul_by_spp and hauls.csv i.e. the sampling and biological data used for indicator assessments
-  
   if(LFI_NULL) LFI_THRESHOLD<-NULL
    try(
     IND_OUT <- INDfn( DATA=FISHDATA, WRITE=WRITE, BOOTSTRAP=BOOTSTRAP, LFI=LFI, LFI_THRESHOLD=LFI_THRESHOLD,
-                      FILENAM=FILENAM,BY_SREG=BY_SREG, BY_LREG=BY_LREG, 
+                      FILENAM=FILENAM,SAMP_STRAT=SAMP_STRAT, BYSUBDIV=BYSUBDIV, 
                     MEANTL=MEANTL, MaxL=MaxL,Loo=Loo, Lm=Lm, MeanL=MeanL, TyL_GeoM=TyL_GeoM, SPECIES=SPECIES, 
-                    GROUP=NULL, TyL_SPECIES=TyL_SPECIES, BYGUILD=F, QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS,ATTRIB=ATTRIB)
+                    GROUP=NULL, TyL_SPECIES=TyL_SPECIES, BYGUILD=F, QUAD=QUAD,QUAD_SMOOTH=QUAD_SMOOTH,QUADS=QUADS)
    ,silent=F)
   
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -739,7 +731,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
     dev.off()
   }
   if(SSA_WRITE_NEW) { SSAdf=rbind(SSAdf,SSAdfs) }
-  #dhspp<-dhspp[,-which(names(dhspp) %in% c("sciName","SubFactor","DataType","DurRaise","LogLngtClass","LogLngtBio","LFI_Fung_list","LFI_OSPAR_list","S_REG","L_REG","S_L_REG")),]
+  #dhspp<-dhspp[,-which(names(dhspp) %in% c("sciName","SubFactor","DataType","DurRaise","LogLngtClass","LogLngtBio","LFI_Fung_list","LFI_OSPAR_list","sampstrat","subdiv","STRAT_DIV")),]
   #SciName		Number
   dhspp$Survey_Acronym <- survey
   names(dhspp)[which(names(dhspp)=="sciName")] <- "SciName"
@@ -748,7 +740,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   names(dhspp)[which(names(dhspp)=="MonthShot")] <- "Month"
   names(dhspp)[which(names(dhspp)=="WingSwpArea_sqkm")] <- "SweptArea_KM2"
   dhspp <- dhspp[, which(names(dhspp) %in% c("HaulID","Survey_Acronym","ICESStSq",
-                                             "Year","HaulDur_min","SweptArea_KM2","L_REG","S_REG",
+                                             "Year","HaulDur_min","SweptArea_KM2","SurvStratum",
                                              "SciName","SensFC1","DEMPEL","FishLength_cm",
                                              "DensAbund_N_perhr","DensBiom_kg_perhr",
                                              "DensBiom_kg_Sqkm","DensAbund_N_Sqkm",
@@ -798,7 +790,7 @@ if(SSA_WRITE_NEW){
   writeOGR(dpi, "shp", "SSAspatial_quarters" , driver = "ESRI Shapefile", overwrite_layer = T) 
 }
 
-WRITE_to_DB = F
+WRITE_to_DB = T
 source(paste(MAINDIR,"R/combine_all_hauls.r",sep=""))  
 source(paste(MAINDIR,"R/database_upload.r",sep=""))  
 
