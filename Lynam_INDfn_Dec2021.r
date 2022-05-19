@@ -39,7 +39,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
                  "NetOpen_m", "WingSwpArea_sqkm")
   if(BY_SREG) FACTHAUL <-  c(FACTHAUL,"S_REG")
   if(BY_LREG)   FACTHAUL <-  c(FACTHAUL,"L_REG","S_L_REG")
-  
+  #  numhaulsnew <- stats::aggregate(ones ~ HaulID + S_REG, numhauls, FUN = sum, na.rm = TRUE)
+
   numhauls <- tapply.ID(df=numhauls, datacols=c("ones"),factorcols=FACTHAUL,sum,c("ones"))
   numhauls$ones <- 1  # now 1 val per haul    
   numhauls$Survey_Acronym <- survey 
