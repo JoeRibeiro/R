@@ -171,7 +171,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     FACTHAUL <-  c("Year","centlon","centlat","S_REG")
     if(BY_LREG) FACTHAUL <-  c(FACTHAUL,"L_REG","S_L_REG")
     
-    if(!QUAD | !QUAD_SMOOTH)   numhaulsBYS_REG <- numhauls %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones)); numhaulsBYS_REG = as.data.frame(numhaulsBYS_REG)
+    if(!QUAD | !QUAD_SMOOTH)   numhaulsBYS_REG <- numhauls %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., numhauls = sum(ones)); numhaulsBYS_REG = as.data.frame(numhaulsBYS_REG)
  #numhaulsBYS_REG <- tapply.ID(df=numhauls, datacols=c("ones"), factorcols=FACTHAUL, sum,c("numhauls"));
     if(QUAD & QUAD_SMOOTH){ 
       DATA$numhauls<- as.numeric(as.character(DATA$numhauls))#numbers read in as factors
@@ -187,9 +187,9 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   } else { numhaulsBYS_REG <- NULL }
   
   if(BY_LREG){#user_defined or survey poly
-    if(!QUAD) numhaulsBYsubdiv <- numhauls %>%  group_by(!!!syms(c("Year","L_REG"))) %>%  summarise_at(numhauls, sum()); numhaulsBYsubdiv = as.data.frame(numhaulsBYsubdiv)
-#numhaulsBYsubdiv <- tapply.ID(df=numhauls, datacols=c("ones"),
-#                                            factorcols=c("Year","L_REG"), sum,c("numhauls"));
+   if(!QUAD) numhaulsBYsubdiv <- numhauls %>%  group_by(!!!syms(c("Year","L_REG"))) %>%  summarise(numhauls = sum(c("numhauls"))); numhaulsBYsubdiv = as.data.frame(numhaulsBYsubdiv)
+    # if(!QUAD) numhaulsBYsubdiv <- tapply.ID(df=numhauls, datacols=c("ones"),
+    #                                         factorcols=c("Year","L_REG"), sum,c("numhauls"));
     if(QUAD)  numhaulsBYsubdiv <- tapply.ID(df=numhaulsBYS_REG, datacols=c("numhauls"),
                                             factorcols=c("Year","L_REG"),sum,c("numhauls"));
     #and reshape since have one value per year and L_REG combination
