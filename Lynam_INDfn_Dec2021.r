@@ -104,8 +104,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
           dmatch <- DATA[DATA$Year==YR & DATA$HaulID %in% XYmatch[[m]][-c(1:4)], c(DATCOL,FACCOL)] #<- # catch at len per species from matches
           
           if( ncol(XYmatch[[m]])>5 ){  #greater than 5 otherwise only 1 haul in the quad and no need to average (here find sum later /numhauls)
-            dmatch <- tapply.ID(df=dmatch, datacols=DATCOL,factorcols=FACCOL, func=sum, newnames=DATCOL,na.stuff=T)
-#            dmatch <- dmatch %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones)); numhauls = as.data.frame(numhauls)
+            #dmatch <- tapply.ID(df=dmatch, datacols=DATCOL,factorcols=FACCOL, func=sum, newnames=DATCOL,na.stuff=T)
+            dmatch <- dmatch %>%  group_by(!!!syms(FACCOL)) %>%  summarise_at(DATCOL, sum()); dmatch = as.data.frame(dmatch)
 
           } ##lose: HaulID,"mult","Ref","Absolute","Abs.l.95","Abs.u.95","Efficiency","Eff.l.95","Eff.u.95","QGroup","LogLngtClass","LogLngtBio","KM2_LAM","L_REG","S_REG"
           dhspp_match<-rbind(dhspp_match,data.frame(ICESStSq=substr(XYmatch[[m]][3],1,4), S_REG=XYmatch[[m]][3],numhauls=XYmatch[[m]][4], dmatch[,c(DATCOL,FACCOL)]))
@@ -171,7 +171,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     FACTHAUL <-  c("Year","centlon","centlat","S_REG")
     if(BY_LREG) FACTHAUL <-  c(FACTHAUL,"L_REG","S_L_REG")
     
-    if(!QUAD | !QUAD_SMOOTH) numhaulsBYS_REG <- tapply.ID(df=numhauls, datacols=c("ones"), factorcols=FACTHAUL, sum,c("numhauls"));
+    if(!QUAD | !QUAD_SMOOTH)   numhaulsBYS_REG <- numhauls %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones)); numhaulsBYS_REG = as.data.frame(numhaulsBYS_REG)
+ #numhaulsBYS_REG <- tapply.ID(df=numhauls, datacols=c("ones"), factorcols=FACTHAUL, sum,c("numhauls"));
     if(QUAD & QUAD_SMOOTH){ 
       DATA$numhauls<- as.numeric(as.character(DATA$numhauls))#numbers read in as factors
       numhaulsBYS_REG <- aggregate( x=DATA$numhauls,by=list(Year=DATA$Year,S_REG=DATA$S_REG,L_REG=DATA$L_REG),FUN=mean)
@@ -186,8 +187,9 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   } else { numhaulsBYS_REG <- NULL }
   
   if(BY_LREG){#user_defined or survey poly
-    if(!QUAD) numhaulsBYsubdiv <- tapply.ID(df=numhauls, datacols=c("ones"),
-                                            factorcols=c("Year","L_REG"), sum,c("numhauls"));
+    if(!QUAD) numhaulsBYsubdiv <- numhauls %>%  group_by(!!!syms(c("Year","L_REG"))) %>%  summarise_at(numhauls, sum()); numhaulsBYsubdiv = as.data.frame(numhaulsBYsubdiv)
+#numhaulsBYsubdiv <- tapply.ID(df=numhauls, datacols=c("ones"),
+#                                            factorcols=c("Year","L_REG"), sum,c("numhauls"));
     if(QUAD)  numhaulsBYsubdiv <- tapply.ID(df=numhaulsBYS_REG, datacols=c("numhauls"),
                                             factorcols=c("Year","L_REG"),sum,c("numhauls"));
     #and reshape since have one value per year and L_REG combination
