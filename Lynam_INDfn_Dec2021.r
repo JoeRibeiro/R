@@ -187,9 +187,9 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   } else { numhaulsBYS_REG <- NULL }
   
   if(BY_LREG){#user_defined or survey poly
-   if(!QUAD) numhaulsBYsubdiv <- numhauls %>%  group_by(!!!syms(c("Year","L_REG"))) %>%  summarise(numhauls = sum(c("numhauls"))); numhaulsBYsubdiv = as.data.frame(numhaulsBYsubdiv)
-    # if(!QUAD) numhaulsBYsubdiv <- tapply.ID(df=numhauls, datacols=c("ones"),
-    #                                         factorcols=c("Year","L_REG"), sum,c("numhauls"));
+   #if(!QUAD) numhaulsBYsubdiv <- numhauls %>%  group_by(!!!syms(c("Year","L_REG"))) %>%  summarise(., sum()); numhaulsBYsubdiv = as.data.frame(numhaulsBYsubdiv)
+    if(!QUAD) numhaulsBYsubdiv <- tapply.ID(df=numhauls, datacols=c("ones"),
+                                            factorcols=c("Year","L_REG"), sum,c("numhauls"));
     if(QUAD)  numhaulsBYsubdiv <- tapply.ID(df=numhaulsBYS_REG, datacols=c("numhauls"),
                                             factorcols=c("Year","L_REG"),sum,c("numhauls"));
     #and reshape since have one value per year and L_REG combination
