@@ -40,7 +40,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   if(BY_SREG) FACTHAUL <-  c(FACTHAUL,"S_REG")
   if(BY_LREG)   FACTHAUL <-  c(FACTHAUL,"L_REG","S_L_REG")
   
-  numhauls <- numhauls %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones))
+  numhauls <- numhauls %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones)); numhauls = as.data.frame(numhauls)
   #numhauls <- tapply.ID(df=numhauls, datacols=c("ones"),factorcols=FACTHAUL,sum,c("ones"))
   numhauls$ones <- 1  # now 1 val per haul    
   numhauls$Survey_Acronym <- survey 
