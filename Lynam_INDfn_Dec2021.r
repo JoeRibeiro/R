@@ -41,7 +41,6 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   if(BY_LREG)   FACTHAUL <-  c(FACTHAUL,"L_REG","S_L_REG")
   
   numhauls <- numhauls %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones)); numhauls = as.data.frame(numhauls)
-  #numhauls <- tapply.ID(df=numhauls, datacols=c("ones"),factorcols=FACTHAUL,sum,c("ones"))
   numhauls$ones <- 1  # now 1 val per haul    
   numhauls$Survey_Acronym <- survey 
   numhauls$Gear <- GEAR 
@@ -106,6 +105,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
           
           if( ncol(XYmatch[[m]])>5 ){  #greater than 5 otherwise only 1 haul in the quad and no need to average (here find sum later /numhauls)
             dmatch <- tapply.ID(df=dmatch, datacols=DATCOL,factorcols=FACCOL, func=sum, newnames=DATCOL,na.stuff=T)
+#            dmatch <- dmatch %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones)); numhauls = as.data.frame(numhauls)
+
           } ##lose: HaulID,"mult","Ref","Absolute","Abs.l.95","Abs.u.95","Efficiency","Eff.l.95","Eff.u.95","QGroup","LogLngtClass","LogLngtBio","KM2_LAM","L_REG","S_REG"
           dhspp_match<-rbind(dhspp_match,data.frame(ICESStSq=substr(XYmatch[[m]][3],1,4), S_REG=XYmatch[[m]][3],numhauls=XYmatch[[m]][4], dmatch[,c(DATCOL,FACCOL)]))
         }
