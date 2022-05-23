@@ -207,7 +207,9 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   if(QUAD){ 
     nhauls_df<-numhaulsBYS_REG
     numhaulsBYS_REG$ones <- 1
-    numhaulsyr <- tapply.ID(df=numhaulsBYS_REG, datacols=c("ones"),factorcols=c("Year"),sum,c("numhauls"));  # now 1 val per STSQ
+    #numhaulsyr <- tapply.ID(df=numhaulsBYS_REG, datacols=c("ones"),factorcols=c("Year"),sum,c("numhauls"));  # now 1 val per STSQ
+    numhaulsyr <- numhaulsBYS_REG %>% group_by(!!!syms(c("Year"))) %>%  summarise(., numhauls = sum(ones)); numhaulsyr = as.data.frame(numhaulsyr)
+    numhaulsyr = numhaulsyr[,c("numhauls","Year")] #for some reason column order is sensitive
   }
   #browser()
   #plot(numhaulsBYsubdiv[numhaulsBYsubdiv$BOX_ID==11,2:1])
@@ -297,10 +299,9 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   NEWDATANAM<-c("CatCatchWgtSwept","Abund_N_Swept")
   if(CATCHABILITY_COR_WALKER | CATCHABILITY_COR_MOD) NEWDATANAM<-c(NEWDATANAM,"CatCatchWgtSwept_beforeQmult")
   # and subdivisional strata (e.g. NE North Sea or 'survstrata') #DATA<-dhspp
-  suppressWarnings( #NAs introduced by coercion since some MaxL and TL are NA
     species_bio_by_area <- tapply.ID(df=DATA, datacols=DATACOLS, factorcols=FACT, sum,NEWDATANAM)  
-  )  ##Feb2019 poss to  create NA subdivs!!!!! 
-  
+    #species_bio_by_area <- DATA %>% group_by(!!!syms(FACT)) %>%  summarise(., sum()); species_bio_by_area = as.data.frame(species_bio_by_area)
+
   if(LFI & is.null(LFI_THRESHOLD)){
     #work out LF threshold for 20%biomass
     total_biomass <- sum(species_bio_by_area$CatCatchWgtSwept,na.rm=T)  
