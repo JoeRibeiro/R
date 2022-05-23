@@ -6,7 +6,7 @@
 # update 20 Dec 2016 to give LD by species and total biomass by strata
 # update 09 Jan 2017 to pass SP to indicators and enable plotting LOESS fns
 # update 09 Jan 2017 now biomass out and plots with and without Q correction
-# species_bio_by_area includes numhauls by subdivision if no sampling strata applied (i.e. no rectangles or minigrid)
+# species_bio_by_area includes nhauls_df by subdivision if no sampling strata applied (i.e. no rectangles or minigrid)
 # average over hauls then raise up by area of S_REG or subdivision
 ##second level raising if needed, here weighting is correct for coverage of L_REG (sum of S_REG areas should be L_REG area - but prone to issues with missing S_REG)
 # check no zeroes in LD output
@@ -30,9 +30,9 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   
   
   # how many hauls?    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  numhauls <- DATA;
+  nhauls_df <- DATA;
   
-  numhauls$ones <- 0 # 1 val as a marker to pivot around
+  nhauls_df$ones <- 0 # 1 val as a marker to pivot around
   #HaulID and StNo are lost so now using HaulID#
 
   FACTHAUL <-  c("HaulID","Year","Ship","MonthShot","Day","TimeShot", "HaulDur_min","ShootLat_degdec","ShootLong_degdec","ICESStSq",
@@ -40,44 +40,44 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   if(BY_SREG) FACTHAUL <-  c(FACTHAUL,"S_REG")
   if(BY_LREG)   FACTHAUL <-  c(FACTHAUL,"L_REG","S_L_REG")
   
-  numhauls <- numhauls %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones)); numhauls = as.data.frame(numhauls)
-  numhauls$ones <- 1  # now 1 val per haul    
-  numhauls$Survey_Acronym <- survey 
-  numhauls$Gear <- GEAR 
-  numhauls$GearType <- STDGEAR 
-  names(numhauls)[which(names(numhauls)=="MonthShot")] <- "Month"
-  names(numhauls)[which(names(numhauls)=="WingSwpArea_sqkm")] <- "SweptArea_KM2"
+  nhauls_df <- nhauls_df %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., ones = sum(ones)); nhauls_df = as.data.frame(nhauls_df)
+  nhauls_df$ones <- 1  # now 1 val per haul    
+  nhauls_df$Survey_Acronym <- survey 
+  nhauls_df$Gear <- GEAR 
+  nhauls_df$GearType <- STDGEAR 
+  names(nhauls_df)[which(names(nhauls_df)=="MonthShot")] <- "Month"
+  names(nhauls_df)[which(names(nhauls_df)=="WingSwpArea_sqkm")] <- "SweptArea_KM2"
   #save as txt since we have ICES rect codes here and excel will corrupt otherwise
-  if(WRITE & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhauls[,-which(names(numhauls)=="ones")],paste(FILENAM,"hauls.txt",sep="_"),row.names =F,sep=',')
+  if(WRITE & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(nhauls_df[,-which(names(nhauls_df)=="ones")],paste(FILENAM,"hauls.txt",sep="_"),row.names =F,sep=',')
   
   FACTHAUL <-  c("ones","HaulID","Year","ShootLat_degdec","ShootLong_degdec")
   if(BY_SREG) FACTHAUL <-  c(FACTHAUL,"S_REG")
   if(BY_LREG)   FACTHAUL <-  c(FACTHAUL,"L_REG","S_L_REG")
-  numhauls<- numhauls[,FACTHAUL]
-  numhaulsyr<-aggregate(x=numhauls$HaulID,by=list(numhauls$Year), FUN=length)
+  nhauls_df<- nhauls_df[,FACTHAUL]
+  numhaulsyr<-aggregate(x=nhauls_df$HaulID,by=list(nhauls_df$Year), FUN=length)
   names(numhaulsyr)[1]<-"Year"
   names(numhaulsyr)[ncol(numhaulsyr)]<-"H"
   if(WRITE & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhaulsyr,paste(FILENAM,"numhauls_yr.csv",sep="_"),row.names =F,sep=',')
   
   
   #add centlat centlon i.e. centre points of ICES stsqs###
-  numhauls$centlon <- floor(numhauls$ShootLong_degdec)+.5
-  numhauls$centlat <- round(numhauls$ShootLat_degdec)
-  cor <- ifelse(numhauls$centlat < numhauls$ShootLat_degdec, 0.25,  
-                ifelse(numhauls$centlat > numhauls$ShootLat_degdec, -0.25,  
+  nhauls_df$centlon <- floor(nhauls_df$ShootLong_degdec)+.5
+  nhauls_df$centlat <- round(nhauls_df$ShootLat_degdec)
+  cor <- ifelse(nhauls_df$centlat < nhauls_df$ShootLat_degdec, 0.25,  
+                ifelse(nhauls_df$centlat > nhauls_df$ShootLat_degdec, -0.25,  
                        + 0.25) #if x.00
   )
-  numhauls$centlat <- (numhauls$centlat + cor) 
+  nhauls_df$centlat <- (nhauls_df$centlat + cor) 
   if(QUAD){
     #Feb2019 correct centers here as have already identified which hauls are in which quads
-    numhauls[substr(numhauls$S_REG,6,7)=="SE",]$centlon<- numhauls[substr(numhauls$S_REG,6,7)=="SE",]$centlon-0.25; 
-    numhauls[substr(numhauls$S_REG,6,7)=="SE",]$centlat<- numhauls[substr(numhauls$S_REG,6,7)=="SE",]$centlat-0.125
-    numhauls[substr(numhauls$S_REG,6,7)=="SW",]$centlon<- numhauls[substr(numhauls$S_REG,6,7)=="SW",]$centlon+0.25
-    numhauls[substr(numhauls$S_REG,6,7)=="SW",]$centlat<- numhauls[substr(numhauls$S_REG,6,7)=="SW",]$centlat+0.125 
-    numhauls[substr(numhauls$S_REG,6,7)=="NE",]$centlon<- numhauls[substr(numhauls$S_REG,6,7)=="NE",]$centlon-0.25
-    numhauls[substr(numhauls$S_REG,6,7)=="NE",]$centlat<- numhauls[substr(numhauls$S_REG,6,7)=="NE",]$centlat-0.125 
-    numhauls[substr(numhauls$S_REG,6,7)=="NW",]$centlon<- numhauls[substr(numhauls$S_REG,6,7)=="NW",]$centlon+0.25
-    numhauls[substr(numhauls$S_REG,6,7)=="NW",]$centlat<- numhauls[substr(numhauls$S_REG,6,7)=="NW",]$centlat+0.125 
+    nhauls_df[substr(nhauls_df$S_REG,6,7)=="SE",]$centlon<- nhauls_df[substr(nhauls_df$S_REG,6,7)=="SE",]$centlon-0.25; 
+    nhauls_df[substr(nhauls_df$S_REG,6,7)=="SE",]$centlat<- nhauls_df[substr(nhauls_df$S_REG,6,7)=="SE",]$centlat-0.125
+    nhauls_df[substr(nhauls_df$S_REG,6,7)=="SW",]$centlon<- nhauls_df[substr(nhauls_df$S_REG,6,7)=="SW",]$centlon+0.25
+    nhauls_df[substr(nhauls_df$S_REG,6,7)=="SW",]$centlat<- nhauls_df[substr(nhauls_df$S_REG,6,7)=="SW",]$centlat+0.125 
+    nhauls_df[substr(nhauls_df$S_REG,6,7)=="NE",]$centlon<- nhauls_df[substr(nhauls_df$S_REG,6,7)=="NE",]$centlon-0.25
+    nhauls_df[substr(nhauls_df$S_REG,6,7)=="NE",]$centlat<- nhauls_df[substr(nhauls_df$S_REG,6,7)=="NE",]$centlat-0.125 
+    nhauls_df[substr(nhauls_df$S_REG,6,7)=="NW",]$centlon<- nhauls_df[substr(nhauls_df$S_REG,6,7)=="NW",]$centlon+0.25
+    nhauls_df[substr(nhauls_df$S_REG,6,7)=="NW",]$centlat<- nhauls_df[substr(nhauls_df$S_REG,6,7)=="NW",]$centlat+0.125 
     
     fd<-NULL
     if(QUAD_SMOOTH){
@@ -103,12 +103,12 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
           ##          if(!XYmatch[[m]][3] %in%  DATA[DATA$Year==YR,"S_REG"]) next #skip quads where no original sample within i.e. all from smooth
           dmatch <- DATA[DATA$Year==YR & DATA$HaulID %in% XYmatch[[m]][-c(1:4)], c(DATCOL,FACCOL)] #<- # catch at len per species from matches
           
-          if( ncol(XYmatch[[m]])>5 ){  #greater than 5 otherwise only 1 haul in the quad and no need to average (here find sum later /numhauls)
+          if( ncol(XYmatch[[m]])>5 ){  #greater than 5 otherwise only 1 haul in the quad and no need to average (here find sum later /nhauls_df)
             #dmatch <- tapply.ID(df=dmatch, datacols=DATCOL,factorcols=FACCOL, func=sum, newnames=DATCOL,na.stuff=T)
             dmatch <- dmatch %>%  group_by(!!!syms(FACCOL)) %>%  summarise_at(DATCOL, sum()); dmatch = as.data.frame(dmatch)
 
           } ##lose: HaulID,"mult","Ref","Absolute","Abs.l.95","Abs.u.95","Efficiency","Eff.l.95","Eff.u.95","QGroup","LogLngtClass","LogLngtBio","KM2_LAM","L_REG","S_REG"
-          dhspp_match<-rbind(dhspp_match,data.frame(ICESStSq=substr(XYmatch[[m]][3],1,4), S_REG=XYmatch[[m]][3],numhauls=XYmatch[[m]][4], dmatch[,c(DATCOL,FACCOL)]))
+          dhspp_match<-rbind(dhspp_match,data.frame(ICESStSq=substr(XYmatch[[m]][3],1,4), S_REG=XYmatch[[m]][3],nhauls_df=XYmatch[[m]][4], dmatch[,c(DATCOL,FACCOL)]))
         }
         dhspp_match$"LogLngtClass" <- log(dhspp_match$FishLength_cm)
         dhspp_match$"LogLngtBio" <- dhspp_match$"LogLngtClass"*dhspp_match$DensBiom_kg_Sqkm
@@ -171,8 +171,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     FACTHAUL <-  c("Year","centlon","centlat","S_REG")
     if(BY_LREG) FACTHAUL <-  c(FACTHAUL,"L_REG","S_L_REG")
     
-    if(!QUAD | !QUAD_SMOOTH)   numhaulsBYS_REG <- numhauls %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., numhauls = sum(ones)); numhaulsBYS_REG = as.data.frame(numhaulsBYS_REG)
- #numhaulsBYS_REG <- tapply.ID(df=numhauls, datacols=c("ones"), factorcols=FACTHAUL, sum,c("numhauls"));
+    if(!QUAD | !QUAD_SMOOTH)   numhaulsBYS_REG <- nhauls_df %>%  group_by(!!!syms(FACTHAUL)) %>%  summarise (., numhauls = sum(ones)); numhaulsBYS_REG = as.data.frame(numhaulsBYS_REG)
+ #numhaulsBYS_REG <- tapply.ID(df=nhauls_df, datacols=c("ones"), factorcols=FACTHAUL, sum,c("nhauls_df"));
     if(QUAD & QUAD_SMOOTH){ 
       DATA$numhauls<- as.numeric(as.character(DATA$numhauls))#numbers read in as factors
       numhaulsBYS_REG <- aggregate( x=DATA$numhauls,by=list(Year=DATA$Year,S_REG=DATA$S_REG,L_REG=DATA$L_REG),FUN=mean)
@@ -187,8 +187,8 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
   } else { numhaulsBYS_REG <- NULL }
   
   if(BY_LREG){#user_defined or survey poly
-   if(!QUAD) numhaulsBYsubdiv_replacement <- numhauls %>%  group_by(!!!syms(c("Year","L_REG"))) %>%  summarise(., sum()); numhaulsBYsubdiv = as.data.frame(numhaulsBYsubdiv)
-   #if(!QUAD) numhaulsBYsubdiv <- tapply.ID(df=numhauls, datacols=c("ones"),factorcols=c("Year","L_REG"), sum,c("numhauls"));
+   #if(!QUAD) numhaulsBYsubdiv_replacement <- nhauls_df %>%  group_by(!!!syms(c("Year","L_REG"))) %>%  summarise(., sum()); numhaulsBYsubdiv = as.data.frame(numhaulsBYsubdiv)
+   if(!QUAD) numhaulsBYsubdiv <- tapply.ID(df=nhauls_df, datacols=c("ones"),factorcols=c("Year","L_REG"), sum,c("numhauls"));
     
     if(QUAD)  numhaulsBYsubdiv <- tapply.ID(df=numhaulsBYS_REG, datacols=c("numhauls"),
                                             factorcols=c("Year","L_REG"),sum,c("numhauls"));
@@ -198,11 +198,11 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     rm(numhaulsBYsubdivout)
   } else { numhaulsBYsubdiv <- NULL }
   if(!QUAD){  
-    numhaulsyr <- tapply.ID(df=numhauls, datacols=c("ones"),factorcols=c("Year"),sum,c("numhauls"));  # now 1 val per STSQ
-    numhauls<-numhauls[,-1] 
+    numhaulsyr <- tapply.ID(df=nhauls_df, datacols=c("ones"),factorcols=c("Year"),sum,c("numhauls"));  # now 1 val per STSQ
+    nhauls_df<-nhauls_df[,-1] 
   } #now just a list of hauls
   if(QUAD){ 
-    numhauls<-numhaulsBYS_REG
+    nhauls_df<-numhaulsBYS_REG
     numhaulsBYS_REG$ones <- 1
     numhaulsyr <- tapply.ID(df=numhaulsBYS_REG, datacols=c("ones"),factorcols=c("Year"),sum,c("numhauls"));  # now 1 val per STSQ
   }
@@ -728,7 +728,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     , LFI_by_sub_dem = LFIbind_dem, TyL.cm.sea_dem = TyL.cm.sea_dem, FishLength_cmsea_dem =FishLength_cmsea_dem, MaxLsea_dem =MaxLsea_dem, Loosea_dem =Loosea_dem, Lmsea_dem =Lmsea_dem, TLsea_dem =TLsea_dem 
     , LFI_by_sub_pel = LFIbind_pel, TyL.cm.sea_pel = TyL.cm.sea_pel, FishLength_cmsea_pel =FishLength_cmsea_pel, MaxLsea_pel =MaxLsea_pel, Loosea_pel =Loosea_pel, Lmsea_pel =Lmsea_pel, TLsea_pel =TLsea_pel
     , species_bio_by_area=species_bio_by_area_DEMPEL, 
-    numhauls=numhauls, numhaulsyr=numhaulsyr, numhaulsBYS_REG=numhaulsBYS_REG, numhaulsBYsubdiv=numhaulsBYsubdiv) )
+    nhauls_df=nhauls_df, numhaulsyr=numhaulsyr, numhaulsBYS_REG=numhaulsBYS_REG, numhaulsBYsubdiv=numhaulsBYsubdiv) )
   #dont save everything in bootstrap
   if(BOOTSTRAP) return(list(                    
     LFI_by_sub_all = LFIbind_all, TyL.cm.sea_all = TyL.cm.sea_all, FishLength_cmsea_all =FishLength_cmsea_all, MaxLsea_all =MaxLsea_all, Loosea_all =Loosea_all, Lmsea_all =Lmsea_all, TLsea_all =TLsea_all 
