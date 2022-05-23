@@ -196,6 +196,7 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     if(WRITE  & (!BOOTSTRAP | (BOOTSTRAP & B==0)  ) ) write.table(numhaulsBYsubdivout,paste(FILENAM,"numhaulsBYsubdiv.csv",sep="_"),row.names =T,sep=',')
     rm(numhaulsBYsubdivout)
   } else { numhaulsBYsubdiv <- NULL }
+  
   if(!QUAD){  
     numhaulsyr <- nhauls_df %>% group_by(!!!syms(c("Year"))) %>%  summarise(., numhauls = sum(ones)); numhaulsyr = as.data.frame(numhaulsyr)
     #numhaulsyr <- tapply.ID(df=nhauls_df, datacols=c("ones"),factorcols=c("Year"),sum,c("numhauls"));  # now 1 val per STSQ
