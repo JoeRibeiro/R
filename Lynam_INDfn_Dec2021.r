@@ -197,7 +197,9 @@ INDfn <- function(DATA, WRITE=F, BOOTSTRAP=F, LFI=T, LFI_THRESHOLD=NULL, FILENAM
     rm(numhaulsBYsubdivout)
   } else { numhaulsBYsubdiv <- NULL }
   if(!QUAD){  
-    numhaulsyr <- tapply.ID(df=nhauls_df, datacols=c("ones"),factorcols=c("Year"),sum,c("numhauls"));  # now 1 val per STSQ
+    numhaulsyr <- nhauls_df %>% group_by(!!!syms(c("Year"))) %>%  summarise(., numhauls = sum(ones)); numhaulsyr = as.data.frame(numhaulsyr)
+    #numhaulsyr <- tapply.ID(df=nhauls_df, datacols=c("ones"),factorcols=c("Year"),sum,c("numhauls"));  # now 1 val per STSQ
+    
     nhauls_df<-nhauls_df[,-1] 
   } #now just a list of hauls
   if(QUAD){ 
