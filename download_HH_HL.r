@@ -26,4 +26,3 @@ for(survey in getSurveyList()){
   write.csv(HH,paste0(MAINDIR,"HH_HL_download/HH/HH-",survey,".csv"))
 }
 
-
