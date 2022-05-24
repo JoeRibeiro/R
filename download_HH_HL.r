@@ -7,13 +7,12 @@ library("icesDatras")
 years <- 1991:2011
 quarters <- 1:4
 
-# Not an ideal approach for downloading the data but the library currently only supports one quarter/year at a time https://github.com/ices-tools-prod/icesDatras/issues/35
+# Whilst not an ideal approach for downloading the data, it works. The library currently only supports one quarter/year at a time https://github.com/ices-tools-prod/icesDatras/issues/35
 for(survey in getSurveyList()){
   i=-1
   for(year in years){
     for(quarter in quarters){
         skip_to_next <- FALSE
-        # Note that print(b) fails since b doesn't exist
         tryCatch(dl <- getHHdata(survey,year,quarter), error = function(e) { skip_to_next <<- TRUE})
         if(skip_to_next | class(dl)!="data.frame") { next } else { 
           i=i+1 
