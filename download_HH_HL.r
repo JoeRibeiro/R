@@ -3,13 +3,13 @@ MAINDIR<- "C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR_JR/"
 
 
 #useful packages
-library("icesDatras")
 years <- 1999:2011
 quarters <- 1:4
+library(icesDatras)
 
-# Original getflexfile function not working as it points to HH not ff
+# Original getflexfile function in icesDATRAS library contains an error. it points to HH not ff
 getFlexFile_fixed <- function(survey, year, quarter) {
-library("icesDatras")
+  library(icesDatras)
 
   # check survey name
   if (!checkSurveyOK(survey)) return(FALSE)
