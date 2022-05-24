@@ -25,6 +25,7 @@ getFlexFile_fixed <- function(survey, year, quarter) {
     sprintf(
       "https://datras.ices.dk/WebServices/DATRASWebService.asmx/getFlexFile?survey=%s&year=%i&quarter=%i",
       survey, year, quarter)
+  print(url)
   out <- readDatras(url)
   out <- parseDatras(out)
 
