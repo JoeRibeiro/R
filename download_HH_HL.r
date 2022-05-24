@@ -13,7 +13,7 @@ for(survey in getSurveyList()){
   for(year in years){
     for(quarter in quarters){
         skip_to_next <- FALSE
-        tryCatch(dl <- getHHdata(survey,year,quarter), error = function(e) { skip_to_next <<- TRUE})
+        tryCatch(dl <- getFlexFile(survey,year,quarter), error = function(e) { skip_to_next <<- TRUE})
         if(skip_to_next | class(dl)!="data.frame") { next } else { 
           i=i+1 
           if(i==0){ #first file
