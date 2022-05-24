@@ -9,6 +9,29 @@ quarters <- 1:4
 
 # no function to get sab file yet
 
+getSweptFile <- function(survey, year, quarter) {
+
+  # check survey name
+  if (!checkSurveyOK(survey)) return(FALSE)
+
+  # check year
+  if (!checkSurveyYearOK(survey, year, checksurvey = FALSE)) return(FALSE)
+
+  # check quarter
+  if (!checkSurveyYearQuarterOK(survey, year, quarter, checksurvey = FALSE, checkyear = FALSE)) return(FALSE)
+
+  # read url and parse to data frame
+  url <-
+    sprintf(
+      "https://datras.ices.dk/WebServices/DATRASWebService.asmx/getSAdata?survey=%s&year=%i&quarter=%i",
+      survey, year, quarter)
+  print(url)
+  out <- readDatras(url)
+  out <- parseDatras(out)
+
+  out
+}
+
 # Whilst not an ideal approach for downloading the data, it works. The library currently only supports one quarter/year at a time https://github.com/ices-tools-prod/icesDatras/issues/35
 for(survey in getSurveyList()){
   i=-1
