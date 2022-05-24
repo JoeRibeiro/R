@@ -4,12 +4,12 @@ MAINDIR<- "C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR_JR/"
 
 #useful packages
 library("icesDatras")
-years <- 1991:2011
+years <- 1999:2011
 quarters <- 1:4
 
-# no function to get sab file yet
-
-getSweptFile <- function(survey, year, quarter) {
+# Original getflexfile function not working as it points to HH not ff
+getFlexFile_fixed <- function(survey, year, quarter) {
+library("icesDatras")
 
   # check survey name
   if (!checkSurveyOK(survey)) return(FALSE)
@@ -23,31 +23,32 @@ getSweptFile <- function(survey, year, quarter) {
   # read url and parse to data frame
   url <-
     sprintf(
-      "https://datras.ices.dk/WebServices/DATRASWebService.asmx/getSAdata?survey=%s&year=%i&quarter=%i",
+      "https://datras.ices.dk/WebServices/DATRASWebService.asmx/getFlexFiledata?survey=%s&year=%i&quarter=%i",
       survey, year, quarter)
-  print(url)
   out <- readDatras(url)
   out <- parseDatras(out)
 
   out
 }
 
+
 # Whilst not an ideal approach for downloading the data, it works. The library currently only supports one quarter/year at a time https://github.com/ices-tools-prod/icesDatras/issues/35
 for(survey in getSurveyList()){
-  i=-1
+  i=0
+  dl = NULL
   for(year in years){
     for(quarter in quarters){
         skip_to_next <- FALSE
-        tryCatch(dl <- getFlexFile(survey,year,quarter), error = function(e) { skip_to_next <<- TRUE})
+        tryCatch(dl <- getFlexFile_fixed(survey,year,quarter), error = function(e) { skip_to_next <<- TRUE})
         if(skip_to_next | class(dl)!="data.frame") { next } else { 
           i=i+1 
-          if(i==0){ #first file
+          if(i==1){ #first file
             HH = dl} else { # append if not first successful download
               HH = rbind(HH,dl)
             }
         }
     }
   }
-  write.csv(HH,paste0(MAINDIR,"HH_HL_download/HH/HH-",survey,".csv"))
+  if(i>0){write.csv(HH,paste0(MAINDIR,"HH_HL_download/HH/HH-",survey,".csv"))}
 }
 
