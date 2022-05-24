@@ -15,7 +15,7 @@ for(survey in getSurveyList()){
         skip_to_next <- FALSE
         # Note that print(b) fails since b doesn't exist
         tryCatch(dl <- getHHdata(survey,year,quarter), error = function(e) { skip_to_next <<- TRUE})
-        if(skip_to_next) { next } else { 
+        if(skip_to_next | class(dl)!="data.frame") { next } else { 
           i=i+1 
           if(i==0){ #first file
             HH = dl} else { # append if not first successful download
