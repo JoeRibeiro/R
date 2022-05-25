@@ -1,4 +1,4 @@
-# For some reason the example flexfile download given doesn't work https://datras.ices.dk/WebServices/Webservices.aspx
+# For some reason the example flexfile download given doesn't work https://datras.ices.dk/WebServices/Webservices.aspx#
 
 rm(list=ls()) #clear environment, start afresh
 MAINDIR<- "C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR_JR/"
