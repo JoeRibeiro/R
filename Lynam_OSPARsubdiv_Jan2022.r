@@ -3,7 +3,7 @@
 surveyread<-survey #for ATTRIBUTES
 if( substr(survey,nchar(survey)-4,nchar(survey))=="_hist" ){ surveyread <- substr(survey,1, nchar(survey)-5) } else { surveyread <- survey}
 
-subdiv<-rgdal::readOGR(paste(SHAPEPATH,"combined_strata/combined_simple.shp",sep='')); 
+subdiv<-rgdal::readOGR(paste(RDIR,"surveypolygons/combined_simple.shp",sep='')); 
 subdiv = subdiv[subdiv$Survey_Acr==survey,]
 
 SAMP_FACT <- c("KM2_LAM", "S_REG","L_REG")
@@ -19,12 +19,12 @@ if(substr(survey,1,2) == "GN"){
   #OSPAR GREATER NORTH SEA
   dhspp <- dhspp[dhspp$ShootLong_degdec>= neg(5),]
   dhspp <- dhspp[dhspp$ShootLat_degdec> 48,]
-} else { #CS and WA
+} #else { #CS and WA
   ##OSPAR CELTIC SEAS - do this by shapefile, split CSScot and EVHOE survey by strata not line of latitude, assign strata to sea that most encompasses
   #if(substr(survey,1,2) == "CS" & !survey %in% c("CSScoOT1","CSScoOT4") ) dhspp <- dhspp[!(dhspp$ShootLong_degdec>neg(5) & dhspp$ShootLat_degdec>58.25),]
-  if(survey=="CSFraOT4") dhspp <- dhspp[dhspp$ShootLat_degdec> 48,] # CSFraOT4 like BBICFraOT4 but only north
-  if(substr(survey,1,2) == "BB") dhspp <- dhspp[dhspp$ShootLat_degdec<= 48,]# "BBICFraOT4" only south
-}
+#  if(survey=="CSFraOT4") dhspp <- dhspp[dhspp$ShootLat_degdec> 48,] # CSFraOT4 like BBICFraOT4 but only north
+#  if(substr(survey,1,2) == "BB") dhspp <- dhspp[dhspp$ShootLat_degdec<= 48,]# "BBICFraOT4" only south
+#}
 
 #shapefiles for assessment subdivisions
 require(maptools)
@@ -155,21 +155,21 @@ if(survey %in% c("GNSIntOT1","GNSIntOT3","GNSNetBT3","GNSGerBT3","GNSBelBT3","GN
     ATTRIB <- ATTRIB[!ATTRIB["S_REG"] %in% EXCLUDES,]
     print("Excluded northern strata")
     }
-  if(survey=="CSFraOT4"){
-    #exclude southern strata and "Cs3" not sampled
-    EXCLUDES<- c("Gn1","Gn2","Gn3","Gn4","Gn5","Gn6", "Gn7","Gs1","Gs2","Gs3","Gs4","Gs5","Gs6","Gs7", "Cs3"
-    ,"Cs6","Cs7","Cc6","Cc7","Cn2e")#deep and missing yrs ,"Cc3w"
-    
-    excluded <- dhspp[dhspp["S_REG"] %in% EXCLUDES,]
-    if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
-    
-    dhspp <- dhspp[!dhspp["S_REG"] %in% EXCLUDES,]
-    ATTRIB <- ATTRIB[!ATTRIB["S_REG"] %in% EXCLUDES,]
-    print("Excluded southern strata, deep and poorly sampled")
-    #dhspp <- dhspp[ dhspp$Year>2000,]; print("Excluded pre 2001 poor sampling")
-    #dhspp <- dhspp[ dhspp$Year>2001,]
-    #print("Excluded pre 2002 poor sampling")
-  }
+  # if(survey=="CSFraOT4"){
+  #   #exclude southern strata and "Cs3" not sampled
+  #   EXCLUDES<- c("Gn1","Gn2","Gn3","Gn4","Gn5","Gn6", "Gn7","Gs1","Gs2","Gs3","Gs4","Gs5","Gs6","Gs7", "Cs3"
+  #   ,"Cs6","Cs7","Cc6","Cc7","Cn2e")#deep and missing yrs ,"Cc3w"
+  #   
+  #   excluded <- dhspp[dhspp["S_REG"] %in% EXCLUDES,]
+  #   if(nrow(excluded)>0){ print(paste0("losing ",nrow(excluded)," HL rows from ",nrow(dhspp)," when  when excluding strata")) } else { print("no HL rows lost when exclude strata"); }
+  #   
+  #   dhspp <- dhspp[!dhspp["S_REG"] %in% EXCLUDES,]
+  #   ATTRIB <- ATTRIB[!ATTRIB["S_REG"] %in% EXCLUDES,]
+  #   print("Excluded southern strata, deep and poorly sampled")
+  #   #dhspp <- dhspp[ dhspp$Year>2000,]; print("Excluded pre 2001 poor sampling")
+  #   #dhspp <- dhspp[ dhspp$Year>2001,]
+  #   #print("Excluded pre 2002 poor sampling")
+  # }
   
   if(survey=="CSScoOT1" | surveyread=="CSScoOT1"){
     #exclude red1_lam	 windsock_lam  edge as poorly sampled

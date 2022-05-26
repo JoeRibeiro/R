@@ -213,7 +213,7 @@ SSAdf=data.frame('rectangle'='','survey'='')
 
 #### indicators survey loop ####
 setwd(MAINDIR)
-survey_Q_C_S_combinations<-read.csv("R/survey_Q_C_S_combinations.csv")# for QSR
+survey_Q_C_S_combinations<-read.csv("R/survey_Q_C_S_combinations_may_2022.csv")# for QSR
 survey_Q_C_S_combinations[,1:8]
 for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
 #for(combrow in 27){  # combrow <- 1
@@ -273,7 +273,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   # need to split SEA DATA FOR BTS Q3 ENG'
   #otter surveys
   if(survey %in% "BBICFraOT4") samp<-samp[samp$ShootLat<= 48,]
-  if(survey %in% "CSFraOT4") samp<-samp[samp$ShootLat> 48,]
+#  if(survey %in% "CSFraOT4") samp<-samp[samp$ShootLat> 48,]
   if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
   #beam surveys
   if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52 & samp$ShootLong< -3,]
@@ -565,7 +565,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   
   #FRANCE
   # error in a single record for Galeorhinus galeus in CGFS in 2018 (haul no 6)
-  # the length class should be 1193 rather than 11930 [where LngtCode .] - corrected in HL and confirmaed by ifremer 20/01/2022
+  # the length class should be 1193 rather than 11930 [where LngtCode .] - corrected in HL and confirmed by ifremer 20/01/2022
   
   #length code for TWO ALOSA SPECIES in the EVHOE DATA - in these years they are recorded as 'cm' rather than 'mm'.
   #126415 |   126413

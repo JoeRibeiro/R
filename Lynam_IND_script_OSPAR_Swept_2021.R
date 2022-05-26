@@ -273,7 +273,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#16
   # where two different surveys use the same input data files the correct preprocessing needs to be done to define SSA
   # need to split SEA DATA FOR BTS Q3 ENG'
     if(survey %in% "CSBBFraOT4") samp<-samp[samp$ShootLat<= 48,]
-    if(survey %in% "CSFraOT4") samp<-samp[samp$ShootLat> 48,]
+#    if(survey %in% "CSFraOT4") samp<-samp[samp$ShootLat> 48,]
     if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
     if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52 & samp$ShootLong< -3,]
     if(survey %in% "GNSEngBT3") samp<-samp[samp$ShootLong>= -2 & samp$ShootLat>= 49.5,]
