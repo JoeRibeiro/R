@@ -49,8 +49,7 @@ neg<-function(x) -x
 
 MAINDIR<- "C:/Users/JR13/OneDrive - CEFAS/Fish_dataproduct_QSR_JR/"
 RDIR<- paste0(MAINDIR,"R/")
-#definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp_dir_for_original/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
-definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
+definedSSA = sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp_dir_for_original/SSAspatial.shp")) # read.csv(paste0(RDIR,"/defined_SSA.csv"))
 definedSSA <- sf:::as_Spatial(st_zm(definedSSA))
 # plot(definedSSA)
 # plot(definedSSA[definedSSA$survey=="CSScoOT4_hist",],col=4);map(add = T)
