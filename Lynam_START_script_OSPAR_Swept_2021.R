@@ -272,7 +272,8 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   # need to split SEA DATA FOR BTS Q3 ENG'
   #otter surveys
   if(survey %in% "BBICFraOT4") samp<-samp[samp$ShootLat<= 48,]
-#  if(survey %in% "CSFraOT4") samp<-samp[samp$ShootLat> 48,]
+ if(survey %in% "CSFraOT4_48S") samp<-samp[samp$ShootLat<= 48,]
+ if(survey %in% "CSFraOT4_48N") samp<-samp[samp$ShootLat> 48,]
   if(survey %in% "GNSIntOT1_channel") samp<-samp[samp$ShootLat<= 51,]
   #beam surveys
   if(survey %in% "CSEngBT3_Bchannel") samp<-samp[samp$ShootLat<= 52 & samp$ShootLong< -3,]
@@ -352,7 +353,7 @@ for(combrow in 1:nrow(survey_Q_C_S_combinations)){#skipping the inshore surveys
   samp$Day <- sprintf("%02s",samp$Day)
   samp$date =  paste0(samp$Year,"-",samp$Month,"-",samp$Day)
   samp$date = lubridate::as_date(samp$date)
-  rects <- sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/ICESRECT.shp"))
+  rects <- sf::st_read(paste0(RDIR,"rectanglesICESdl29oct2021/shp_dir_for_original/SSAspatial.shp"))
   rects <- sf:::as_Spatial(st_zm(rects))
   coordinates(samp) <- ~ ShootLong_degdec + ShootLat_degdec
   suppressWarnings(proj4string(samp) <- CRS("+init=epsg:4326")) #Warning message: In proj4string(obj) : CRS object has comment, which is lost in output
