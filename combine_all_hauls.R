@@ -9,8 +9,8 @@ if(WRITE_LDs | IEO_FW4){
   file1$survey_name = strsplit(fileslisted[1],'/')[[1]][length(strsplit(fileslisted[1],'/')[[1]])-1]
   for(file in 2:length(fileslisted)){file2=read.csv(fileslisted[file]); 
     file2$survey_name = strsplit(fileslisted[file],'/')[[1]][length(strsplit(fileslisted[file],'/')[[1]])-1]
-    # SurvStratum is required but not present for some surveys, these must be GNS surveys
-    if(!"SurvStratum" %in% colnames(file2)){file2$SurvStratum = file2$ICESStSq}
+    # S_REG is required but not present for some surveys, these must be GNS surveys
+    if(!"S_REG" %in% colnames(file2)){file2$S_REG = file2$ICESStSq}
     #file2_names = colnames(file2); file1_names = colnames(file1); common_names = intersect(file2_names, file1_names); file1 = rbind(file2[common_names], file1[common_names])
     file1 = rbind(file2, file1)
     }
@@ -23,8 +23,8 @@ if(WRITE_LDs | IEO_FW4){
   file1=merge(file1,specieslookup,all.x=T)
   
   # File is too big - aggregate and remove some columns. And rename some to be more consistent with the expected file
-  #desiredcols=c("HaulID","Survey_Acronym","Ship","GearType","Gear","YearShot","MonthShot","DayShot","TimeShot","HaulDur_min","ShootLat_degdec","ShootLong_degdec","ICESStSq","SurvStratum","Depth_m","Distance_km","WingSpread_m","DoorSpread_m","NetOpen_m","WingSwpArea_sqkm","WingSwpVol_CorF","DoorSwptArea_CorF","DoorSwptVol_CorF","SpeciesSciName","Aphia_Code","sum_Number","sum_DensAbund_N_Sqkm","sum_DensBiom_kg_Sqkm")
-  rescols=c("SpeciesSciName","HaulID","SensFC1","DEMPEL","HaulDur_min","ICESStSq","WingSwpArea_sqkm","WingSwpVol_CorF","NetOpen_m","Ship","MonthShot","TimeShot","ShootLong_degdec","ShootLat_degdec","habitat.guild","ScientificName_WoRMS","SurvStratum","species_id","Survey_Acronym","GearType","YearShot","DayShot","numhauls","sumDensBiom_kg_Sqkm","sumDensBiom_kg_perhr","sumDensAbund_N_Sqkm","sumDensAbund_N_perhr")
+  #desiredcols=c("HaulID","Survey_Acronym","Ship","GearType","Gear","YearShot","MonthShot","DayShot","TimeShot","HaulDur_min","ShootLat_degdec","ShootLong_degdec","ICESStSq","S_REG","Depth_m","Distance_km","WingSpread_m","DoorSpread_m","NetOpen_m","WingSwpArea_sqkm","WingSwpVol_CorF","DoorSwptArea_CorF","DoorSwptVol_CorF","SpeciesSciName","Aphia_Code","sum_Number","sum_DensAbund_N_Sqkm","sum_DensBiom_kg_Sqkm")
+  rescols=c("SpeciesSciName","HaulID","SensFC1","DEMPEL","HaulDur_min","ICESStSq","WingSwpArea_sqkm","WingSwpVol_CorF","NetOpen_m","Ship","MonthShot","TimeShot","ShootLong_degdec","ShootLat_degdec","habitat.guild","ScientificName_WoRMS","S_REG","species_id","Survey_Acronym","GearType","YearShot","DayShot","numhauls","sumDensBiom_kg_Sqkm","sumDensBiom_kg_perhr","sumDensAbund_N_Sqkm","sumDensAbund_N_perhr")
   rescols[!rescols %in% colnames(file1)]
   file1$Survey_Acronym = file1$survey_name
   file1$GearType = file1$Gear
@@ -44,12 +44,12 @@ if(WRITE_LDs | IEO_FW4){
   # Check we aren't losing data here  
   for( sv in unique(file1$Survey_Acronym)){ filei = file1[file1$Survey_Acronym==sv,]
     print(sv)
-    aggd =  aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm  + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + ScientificName_WoRMS + SurvStratum + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = filei, FUN = sum, na.rm = TRUE)
+    aggd =  aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm  + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + ScientificName_WoRMS + S_REG + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = filei, FUN = sum, na.rm = TRUE)
     print("Any hauls being lost for this survey will be listed below:")
     print(unique(filei$HaulID)[!unique(filei$HaulID) %in% unique(aggd$HaulID)])
     }
   
-  file1=aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + ScientificName_WoRMS + SurvStratum + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = file1, FUN = sum, na.rm = TRUE)
+  file1=aggregate(cbind(DensBiom_kg_Sqkm,DensAbund_N_Sqkm,DensAbund_N_perhr,DensBiom_kg_perhr,numhauls) ~ SpeciesSciName + HaulID + SensFC1 + DEMPEL + HaulDur_min + ICESStSq + WingSwpArea_sqkm + Ship + MonthShot + TimeShot + ShootLong_degdec + ShootLat_degdec + ScientificName_WoRMS + S_REG + species_id + Survey_Acronym + GearType + YearShot + DayShot , data = file1, FUN = sum, na.rm = TRUE)
   file1$sumDensBiom_kg_Sqkm = file1$DensBiom_kg_Sqkm
   file1$sumDensBiom_kg_perhr = file1$DensBiom_kg_perhr
   file1$sumDensAbund_N_Sqkm = file1$DensAbund_N_Sqkm
